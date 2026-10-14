@@ -1,0 +1,32 @@
+name: 4s tarama
+on:
+  schedule:
+    - cron: "3 0,4,8,12,16,20 * * *"
+  workflow_dispatch: {}
+permissions:
+  contents: write
+concurrency:
+  group: tarama
+  cancel-in-progress: false
+jobs:
+  tara:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Tara ve Telegram'a gönder
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python telegram_tarama.py
+      - name: Son sonucu kaydet
+        if: always()
+        run: |
+          git config user.name "tarama-bot"
+          git config user.email "tarama-bot@users.noreply.github.com"
+          git add son_sonuc.json || true
+          git commit -m "4s tarama sonucu" || true
+          git push || true
