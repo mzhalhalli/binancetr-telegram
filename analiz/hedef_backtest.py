@@ -68,6 +68,25 @@ def olcum(h, l, c, i, r) -> dict:
     return out
 
 
+def simdiye(h, l, c, ts, i, r) -> dict:
+    """Süre dolmamış sinyaller için: şimdiye kadar (en çok 24 saat) ne oldu."""
+    k = min(len(c) - 1, i + PENCERE["24s"])
+    hh, ll = h[i + 1:k + 1], l[i + 1:k + 1]
+    if not len(hh):
+        return {"mum": 0}
+    st = np.flatnonzero(ll <= r["stop"])
+    st = int(st[0]) if len(st) else None
+    hedef = []
+    for t in r["hedefler"]:
+        j = np.flatnonzero(hh >= t)
+        j = int(j[0]) if len(j) else None
+        hedef.append(None if j is None else {"mum": j + 1, "stoptan_once": st is None or j < st,
+                                             "saat": datetime.fromtimestamp(int(ts[i + 1 + j]) / 1000 + 900, yp.TR).strftime("%d.%m %H:%M")})
+    return {"mum": int(len(hh)), "max_pct": round(float((hh.max() / c[i] - 1) * 100), 2),
+            "min_pct": round(float((ll.min() / c[i] - 1) * 100), 2), "son_pct": round(float((c[k] / c[i] - 1) * 100), 2),
+            "stop_mum": None if st is None else st + 1, "hedef": hedef}
+
+
 def ozet(kayit: list[dict]) -> dict:
     if not kayit:
         return {"n": 0}
@@ -116,7 +135,7 @@ def analiz_sembol(sym: str, rows: list, bas_ms: int, rng) -> list[dict]:
             ek = {}
             if grup == "yeni_kural":
                 k = min(len(c) - 1, i + PENCERE["24s"])
-                ek = {"fiyat": float(c[i]), "hedefler": r["hedefler"], "stop": r["stop"],
+                ek = {"fiyat": float(c[i]), "hedefler": r["hedefler"], "stop": r["stop"], "simdiye": simdiye(h, l, c, D["ts"], i, r),
                       "max24_pct": float((h[i + 1:k + 1].max() / c[i] - 1) * 100) if k > i else None,
                       "min24_pct": float((l[i + 1:k + 1].min() / c[i] - 1) * 100) if k > i else None}
             out.append({"grup": grup, "s": sym, "ts": int(D["ts"][i]), "hedef_pct": r["hedef_pct"], "stop_pct": r["stop_pct"],
@@ -158,6 +177,14 @@ def main():
                                   "4s": k["4s"] and {"ulasti": k["4s"]["ulasti"], "once": k["4s"]["once"], "stop_once": k["4s"]["stop_once"]},
                                   "24s": k["24s"] and {"ulasti": k["24s"]["ulasti"], "once": k["24s"]["once"], "stop_once": k["24s"]["stop_once"]}}
                                  for k in sorted((k for k in kayit if k["grup"] == "yeni_kural"), key=lambda k: k["ts"])]
+    takip_dosya = KOK / "analiz" / "takip.json"
+    if takip_dosya.exists():
+        istek = {(t["s"], t["zaman"]) for t in json.loads(takip_dosya.read_text(encoding="utf-8"))}
+        sonuc["takip"] = [{"s": k["s"], "zaman": datetime.fromtimestamp(k["ts"] / 1000, yp.TR).strftime("%d.%m %H:%M"),
+                           "fiyat": k["fiyat"], "hedefler": [float(f"{v:.6g}") for v in k["hedefler"]],
+                           "stop": float(f"{k['stop']:.6g}"), "simdiye": k["simdiye"]}
+                          for k in kayit if k["grup"] == "yeni_kural"
+                          and (k["s"], datetime.fromtimestamp(k["ts"] / 1000, yp.TR).strftime("%d.%m %H:%M")) in istek]
     sonuc["sure_sn"] = round(time.time() - t0)
     out = KOK / "analiz" / "sonuc"
     out.mkdir(parents=True, exist_ok=True)
