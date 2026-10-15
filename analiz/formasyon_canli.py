@@ -6,7 +6,7 @@ yükselen üçgen ve ikili dip yukarı kırılımları. Kırılım, hedef ve zar
 Her kırılım için durum: hedef (zarar-kesten önce), zarar-kes, süre doldu ya da açık (şu ana kadarki en yüksek/en düşük).
 Özetteki başarı oranı yalnızca süresi tamamen dolmuş kırılımlardan hesaplanır.
 TAKIP_BAS (TR saati) sonrasında kapanan kırılımlar ileri testtir; geçmiş testte görülmemiş veridir.
-Sonuç: analiz/sonuc/formasyon_canli.json
+Sonuç: analiz/sonuc/formasyon_canli.json ve Türkçe liste analiz/sonuc/formasyon_canli.md
 """
 from __future__ import annotations
 
@@ -78,6 +78,78 @@ def ozet(liste: list[dict]) -> dict:
     return o
 
 
+# ---------------------------------------------------------------------- Türkçe rapor
+ARALIK_AD = {"1h": "1 saat", "4h": "4 saat"}
+DURUM_AD = {"hedef": "Hedef ✓", "zarar-kes": "Zarar-kes ✗", "süre doldu": "Süre doldu", "açık": "Açık"}
+
+
+def sayi(x: float, k: int = 2) -> str:
+    """Türkçe sayı biçimi: 1.234,56"""
+    return f"{abs(x):,.{k}f}".replace(",", "X").replace(".", ",").replace("X", ".")
+
+
+def yuzde(x: float) -> str:
+    return ("+" if x > 0 else "–" if x < 0 else "") + "%" + sayi(x)
+
+
+def fiyat(x: float) -> str:
+    s = sayi(x, 2 if x >= 100 else 4 if x >= 1 else 6)
+    return s.rstrip("0").rstrip(",")
+
+
+def tablo(liste: list[dict]) -> str:
+    out = ["| Coin | Zaman | Formasyon | Kırılım (TR) | Giriş | Hedef | Zarar-kes | Durum | En yüksek | En düşük | Şimdi |",
+           "|---|---|---|---|---|---|---|---|---|---|---|"]
+    for x in liste:
+        durum_ = DURUM_AD[x["durum"]] + (f" ({x['zaman']})" if x.get("zaman") else "")
+        out.append(f"| {x['s'].replace('_TRY', '')} | {ARALIK_AD[x['aralik']]} | {x['formasyon']} | {x['kirilim']} | {fiyat(x['fiyat'])} | "
+                   f"{fiyat(x['hedef'])} ({yuzde(x['hedef_pct'])}) | {fiyat(x['stop'])} ({yuzde(x['stop_pct'])}) | {durum_} | "
+                   f"{yuzde(x['en_yuksek_pct'])} | {yuzde(x['en_dusuk_pct'])} | {yuzde(x['simdi_pct'])} |")
+    return "\n".join(out)
+
+
+def ozet_satir(o: dict) -> str:
+    if not o["n"]:
+        return "Henüz kırılım yok."
+    s = f"{o['n']} kırılım."
+    if o.get("suresi_dolan"):
+        s += (f" Süresi dolan {o['suresi_dolan']} kırılımdan {o['hedef']} tanesi hedefe zarar-kesten önce ulaştı, {o['zarar_kes']} tanesinde "
+              f"zarar-kes geldi, {o['sure_doldu']} tanesinde ikisi de olmadı. Başarı %{sayi(o['basari_pct'], 1)}; aynı coinde rastgele "
+              f"girişte beklenen %{sayi(o['rastgele_basari_pct'], 1)}. İşlem başına ortalama {yuzde(o['ort_getiri_pct'])}.")
+    if o.get("suresi_dolmayan"):
+        s += (f" Süresi dolmayan {o['suresi_dolmayan']} kırılımdan şimdiye kadar {o['suresi_dolmayan_hedef']} tanesi hedefe, "
+              f"{o['suresi_dolmayan_zarar_kes']} tanesi zarar-kese ulaştı; diğerleri açık.")
+    return s
+
+
+def rapor_md(d: dict) -> str:
+    ileri = [x for x in d["liste"] if x["ileri_test"]]
+    gecmis = sorted((x for x in d["liste"] if not x["ileri_test"]), key=lambda x: -x["kirilim_ms"])
+    md = ["# Formasyon kırılımları: canlı izleme",
+          "",
+          f"Güncelleme: {d['olusturma']} (TR saati). Bota ve Telegram'a bir şey eklenmedi; bu liste yalnızca burada takip için.",
+          "",
+          "İzlenenler (geçmiş testte rastgeleden iyi çıkan yukarı kırılımlar): 1 saatlik boğa bayrağı ve genişleyen formasyon; "
+          "4 saatlik genişleyen formasyon, dikdörtgen, yükselen üçgen ve ikili dip. Hedef ve zarar-kes geçmiş testteki kuralla hesaplandı. "
+          "Aynı mumda ikisine birden değerse zarar-kes sayılır.",
+          "",
+          f"## Yeni kırılımlar ({d['takip_bas']} sonrası)",
+          "",
+          "Bu kırılımlar geçmiş testte kullanılmayan yeni veridir; asıl deneme bunlar.",
+          "",
+          "**Özet:** " + ozet_satir(d["ileri_test"]["hepsi"]),
+          ""]
+    if ileri:
+        md += [tablo(ileri), ""]
+    md += [f"## Son {d['son_gunler']['gun']} günün kırılımları (karşılaştırma için)", "",
+           "**Özet:** " + ozet_satir(d["son_gunler"]["hepsi"]), "",
+           "Not: süresi dolmamış kırılımlarda zarar-kes hedeften daha çabuk geldiği için, başarı oranı yalnızca süresi dolanlardan hesaplandı.", ""]
+    if gecmis:
+        md += [tablo(gecmis), ""]
+    md += ["'Şimdi': kırılımdan bu yana ya da süre bittiyse süre sonundaki fiyat değişimi. Komisyon hariç. Yatırım tavsiyesi değildir.", ""]
+    return "\n".join(md)
+
+
 def main():
     t0 = time.time()
     sem = [s for s in tt.semboller() if s["s"].split("_")[0] not in fm.STABIL]
@@ -130,6 +202,7 @@ def main():
     out = KOK / "analiz" / "sonuc"
     out.mkdir(parents=True, exist_ok=True)
     (out / "formasyon_canli.json").write_text(json.dumps(sonuc, ensure_ascii=False, indent=1), encoding="utf-8")
+    (out / "formasyon_canli.md").write_text(rapor_md(sonuc), encoding="utf-8")
     print(json.dumps({k: sonuc[k] for k in ("ileri_test", "son_gunler", "hata", "sure_sn")}, ensure_ascii=False, indent=1))
 
 
