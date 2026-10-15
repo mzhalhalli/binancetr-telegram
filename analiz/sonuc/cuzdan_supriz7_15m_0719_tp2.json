@@ -1,5 +1,5 @@
 {
- "olusturma": "15.10.2026 21:25",
+ "olusturma": "15.10.2026 21:28",
  "ad": "supriz7_15m_0719_tp2",
  "sinyal": "supriz",
  "supriz_min": 7,
@@ -39,20 +39,32 @@
  "alim_coin": 6,
  "atlanan_sayisi": 0,
  "hedef_adim_sayisi": [
-  4
+  6
  ],
- "zarar_kes_sayisi": 3,
+ "zarar_kes_sayisi": 1,
  "elde_kalan": 0,
- "karda": 4,
- "zararda": 3,
- "nakit": 995.81,
+ "karda": 6,
+ "zararda": 1,
+ "nakit": 1002.79,
  "elde_deger": 0.0,
- "son_deger": 995.81,
- "kar": -4.19,
- "getiri_pct": -0.42,
+ "son_deger": 1002.79,
+ "kar": 2.79,
+ "getiri_pct": 0.28,
  "piyasa_coin": 306,
  "piyasa_ort_pct": 4.39,
  "piyasa_medyan_pct": 4.25,
+ "belirsiz": [
+  {
+   "s": "BLUR_TRY",
+   "saat": "15.10 12:45",
+   "once": "+%2 hedef"
+  },
+  {
+   "s": "STRAX_TRY",
+   "saat": "15.10 17:45",
+   "once": "+%2 hedef"
+  }
+ ],
  "islemler": [
   {
    "s": "ZK_TRY",
@@ -67,7 +79,8 @@
      "neden": "+%2 hedef",
      "oran_pct": 100.0,
      "fiyat": 0.87822,
-     "usd": 50.9
+     "usd": 50.9,
+     "dk1": false
     }
    ],
    "zarar_kes": false,
@@ -95,7 +108,8 @@
      "neden": "+%2 hedef",
      "oran_pct": 100.0,
      "fiyat": 0.5824199999999999,
-     "usd": 50.9
+     "usd": 50.9,
+     "dk1": false
     }
    ],
    "zarar_kes": false,
@@ -119,21 +133,22 @@
    "para": 50.0,
    "satislar": [
     {
-     "saat": "15.10 12:45",
-     "neden": "zarar-kes –%5",
+     "saat": "15.10 12:32",
+     "neden": "+%2 hedef",
      "oran_pct": 100.0,
-     "fiyat": 0.6174999999999999,
-     "usd": 47.41
+     "fiyat": 0.663,
+     "usd": 50.9,
+     "dk1": true
     }
    ],
-   "zarar_kes": true,
-   "hedef_adim": 0,
+   "zarar_kes": false,
+   "hedef_adim": 1,
    "elde": false,
    "elde_oran_pct": 0.0,
    "kalan_deger": 0.0,
-   "deger": 47.41,
-   "kar": -2.59,
-   "getiri_pct": -5.19,
+   "deger": 50.9,
+   "kar": 0.9,
+   "getiri_pct": 1.8,
    "en_yuksek_pct": 2.77,
    "en_dusuk_pct": -5.08,
    "simdi_pct": -15.69
@@ -151,7 +166,8 @@
      "neden": "+%2 hedef",
      "oran_pct": 100.0,
      "fiyat": 4.401300000000001,
-     "usd": 50.9
+     "usd": 50.9,
+     "dk1": false
     }
    ],
    "zarar_kes": false,
@@ -179,7 +195,8 @@
      "neden": "zarar-kes –%5",
      "oran_pct": 100.0,
      "fiyat": 21.127999999999997,
-     "usd": 47.41
+     "usd": 47.41,
+     "dk1": false
     }
    ],
    "zarar_kes": true,
@@ -203,21 +220,22 @@
    "para": 50.0,
    "satislar": [
     {
-     "saat": "15.10 17:45",
-     "neden": "zarar-kes –%5",
+     "saat": "15.10 17:31",
+     "neden": "+%2 hedef",
      "oran_pct": 100.0,
-     "fiyat": 0.57095,
-     "usd": 47.41
+     "fiyat": 0.61302,
+     "usd": 50.9,
+     "dk1": true
     }
    ],
-   "zarar_kes": true,
-   "hedef_adim": 0,
+   "zarar_kes": false,
+   "hedef_adim": 1,
    "elde": false,
    "elde_oran_pct": 0.0,
    "kalan_deger": 0.0,
-   "deger": 47.41,
-   "kar": -2.59,
-   "getiri_pct": -5.19,
+   "deger": 50.9,
+   "kar": 0.9,
+   "getiri_pct": 1.8,
    "en_yuksek_pct": 5.16,
    "en_dusuk_pct": -9.48,
    "simdi_pct": -17.14
@@ -235,7 +253,8 @@
      "neden": "+%2 hedef",
      "oran_pct": 100.0,
      "fiyat": 4.89906,
-     "usd": 50.9
+     "usd": 50.9,
+     "dk1": false
     }
    ],
    "zarar_kes": false,
@@ -252,5 +271,5 @@
   }
  ],
  "atlanan": [],
- "sure_sn": 44
+ "sure_sn": 39
 }

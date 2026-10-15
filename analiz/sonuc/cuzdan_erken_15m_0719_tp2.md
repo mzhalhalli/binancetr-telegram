@@ -1,6 +1,6 @@
 # Erken uyarı (15 dakikalık) cüzdan denemesi (15.10.2026 07:00 – 19:00)
 
-Hesaplama: 15.10.2026 21:16 (TR saati); son kapanan 15 dakikalık mum 15.10 21:15. Veri Binance'in gerçek 15 dakikalık TRY mumları. Gerçek alım yapılmadı; 'yapsaydık ne olurdu' hesabı.
+Hesaplama: 15.10.2026 21:28 (TR saati); son kapanan 15 dakikalık mum 15.10 21:15. Veri Binance'in gerçek 15 dakikalık TRY mumları. Gerçek alım yapılmadı; 'yapsaydık ne olurdu' hesabı.
 
 ## Kurallar
 

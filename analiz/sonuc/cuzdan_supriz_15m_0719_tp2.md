@@ -1,6 +1,6 @@
 # Süpriz (15 dakikalık) cüzdan denemesi (15.10.2026 07:00 – 19:00)
 
-Hesaplama: 15.10.2026 21:25 (TR saati); son kapanan 15 dakikalık mum 15.10 21:15. Veri Binance'in gerçek 15 dakikalık TRY mumları. Gerçek alım yapılmadı; 'yapsaydık ne olurdu' hesabı.
+Hesaplama: 15.10.2026 21:28 (TR saati); son kapanan 15 dakikalık mum 15.10 21:15. Veri Binance'in gerçek 15 dakikalık TRY mumları. Gerçek alım yapılmadı; 'yapsaydık ne olurdu' hesabı.
 
 ## Kurallar
 
@@ -12,11 +12,12 @@ Hesaplama: 15.10.2026 21:25 (TR saati); son kapanan 15 dakikalık mum 15.10 21:1
 
 ## Sonuç
 
-- Cüzdanın şimdiki değeri: **988,76 USD** (–%1,12, –11,24 USD)
-  - Nakit: 541,01 USD; elde kalan 9 coinin değeri: 447,75 USD
+- Cüzdanın şimdiki değeri: **1.002,74 USD** (+%0,27, 2,74 USD)
+  - Nakit: 554,99 USD; elde kalan 9 coinin değeri: 447,75 USD
 - Süpriz: 23 coinde 35 sinyal (7/7 SÜPRİZ: 7, 6/7 süpriz adayı: 28). Yapılan alım 34 (23 coin); nakit yetmediği için alınamayan sinyal 0.
-- %2 hedefine ulaşan: 16; zarar-kese düşen: 9
-- Alımların 19 tanesi kârda, 15 tanesi zararda.
+- %2 hedefine ulaşan: 20; zarar-kese düşen: 5
+- Alımların 23 tanesi kârda, 11 tanesi zararda.
+- Aynı 15 dakikalık mumda hem hedefe hem zarar-kese değilen 4 durumda hangisinin önce olduğu Binance'in 1 dakikalık mumlarından bulundu: 4 kez önce hedef, 0 kez önce zarar-kes.
 - Karşılaştırma: 07:00'ten bu yana 306 coinin fiyatı ortalama +%4,39 (ortanca +%4,25) değişti.
 
 ## Alımlar
@@ -28,8 +29,8 @@ Hesaplama: 15.10.2026 21:25 (TR saati); son kapanan 15 dakikalık mum 15.10 21:1
 | ZK | 15.10 07:45 | 6/7 | 0,895 | 15.10 08:15 +%2 hedef (%100) | %0 | +%2,01 | –%2,01 | –%3,13 | 50,90 USD | 0,90 USD |
 | MAGIC | 15.10 08:45 | 6/7 | 5,88 | 15.10 10:15 zarar-kes –%5 (%100) | %0 | +%1,19 | –%7,99 | –%6,63 | 47,41 USD | –2,59 USD |
 | BLUR | 15.10 12:15 | 7/7 | 0,571 | 15.10 12:30 +%2 hedef (%100) | %0 | +%18,74 | –%0,70 | –%4,03 | 50,90 USD | 0,90 USD |
-| BLUR | 15.10 12:30 | 7/7 | 0,65 | 15.10 12:45 zarar-kes –%5 (%100) | %0 | +%2,77 | –%5,08 | –%15,69 | 47,41 USD | –2,59 USD |
-| BLUR | 15.10 12:45 | 6/7 | 0,626 | 15.10 13:00 zarar-kes –%5 (%100) | %0 | +%5,11 | –%5,75 | –%12,46 | 47,41 USD | –2,59 USD |
+| BLUR | 15.10 12:30 | 7/7 | 0,65 | 15.10 12:32 +%2 hedef (%100) | %0 | +%2,77 | –%5,08 | –%15,69 | 50,90 USD | 0,90 USD |
+| BLUR | 15.10 12:45 | 6/7 | 0,626 | 15.10 12:46 +%2 hedef (%100) | %0 | +%5,11 | –%5,75 | –%12,46 | 50,90 USD | 0,90 USD |
 | STRK | 15.10 13:00 | 7/7 | 4,315 | 15.10 13:15 +%2 hedef (%100) | %0 | +%4,29 | –%1,00 | +%2,69 | 50,90 USD | 0,90 USD |
 | BLUR | 15.10 13:15 | 6/7 | 0,634 | 15.10 13:30 +%2 hedef (%100) | %0 | +%6,47 | –%0,16 | –%13,56 | 50,90 USD | 0,90 USD |
 | STRK | 15.10 13:15 | 6/7 | 4,349 | 15.10 13:30 +%2 hedef (%100) | %0 | +%2,00 | –%4,23 | +%1,89 | 50,90 USD | 0,90 USD |
@@ -40,12 +41,12 @@ Hesaplama: 15.10.2026 21:25 (TR saati); son kapanan 15 dakikalık mum 15.10 21:1
 | XPL | 15.10 17:15 | 6/7 | 4,129 | 15.10 18:15 +%2 hedef (%100) | %0 | +%2,18 | –%0,94 | +%2,91 | 50,90 USD | 0,90 USD |
 | BANK | 15.10 17:30 | 6/7 | 1,348 | – | %100 | +%0,96 | –%0,96 | +%0,37 | 50,09 USD | 0,09 USD |
 | BAR | 15.10 17:30 | 6/7 | 13,73 | – | %100 | +%0,58 | –%1,60 | –%1,53 | 49,14 USD | –0,86 USD |
-| STRAX | 15.10 17:30 | 7/7 | 0,601 | 15.10 17:45 zarar-kes –%5 (%100) | %0 | +%5,16 | –%9,48 | –%17,14 | 47,41 USD | –2,59 USD |
+| STRAX | 15.10 17:30 | 7/7 | 0,601 | 15.10 17:31 +%2 hedef (%100) | %0 | +%5,16 | –%9,48 | –%17,14 | 50,90 USD | 0,90 USD |
 | SHELL | 15.10 17:45 | 6/7 | 1,084 | – | %100 | +%1,66 | –%1,75 | –%0,46 | 49,67 USD | –0,33 USD |
 | STRAX | 15.10 17:45 | 6/7 | 0,581 | 15.10 18:00 zarar-kes –%5 (%100) | %0 | +%0,52 | –%10,50 | –%14,29 | 47,41 USD | –2,59 USD |
 | TIA | 15.10 17:45 | 6/7 | 28,02 | 15.10 18:15 +%2 hedef (%100) | %0 | +%3,07 | –%0,64 | +%3,68 | 50,90 USD | 0,90 USD |
 | ETC | 15.10 18:15 | 6/7 | 394,7 | 15.10 19:45 +%2 hedef (%100) | %0 | +%17,81 | –%0,38 | +%0,30 | 50,90 USD | 0,90 USD |
-| FF | 15.10 18:15 | 6/7 | 5,688 | 15.10 18:45 zarar-kes –%5 (%100) | %0 | +%2,55 | –%5,78 | +%0,32 | 47,41 USD | –2,59 USD |
+| FF | 15.10 18:15 | 6/7 | 5,688 | 15.10 18:39 +%2 hedef (%100) | %0 | +%2,55 | –%5,78 | +%0,32 | 50,90 USD | 0,90 USD |
 | PORTAL | 15.10 18:15 | 6/7 | 0,7472 | – | %100 | +%1,16 | –%0,72 | +%0,19 | 49,99 USD | –0,01 USD |
 | PYTH | 15.10 18:15 | 6/7 | 4,56 | 15.10 18:30 +%2 hedef (%100) | %0 | +%9,43 | –%0,31 | +%0,09 | 50,90 USD | 0,90 USD |
 | SXT | 15.10 18:15 | 6/7 | 0,4273 | – | %100 | +%1,80 | –%0,54 | +%1,31 | 50,55 USD | 0,55 USD |
@@ -74,9 +75,9 @@ Hesaplama: 15.10.2026 21:25 (TR saati); son kapanan 15 dakikalık mum 15.10 21:1
 
 | | Tutar |
 |---|---|
-| Nakit | 541,01 USD |
+| Nakit | 554,99 USD |
 | Eldeki 9 coinin değeri | 447,75 USD |
-| **Cüzdan toplamı** | **988,76 USD** |
-| **Kâr/zarar** | **–11,24 USD (–%1,12)** |
+| **Cüzdan toplamı** | **1.002,74 USD** |
+| **Kâr/zarar** | **2,74 USD (+%0,27)** |
 
 'Elde kalan': ilk alınan miktarın yüzde kaçı hâlâ elde. 'İşlemin kâr/zararı': o coinde yapılan satışlar ve elde kalanın şimdiki değeri birlikte. Satışlardaki yüzde, ilk alınan miktara göre. Yatırım tavsiyesi değildir; bir günlük sonuç geleceği göstermez.
