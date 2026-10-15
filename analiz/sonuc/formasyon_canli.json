@@ -1,11 +1,29 @@
 {
- "olusturma": "15.10.2026 20:11",
+ "olusturma": "15.10.2026 20:39",
  "takip_bas": "15.10.2026 19:00",
  "coin": 306,
  "hata": 0,
  "hata_ornek": [],
+ "simdiki_piyasa": {
+  "1h": 0.38235294117647056,
+  "4h": 0.17973856209150327
+ },
  "ileri_test": {
   "hepsi": {
+   "n": 2,
+   "suresi_dolan": 0,
+   "suresi_dolmayan": 2,
+   "suresi_dolmayan_hedef": 0,
+   "suresi_dolmayan_zarar_kes": 0
+  },
+  "piyasa_guclu": {
+   "n": 0,
+   "suresi_dolan": 0,
+   "suresi_dolmayan": 0,
+   "suresi_dolmayan_hedef": 0,
+   "suresi_dolmayan_zarar_kes": 0
+  },
+  "piyasa_zayif": {
    "n": 2,
    "suresi_dolan": 0,
    "suresi_dolmayan": 2,
@@ -69,6 +87,32 @@
    "basari_pct": 40.5,
    "rastgele_basari_pct": 37.2,
    "ort_getiri_pct": 1.09
+  },
+  "piyasa_guclu": {
+   "n": 60,
+   "suresi_dolan": 31,
+   "suresi_dolmayan": 29,
+   "suresi_dolmayan_hedef": 3,
+   "suresi_dolmayan_zarar_kes": 22,
+   "hedef": 12,
+   "zarar_kes": 12,
+   "sure_doldu": 7,
+   "basari_pct": 38.7,
+   "rastgele_basari_pct": 34.3,
+   "ort_getiri_pct": 0.87
+  },
+  "piyasa_zayif": {
+   "n": 40,
+   "suresi_dolan": 11,
+   "suresi_dolmayan": 29,
+   "suresi_dolmayan_hedef": 2,
+   "suresi_dolmayan_zarar_kes": 16,
+   "hedef": 5,
+   "zarar_kes": 3,
+   "sure_doldu": 3,
+   "basari_pct": 45.5,
+   "rastgele_basari_pct": 45.5,
+   "ort_getiri_pct": 1.72
   }
  },
  "liste": [
@@ -93,7 +137,8 @@
    "simdi_pct": 15.61,
    "durum": "hedef",
    "zaman": "10.10 23:00",
-   "getiri_pct": 10.39
+   "getiri_pct": 10.39,
+   "genislik": 0.11437908496732026
   },
   {
    "s": "TIA_TRY",
@@ -116,7 +161,8 @@
    "simdi_pct": 15.88,
    "durum": "hedef",
    "zaman": "10.10 23:00",
-   "getiri_pct": 7.69
+   "getiri_pct": 7.69,
+   "genislik": 0.12091503267973856
   },
   {
    "s": "ATOM_TRY",
@@ -139,7 +185,8 @@
    "simdi_pct": -6.27,
    "durum": "hedef",
    "zaman": "09.10 23:00",
-   "getiri_pct": 12.09
+   "getiri_pct": 12.09,
+   "genislik": 0.17320261437908496
   },
   {
    "s": "ATOM_TRY",
@@ -162,7 +209,8 @@
    "simdi_pct": -4.95,
    "durum": "hedef",
    "zaman": "09.10 23:00",
-   "getiri_pct": 10.0
+   "getiri_pct": 10.0,
+   "genislik": 0.17320261437908496
   },
   {
    "s": "ENSO_TRY",
@@ -184,7 +232,8 @@
    "en_dusuk_pct": -7.57,
    "simdi_pct": -5.32,
    "durum": "süre doldu",
-   "getiri_pct": -5.32
+   "getiri_pct": -5.32,
+   "genislik": 0.31699346405228757
   },
   {
    "s": "SIGN_TRY",
@@ -206,7 +255,8 @@
    "en_dusuk_pct": -3.01,
    "simdi_pct": 0.79,
    "durum": "süre doldu",
-   "getiri_pct": 0.79
+   "getiri_pct": 0.79,
+   "genislik": 0.4411764705882353
   },
   {
    "s": "ATOM_TRY",
@@ -229,7 +279,8 @@
    "simdi_pct": -14.73,
    "durum": "zarar-kes",
    "zaman": "15.10 10:00",
-   "getiri_pct": -15.55
+   "getiri_pct": -15.55,
+   "genislik": 0.4215686274509804
   },
   {
    "s": "GENIUS_TRY",
@@ -252,7 +303,8 @@
    "simdi_pct": -7.9,
    "durum": "zarar-kes",
    "zaman": "15.10 19:00",
-   "getiri_pct": -10.45
+   "getiri_pct": -10.45,
+   "genislik": 0.19934640522875818
   },
   {
    "s": "SIGN_TRY",
@@ -275,7 +327,8 @@
    "simdi_pct": -9.21,
    "durum": "zarar-kes",
    "zaman": "15.10 07:00",
-   "getiri_pct": -8.89
+   "getiri_pct": -8.89,
+   "genislik": 0.19934640522875818
   },
   {
    "s": "CYBER_TRY",
@@ -298,7 +351,8 @@
    "simdi_pct": -0.57,
    "durum": "hedef",
    "zaman": "12.10 11:00",
-   "getiri_pct": 9.77
+   "getiri_pct": 9.77,
+   "genislik": 0.18627450980392157
   },
   {
    "s": "CYBER_TRY",
@@ -321,7 +375,8 @@
    "simdi_pct": -0.57,
    "durum": "hedef",
    "zaman": "12.10 11:00",
-   "getiri_pct": 11.54
+   "getiri_pct": 11.54,
+   "genislik": 0.18627450980392157
   },
   {
    "s": "ONT_TRY",
@@ -344,7 +399,8 @@
    "simdi_pct": -14.82,
    "durum": "zarar-kes",
    "zaman": "09.10 23:00",
-   "getiri_pct": -8.85
+   "getiri_pct": -8.85,
+   "genislik": 0.18627450980392157
   },
   {
    "s": "SKL_TRY",
@@ -365,7 +421,8 @@
    "en_yuksek_pct": 0.34,
    "en_dusuk_pct": -25.17,
    "simdi_pct": -19.8,
-   "durum": "açık"
+   "durum": "açık",
+   "genislik": 0.18627450980392157
   },
   {
    "s": "GENIUS_TRY",
@@ -388,7 +445,8 @@
    "simdi_pct": -10.14,
    "durum": "zarar-kes",
    "zaman": "15.10 19:00",
-   "getiri_pct": -12.63
+   "getiri_pct": -12.63,
+   "genislik": 0.18627450980392157
   },
   {
    "s": "ROSE_TRY",
@@ -410,7 +468,8 @@
    "en_dusuk_pct": -1.26,
    "simdi_pct": 4.7,
    "durum": "süre doldu",
-   "getiri_pct": 4.7
+   "getiri_pct": 4.7,
+   "genislik": 0.4738562091503268
   },
   {
    "s": "PIXEL_TRY",
@@ -433,7 +492,8 @@
    "simdi_pct": -5.1,
    "durum": "hedef",
    "zaman": "10.10 01:00",
-   "getiri_pct": 7.99
+   "getiri_pct": 7.99,
+   "genislik": 0.5522875816993464
   },
   {
    "s": "PIXEL_TRY",
@@ -456,7 +516,8 @@
    "simdi_pct": -5.41,
    "durum": "hedef",
    "zaman": "10.10 01:00",
-   "getiri_pct": 7.32
+   "getiri_pct": 7.32,
+   "genislik": 0.5522875816993464
   },
   {
    "s": "ROSE_TRY",
@@ -479,7 +540,8 @@
    "simdi_pct": 7.51,
    "durum": "hedef",
    "zaman": "11.10 18:00",
-   "getiri_pct": 7.75
+   "getiri_pct": 7.75,
+   "genislik": 0.5522875816993464
   },
   {
    "s": "WCT_TRY",
@@ -501,7 +563,8 @@
    "en_dusuk_pct": -1.55,
    "simdi_pct": 1.46,
    "durum": "süre doldu",
-   "getiri_pct": 1.46
+   "getiri_pct": 1.46,
+   "genislik": 0.5522875816993464
   },
   {
    "s": "AXL_TRY",
@@ -524,7 +587,8 @@
    "simdi_pct": 10.98,
    "durum": "hedef",
    "zaman": "12.10 00:00",
-   "getiri_pct": 8.42
+   "getiri_pct": 8.42,
+   "genislik": 0.6764705882352942
   },
   {
    "s": "XAI_TRY",
@@ -547,7 +611,8 @@
    "simdi_pct": -11.96,
    "durum": "hedef",
    "zaman": "10.10 07:00",
-   "getiri_pct": 13.38
+   "getiri_pct": 13.38,
+   "genislik": 0.6764705882352942
   },
   {
    "s": "XAI_TRY",
@@ -570,7 +635,8 @@
    "simdi_pct": -4.71,
    "durum": "hedef",
    "zaman": "10.10 07:00",
-   "getiri_pct": 13.21
+   "getiri_pct": 13.21,
+   "genislik": 0.6764705882352942
   },
   {
    "s": "ID_TRY",
@@ -593,7 +659,8 @@
    "simdi_pct": -12.27,
    "durum": "zarar-kes",
    "zaman": "13.10 07:00",
-   "getiri_pct": -6.75
+   "getiri_pct": -6.75,
+   "genislik": 0.30718954248366015
   },
   {
    "s": "POLYX_TRY",
@@ -615,7 +682,8 @@
    "en_dusuk_pct": -1.49,
    "simdi_pct": 1.49,
    "durum": "süre doldu",
-   "getiri_pct": 1.49
+   "getiri_pct": 1.49,
+   "genislik": 0.7254901960784313
   },
   {
    "s": "BEL_TRY",
@@ -638,7 +706,8 @@
    "simdi_pct": 3.27,
    "durum": "hedef",
    "zaman": "10.10 14:00",
-   "getiri_pct": 7.2
+   "getiri_pct": 7.2,
+   "genislik": 0.7875816993464052
   },
   {
    "s": "LISTA_TRY",
@@ -660,7 +729,8 @@
    "en_dusuk_pct": -6.83,
    "simdi_pct": -6.83,
    "durum": "süre doldu",
-   "getiri_pct": -6.83
+   "getiri_pct": -6.83,
+   "genislik": 0.8431372549019608
   },
   {
    "s": "PIXEL_TRY",
@@ -683,7 +753,8 @@
    "simdi_pct": -17.88,
    "durum": "zarar-kes",
    "zaman": "10.10 11:00",
-   "getiri_pct": -12.95
+   "getiri_pct": -12.95,
+   "genislik": 0.8431372549019608
   },
   {
    "s": "BOME_TRY",
@@ -706,7 +777,8 @@
    "simdi_pct": -35.72,
    "durum": "zarar-kes",
    "zaman": "12.10 15:00",
-   "getiri_pct": -14.67
+   "getiri_pct": -14.67,
+   "genislik": 0.3562091503267974
   },
   {
    "s": "WLFI_TRY",
@@ -728,7 +800,8 @@
    "en_dusuk_pct": -4.2,
    "simdi_pct": -1.79,
    "durum": "süre doldu",
-   "getiri_pct": -1.79
+   "getiri_pct": -1.79,
+   "genislik": 0.8137254901960784
   },
   {
    "s": "ARPA_TRY",
@@ -751,7 +824,8 @@
    "simdi_pct": -16.51,
    "durum": "hedef",
    "zaman": "10.10 15:00",
-   "getiri_pct": 5.22
+   "getiri_pct": 5.22,
+   "genislik": 0.32679738562091504
   },
   {
    "s": "RONIN_TRY",
@@ -773,7 +847,8 @@
    "en_dusuk_pct": -10.66,
    "simdi_pct": -6.63,
    "durum": "süre doldu",
-   "getiri_pct": -6.63
+   "getiri_pct": -6.63,
+   "genislik": 0.8496732026143791
   },
   {
    "s": "RONIN_TRY",
@@ -796,7 +871,8 @@
    "simdi_pct": -6.92,
    "durum": "zarar-kes",
    "zaman": "10.10 13:00",
-   "getiri_pct": -6.92
+   "getiri_pct": -6.92,
+   "genislik": 0.8496732026143791
   },
   {
    "s": "CKB_TRY",
@@ -819,7 +895,8 @@
    "simdi_pct": 28.9,
    "durum": "hedef",
    "zaman": "10.10 18:00",
-   "getiri_pct": 10.59
+   "getiri_pct": 10.59,
+   "genislik": 0.8235294117647058
   },
   {
    "s": "WAL_TRY",
@@ -842,7 +919,8 @@
    "simdi_pct": -11.21,
    "durum": "zarar-kes",
    "zaman": "10.10 15:00",
-   "getiri_pct": -16.36
+   "getiri_pct": -16.36,
+   "genislik": 0.8235294117647058
   },
   {
    "s": "HOME_TRY",
@@ -865,7 +943,8 @@
    "simdi_pct": -10.88,
    "durum": "zarar-kes",
    "zaman": "13.10 03:00",
-   "getiri_pct": -7.37
+   "getiri_pct": -7.37,
+   "genislik": 0.35947712418300654
   },
   {
    "s": "STRK_TRY",
@@ -888,7 +967,8 @@
    "simdi_pct": 2.55,
    "durum": "hedef",
    "zaman": "10.10 22:00",
-   "getiri_pct": 14.74
+   "getiri_pct": 14.74,
+   "genislik": 0.9183006535947712
   },
   {
    "s": "ZK_TRY",
@@ -910,7 +990,8 @@
    "en_dusuk_pct": -4.29,
    "simdi_pct": 9.14,
    "durum": "süre doldu",
-   "getiri_pct": 9.14
+   "getiri_pct": 9.14,
+   "genislik": 0.9183006535947712
   },
   {
    "s": "ACM_TRY",
@@ -933,7 +1014,8 @@
    "simdi_pct": -5.56,
    "durum": "zarar-kes",
    "zaman": "13.10 07:00",
-   "getiri_pct": -5.28
+   "getiri_pct": -5.28,
+   "genislik": 0.38235294117647056
   },
   {
    "s": "AERO_TRY",
@@ -954,7 +1036,8 @@
    "en_yuksek_pct": 8.37,
    "en_dusuk_pct": -8.9,
    "simdi_pct": -1.58,
-   "durum": "açık"
+   "durum": "açık",
+   "genislik": 0.38235294117647056
   },
   {
    "s": "AERO_TRY",
@@ -975,7 +1058,8 @@
    "en_yuksek_pct": 8.37,
    "en_dusuk_pct": -8.9,
    "simdi_pct": -1.58,
-   "durum": "açık"
+   "durum": "açık",
+   "genislik": 0.38235294117647056
   },
   {
    "s": "SIGN_TRY",
@@ -998,7 +1082,8 @@
    "simdi_pct": -11.18,
    "durum": "zarar-kes",
    "zaman": "15.10 07:00",
-   "getiri_pct": -10.87
+   "getiri_pct": -10.87,
+   "genislik": 0.38235294117647056
   },
   {
    "s": "YB_TRY",
@@ -1021,7 +1106,8 @@
    "simdi_pct": -3.05,
    "durum": "hedef",
    "zaman": "10.10 20:00",
-   "getiri_pct": 7.89
+   "getiri_pct": 7.89,
+   "genislik": 0.9052287581699346
   },
   {
    "s": "APT_TRY",
@@ -1043,7 +1129,8 @@
    "en_dusuk_pct": -1.22,
    "simdi_pct": 3.79,
    "durum": "süre doldu",
-   "getiri_pct": 3.79
+   "getiri_pct": 3.79,
+   "genislik": 0.8986928104575164
   },
   {
    "s": "TWT_TRY",
@@ -1066,7 +1153,8 @@
    "simdi_pct": -3.49,
    "durum": "zarar-kes",
    "zaman": "11.10 04:00",
-   "getiri_pct": -1.2
+   "getiri_pct": -1.2,
+   "genislik": 0.8986928104575164
   },
   {
    "s": "ZKP_TRY",
@@ -1089,7 +1177,8 @@
    "simdi_pct": -4.61,
    "durum": "zarar-kes",
    "zaman": "12.10 18:00",
-   "getiri_pct": -3.74
+   "getiri_pct": -3.74,
+   "genislik": 0.8986928104575164
   },
   {
    "s": "CAKE_TRY",
@@ -1112,7 +1201,8 @@
    "simdi_pct": -0.01,
    "durum": "hedef",
    "zaman": "12.10 09:00",
-   "getiri_pct": 6.77
+   "getiri_pct": 6.77,
+   "genislik": 0.8790849673202614
   },
   {
    "s": "HYPER_TRY",
@@ -1135,7 +1225,8 @@
    "simdi_pct": -5.68,
    "durum": "zarar-kes",
    "zaman": "15.10 07:00",
-   "getiri_pct": -8.24
+   "getiri_pct": -8.24,
+   "genislik": 0.4019607843137255
   },
   {
    "s": "S_TRY",
@@ -1158,7 +1249,8 @@
    "simdi_pct": 25.76,
    "durum": "hedef",
    "zaman": "11.10 19:00",
-   "getiri_pct": 18.51
+   "getiri_pct": 18.51,
+   "genislik": 0.8823529411764706
   },
   {
    "s": "LAYER_TRY",
@@ -1181,7 +1273,8 @@
    "simdi_pct": -10.8,
    "durum": "zarar-kes",
    "zaman": "12.10 18:00",
-   "getiri_pct": -6.94
+   "getiri_pct": -6.94,
+   "genislik": 0.8725490196078431
   },
   {
    "s": "LA_TRY",
@@ -1204,7 +1297,8 @@
    "simdi_pct": -18.71,
    "durum": "zarar-kes",
    "zaman": "15.10 06:00",
-   "getiri_pct": -16.08
+   "getiri_pct": -16.08,
+   "genislik": 0.7352941176470589
   },
   {
    "s": "LA_TRY",
@@ -1227,7 +1321,8 @@
    "simdi_pct": -14.33,
    "durum": "zarar-kes",
    "zaman": "13.10 01:00",
-   "getiri_pct": -6.73
+   "getiri_pct": -6.73,
+   "genislik": 0.7352941176470589
   },
   {
    "s": "ACH_TRY",
@@ -1250,7 +1345,8 @@
    "simdi_pct": -10.02,
    "durum": "zarar-kes",
    "zaman": "15.10 06:00",
-   "getiri_pct": -15.35
+   "getiri_pct": -15.35,
+   "genislik": 0.7549019607843137
   },
   {
    "s": "TRB_TRY",
@@ -1273,7 +1369,8 @@
    "simdi_pct": -6.84,
    "durum": "zarar-kes",
    "zaman": "13.10 01:00",
-   "getiri_pct": -3.73
+   "getiri_pct": -3.73,
+   "genislik": 0.7549019607843137
   },
   {
    "s": "BANK_TRY",
@@ -1296,7 +1393,8 @@
    "simdi_pct": -8.15,
    "durum": "zarar-kes",
    "zaman": "13.10 07:00",
-   "getiri_pct": -10.73
+   "getiri_pct": -10.73,
+   "genislik": 0.39869281045751637
   },
   {
    "s": "SOLV_TRY",
@@ -1319,7 +1417,8 @@
    "simdi_pct": -2.99,
    "durum": "zarar-kes",
    "zaman": "13.10 04:00",
-   "getiri_pct": -2.99
+   "getiri_pct": -2.99,
+   "genislik": 0.6764705882352942
   },
   {
    "s": "ARB_TRY",
@@ -1342,7 +1441,8 @@
    "simdi_pct": -4.1,
    "durum": "zarar-kes",
    "zaman": "12.10 18:00",
-   "getiri_pct": -4.2
+   "getiri_pct": -4.2,
+   "genislik": 0.5588235294117647
   },
   {
    "s": "IO_TRY",
@@ -1363,7 +1463,8 @@
    "en_yuksek_pct": 23.62,
    "en_dusuk_pct": -3.8,
    "simdi_pct": 3.7,
-   "durum": "açık"
+   "durum": "açık",
+   "genislik": 0.5588235294117647
   },
   {
    "s": "ARB_TRY",
@@ -1384,7 +1485,8 @@
    "en_yuksek_pct": 0.81,
    "en_dusuk_pct": -15.17,
    "simdi_pct": -5.36,
-   "durum": "açık"
+   "durum": "açık",
+   "genislik": 0.47058823529411764
   },
   {
    "s": "TAO_TRY",
@@ -1407,7 +1509,8 @@
    "simdi_pct": -4.9,
    "durum": "zarar-kes",
    "zaman": "13.10 01:00",
-   "getiri_pct": -3.41
+   "getiri_pct": -3.41,
+   "genislik": 0.7026143790849673
   },
   {
    "s": "F_TRY",
@@ -1430,7 +1533,8 @@
    "simdi_pct": -6.23,
    "durum": "hedef",
    "zaman": "12.10 00:00",
-   "getiri_pct": 8.83
+   "getiri_pct": 8.83,
+   "genislik": 0.8235294117647058
   },
   {
    "s": "F_TRY",
@@ -1453,7 +1557,8 @@
    "simdi_pct": -6.23,
    "durum": "hedef",
    "zaman": "12.10 00:00",
-   "getiri_pct": 8.64
+   "getiri_pct": 8.64,
+   "genislik": 0.8235294117647058
   },
   {
    "s": "HOLO_TRY",
@@ -1476,7 +1581,8 @@
    "simdi_pct": -4.07,
    "durum": "zarar-kes",
    "zaman": "12.10 17:00",
-   "getiri_pct": -2.76
+   "getiri_pct": -2.76,
+   "genislik": 0.8235294117647058
   },
   {
    "s": "HYPER_TRY",
@@ -1499,7 +1605,8 @@
    "simdi_pct": -8.54,
    "durum": "zarar-kes",
    "zaman": "15.10 07:00",
-   "getiri_pct": -11.02
+   "getiri_pct": -11.02,
+   "genislik": 0.545751633986928
   },
   {
    "s": "METIS_TRY",
@@ -1522,7 +1629,8 @@
    "simdi_pct": 7.14,
    "durum": "hedef",
    "zaman": "12.10 07:00",
-   "getiri_pct": 7.69
+   "getiri_pct": 7.69,
+   "genislik": 0.545751633986928
   },
   {
    "s": "PNUT_TRY",
@@ -1545,7 +1653,8 @@
    "simdi_pct": -14.57,
    "durum": "zarar-kes",
    "zaman": "12.10 23:00",
-   "getiri_pct": -4.72
+   "getiri_pct": -4.72,
+   "genislik": 0.8235294117647058
   },
   {
    "s": "SAHARA_TRY",
@@ -1568,7 +1677,8 @@
    "simdi_pct": -10.36,
    "durum": "zarar-kes",
    "zaman": "12.10 15:00",
-   "getiri_pct": -2.8
+   "getiri_pct": -2.8,
+   "genislik": 0.8235294117647058
   },
   {
    "s": "SUSHI_TRY",
@@ -1591,7 +1701,8 @@
    "simdi_pct": -5.68,
    "durum": "zarar-kes",
    "zaman": "13.10 01:00",
-   "getiri_pct": -4.51
+   "getiri_pct": -4.51,
+   "genislik": 0.8235294117647058
   },
   {
    "s": "VANA_TRY",
@@ -1614,7 +1725,8 @@
    "simdi_pct": -9.12,
    "durum": "zarar-kes",
    "zaman": "13.10 04:00",
-   "getiri_pct": -6.75
+   "getiri_pct": -6.75,
+   "genislik": 0.8235294117647058
   },
   {
    "s": "BERA_TRY",
@@ -1637,7 +1749,8 @@
    "simdi_pct": -0.44,
    "durum": "zarar-kes",
    "zaman": "13.10 01:00",
-   "getiri_pct": -4.24
+   "getiri_pct": -4.24,
+   "genislik": 0.8431372549019608
   },
   {
    "s": "BNB_TRY",
@@ -1660,7 +1773,8 @@
    "simdi_pct": -2.84,
    "durum": "zarar-kes",
    "zaman": "12.10 17:00",
-   "getiri_pct": -1.3
+   "getiri_pct": -1.3,
+   "genislik": 0.8431372549019608
   },
   {
    "s": "TURBO_TRY",
@@ -1683,7 +1797,8 @@
    "simdi_pct": -10.38,
    "durum": "zarar-kes",
    "zaman": "12.10 15:00",
-   "getiri_pct": -3.39
+   "getiri_pct": -3.39,
+   "genislik": 0.8431372549019608
   },
   {
    "s": "BERA_TRY",
@@ -1704,7 +1819,8 @@
    "en_yuksek_pct": 9.93,
    "en_dusuk_pct": -9.15,
    "simdi_pct": -0.67,
-   "durum": "açık"
+   "durum": "açık",
+   "genislik": 0.7941176470588235
   },
   {
    "s": "HMSTR_TRY",
@@ -1727,7 +1843,8 @@
    "simdi_pct": -7.42,
    "durum": "zarar-kes",
    "zaman": "13.10 04:00",
-   "getiri_pct": -10.17
+   "getiri_pct": -10.17,
+   "genislik": 0.7941176470588235
   },
   {
    "s": "HMSTR_TRY",
@@ -1750,7 +1867,8 @@
    "simdi_pct": -7.42,
    "durum": "zarar-kes",
    "zaman": "12.10 17:00",
-   "getiri_pct": -5.14
+   "getiri_pct": -5.14,
+   "genislik": 0.7941176470588235
   },
   {
    "s": "TRUMP_TRY",
@@ -1773,7 +1891,8 @@
    "simdi_pct": -3.26,
    "durum": "zarar-kes",
    "zaman": "13.10 01:00",
-   "getiri_pct": -3.57
+   "getiri_pct": -3.57,
+   "genislik": 0.7189542483660131
   },
   {
    "s": "VANA_TRY",
@@ -1796,7 +1915,8 @@
    "simdi_pct": -10.27,
    "durum": "zarar-kes",
    "zaman": "15.10 06:00",
-   "getiri_pct": -14.23
+   "getiri_pct": -14.23,
+   "genislik": 0.7189542483660131
   },
   {
    "s": "NEWT_TRY",
@@ -1819,7 +1939,8 @@
    "simdi_pct": -5.34,
    "durum": "zarar-kes",
    "zaman": "12.10 17:00",
-   "getiri_pct": -3.3
+   "getiri_pct": -3.3,
+   "genislik": 0.7156862745098039
   },
   {
    "s": "FIL_TRY",
@@ -1840,7 +1961,8 @@
    "en_yuksek_pct": 3.32,
    "en_dusuk_pct": -17.85,
    "simdi_pct": -11.96,
-   "durum": "açık"
+   "durum": "açık",
+   "genislik": 0.5098039215686274
   },
   {
    "s": "FIL_TRY",
@@ -1861,7 +1983,8 @@
    "en_yuksek_pct": 3.32,
    "en_dusuk_pct": -17.85,
    "simdi_pct": -11.96,
-   "durum": "açık"
+   "durum": "açık",
+   "genislik": 0.5098039215686274
   },
   {
    "s": "FIL_TRY",
@@ -1884,7 +2007,8 @@
    "simdi_pct": -11.96,
    "durum": "zarar-kes",
    "zaman": "13.10 07:00",
-   "getiri_pct": -12.06
+   "getiri_pct": -12.06,
+   "genislik": 0.5098039215686274
   },
   {
    "s": "AXL_TRY",
@@ -1907,7 +2031,8 @@
    "simdi_pct": -9.27,
    "durum": "zarar-kes",
    "zaman": "13.10 01:00",
-   "getiri_pct": -8.28
+   "getiri_pct": -8.28,
+   "genislik": 0.6372549019607843
   },
   {
    "s": "MEME_TRY",
@@ -1930,7 +2055,8 @@
    "simdi_pct": -11.46,
    "durum": "zarar-kes",
    "zaman": "12.10 18:00",
-   "getiri_pct": -4.17
+   "getiri_pct": -4.17,
+   "genislik": 0.6372549019607843
   },
   {
    "s": "JTO_TRY",
@@ -1953,7 +2079,8 @@
    "simdi_pct": -18.39,
    "durum": "zarar-kes",
    "zaman": "15.10 03:00",
-   "getiri_pct": -15.3
+   "getiri_pct": -15.3,
+   "genislik": 0.49019607843137253
   },
   {
    "s": "INJ_TRY",
@@ -1976,7 +2103,8 @@
    "simdi_pct": -4.06,
    "durum": "zarar-kes",
    "zaman": "13.10 01:00",
-   "getiri_pct": -6.65
+   "getiri_pct": -6.65,
+   "genislik": 0.7124183006535948
   },
   {
    "s": "SHIB_TRY",
@@ -1999,7 +2127,8 @@
    "simdi_pct": -7.43,
    "durum": "zarar-kes",
    "zaman": "12.10 18:00",
-   "getiri_pct": -2.76
+   "getiri_pct": -2.76,
+   "genislik": 0.7124183006535948
   },
   {
    "s": "CYBER_TRY",
@@ -2022,7 +2151,8 @@
    "simdi_pct": -17.46,
    "durum": "zarar-kes",
    "zaman": "13.10 04:00",
-   "getiri_pct": -11.64
+   "getiri_pct": -11.64,
+   "genislik": 0.6339869281045751
   },
   {
    "s": "KSM_TRY",
@@ -2045,7 +2175,8 @@
    "simdi_pct": -13.62,
    "durum": "zarar-kes",
    "zaman": "12.10 16:00",
-   "getiri_pct": -4.67
+   "getiri_pct": -4.67,
+   "genislik": 0.6339869281045751
   },
   {
    "s": "TWT_TRY",
@@ -2068,7 +2199,8 @@
    "simdi_pct": -6.56,
    "durum": "zarar-kes",
    "zaman": "13.10 04:00",
-   "getiri_pct": -5.0
+   "getiri_pct": -5.0,
+   "genislik": 0.38562091503267976
   },
   {
    "s": "ID_TRY",
@@ -2091,7 +2223,8 @@
    "simdi_pct": -14.57,
    "durum": "zarar-kes",
    "zaman": "13.10 04:00",
-   "getiri_pct": -6.15
+   "getiri_pct": -6.15,
+   "genislik": 0.16993464052287582
   },
   {
    "s": "SOMI_TRY",
@@ -2114,7 +2247,8 @@
    "simdi_pct": -5.46,
    "durum": "zarar-kes",
    "zaman": "14.10 19:00",
-   "getiri_pct": -6.23
+   "getiri_pct": -6.23,
+   "genislik": 0.21241830065359477
   },
   {
    "s": "ZAMA_TRY",
@@ -2137,7 +2271,8 @@
    "simdi_pct": -13.75,
    "durum": "zarar-kes",
    "zaman": "14.10 17:00",
-   "getiri_pct": -7.63
+   "getiri_pct": -7.63,
+   "genislik": 0.1503267973856209
   },
   {
    "s": "ACE_TRY",
@@ -2160,7 +2295,8 @@
    "simdi_pct": -9.28,
    "durum": "zarar-kes",
    "zaman": "15.10 07:00",
-   "getiri_pct": -12.85
+   "getiri_pct": -12.85,
+   "genislik": 0.22549019607843138
   },
   {
    "s": "INJ_TRY",
@@ -2181,7 +2317,8 @@
    "en_yuksek_pct": 3.45,
    "en_dusuk_pct": -12.85,
    "simdi_pct": -1.12,
-   "durum": "açık"
+   "durum": "açık",
+   "genislik": 0.22549019607843138
   },
   {
    "s": "OP_TRY",
@@ -2202,7 +2339,8 @@
    "en_yuksek_pct": 2.43,
    "en_dusuk_pct": -19.18,
    "simdi_pct": -12.28,
-   "durum": "açık"
+   "durum": "açık",
+   "genislik": 0.20588235294117646
   },
   {
    "s": "KITE_TRY",
@@ -2225,7 +2363,8 @@
    "simdi_pct": -5.61,
    "durum": "zarar-kes",
    "zaman": "15.10 11:00",
-   "getiri_pct": -11.29
+   "getiri_pct": -11.29,
+   "genislik": 0.24509803921568626
   },
   {
    "s": "TRX_TRY",
@@ -2246,7 +2385,8 @@
    "en_yuksek_pct": 0.88,
    "en_dusuk_pct": -0.7,
    "simdi_pct": 0.0,
-   "durum": "açık"
+   "durum": "açık",
+   "genislik": 0.2222222222222222
   },
   {
    "s": "U_TRY",
@@ -2267,7 +2407,8 @@
    "en_yuksek_pct": 0.1,
    "en_dusuk_pct": -0.02,
    "simdi_pct": 0.0,
-   "durum": "açık"
+   "durum": "açık",
+   "genislik": 0.05555555555555555
   },
   {
    "s": "U_TRY",
@@ -2288,7 +2429,8 @@
    "en_yuksek_pct": 0.08,
    "en_dusuk_pct": -0.04,
    "simdi_pct": -0.02,
-   "durum": "açık"
+   "durum": "açık",
+   "genislik": 0.09477124183006536
   },
   {
    "s": "DODO_TRY",
@@ -2309,7 +2451,8 @@
    "en_yuksek_pct": 0.0,
    "en_dusuk_pct": 0.0,
    "simdi_pct": 0.0,
-   "durum": "açık"
+   "durum": "açık",
+   "genislik": 0.17973856209150327
   },
   {
    "s": "UNI_TRY",
@@ -2330,8 +2473,9 @@
    "en_yuksek_pct": 0.0,
    "en_dusuk_pct": 0.0,
    "simdi_pct": 0.0,
-   "durum": "açık"
+   "durum": "açık",
+   "genislik": 0.17973856209150327
   }
  ],
- "sure_sn": 112
+ "sure_sn": 144
 }
