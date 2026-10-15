@@ -19,9 +19,10 @@ KOK = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(KOK / "analiz" / "bot_yeni"))       # yeni telegram_tarama ve btr önce
 sys.path.insert(1, str(KOK / "analiz"))
 
-import formasyon as an  # noqa: E402  (geçmiş test)
+# önce yeni telegram_tarama ve btr yüklenir: analiz/formasyon.py kök klasörü sys.path başına ekleyip eskisini yüklemesin
 import telegram_tarama as tt  # noqa: E402  (yeni Telegram taraması)
 from btr import formasyon as fo  # noqa: E402
+import formasyon as an  # noqa: E402  (geçmiş test)
 
 N_MUM = 1500
 SON_MUM = 200
@@ -96,4 +97,10 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except Exception:              # günlük indirilemediği için hata dosyaya yazılır
+        import traceback
+        (KOK / "analiz" / "sonuc").mkdir(parents=True, exist_ok=True)
+        (KOK / "analiz" / "sonuc" / "formasyon_bot_kontrol_hata.txt").write_text(traceback.format_exc(), encoding="utf-8")
+        print(traceback.format_exc())
