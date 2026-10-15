@@ -34,6 +34,7 @@ TR = timezone(timedelta(hours=3))
 API = ["https://data-api.binance.vision", "https://api.binance.me", "https://api.binance.com"]
 TR_SEMBOL = ["https://www.binance.tr/open/v1/common/symbols", "https://www.trbinance.com/open/v1/common/symbols"]
 BB_N, BB_K, BB_SON = 21, 2.0, 3
+GONDERILEN = "gonderilen.json"   # aralık -> en son gönderilen mumun açılışı (aynı mum iki kez gönderilmesin)
 
 
 def _get(url: str, timeout=20):
@@ -193,10 +194,22 @@ def gonder(token: str, chat: str, metin: str):
             raise SystemExit(f"Telegram mesajı gönderilemedi: {cevap.get('description', '?')}")
 
 
+def _gonderilen_oku() -> dict:
+    try:
+        with open(GONDERILEN, encoding="utf-8") as f:
+            d = json.load(f)
+        return d if isinstance(d, dict) else {}
+    except (OSError, ValueError):
+        return {}
+
+
 def main():
     token, chat = os.environ.get("TELEGRAM_BOT_TOKEN", ""), os.environ.get("TELEGRAM_CHAT_ID", "")
     now_ms = int(time.time() * 1000)
-    araliklar = calistirilacak(now_ms, os.environ.get("GITHUB_EVENT_NAME") == "workflow_dispatch")
+    # dış zamanlayıcı (cron-job.org) "otomatik=evet" ile başlatır; Run workflow düğmesi elle çalıştırmadır
+    elle = os.environ.get("GITHUB_EVENT_NAME") == "workflow_dispatch" and os.environ.get("OTOMATIK", "").lower() != "evet"
+    araliklar = calistirilacak(now_ms, elle)
+    onceki = _gonderilen_oku()
     mesajlar = []
     try:
         sem = semboller()
@@ -209,9 +222,12 @@ def main():
             r = tara(now_ms, aralik, sem=sem)
         except Exception as e:   # veri hiç alınamadıysa da kanala haber ver (ör. 451 = bölge kısıtlaması)
             r = {"aralik": aralik, "taranan": 0, "son_mum": None, "hata": 1, "hata_ornek": [str(e)[:200]], "sonuc": []}
+        if not elle and r["son_mum"] is not None and r["son_mum"] <= int(onceki.get(aralik, 0)):
+            print(f"{aralik}: bu mum daha önce gönderildi (dış zamanlayıcı ya da yedek çalıştırma), atlandı\n")
+            continue
         m = mesaj(r)
         print(m + "\n")
-        mesajlar.append(m)
+        mesajlar.append((aralik, m, r["son_mum"]))
         if aralik == "4h":   # depo aktif kalsın diye 4 saatte bir kaydedilir (her saat commit atılmasın)
             with open("son_sonuc.json", "w", encoding="utf-8") as f:
                 json.dump({"ts": int(time.time()), "son_mum": r["son_mum"], "taranan": r["taranan"], "hata": r["hata"],
@@ -222,8 +238,13 @@ def main():
     if not token or not chat:
         print("TELEGRAM_BOT_TOKEN / TELEGRAM_CHAT_ID tanımlı değil; mesaj gönderilmedi.", file=sys.stderr)
         sys.exit(1)
-    for m in mesajlar:
+    gonderilen = dict(onceki)
+    for aralik, m, son_mum in mesajlar:
         gonder(token, chat, m)
+        if son_mum is not None:
+            gonderilen[aralik] = max(son_mum, int(gonderilen.get(aralik, 0)))
+            with open(GONDERILEN, "w", encoding="utf-8") as f:
+                json.dump(gonderilen, f)
 
 
 if __name__ == "__main__":

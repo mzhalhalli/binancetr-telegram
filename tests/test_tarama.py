@@ -73,6 +73,32 @@ class TaramaTests(unittest.TestCase):
         self.assertIn("1 saatlik kapanış", m)
         self.assertNotIn("4 saatlik", m)
 
+    def test_ayni_mum_iki_kez_gitmez(self):
+        import os
+        import tempfile
+        rows = WAL[:-1]
+        now = rows[-1][6] + 60_000                      # 14.10 23:01 TR (UTC 20:01): 1s ve 4s kapanışı
+        giden = []
+        ortam = {"TELEGRAM_BOT_TOKEN": "x", "TELEGRAM_CHAT_ID": "y", "GITHUB_EVENT_NAME": "workflow_dispatch", "OTOMATIK": "evet"}
+        eski = os.getcwd()
+        with tempfile.TemporaryDirectory() as d:
+            os.chdir(d)
+            try:
+                with mock.patch.dict(os.environ, ortam), mock.patch.object(tt, "_get", sahte_get({"WALTRY": rows})), \
+                        mock.patch.object(tt, "gonder", lambda t, c, m: giden.append(m)), \
+                        mock.patch.object(tt.time, "time", lambda: now / 1000):
+                    tt.main()                            # dış zamanlayıcı: 4s gönderilir (1s verisi bu testte yok)
+                    n = len(giden)
+                    self.assertTrue(any("4 saatlik kapanış 14.10 19:00–23:00" in m for m in giden))
+                    os.environ["GITHUB_EVENT_NAME"] = "schedule"
+                    tt.main()                            # GitHub'ın gecikmeli yedeği: aynı 4s mumu tekrar gitmez
+                    self.assertFalse(any("4 saatlik" in m for m in giden[n:]))
+                    os.environ.update({"GITHUB_EVENT_NAME": "workflow_dispatch", "OTOMATIK": "hayir"})
+                    tt.main()                            # elle çalıştırma her zaman gönderir
+                    self.assertTrue(any("4 saatlik" in m for m in giden[n:]))
+            finally:
+                os.chdir(eski)
+
     def test_parcala(self):
         p = tt.parcala("\n".join("x" * 100 for _ in range(100)))
         self.assertTrue(all(len(s) <= 3900 for s in p))

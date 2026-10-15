@@ -1,10 +1,16 @@
 name: 4s tarama
 on:
+  # Asıl zamanlayıcı cron-job.org: her saatin 1. dakikasında bu iş akışını otomatik=evet ile başlatır.
+  # GitHub'ın kendi zamanlayıcısı yedektir (30-40 dk gecikebilir); aynı mum gonderilen.json sayesinde iki kez gitmez.
+  # Her saat 1 saatlik mum; 00/04/08/12/16/20 UTC'de (TR 03/07/11/15/19/23) 4 saatlik de.
   schedule:
-    # her saat başından 3 dk sonra: 1 saatlik mum; 00/04/08/12/16/20 UTC'de (TR 03/07/11/15/19/23) 4 saatlik de
-    # GitHub zamanlanmış işleri 5-15 dk geç başlatabilir
     - cron: "3 * * * *"
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      otomatik:
+        description: "Dış zamanlayıcıdan geliyorsa evet (elle çalıştırmada boş bırakın: 1s ve 4s ikisi de gönderilir)"
+        required: false
+        default: "hayir"
 permissions:
   contents: write
 concurrency:
@@ -16,17 +22,21 @@ jobs:
     timeout-minutes: 8
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main   # en güncel gonderilen.json okunsun
       # ubuntu-latest'te Python 3 hazır gelir (ayrı kurulum yok: ücretsiz dakikalar her saat çalışmaya yetsin)
       - name: Tara ve Telegram'a gönder
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          OTOMATIK: ${{ inputs.otomatik }}
         run: python3 telegram_tarama.py
       - name: Son sonucu kaydet (depo aktif kalsın diye)
         if: always()
         run: |
           git config user.name "tarama-bot"
           git config user.email "tarama-bot@users.noreply.github.com"
-          git add son_sonuc.json || true
-          git commit -m "4s tarama sonucu" || true
+          git add son_sonuc.json gonderilen.json || true
+          git commit -m "tarama sonucu" || true
+          git pull --rebase -q origin main || true
           git push || true
