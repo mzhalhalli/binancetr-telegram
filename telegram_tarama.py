@@ -7,8 +7,8 @@ Gerekenler (GitHub > Settings > Secrets and variables > Actions):
   TELEGRAM_CHAT_ID    kanal adı (@kanalim) ya da -100 ile başlayan kanal numarası
 Taramalar (bilgisayardaki bottaki hazır taramalarla aynı):
   1) Bollinger (21, 2): son 3 mum ardışık yeşil ve orta bandın üstünde kapattı
-  2) Süpriz: WAL_TRY 14.10 (4s) ve BLUR_TRY 15.10 (15dk) yükselişlerine benzeyenler (7 şartın en az 6'sı)
-  3) Erken uyarı: BLUR_TRY 15.10 11:45 gibi patlama öncesi sessiz hazırlık mumu (8 şartın 8'i)
+  2) Erken uyarı: BLUR_TRY 15.10 11:45 gibi patlama öncesi sessiz hazırlık mumu (8 şartın 8'i)
+Süpriz taraması 15.10.2026'da kullanıcının isteğiyle mesajlardan kaldırıldı (btr/supriz.py analiz için duruyor).
 """
 from __future__ import annotations
 
@@ -24,7 +24,6 @@ from datetime import datetime, timedelta, timezone
 
 from btr import erken as er
 from btr import indikator as ind
-from btr import supriz as sp
 
 ARALIK_MS = {"1h": 3_600_000, "4h": 14_400_000}
 ARALIK_AD = {"1h": "1 saatlik", "4h": "4 saatlik"}
@@ -98,10 +97,8 @@ def degerlendir(rows: list) -> dict | None:
     acl = [float(r[1]) for r in rows]
     hq = [float(r[7]) for r in rows]
     bb, bb_acik = bb_uc_yesil(kap, acl)
-    sup = sp.hesapla(kap, hq, acl)
     erk = er.hesapla(kap, hq, acl)
     return {"fiyat": kap[-1], "mum_ts": int(rows[-1][0]), "hacim": hq[-1], "bb": bb, "bb_acik": bb_acik,
-            "supriz": sup["puan"] if sup else 0, "supriz_detay": sup["detay"] if sup else "",
             "erken": bool(erk and erk["ok"]), "erken_detay": erk["detay"] if erk else ""}
 
 
@@ -150,21 +147,14 @@ def mesaj(r: dict) -> str:
     bas = f"📊 Binance TR · {ARALIK_AD[aralik]} kapanış {t0:%d.%m %H:%M}–{t1:%H:%M} (TR saati)\n{r['taranan']} TRY çifti tarandı"
     if r["hata"]:
         bas += f", {r['hata']} coinde veri alınamadı"
-    bb = sorted((x for x in r["sonuc"] if x["bb"]), key=lambda x: (-x["supriz"], -x["hacim"]))
-    sup = sorted((x for x in r["sonuc"] if x["supriz"] >= sp.TOPLAM - 1), key=lambda x: (-x["supriz"], -x["hacim"]))
+    bb = sorted((x for x in r["sonuc"] if x["bb"]), key=lambda x: -x["hacim"])
     erk = sorted((x for x in r["sonuc"] if x["erken"]), key=lambda x: -x["hacim"])
 
-    def etiket(x, erken=True):
-        e = " 🟠 ERKEN UYARI" if erken and x["erken"] else ""
-        return e + (" 🟣 SÜPRİZ" if x["supriz"] >= sp.TOPLAM else (" 🟪 süpriz adayı 6/7" if x["supriz"] == sp.TOPLAM - 1 else ""))
-
     satir = [bas, "", f"🟢 Orta bandın üstünde ardışık 3 yeşil mum (BOLL 21,2): {len(bb)}"]
-    satir += [f"• {x['s']}  {_sayi(x['fiyat'])}  ({x['bb_acik']})  hacim {_hacim(x['hacim'])} TRY{etiket(x)}" for x in bb] or ["• yok"]
-    satir += ["", f"🟣 Süpriz (WAL_TRY 14.10 / BLUR_TRY 15.10 benzeri, 7 şartın en az 6'sı): {len(sup)}"]
-    satir += [f"• {x['s']}  {_sayi(x['fiyat'])}  {x['supriz']}/7{etiket(x)}\n   {x['supriz_detay']}" for x in sup] or ["• yok"]
+    satir += [f"• {x['s']}  {_sayi(x['fiyat'])}  ({x['bb_acik']})  hacim {_hacim(x['hacim'])} TRY"
+              + (" 🟠 ERKEN UYARI" if x["erken"] else "") for x in bb] or ["• yok"]
     satir += ["", f"🟠 Erken uyarı (BLUR_TRY 15.10 patlama öncesi benzeri, 8/8; izlemeye al): {len(erk)}"]
-    satir += [f"• {x['s']}  {_sayi(x['fiyat'])}  hacim {_hacim(x['hacim'])} TRY{etiket(x, False)}\n   {x['erken_detay']}"
-              for x in erk] or ["• yok"]
+    satir += [f"• {x['s']}  {_sayi(x['fiyat'])}  hacim {_hacim(x['hacim'])} TRY\n   {x['erken_detay']}" for x in erk] or ["• yok"]
     satir += ["", "Yalnızca borsa verisi; yatırım tavsiyesi değildir."]
     return "\n".join(satir)
 
@@ -232,8 +222,7 @@ def main():
             with open("son_sonuc.json", "w", encoding="utf-8") as f:
                 json.dump({"ts": int(time.time()), "son_mum": r["son_mum"], "taranan": r["taranan"], "hata": r["hata"],
                            "bb": [x["s"] for x in r["sonuc"] if x["bb"]],
-                           "erken": [x["s"] for x in r["sonuc"] if x["erken"]],
-                           "supriz": {x["s"]: x["supriz"] for x in r["sonuc"] if x["supriz"] >= sp.TOPLAM - 1}},
+                           "erken": [x["s"] for x in r["sonuc"] if x["erken"]]},
                           f, ensure_ascii=False, indent=1)
     if not token or not chat:
         print("TELEGRAM_BOT_TOKEN / TELEGRAM_CHAT_ID tanımlı değil; mesaj gönderilmedi.", file=sys.stderr)

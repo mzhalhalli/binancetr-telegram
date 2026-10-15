@@ -19,18 +19,20 @@ def sahte_get(rows_by_symbol):
 
 class TaramaTests(unittest.TestCase):
     def test_wal_19_00_kapanisi(self):
-        # 14.10 19:00 mumu kapandıktan hemen sonra (23:01 TR): WAL SÜPRİZ olmalı, 3 yeşil şartı 15:00 kırmızı olduğu için tutmaz
+        # 14.10 19:00 mumu kapandıktan hemen sonra (23:01 TR): 3 yeşil şartı 15:00 kırmızı olduğu için tutmaz
         rows = WAL[:-1]
         now = rows[-1][6] + 60_000
         with mock.patch.object(tt, "_get", sahte_get({"WALTRY": rows})):
             r = tt.tara(now)
         self.assertEqual(r["taranan"], 1)
         x = r["sonuc"][0]
-        self.assertEqual((x["s"], x["supriz"], x["bb"], x["erken"]), ("WAL_TRY", 7, False, False))
+        self.assertEqual((x["s"], x["bb"], x["erken"]), ("WAL_TRY", False, False))
+        self.assertNotIn("supriz", x)
         m = tt.mesaj(r)
         self.assertIn("14.10 19:00–23:00", m)
-        self.assertIn("WAL_TRY", m)
-        self.assertIn("SÜPRİZ", m)
+        self.assertNotIn("WAL_TRY", m)                   # yalnızca süpriz listesindeydi; süpriz kaldırıldı
+        self.assertNotIn("SÜPRİZ", m)
+        self.assertNotIn("Süpriz", m)
 
     def test_wal_11_00_kapanisi_uc_yesil(self):
         # 14.10 11:00 mumu kapandığında son 3 mum (03:00, 07:00, 11:00) yeşil ve orta bandın üstünde
@@ -40,7 +42,7 @@ class TaramaTests(unittest.TestCase):
             r = tt.tara(rows[-1][6] + 60_000)          # açık mum (15:00) atılır
         x = r["sonuc"][0]
         self.assertTrue(x["bb"])
-        self.assertEqual(x["supriz"], 7)
+        self.assertIn("WAL_TRY", tt.mesaj(r).split("3 yeşil mum")[1].split("🟠")[0])
 
     def test_wal_13_10_23_00_erken_uyari(self):
         # 13.10 23:00 mumu (14.10 03:00'te kapandı): kırılımdan önceki sessiz hazırlık mumu, ERKEN UYARI listesinde

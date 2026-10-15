@@ -5,9 +5,8 @@ Her saat son kapanan 1 saatlik mumu tarar; TR saatiyle 03, 07, 11, 15, 19, 23'te
 GitHub bazen 5–15 dakika geç başlatabilir. Özel depoda aylık ücretsiz süre (2000 dk) her saat çalışmaya yeter.
 
 Her taramada Binance TR'deki tüm TRY çiftlerine bakar ve her zaman dilimi için kanala ayrı mesaj yollar:
-1. Orta bandın üstünde ardışık 3 yeşil mum (BOLL 21,2). Süpriz şartlarını da tutan coinin yanında SÜPRİZ yazar.
-2. Süpriz listesi (WAL_TRY 14.10 / BLUR_TRY 15.10 benzeri, 7 şartın en az 6'sı).
-3. Erken uyarı listesi (BLUR_TRY 15.10 patlama öncesi mumu benzeri, 8 şartın 8'i). Patlamadan önce yakalar ama yanlış sinyali de çoktur: izlemeye alın.
+1. Orta bandın üstünde ardışık 3 yeşil mum (BOLL 21,2). Erken uyarı şartlarını da tutan coinin yanında ERKEN UYARI yazar.
+2. Erken uyarı listesi (BLUR_TRY 15.10 patlama öncesi mumu benzeri, 8 şartın 8'i). Patlamadan önce yakalar ama yanlış sinyali de çoktur: izlemeye alın.
 
 Yalnızca herkese açık piyasa verisini okur. Borsa API anahtarı gerekmez, alım satım yapmaz.
 Telegram anahtarını kimseyle paylaşmayın, sohbete yazmayın; sadece GitHub'daki "Secrets" bölümüne girin.
