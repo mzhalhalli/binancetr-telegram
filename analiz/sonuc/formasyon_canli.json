@@ -1,58 +1,76 @@
 {
- "olusturma": "15.10.2026 19:38",
+ "olusturma": "15.10.2026 20:00",
  "takip_bas": "15.10.2026 19:00",
  "coin": 306,
- "hata": 0,
- "hata_ornek": [],
+ "hata": 1,
+ "hata_ornek": [
+  "4h 1MBABYDOGE_TRY: RuntimeError: /api/v3/klines: HTTP Error 451: "
+ ],
  "ileri_test": {
   "hepsi": {
    "n": 2,
-   "acik": 2,
-   "biten": 0
+   "suresi_dolan": 0,
+   "suresi_dolmayan": 2,
+   "suresi_dolmayan_hedef": 0,
+   "suresi_dolmayan_zarar_kes": 0
   },
   "1h boga_bayragi": {
    "n": 0,
-   "acik": 0,
-   "biten": 0
+   "suresi_dolan": 0,
+   "suresi_dolmayan": 0,
+   "suresi_dolmayan_hedef": 0,
+   "suresi_dolmayan_zarar_kes": 0
   },
   "1h genisleyen": {
    "n": 0,
-   "acik": 0,
-   "biten": 0
+   "suresi_dolan": 0,
+   "suresi_dolmayan": 0,
+   "suresi_dolmayan_hedef": 0,
+   "suresi_dolmayan_zarar_kes": 0
   },
   "4h genisleyen": {
    "n": 0,
-   "acik": 0,
-   "biten": 0
+   "suresi_dolan": 0,
+   "suresi_dolmayan": 0,
+   "suresi_dolmayan_hedef": 0,
+   "suresi_dolmayan_zarar_kes": 0
   },
   "4h dikdortgen": {
    "n": 1,
-   "acik": 1,
-   "biten": 0
+   "suresi_dolan": 0,
+   "suresi_dolmayan": 1,
+   "suresi_dolmayan_hedef": 0,
+   "suresi_dolmayan_zarar_kes": 0
   },
   "4h yukselen_ucgen": {
    "n": 1,
-   "acik": 1,
-   "biten": 0
+   "suresi_dolan": 0,
+   "suresi_dolmayan": 1,
+   "suresi_dolmayan_hedef": 0,
+   "suresi_dolmayan_zarar_kes": 0
   },
   "4h ikili_dip": {
    "n": 0,
-   "acik": 0,
-   "biten": 0
+   "suresi_dolan": 0,
+   "suresi_dolmayan": 0,
+   "suresi_dolmayan_hedef": 0,
+   "suresi_dolmayan_zarar_kes": 0
   }
  },
  "son_gunler": {
   "gun": 7,
   "hepsi": {
    "n": 100,
-   "acik": 15,
-   "biten": 85,
-   "hedef": 22,
-   "zarar_kes": 53,
+   "suresi_dolan": 41,
+   "suresi_dolmayan": 59,
+   "suresi_dolmayan_hedef": 5,
+   "suresi_dolmayan_zarar_kes": 39,
+   "hedef": 17,
+   "zarar_kes": 14,
    "sure_doldu": 10,
-   "basari_pct": 25.9,
-   "rastgele_basari_pct": 38.4,
-   "ort_getiri_pct": -2.32
+   "basari_pct": 41.5,
+   "rastgele_basari_pct": 36.6,
+   "ort_getiri_pct": 1.29
   }
  },
  "liste": [
@@ -2317,5 +2335,5 @@
    "durum": "açık"
   }
  ],
- "sure_sn": 126
+ "sure_sn": 154
 }
