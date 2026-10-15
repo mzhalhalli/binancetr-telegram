@@ -4,6 +4,7 @@ name: sert yukselis analizi
 # commit mesajında [hedef] varsa hedef (1.-4. hedef, zarar-kes) testi çalışır
 # commit mesajında [formasyon] varsa grafik ve mum formasyonları testi çalışır (15m, 1h, 4h, 1d, 1w)
 # commit mesajında [canli] varsa iyi çıkan 1h/4h yukarı kırılımlar canlı izlenir (analiz/formasyon_canli.py)
+# commit mesajında [piyasa] varsa 1h/4h formasyon testi piyasa durumuna göre bölünür (analiz/sonuc/formasyon_piyasa.json)
 on:
   push:
     branches: [analiz-yukselis]
@@ -30,8 +31,10 @@ jobs:
           HEDEF: ${{ contains(github.event.head_commit.message, '[hedef]') && '1' || '0' }}
           FORMASYON: ${{ contains(github.event.head_commit.message, '[formasyon]') && '1' || '0' }}
           CANLI: ${{ contains(github.event.head_commit.message, '[canli]') && '1' || '0' }}
+          PIYASA: ${{ contains(github.event.head_commit.message, '[piyasa]') && '1' || '0' }}
         run: |
           if [ "$CANLI" = "1" ]; then python3 analiz/formasyon_canli.py
+          elif [ "$PIYASA" = "1" ]; then ARALIKLAR=1h,4h CIKTI=formasyon_piyasa.json python3 analiz/formasyon.py
           elif [ "$FORMASYON" = "1" ]; then python3 analiz/formasyon.py
           elif [ "$HEDEF" = "1" ]; then python3 analiz/hedef_backtest.py
           else python3 analiz/yukselis_profili.py; fi

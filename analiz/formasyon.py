@@ -12,7 +12,8 @@ ne olurdu diye karşılaştırılır (formasyonun gerçek katkısı = fark).
 
 Mum formasyonları (yutan, çekiç, kayan yıldız, doji, sabah/akşam yıldızı, üç asker/karga, harami, delen, kara bulut,
 cımbız, marubozu): sinyal mumunun kapanışından sonra 10 mum içinde önce 1 ATR lehte mi aleyhte mi gidildi.
-Sonuç: analiz/sonuc/formasyon.json
+Piyasa durumu: kırılım anında coinlerin kaçta kaçı kendi 50 mumluk ortalamasının üstünde (genişlik) ve BTC_TRY ortalamanın üstünde mi.
+Sonuç: analiz/sonuc/formasyon.json (CIKTI ile değiştirilebilir)
 """
 from __future__ import annotations
 
@@ -38,12 +39,14 @@ import telegram_tarama as tt  # noqa: E402
 TR = timezone(timedelta(hours=3))
 IVS = {"15m": 900_000, "1h": 3_600_000, "4h": 14_400_000, "1d": 86_400_000, "1w": 604_800_000}
 GUNLER = {"15m": 30, "1h": 180, "4h": 730, "1d": 1500, "1w": 3000}
-ARALIKLAR = [a for a in os.environ.get("ARALIKLAR", "15m,1h,4h,1d,1w").split(",") if a]
+ARALIKLAR = [a for a in (os.environ.get("ARALIKLAR") or "15m,1h,4h,1d,1w").split(",") if a]
+CIKTI = os.environ.get("CIKTI") or "formasyon.json"
 STABIL = {"USDT", "USDC", "FDUSD", "TUSD", "BUSD", "DAI", "USDP", "EUR", "EURI", "AEUR", "BFUSD", "USDE", "USD1", "RLUSD", "XUSD"}
 K_ATR = 3.0          # dönüş noktası eşiği
 TOL = 0.8            # "aynı seviye" toleransı (ATR)
 RASTGELE = 8         # her kırılım için rastgele karşılaştırma girişi
 MUM_ILERI = 10
+PIYASA_MA = 50       # piyasa genişliği: kapanışı kendi MA50'sinin üstünde olan coin oranı
 
 ADLAR = {
     "ikili_tepe": ("İkili tepe", "short"), "ikili_dip": ("İkili dip", "long"),
@@ -484,7 +487,8 @@ def main():
         iv = IVS[aralik]
         bit_ms = int(time.time() * 1000) // iv * iv
         bas_ms = bit_ms - GUNLER[aralik] * 86_400_000
-        grafik, mum, hata, mum_say = [], {}, [], []
+        grafik, mum, hata, mum_say, piyasa_ham = [], {}, [], [], []
+        btc = {}
         kilit = threading.Lock()
 
         def bir(s):
@@ -492,6 +496,14 @@ def main():
                 rows = mumlar(s["bn"], aralik, bas_ms, bit_ms)
                 rng = np.random.default_rng(sum(map(ord, s["s"])) * 7 + len(aralik))
                 mum_say.append(len(rows))
+                if len(rows) > PIYASA_MA:
+                    kp = np.array([float(r[4]) for r in rows])
+                    ma = np.convolve(kp, np.ones(PIYASA_MA) / PIYASA_MA, "valid")
+                    ts_ = np.array([int(r[0]) for r in rows[PIYASA_MA - 1:]], dtype=np.int64)
+                    ust = (kp[PIYASA_MA - 1:] > ma).astype(float)
+                    piyasa_ham.append((ts_, ust))
+                    if s["s"] == "BTC_TRY":
+                        btc.update(zip(ts_.tolist(), (ust > 0).tolist()))
                 for x in grafik_olaylari(rows, rng):
                     x["s"] = s["s"]
                     grafik.append(x)
@@ -506,8 +518,22 @@ def main():
 
         with ThreadPoolExecutor(8) as ex:
             list(ex.map(bir, sem))
+        genislik = {}
+        if piyasa_ham:
+            tum_ts = np.concatenate([a for a, _ in piyasa_ham])
+            u, ters = np.unique(tum_ts, return_inverse=True)
+            toplam = np.bincount(ters)
+            yukari = np.bincount(ters, weights=np.concatenate([b for _, b in piyasa_ham]))
+            genislik = {int(k): float(y / n) for k, y, n in zip(u, yukari, toplam) if n >= 50}
+        for x in grafik:
+            x["genislik"] = genislik.get(x["ts"])
+            x["btc_ust"] = btc.get(x["ts"])
         ts_hepsi = sorted(x["ts"] for x in grafik)
         orta = ts_hepsi[len(ts_hepsi) // 2] if ts_hepsi else 0
+
+        def yarili(ol):
+            return {**grafik_ozet(ol), "ilk_yari": grafik_ozet([x for x in ol if x["ts"] < orta]),
+                    "ikinci_yari": grafik_ozet([x for x in ol if x["ts"] >= orta])}
         G = {}
         for ad in ADLAR:
             for yon, yad in ((1, "long"), (-1, "short")):
@@ -520,6 +546,10 @@ def main():
                     "ikinci_yari": grafik_ozet([x for x in ol if x["ts"] >= orta]),
                     "hacimli": grafik_ozet([x for x in ol if (x["hacim_kat"] or 0) >= 1.5]),
                     "hacimsiz": grafik_ozet([x for x in ol if (x["hacim_kat"] or 0) < 1.5]),
+                    "piyasa_guclu": yarili([x for x in ol if x["genislik"] is not None and x["genislik"] >= 0.5]),
+                    "piyasa_zayif": yarili([x for x in ol if x["genislik"] is not None and x["genislik"] < 0.5]),
+                    "btc_ust": yarili([x for x in ol if x["btc_ust"] is True]),
+                    "btc_alt": yarili([x for x in ol if x["btc_ust"] is False]),
                 }
         M = {}
         for ad, (isim, yad) in MUM_ADLAR.items():
@@ -549,7 +579,7 @@ def main():
     sonuc["sure_sn"] = round(time.time() - t0)
     out = KOK / "analiz" / "sonuc"
     out.mkdir(parents=True, exist_ok=True)
-    (out / "formasyon.json").write_text(json.dumps(sonuc, ensure_ascii=False, indent=1), encoding="utf-8")
+    (out / CIKTI).write_text(json.dumps(sonuc, ensure_ascii=False, indent=1), encoding="utf-8")
 
 
 if __name__ == "__main__":
