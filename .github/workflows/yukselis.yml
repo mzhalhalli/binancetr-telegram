@@ -5,6 +5,7 @@ name: sert yukselis analizi
 # commit mesajında [formasyon] varsa grafik ve mum formasyonları testi çalışır (15m, 1h, 4h, 1d, 1w)
 # commit mesajında [canli] varsa iyi çıkan 1h/4h yukarı kırılımlar canlı izlenir (analiz/formasyon_canli.py)
 # commit mesajında [piyasa] varsa 1h/4h formasyon testi piyasa durumuna göre bölünür (analiz/sonuc/formasyon_piyasa.json)
+# commit mesajında [cuzdan] varsa 15m erken uyarı cüzdan denemesi çalışır (analiz/cuzdan_sim.py; BAS/BIT saatleri)
 on:
   push:
     branches: [analiz-yukselis]
@@ -32,12 +33,16 @@ jobs:
           FORMASYON: ${{ contains(github.event.head_commit.message, '[formasyon]') && '1' || '0' }}
           CANLI: ${{ contains(github.event.head_commit.message, '[canli]') && '1' || '0' }}
           PIYASA: ${{ contains(github.event.head_commit.message, '[piyasa]') && '1' || '0' }}
+          CUZDAN_SIM: ${{ contains(github.event.head_commit.message, '[cuzdan]') && '1' || '0' }}
         run: |
-          if [ "$CANLI" = "1" ]; then python3 analiz/formasyon_canli.py
-          elif [ "$PIYASA" = "1" ]; then ARALIKLAR=1h,4h CIKTI=formasyon_piyasa.json python3 analiz/formasyon.py
-          elif [ "$FORMASYON" = "1" ]; then python3 analiz/formasyon.py
-          elif [ "$HEDEF" = "1" ]; then python3 analiz/hedef_backtest.py
-          else python3 analiz/yukselis_profili.py; fi
+          # birden çok etiket varsa her biri sırayla çalışır; hiç etiket yoksa sert yükseliş profili
+          calisti=0
+          if [ "$CUZDAN_SIM" = "1" ]; then python3 analiz/cuzdan_sim.py; calisti=1; fi
+          if [ "$CANLI" = "1" ]; then python3 analiz/formasyon_canli.py; calisti=1; fi
+          if [ "$PIYASA" = "1" ]; then ARALIKLAR=1h,4h CIKTI=formasyon_piyasa.json python3 analiz/formasyon.py; calisti=1; fi
+          if [ "$FORMASYON" = "1" ]; then python3 analiz/formasyon.py; calisti=1; fi
+          if [ "$HEDEF" = "1" ]; then python3 analiz/hedef_backtest.py; calisti=1; fi
+          if [ "$calisti" = "0" ]; then python3 analiz/yukselis_profili.py; fi
       - name: Sonucu dala kaydet
         run: |
           git config user.name "tarama-bot"

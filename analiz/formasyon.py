@@ -373,6 +373,27 @@ def grafik_olaylari(rows: list, rng) -> list[dict]:
     return olay
 
 
+# ---------------------------------------------------------------------- piyasa durumu
+def piyasa_bayrak(rows: list) -> tuple | None:
+    """(mum açılış zamanları, kapanış kendi PIYASA_MA ortalamasının üstünde mi 1/0)"""
+    if len(rows) <= PIYASA_MA:
+        return None
+    kp = np.array([float(r[4]) for r in rows])
+    ma = np.convolve(kp, np.ones(PIYASA_MA) / PIYASA_MA, "valid")
+    ts = np.array([int(r[0]) for r in rows[PIYASA_MA - 1:]], dtype=np.int64)
+    return ts, (kp[PIYASA_MA - 1:] > ma).astype(float)
+
+
+def genislik_haritasi(bayraklar: list[tuple]) -> dict[int, float]:
+    """Her mum zamanı için ortalamasının üstündeki coin oranı (en az 50 coin varsa)."""
+    if not bayraklar:
+        return {}
+    u, ters = np.unique(np.concatenate([a for a, _ in bayraklar]), return_inverse=True)
+    toplam = np.bincount(ters)
+    yukari = np.bincount(ters, weights=np.concatenate([b for _, b in bayraklar]))
+    return {int(k): float(y / n) for k, y, n in zip(u, yukari, toplam) if n >= 50}
+
+
 # ---------------------------------------------------------------------- mum formasyonları
 def mum_olaylari(rows: list) -> dict:
     o = np.array([float(r[1]) for r in rows])
@@ -496,14 +517,11 @@ def main():
                 rows = mumlar(s["bn"], aralik, bas_ms, bit_ms)
                 rng = np.random.default_rng(sum(map(ord, s["s"])) * 7 + len(aralik))
                 mum_say.append(len(rows))
-                if len(rows) > PIYASA_MA:
-                    kp = np.array([float(r[4]) for r in rows])
-                    ma = np.convolve(kp, np.ones(PIYASA_MA) / PIYASA_MA, "valid")
-                    ts_ = np.array([int(r[0]) for r in rows[PIYASA_MA - 1:]], dtype=np.int64)
-                    ust = (kp[PIYASA_MA - 1:] > ma).astype(float)
-                    piyasa_ham.append((ts_, ust))
+                pb = piyasa_bayrak(rows)
+                if pb:
+                    piyasa_ham.append(pb)
                     if s["s"] == "BTC_TRY":
-                        btc.update(zip(ts_.tolist(), (ust > 0).tolist()))
+                        btc.update(zip(pb[0].tolist(), (pb[1] > 0).tolist()))
                 for x in grafik_olaylari(rows, rng):
                     x["s"] = s["s"]
                     grafik.append(x)
@@ -518,13 +536,7 @@ def main():
 
         with ThreadPoolExecutor(8) as ex:
             list(ex.map(bir, sem))
-        genislik = {}
-        if piyasa_ham:
-            tum_ts = np.concatenate([a for a, _ in piyasa_ham])
-            u, ters = np.unique(tum_ts, return_inverse=True)
-            toplam = np.bincount(ters)
-            yukari = np.bincount(ters, weights=np.concatenate([b for _, b in piyasa_ham]))
-            genislik = {int(k): float(y / n) for k, y, n in zip(u, yukari, toplam) if n >= 50}
+        genislik = genislik_haritasi(piyasa_ham)
         for x in grafik:
             x["genislik"] = genislik.get(x["ts"])
             x["btc_ust"] = btc.get(x["ts"])
