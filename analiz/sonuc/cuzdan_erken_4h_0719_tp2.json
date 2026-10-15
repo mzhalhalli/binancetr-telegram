@@ -1,0 +1,93 @@
+{
+ "olusturma": "15.10.2026 21:16",
+ "ad": "erken_4h_0719_tp2",
+ "aralik": "4h",
+ "bas": "15.10.2026 07:00",
+ "bas_dahil": true,
+ "bit": "15.10.2026 19:00",
+ "cuzdan": 1000,
+ "pay": 0.05,
+ "satis": [
+  [
+   2,
+   100
+  ]
+ ],
+ "stop": 5,
+ "alim_usd": 50.0,
+ "son_mum": "15.10 21:15",
+ "coin": 306,
+ "veri_olan": 306,
+ "hata": 0,
+ "hata_ornek": [],
+ "sinyal_sayisi": 2,
+ "sinyal_coin": 2,
+ "alim_sayisi": 2,
+ "alim_coin": 2,
+ "atlanan_sayisi": 0,
+ "hedef_adim_sayisi": [
+  1
+ ],
+ "zarar_kes_sayisi": 0,
+ "elde_kalan": 1,
+ "karda": 1,
+ "zararda": 1,
+ "nakit": 950.9,
+ "elde_deger": 48.47,
+ "son_deger": 999.37,
+ "kar": -0.63,
+ "getiri_pct": -0.06,
+ "piyasa_coin": 306,
+ "piyasa_ort_pct": 4.39,
+ "piyasa_medyan_pct": 4.25,
+ "islemler": [
+  {
+   "s": "AT_TRY",
+   "alis": "15.10 07:00",
+   "alis_ms": 1792035900000,
+   "giris": 6.862,
+   "para": 50.0,
+   "satislar": [
+    {
+     "saat": "15.10 15:45",
+     "neden": "+%2 hedef",
+     "oran_pct": 100.0,
+     "fiyat": 6.99924,
+     "usd": 50.9
+    }
+   ],
+   "zarar_kes": false,
+   "hedef_adim": 1,
+   "elde": false,
+   "elde_oran_pct": 0.0,
+   "kalan_deger": 0.0,
+   "deger": 50.9,
+   "kar": 0.9,
+   "getiri_pct": 1.8,
+   "en_yuksek_pct": 4.2,
+   "en_dusuk_pct": -2.4,
+   "simdi_pct": 1.12
+  },
+  {
+   "s": "RED_TRY",
+   "alis": "15.10 19:00",
+   "alis_ms": 1792079100000,
+   "giris": 8.04,
+   "para": 50.0,
+   "satislar": [],
+   "zarar_kes": false,
+   "hedef_adim": 0,
+   "elde": true,
+   "elde_oran_pct": 100.0,
+   "kalan_deger": 48.47,
+   "deger": 48.47,
+   "kar": -1.53,
+   "getiri_pct": -3.05,
+   "en_yuksek_pct": 1.12,
+   "en_dusuk_pct": -3.48,
+   "simdi_pct": -2.86
+  }
+ ],
+ "atlanan": [],
+ "sure_sn": 68
+}
