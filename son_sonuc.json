@@ -1,10 +1,12 @@
 {
- "ts": 1792038759,
- "son_mum": 1792022400000,
+ "ts": 1792053410,
+ "son_mum": 1792036800000,
  "taranan": 310,
  "hata": 0,
  "bb": [
-  "AT_TRY"
+  "USDT_TRY",
+  "USDC_TRY",
+  "ZK_TRY"
  ],
  "supriz": {}
 }
