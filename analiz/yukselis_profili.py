@@ -77,6 +77,9 @@ SAYISAL = [k for k in ADLAR if k not in MANTIK]
 # profilden elle kurulan aday kurallar (eğitim ve test döneminde aynı şekilde ölçülür)
 ELLE = {
     "ani_ema_kesisi": [("ema_kes", "==", 1.0), ("e9_21", ">=", 0.9)],
+    "ani_ema_kesisi_likit": [("ema_kes", "==", 1.0), ("e9_21", ">=", 0.9), ("likit", ">=", 7.5)],
+    "ani_ema_kesisi_hacim": [("ema_kes", "==", 1.0), ("e9_21", ">=", 0.9), ("hk", ">=", 2.0)],
+    "ani_ema_kesisi_sakin": [("ema_kes", "==", 1.0), ("e9_21", ">=", 0.9), ("deg", "<=", 4.99)],
     "momentum_hacim": [("c_ma20", ">=", 2.0), ("hk", ">=", 2.0), ("hist_art", "==", 1.0), ("rsi", ">=", 55.0),
                        ("rsi", "<=", 75.0), ("yesil", "==", 1.0)],
     "momentum_hacim_likit": [("c_ma20", ">=", 2.0), ("hk", ">=", 2.0), ("hist_art", "==", 1.0), ("rsi", ">=", 55.0),
@@ -236,8 +239,11 @@ def ozellik(rows: list) -> dict:
         F["likit"] = np.log10(ort(q, 96) * 96 + 1)
         F["yesil"] = c > o
         sert = (F["deg"] >= 5) & (q20 > 0) & (q >= 5 * q20)
+        sert_dusus = (F["deg"] <= -5) & (q20 > 0) & (q >= 5 * q20)
         H = {
             "sert4": ileri_max(sert.astype(float), YAKIN) > 0,
+            "dusus4": ileri_max(sert_dusus.astype(float), YAKIN) > 0,
+            "sert0": sert.astype(float),
             "max1": (ileri_max(h, YAKIN) / c - 1) * 100,
             "max4": (ileri_max(h, UZAK) / c - 1) * 100,
             "kap4": (geri(c, -UZAK) / c - 1) * 100,
@@ -373,6 +379,8 @@ def degerlendir(m: np.ndarray, D: dict, sec: np.ndarray, gun: float, olaylar: np
             continue
         sonuc[ad] = {
             "sert4_pct": yuvarla(H["sert4"][x].mean() * 100, 2),
+            "dusus4_pct": yuvarla(H["dusus4"][x].mean() * 100, 2),
+            "sinyal_mumu_sert_pct": yuvarla(H["sert0"][x].mean() * 100, 1),
             "max1_5_pct": yuvarla((H["max1"][x] >= 5).mean() * 100, 1),
             "max4_5_pct": yuvarla((H["max4"][x] >= 5).mean() * 100, 1),
             "max4_10_pct": yuvarla((H["max4"][x] >= 10).mean() * 100, 1),
@@ -479,7 +487,7 @@ def analiz(parcalar: dict, bas_ms: int, bit_ms: int) -> dict:
     """parcalar: sembol -> ozellik() çıktısı. Yalnızca bas_ms sonrası mumlar sayılır (öncesi ısınma)."""
     semler = sorted(parcalar)
     F = {f: [] for f in ADLAR}
-    H = {k: [] for k in ("sert4", "max1", "max4", "kap4", "dd4", *YOL)}
+    H = {k: [] for k in ("sert4", "dusus4", "sert0", "max1", "max4", "kap4", "dd4", *YOL)}
     ts, sym, tam, olay = [], [], [], []
     ofs = 0
     for si, s in enumerate(semler):
