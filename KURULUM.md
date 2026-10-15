@@ -5,7 +5,7 @@ Bu klasör GitHub'ın sunucularında (GitHub Actions) çalışır. 15.10.2026'da
 2. 4 saatlik: formasyon kırılımı. Geçmiş testte rastgeleden iyi çıkan yukarı kırılımlar: genişleyen formasyon, dikdörtgen,
    yükselen üçgen, ikili dip. Hedef, zarar-kes, geçmiş test sonucu ve piyasa durumu (MA50 üstündeki coin oranı, BTC_TRY) yazar.
    1 ve 2 aynı mesajdadır; TR saatiyle 03, 07, 11, 15, 19, 23'teki 4 saatlik kapanışlardan sonra gelir.
-3. 15 dakikalık erken uyarı (BLUR_TRY 15.10 patlama öncesi mumu benzeri, 8 şartın 8'i). Her 15 dakikalık kapanıştan sonra
+3. 15 dakikalık erken uyarı (patlama öncesi sessiz hazırlık mumu, 8 şartın 8'i). Her 15 dakikalık kapanıştan sonra
    bakılır; eşleşen coin yoksa mesaj gelmez. Patlamadan önce yakalar ama yanlış sinyali de çoktur: izlemeye alın.
 
 Zamanlama: cron-job.org her 15 dakikada bir (her saatin 1, 16, 31 ve 46. dakikası) bu iş akışını başlatır.

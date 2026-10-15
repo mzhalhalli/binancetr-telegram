@@ -2,7 +2,7 @@
   1) 4 saatlik: Bollinger (21, 2) orta bandının üstünde ardışık 3 yeşil mum
   2) 4 saatlik: formasyon kırılımı (15.10.2026 geçmiş testinde rastgele girişten iyi çıkan yukarı kırılımlar:
      genişleyen formasyon, dikdörtgen, yükselen üçgen, ikili dip; btr/formasyon.py)
-  3) 15 dakikalık erken uyarı (BLUR_TRY 15.10 11:45 gibi patlama öncesi sessiz hazırlık mumu, 8 şartın 8'i).
+  3) 15 dakikalık erken uyarı (patlama öncesi sessiz hazırlık mumu, 8 şartın 8'i).
      Dış zamanlayıcı (cron-job.org) her 15 dakikada bir otomatik=evet ile çalıştırır; iş akışında ONBES_DK=evet.
      Eşleşen coin yoksa mesaj atılmaz. Mum kapanışından 10 dakikadan geç başlayan çalıştırma bu mumu göndermez
      (eski uyarı gitmesin, aynı mum iki kez gitmesin). Depo herkese açık olmalı: gizli depoda GitHub'ın aylık ücretsiz
@@ -232,7 +232,7 @@ def mesaj_erken(r: dict) -> str | None:
     if not erk:
         return None
     satir = [f"🟠 Binance TR · 15 dakikalık erken uyarı · kapanış {_baslik(r)}",
-             "BLUR_TRY 15.10 patlama öncesi benzeri, 8 şartın 8'i; izlemeye al", ""]
+             "Patlama öncesi sessiz hazırlık, 8 şartın 8'i tutuyor; izlemeye al", ""]
     satir += _kisalt([f"• {x['s']}  {_sayi(x['fiyat'])}  hacim {_hacim(x['hacim'])} TRY\n   {x['erken_detay']}" for x in erk], len(erk), 1)
     satir += ["", "Yalnızca borsa verisi; yatırım tavsiyesi değildir."]
     return "\n".join(satir)
