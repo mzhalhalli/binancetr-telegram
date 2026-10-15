@@ -1,15 +1,18 @@
 {
- "ts": 1792080122,
- "son_mum": 1792065600000,
+ "ts": 1792094533,
+ "son_mum": 1792080000000,
  "taranan": 310,
  "hata": 0,
  "bb": [
-  "FDUSD_TRY",
   "CRV_TRY",
+  "BABY_TRY",
   "MEGA_TRY"
  ],
  "erken": [
-  "RED_TRY"
+  "EDU_TRY",
+  "LPT_TRY"
  ],
- "supriz": {}
+ "supriz": {
+  "ANIME_TRY": 6
+ }
 }
