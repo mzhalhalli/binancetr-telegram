@@ -36,6 +36,7 @@ GUN = int(os.environ.get("GUN", "30"))
 ISINMA = 320           # EMA200 ve 100 mumluk bant geçmişi için önceden okunan mum
 BB_N = 21              # bottaki Bollinger (21, 2) ile aynı
 YAKIN, UZAK = 4, 16    # sonraki 4 mum (15 dk'da 1 saat) ve 16 mum (15 dk'da 4 saat)
+YOL = {"h5s3": (5, 3), "h3s2": (3, 2)}   # hedef +%5 / stop -%3 ve hedef +%3 / stop -%2, 16 mum içinde
 TR = timezone(timedelta(hours=3))
 STABIL = {"USDT", "USDC", "FDUSD", "TUSD", "BUSD", "DAI", "USDP", "EUR", "EURI", "AEUR", "BFUSD", "USDE", "USD1", "RLUSD", "XUSD"}
 
@@ -73,6 +74,18 @@ ADLAR = {
 }
 MANTIK = ["hist_art", "hist_don", "ema_kes", "ema_sira", "ma_sira", "yesil"]
 SAYISAL = [k for k in ADLAR if k not in MANTIK]
+# profilden elle kurulan aday kurallar (eğitim ve test döneminde aynı şekilde ölçülür)
+ELLE = {
+    "ani_ema_kesisi": [("ema_kes", "==", 1.0), ("e9_21", ">=", 0.9)],
+    "momentum_hacim": [("c_ma20", ">=", 2.0), ("hk", ">=", 2.0), ("hist_art", "==", 1.0), ("rsi", ">=", 55.0),
+                       ("rsi", "<=", 75.0), ("yesil", "==", 1.0)],
+    "momentum_hacim_likit": [("c_ma20", ">=", 2.0), ("hk", ">=", 2.0), ("hist_art", "==", 1.0), ("rsi", ">=", 55.0),
+                             ("rsi", "<=", 75.0), ("yesil", "==", 1.0), ("likit", ">=", 7.5)],
+    "kirilim_hacim": [("tepe36", ">=", 0.0), ("hk", ">=", 3.0), ("bwp", ">=", 70.0), ("rsi", "<=", 80.0)],
+    "trend_hacim": [("ema_sira", "==", 1.0), ("hist_art", "==", 1.0), ("yb", ">=", 0.8), ("hk", ">=", 1.5),
+                    ("hk", "<=", 5.0), ("yesil", "==", 1.0), ("c_ma50", ">=", 1.0)],
+    "genis_bant_ivme": [("bw", ">=", 7.9), ("rsi_d", ">=", 14.8), ("likit", ">=", 8.37), ("hk3", ">=", 4.3)],
+}
 HEDEFLER = {"sert4": "sonraki 4 mumda sert yükseliş mumu (+%5 gövde, 5 kat hacim)",
             "max1_5": "sonraki 4 mumda en yüksek fiyat +%5 ve üstü"}
 
@@ -146,6 +159,22 @@ def ileri_min(x, k):
     return out
 
 
+def hedef_stop(h, l, c, tp, sl, k=UZAK):
+    """Sinyal kapanışında alınsaydı sonraki k mumda: +%tp önce gelirse 1, -%sl önce gelirse -1, hiçbiri 0.
+    Aynı mumda ikisi birden olursa stop sayılır (temkinli)."""
+    n = len(c)
+    out = np.full(n, np.nan)
+    if n <= k:
+        return out
+    wh, wl = pencere(h[1:], k), pencere(l[1:], k)
+    cc = c[:n - k, None]
+    ust, alt = wh >= cc * (1 + tp / 100), wl <= cc * (1 - sl / 100)
+    i_ust = np.where(ust.any(1), ust.argmax(1), k + 1)
+    i_alt = np.where(alt.any(1), alt.argmax(1), k + 1)
+    out[:n - k] = np.where((i_ust < i_alt), 1.0, np.where(i_alt <= k, -1.0, 0.0))
+    return out
+
+
 # ---------------------------------------------------------------------- indikatörler
 def ozellik(rows: list) -> dict:
     """Her mum için (yalnızca o muma kadarki veriyle) indikatörler, sert yükseliş işareti ve sonraki hareket."""
@@ -214,6 +243,8 @@ def ozellik(rows: list) -> dict:
             "kap4": (geri(c, -UZAK) / c - 1) * 100,
             "dd4": (ileri_min(l, UZAK) / c - 1) * 100,
         }
+        for ad, (tp, sl) in YOL.items():
+            H[ad] = hedef_stop(h, l, c, tp, sl)
     for k in MANTIK:
         F[k] = F[k].astype(float)
     return {"ts": ts, "c": c, "F": F, "sert": sert, "H": H, "tam": np.arange(n) + UZAK < n}
@@ -348,7 +379,13 @@ def degerlendir(m: np.ndarray, D: dict, sec: np.ndarray, gun: float, olaylar: np
             "kap4_yukari_pct": yuvarla((H["kap4"][x] > 0).mean() * 100, 1),
             "kap4_ort": yuvarla(np.nanmean(H["kap4"][x]), 2),
             "dd4_medyan": yuvarla(np.nanmedian(H["dd4"][x]), 2),
+            **{f"{ad}_{k}_pct": yuvarla((H[ad][x] == v).mean() * 100, 1)
+               for ad in YOL for k, v in (("hedef", 1), ("stop", -1))},
         }
+    if len(ilk):
+        say = np.bincount(D["sym"][ilk])
+        sonuc["coin_sayisi"] = int((say > 0).sum())
+        sonuc["en_cok_5_coin_pay_pct"] = yuvarla(np.sort(say)[-5:].sum() / len(ilk) * 100, 1)
     ol = olaylar[sec[olaylar]]
     yak = sum(1 for j in ol if m[j - YAKIN:j].any())
     sonuc["olay"] = int(len(ol))
@@ -442,7 +479,7 @@ def analiz(parcalar: dict, bas_ms: int, bit_ms: int) -> dict:
     """parcalar: sembol -> ozellik() çıktısı. Yalnızca bas_ms sonrası mumlar sayılır (öncesi ısınma)."""
     semler = sorted(parcalar)
     F = {f: [] for f in ADLAR}
-    H = {k: [] for k in ("sert4", "max1", "max4", "kap4", "dd4")}
+    H = {k: [] for k in ("sert4", "max1", "max4", "kap4", "dd4", *YOL)}
     ts, sym, tam, olay = [], [], [], []
     ofs = 0
     for si, s in enumerate(semler):
@@ -536,6 +573,11 @@ def analiz(parcalar: dict, bas_ms: int, bit_ms: int) -> dict:
             liste.append({"kural": kosul_metin(kos), "kosullar": [list(k) for k in kos],
                           "egitim": degerlendir(m, D, egit, gun_e, olay), "test": degerlendir(m, D, test, gun_t, olay)})
         kurallar[hedef] = liste
+    elle = {}
+    for ad, kos in ELLE.items():
+        m = kosul_maske(X, kos)
+        elle[ad] = {"kural": kosul_metin(kos), "egitim": degerlendir(m, D, egit, gun_e, olay),
+                    "test": degerlendir(m, D, test, gun_t, olay)}
 
     son = sorted(olay, key=lambda j: D["ts"][j])[-60:]
     return {
@@ -545,7 +587,7 @@ def analiz(parcalar: dict, bas_ms: int, bit_ms: int) -> dict:
         "bit": datetime.fromtimestamp(bit_ms / 1000, TR).strftime("%d.%m.%Y %H:%M"),
         "satir": int(N), "olay": int(len(olay)), "hedefler": HEDEFLER,
         "taban_oran": {"sert4_pct": yuvarla(oran_sert * 100, 3), "max1_5_pct": yuvarla(oran_m1 * 100, 2)},
-        "profil": profil, "kaldirac": kaldirac, "erken_sart": erken_sart, "kiyas": kiyas, "kurallar": kurallar,
+        "profil": profil, "kaldirac": kaldirac, "erken_sart": erken_sart, "kiyas": kiyas, "kurallar": kurallar, "elle": elle,
         "son_olaylar": [{"s": semler[D["sym"][j]], "zaman": datetime.fromtimestamp(D["ts"][j] / 1000, TR).strftime("%d.%m %H:%M"),
                          "deg": yuvarla(X["deg"][j], 1), "hk": yuvarla(X["hk"][j], 1), "erken_once": bool(erk[j - YAKIN:j].any())}
                         for j in son],
