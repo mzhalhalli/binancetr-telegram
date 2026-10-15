@@ -5,8 +5,13 @@ Her saat son kapanan 1 saatlik mumu tarar; TR saatiyle 03, 07, 11, 15, 19, 23'te
 GitHub bazen 5–15 dakika geç başlatabilir. Özel depoda aylık ücretsiz süre (2000 dk) her saat çalışmaya yeter.
 
 Her taramada Binance TR'deki tüm TRY çiftlerine bakar ve her zaman dilimi için kanala ayrı mesaj yollar:
-1. Orta bandın üstünde ardışık 3 yeşil mum (BOLL 21,2). Erken uyarı şartlarını da tutan coinin yanında ERKEN UYARI yazar.
-2. Erken uyarı listesi (BLUR_TRY 15.10 patlama öncesi mumu benzeri, 8 şartın 8'i). Patlamadan önce yakalar ama yanlış sinyali de çoktur: izlemeye alın.
+1. Orta bandın üstünde ardışık 3 yeşil mum (BOLL 21,2). Erken uyarı şartlarını da tutan coinin yanında ERKEN UYARI,
+   formasyon kırılımı olan coinin yanında 🔷 ve formasyonun adı yazar.
+2. Formasyon kırılımı: geçmiş testte rastgeleden iyi çıkan yukarı kırılımlar (1 saatlik: boğa bayrağı, genişleyen formasyon;
+   4 saatlik: genişleyen formasyon, dikdörtgen, yükselen üçgen, ikili dip). Hedef, zarar-kes, geçmiş test sonucu ve
+   piyasa durumu (coinlerin yüzde kaçı 50 mumluk ortalamasının üstünde, BTC_TRY) birlikte yazar.
+3. Erken uyarı listesi (BLUR_TRY 15.10 patlama öncesi mumu benzeri, 8 şartın 8'i). Patlamadan önce yakalar ama yanlış sinyali de çoktur: izlemeye alın.
+4. Erken uyarı · formasyon kırılımına yaklaşanlar: aynı formasyonlar hazır, henüz kırılmadı, kapanış kırılım çizgisine 1 ATR'den yakın (izleme listesi).
 
 Yalnızca herkese açık piyasa verisini okur. Borsa API anahtarı gerekmez, alım satım yapmaz.
 Telegram anahtarını kimseyle paylaşmayın, sohbete yazmayın; sadece GitHub'daki "Secrets" bölümüne girin.
