@@ -2,7 +2,9 @@
 cüzdan ne olurdu. Yalnızca herkese açık mum verisini okur; gerçek alım yapılmaz.
 
 Senaryolar analiz/cuzdan_senaryo.json dosyasında. Her senaryo için:
-- bas ile bit arasında kapanan her 15 dakikalık mumda tüm coinler taranır; erken uyarı veren coin o mumun kapanışından alınır.
+- bas ile bit arasında kapanan her `aralik` mumunda (15m, 1h ya da 4h; varsayılan 15m) tüm coinler taranır; erken uyarı veren
+  coin o mumun kapanışından alınır. `bas_dahil` true ise tam bas saatinde kapanan mum da sayılır.
+- Satışlar (hedef, zarar-kes) alıştan sonra 15 dakikalık mumlarla izlenir.
 - Her alım başlangıç cüzdanının `pay` oranı kadar. Nakit yetmezse sinyal atlanır. Aynı mumda birden çok sinyal varsa
   alfabetik sırayla alınır.
 - `satis`: [kâr %, eldeki miktarın satılan %] adımları. Fiyat alıştan o kadar yükselince (mumun en yükseği) eldekinin o kadarı
@@ -33,8 +35,9 @@ sys.path.insert(0, str(KOK / "analiz"))
 import telegram_tarama as tt  # noqa: E402
 import yukselis_profili as yp  # noqa: E402
 
-IV = yp.IVS["15m"]
+IV = yp.IVS["15m"]                  # satışlar her zaman 15 dakikalık mumlarla izlenir
 KOMISYON = 0.001
+ARALIK_AD = {"15m": "15 dakikalık", "1h": "1 saatlik", "4h": "4 saatlik"}
 
 
 def saat(ms: int) -> str:
@@ -59,7 +62,8 @@ def simule(veri: dict, sen: dict, son_ms: int) -> dict:
         p["satislar"].append({"saat": saat(t + IV), "neden": neden, "oran_pct": round(miktar / p["adet"] * 100, 1),
                               "fiyat": float(fiyat), "usd": round(para, 2)})
 
-    for t in range(bas_ms, son_ms, IV):
+    # bas_dahil: tam bas saatinde kapanan sinyal de alınır (o anda kapanan 15 dakikalık mum bas'tan bir mum önce açılır)
+    for t in range(bas_ms - (IV if sen.get("bas_dahil") else 0), son_ms, IV):
         for s, p in list(acik.items()):
             v = veri[s]
             i = v["idx"].get(t)
@@ -120,6 +124,7 @@ def main():
     ilk_ms = min(yp.zaman_ms(s["bas"]) for s in senaryolar)
     son_ms = int(time.time() * 1000) // IV * IV          # bu andan önce kapanan mumlar
     sem = [s for s in tt.semboller() if s["s"].split("_")[0] not in yp.STABIL]
+    araliklar = {s.get("aralik", "15m") for s in senaryolar}
     ham, hata = {}, []
 
     def bir(s):
@@ -128,10 +133,19 @@ def main():
             if len(rows) < yp.ISINMA:
                 return
             ts = np.array([int(r[0]) for r in rows], dtype=np.int64)
-            ham[s["s"]] = {"ts": ts, "idx": {int(x): k for k, x in enumerate(ts)},
-                           "o": np.array([float(r[1]) for r in rows]), "h": np.array([float(r[2]) for r in rows]),
-                           "l": np.array([float(r[3]) for r in rows]), "c": np.array([float(r[4]) for r in rows]),
-                           "erken": yp.erken_kurali(yp.ozellik(rows)["F"])}
+            d = {"ts": ts, "idx": {int(x): k for k, x in enumerate(ts)},
+                 "o": np.array([float(r[1]) for r in rows]), "h": np.array([float(r[2]) for r in rows]),
+                 "l": np.array([float(r[3]) for r in rows]), "c": np.array([float(r[4]) for r in rows]),
+                 "kapanis": {"15m": ts + IV}, "erken": {"15m": yp.erken_kurali(yp.ozellik(rows)["F"])}}
+            for a in araliklar - {"15m"}:
+                iv = yp.IVS[a]
+                r2 = yp.mumlar(s["bn"], ilk_ms - yp.ISINMA * iv, son_ms // iv * iv, iv)
+                if len(r2) < yp.ISINMA:          # bu aralıkta geçmişi kısa olan yeni coin: bu aralıkta sinyal yok sayılır
+                    d["kapanis"][a], d["erken"][a] = np.zeros(0, dtype=np.int64), np.zeros(0, dtype=bool)
+                    continue
+                d["kapanis"][a] = np.array([int(r[0]) for r in r2], dtype=np.int64) + iv
+                d["erken"][a] = yp.erken_kurali(yp.ozellik(r2)["F"])
+            ham[s["s"]] = d
         except Exception as e:
             hata.append(f"{s['s']}: {type(e).__name__}: {e}")
 
@@ -142,8 +156,14 @@ def main():
     out.mkdir(parents=True, exist_ok=True)
     for sen in senaryolar:
         bas_ms, bit_ms = yp.zaman_ms(sen["bas"]), yp.zaman_ms(sen["bit"])
-        veri = {k: {**v, "sinyal": {int(x) for x in v["ts"][v["erken"] & (v["ts"] + IV > bas_ms) & (v["ts"] + IV <= bit_ms)]}}
-                for k, v in ham.items()}
+        a = sen.get("aralik", "15m")
+        alt = bas_ms - (1 if sen.get("bas_dahil") else 0)
+
+        def sinyaller(v):
+            kap = v["kapanis"][a]
+            # sinyal mumunun kapanışı = o anda biten 15 dakikalık mumun kapanışı; alım o 15 dakikalık mumun kapanış fiyatından
+            return {int(x) - IV for x in kap[v["erken"][a] & (kap > alt) & (kap <= bit_ms)] if int(x) - IV in v["idx"]}
+        veri = {k: {**v, "sinyal": sinyaller(v)} for k, v in ham.items()}
         S = simule(veri, sen, son_ms)
         degisim = [float(v["c"][-1] / v["c"][v["idx"][bas_ms] - 1] - 1) * 100 for v in veri.values()
                    if bas_ms in v["idx"] and v["idx"][bas_ms] > 0]
@@ -193,7 +213,9 @@ def kural_metni(d: dict) -> list[str]:
         adimlar.append(f"%{kar:g} kârda {ne}")
     stop = (f"Alıştan %{d['stop']:g} düşünce elde kalanın tamamı satıldı (zarar-kes)." if d.get("stop") is not None
             else "Zarar-kes yok.")
-    return [f"- {d['bas']} ile {d['bit'][-5:]} arasında kapanan her 15 dakikalık mumda {d['coin']} TRY çifti erken uyarı şartlarıyla tarandı.",
+    a = d.get("aralik", "15m")
+    return [f"- {d['bas']} ile {d['bit'][-5:]} arasında kapanan her {ARALIK_AD[a]} mumda {d['coin']} TRY çifti erken uyarı şartlarıyla tarandı"
+            + (" (satışlar 15 dakikalık mumlarla izlendi)." if a != "15m" else "."),
             f"- Erken uyarı veren coin, sinyal mumunun kapanış fiyatından alındı. Her alım {usd(d['alim_usd'])} "
             f"(cüzdanın %{sayi(d['pay'] * 100, 0)}'i). Nakit yetmeyince sinyal atlandı.",
             "- Satış: " + "; ".join(adimlar) + " satıldı. " + stop,
@@ -202,9 +224,11 @@ def kural_metni(d: dict) -> list[str]:
 
 
 def rapor_md(d: dict) -> str:
-    md = [f"# Erken uyarı cüzdan denemesi ({d['bas']} – {d['bit'][-5:]})", "",
-          f"Hesaplama: {d['olusturma']} (TR saati); son kapanan 15 dakikalık mum {d['son_mum']}. Veri Binance'in gerçek 15 dakikalık "
-          "TRY mumları. Gerçek alım yapılmadı; 'yapsaydık ne olurdu' hesabı.", "",
+    md = [f"# Erken uyarı ({ARALIK_AD[d.get('aralik', '15m')]}) cüzdan denemesi ({d['bas']} – {d['bit'][-5:]})", "",
+          f"Hesaplama: {d['olusturma']} (TR saati); son kapanan 15 dakikalık mum {d['son_mum']}. Veri Binance'in gerçek "
+          + ("15 dakikalık TRY mumları" if d.get("aralik", "15m") == "15m"
+             else f"{ARALIK_AD[d['aralik']]} (sinyal) ve 15 dakikalık (satış takibi) TRY mumları")
+          + ". Gerçek alım yapılmadı; 'yapsaydık ne olurdu' hesabı.", "",
           "## Kurallar", "", *kural_metni(d), "", "## Sonuç", ""]
     if not d["alim_sayisi"]:
         md += [f"Bu saatler arasında erken uyarı veren coin olmadı; cüzdan {usd(d['cuzdan'])} olarak kaldı.", ""]
