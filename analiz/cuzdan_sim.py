@@ -12,7 +12,9 @@ Senaryolar analiz/cuzdan_senaryo.json dosyasında. Her senaryo için:
 - `satis`: [kâr %, eldeki miktarın satılan %] adımları. Fiyat alıştan o kadar yükselince (mumun en yükseği) eldekinin o kadarı
   hedef fiyattan satılır. Aynı mumda birden çok adıma ulaşılırsa hepsi o mumda yapılır.
 - `stop`: alıştan bu kadar % düşünce (mumun en düşüğü) eldekinin tamamı satılır. Mum zarar-kesin altında açılırsa açılış
-  fiyatından satılır. Aynı mumda hem zarar-kese hem hedefe değilirse önce zarar-kes sayılır (temkinli).
+  fiyatından satılır. Aynı 15 dakikalık mumda hem zarar-kese hem hedefe değilirse hangisinin önce olduğuna o mumun
+  1 dakikalık mumlarından bakılır; aynı 1 dakikalık mumda ikisi birden varsa ya da 1 dakikalık veri alınamazsa önce
+  zarar-kes sayılır (temkinli).
 - Bir coin elde varken gelen sinyalde ek alım yapılmaz; tamamen satıldıktan sonra yeni sinyalde tekrar alınır.
 - Elde kalanlar son kapanan mumun fiyatıyla değerlenir. Her alım ve satışta %0,1 komisyon.
 - Yüzdeler TRY fiyatıyla hesaplanır (dolar/TL kurunun bir gün içinde değişmediği varsayılır).
@@ -39,6 +41,8 @@ import yukselis_profili as yp  # noqa: E402
 from btr import supriz as sp  # noqa: E402
 
 IV = yp.IVS["15m"]                  # satışlar her zaman 15 dakikalık mumlarla izlenir
+DK = 60_000
+yp.IVS.setdefault("1m", DK)         # yp.mumlar aralık adını IVS'ten bulur
 KOMISYON = 0.001
 ARALIK_AD = {"15m": "15 dakikalık", "1h": "1 saatlik", "4h": "4 saatlik"}
 SINYAL_AD = {"erken": "Erken uyarı", "supriz": "Süpriz"}
@@ -49,6 +53,15 @@ def saat(ms: int) -> str:
     return datetime.fromtimestamp(ms / 1000, yp.TR).strftime("%d.%m %H:%M")
 
 
+def dakika(bn: str, t: int) -> list:
+    """t'de açılan 15 dakikalık mumun 1 dakikalık mumları (o, h, l, kapanış zamanı); alınamazsa boş liste."""
+    try:
+        rows = yp.mumlar(bn, t, t + IV, DK)
+    except Exception:
+        return []
+    return [(float(r[1]), float(r[2]), float(r[3]), int(r[0]) + DK) for r in rows if t <= int(r[0]) < t + IV]
+
+
 def simule(veri: dict, sen: dict, son_ms: int) -> dict:
     """Mum mum ilerler: önce eldeki coinlerde zarar-kes ve kademeli satış, sonra mum kapanışında yeni sinyallere alım."""
     bas_ms, bit_ms = yp.zaman_ms(sen["bas"]), yp.zaman_ms(sen["bit"])
@@ -56,16 +69,29 @@ def simule(veri: dict, sen: dict, son_ms: int) -> dict:
     stop = sen.get("stop")
     nakit = float(sen["cuzdan"])
     acik: dict[str, dict] = {}
-    islemler, atlanan = [], []
+    islemler, atlanan, belirsiz = [], [], []
 
-    def sat(p, miktar, fiyat, t, neden):
+    def sat(p, miktar, fiyat, kapanis, neden, dk1=False):
         nonlocal nakit
         para = float(miktar * fiyat * (1 - KOMISYON))
         nakit += para
         p["nakit"] += para
         p["kalan"] -= miktar
-        p["satislar"].append({"saat": saat(t + IV), "neden": neden, "oran_pct": round(miktar / p["adet"] * 100, 1),
-                              "fiyat": float(fiyat), "usd": round(para, 2)})
+        p["satislar"].append({"saat": saat(kapanis), "neden": neden, "oran_pct": round(miktar / p["adet"] * 100, 1),
+                              "fiyat": float(fiyat), "usd": round(para, 2), "dk1": dk1})
+
+    def isle(p, o, h, l, kapanis, dk1=False):
+        """Bir mumda önce zarar-kes, sonra hedef adımları."""
+        if p["kalan"] <= p["adet"] * 1e-9:
+            return
+        if stop is not None and l <= p["giris"] * (1 - stop / 100):
+            sat(p, p["kalan"], min(p["giris"] * (1 - stop / 100), o), kapanis, f"zarar-kes –%{stop:g}", dk1)
+            return
+        for k, (kar, oran) in enumerate(sen["satis"]):
+            if k < p["adim"] or h < p["giris"] * (1 + kar / 100):
+                continue
+            sat(p, p["kalan"] * oran / 100, p["giris"] * (1 + kar / 100), kapanis, f"+%{kar:g} hedef", dk1)
+            p["adim"] = k + 1
 
     # bas_dahil: tam bas saatinde kapanan sinyal de alınır (o anda kapanan 15 dakikalık mum bas'tan bir mum önce açılır)
     for t in range(bas_ms - (IV if sen.get("bas_dahil") else 0), son_ms, IV):
@@ -74,14 +100,17 @@ def simule(veri: dict, sen: dict, son_ms: int) -> dict:
             i = v["idx"].get(t)
             if i is None:
                 continue
-            if stop is not None and v["l"][i] <= p["giris"] * (1 - stop / 100):
-                sat(p, p["kalan"], min(p["giris"] * (1 - stop / 100), v["o"][i]), t, f"zarar-kes –%{stop:g}")
+            ikisi = (stop is not None and v["l"][i] <= p["giris"] * (1 - stop / 100)
+                     and any(k >= p["adim"] and v["h"][i] >= p["giris"] * (1 + kar / 100) for k, (kar, _) in enumerate(sen["satis"])))
+            dk = dakika(v["bn"], t) if ikisi else []
+            if dk:
+                # aynı 15 dakikalık mumda hem hedef hem zarar-kes: sırayı 1 dakikalık mumlar belirler
+                n0 = len(p["satislar"])
+                for o1, h1, l1, k1 in dk:
+                    isle(p, o1, h1, l1, k1, True)
+                belirsiz.append({"s": s, "saat": saat(t + IV), "once": p["satislar"][n0]["neden"] if len(p["satislar"]) > n0 else "yok"})
             else:
-                for k, (kar, oran) in enumerate(sen["satis"]):
-                    if k < p["adim"] or v["h"][i] < p["giris"] * (1 + kar / 100):
-                        continue
-                    sat(p, p["kalan"] * oran / 100, p["giris"] * (1 + kar / 100), t, f"+%{kar:g} hedef")
-                    p["adim"] = k + 1
+                isle(p, v["o"][i], v["h"][i], v["l"][i], t + IV)
             if p["kalan"] <= p["adet"] * 1e-9:
                 p["kalan"] = 0.0
                 islemler.append(kapat(p, v, i))
@@ -104,7 +133,7 @@ def simule(veri: dict, sen: dict, son_ms: int) -> dict:
         islemler.append(kapat(p, veri[s], len(veri[s]["c"]) - 1))
     islemler.sort(key=lambda x: (x["alis_ms"], x["s"]))
     elde = sum(x["kalan_deger"] for x in islemler)
-    return {"nakit": nakit, "elde_deger": elde, "toplam": nakit + elde, "islemler": islemler, "atlanan": atlanan}
+    return {"nakit": nakit, "elde_deger": elde, "toplam": nakit + elde, "islemler": islemler, "atlanan": atlanan, "belirsiz": belirsiz}
 
 
 def kapat(p: dict, v: dict, j: int) -> dict:
@@ -141,7 +170,7 @@ def main():
             if len(rows) < yp.ISINMA:
                 return
             ts = np.array([int(r[0]) for r in rows], dtype=np.int64)
-            d = {"ts": ts, "idx": {int(x): k for k, x in enumerate(ts)},
+            d = {"bn": s["bn"], "ts": ts, "idx": {int(x): k for k, x in enumerate(ts)},
                  "o": np.array([float(r[1]) for r in rows]), "h": np.array([float(r[2]) for r in rows]),
                  "l": np.array([float(r[3]) for r in rows]), "c": np.array([float(r[4]) for r in rows]),
                  "kapanis": {"15m": ts + IV}, "erken": {"15m": yp.erken_kurali(yp.ozellik(rows)["F"])}}
@@ -216,7 +245,7 @@ def main():
                  "kar": round(S["toplam"] - sen["cuzdan"], 2), "getiri_pct": round((S["toplam"] / sen["cuzdan"] - 1) * 100, 2),
                  "piyasa_coin": len(degisim), "piyasa_ort_pct": round(statistics.fmean(degisim), 2) if degisim else None,
                  "piyasa_medyan_pct": round(statistics.median(degisim), 2) if degisim else None,
-                 "islemler": isl, "atlanan": S["atlanan"], "sure_sn": round(time.time() - t0)}
+                 "belirsiz": S["belirsiz"], "islemler": isl, "atlanan": S["atlanan"], "sure_sn": round(time.time() - t0)}
         (out / f"cuzdan_{sen['ad']}.json").write_text(json.dumps(sonuc, ensure_ascii=False, indent=1), encoding="utf-8")
         (out / f"cuzdan_{sen['ad']}.md").write_text(rapor_md(sonuc), encoding="utf-8")
         print(json.dumps({k: v for k, v in sonuc.items() if k not in ("islemler", "atlanan")}, ensure_ascii=False, indent=1))
@@ -286,6 +315,11 @@ def rapor_md(d: dict) -> str:
            f"nakit yetmediği için alınamayan sinyal {d['atlanan_sayisi']}.",
            f"- {adim}; zarar-kese düşen: {d['zarar_kes_sayisi']}",
            f"- Alımların {d['karda']} tanesi kârda, {d['zararda']} tanesi zararda."]
+    if d.get("belirsiz"):
+        b = d["belirsiz"]
+        hedef = sum(x["once"].endswith("hedef") for x in b)
+        md += [f"- Aynı 15 dakikalık mumda hem hedefe hem zarar-kese değilen {len(b)} durumda hangisinin önce olduğu Binance'in 1 dakikalık "
+               f"mumlarından bulundu: {hedef} kez önce hedef, {len(b) - hedef} kez önce zarar-kes."]
     if d.get("piyasa_ort_pct") is not None:
         md += [f"- Karşılaştırma: {d['bas'][-5:]}'ten bu yana {d['piyasa_coin']} coinin fiyatı ortalama {yuzde(d['piyasa_ort_pct'])} "
                f"(ortanca {yuzde(d['piyasa_medyan_pct'])}) değişti."]

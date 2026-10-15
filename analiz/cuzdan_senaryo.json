@@ -2,5 +2,7 @@
  {"ad": "supriz_15m_0719_tp2", "sinyal": "supriz", "supriz_min": 6, "bas": "15.10.2026 07:00", "bit": "15.10.2026 19:00",
   "cuzdan": 1000, "pay": 0.05, "satis": [[2, 100]], "stop": 5},
  {"ad": "supriz7_15m_0719_tp2", "sinyal": "supriz", "supriz_min": 7, "bas": "15.10.2026 07:00", "bit": "15.10.2026 19:00",
-  "cuzdan": 1000, "pay": 0.05, "satis": [[2, 100]], "stop": 5}
+  "cuzdan": 1000, "pay": 0.05, "satis": [[2, 100]], "stop": 5},
+ {"ad": "erken_15m_0719_tp2", "bas": "15.10.2026 07:00", "bit": "15.10.2026 19:00", "cuzdan": 1000, "pay": 0.05,
+  "satis": [[2, 100]], "stop": 5}
 ]
