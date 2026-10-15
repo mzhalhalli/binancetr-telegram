@@ -6,6 +6,7 @@ from unittest import mock
 import telegram_tarama as tt
 
 WAL = json.loads((Path(__file__).parent / "wal_try_4h_hacim.json").read_text())
+BLUR = json.loads((Path(__file__).parent / "blur_try_15m.json").read_text())
 
 
 def sahte_get(rows_by_symbol):
@@ -42,38 +43,68 @@ class TaramaTests(unittest.TestCase):
             r = tt.tara(rows[-1][6] + 60_000)          # açık mum (15:00) atılır
         x = r["sonuc"][0]
         self.assertTrue(x["bb"])
-        self.assertIn("WAL_TRY", tt.mesaj(r).split("3 yeşil mum")[1].split("🟠")[0])
+        self.assertIn("WAL_TRY", tt.mesaj(r).split("3 yeşil mum")[1].split("🔷 Formasyon")[0])
 
-    def test_wal_13_10_23_00_erken_uyari(self):
-        # 13.10 23:00 mumu (14.10 03:00'te kapandı): kırılımdan önceki sessiz hazırlık mumu, ERKEN UYARI listesinde
+    def test_4_saatlik_mesajda_erken_uyari_yok(self):
+        # 13.10 23:00 mumu 4 saatlikte erken uyarı veriyor; 15.10.2026'dan beri 4 saatlik mesaj yalnızca 3 yeşil + formasyon
         j = [r[0] for r in WAL].index(1791921600000)
         rows = WAL[:j + 1]
         with mock.patch.object(tt, "_get", sahte_get({"WALTRY": rows})):
             r = tt.tara(rows[-1][6] + 60_000)
-        x = r["sonuc"][0]
-        self.assertTrue(x["erken"])
+        self.assertTrue(r["sonuc"][0]["erken"])
         m = tt.mesaj(r)
-        self.assertIn("🟠 Erken uyarı", m)
-        self.assertIn("WAL_TRY", m.split("🟠 Erken uyarı")[1])
+        self.assertNotIn("Erken uyarı", m)
+        self.assertNotIn("ERKEN", m)
+        self.assertNotIn("WAL_TRY", m)
+        self.assertNotIn("yaklaşan", m)
+
+    def test_15_dakikalik_erken_uyari(self):
+        # BLUR_TRY 15.10 11:45 mumu (12:00 TR kapanış) erken uyarı; 12:00 patlama mumu değil
+        j = [r[0] for r in BLUR].index(1792053900000)
+        with mock.patch.object(tt, "_get", sahte_get({"BLURTRY": BLUR[:j + 1]})):
+            r = tt.tara(BLUR[j][6] + 60_000, "15m")
+        self.assertTrue(r["sonuc"][0]["erken"])
+        m = tt.mesaj_erken(r)
+        self.assertIn("🟠 Binance TR · 15 dakikalık erken uyarı · kapanış 15.10 11:45–12:00", m)
+        self.assertIn("BLUR_TRY", m)
+        with mock.patch.object(tt, "_get", sahte_get({"BLURTRY": BLUR[:j + 2]})):
+            r = tt.tara(BLUR[j + 1][6] + 60_000, "15m")
+        self.assertIsNone(tt.mesaj_erken(r))             # eşleşme yoksa mesaj yok
+
+    def test_15_dakikalik_main(self):
+        import os
+        import tempfile
+        j = [r[0] for r in BLUR].index(1792053900000)
+        rows, kapanis = BLUR[:j + 1], BLUR[j][6] + 1     # 12:00 TR = 09:00 UTC: 4 saatlik kapanış saati değil
+        ortam = {"TELEGRAM_BOT_TOKEN": "x", "TELEGRAM_CHAT_ID": "y", "GITHUB_EVENT_NAME": "workflow_dispatch", "OTOMATIK": "evet",
+                 "ONBES_DK": "evet"}
+        eski = os.getcwd()
+        with tempfile.TemporaryDirectory() as d:
+            os.chdir(d)
+            try:
+                for olay, gecikme, gitmeli in (("workflow_dispatch", 60_000, True), ("workflow_dispatch", 11 * 60_000, False),
+                                               ("schedule", 60_000, False)):
+                    giden = []
+                    with mock.patch.dict(os.environ, {**ortam, "GITHUB_EVENT_NAME": olay}), \
+                            mock.patch.object(tt, "_get", sahte_get({"BLURTRY": rows})), \
+                            mock.patch.object(tt, "gonder", lambda t, c, m: giden.append(m)), \
+                            mock.patch.object(tt.time, "time", lambda: (kapanis + gecikme) / 1000):
+                        tt.main()
+                    self.assertEqual(any("BLUR_TRY" in m for m in giden), gitmeli, (olay, gecikme))
+                    self.assertFalse(any("4 saatlik" in m for m in giden))
+                self.assertFalse(os.path.exists(tt.GONDERILEN))    # 15 dakikalık için dosya yazılmaz (commit atılmasın)
+            finally:
+                os.chdir(eski)
 
     def test_hangi_araliklar(self):
         saat = 3_600_000
         b = 1792022400000                                     # 15.10 00:00 UTC (TR 03:00), 4 saatlik kapanış
-        self.assertEqual(tt.calistirilacak(b + 3 * 60_000), ["1h", "4h"])
-        self.assertEqual(tt.calistirilacak(b + 14 * 60_000), ["1h", "4h"])   # GitHub geç başlatsa da
-        self.assertEqual(tt.calistirilacak(b + saat + 3 * 60_000), ["1h"])
-        self.assertEqual(tt.calistirilacak(b + saat, elle=True), ["1h", "4h"])
-
-    def test_1_saatlik_mesaj(self):
-        # WAL mumlarını 1 saat aralıklı yeniden zamanla (yalnızca başlık ve aralık mantığını sınar)
-        bas = WAL[-2][0] - (len(WAL) - 2) * 3_600_000
-        rows = [[bas + i * 3_600_000] + r[1:6] + [bas + (i + 1) * 3_600_000 - 1] + r[7:] for i, r in enumerate(WAL[:-1])]
-        with mock.patch.object(tt, "_get", sahte_get({"WALTRY": rows})):
-            r = tt.tara(rows[-1][6] + 60_000, "1h")
-        self.assertEqual(r["aralik"], "1h")
-        m = tt.mesaj(r)
-        self.assertIn("1 saatlik kapanış", m)
-        self.assertNotIn("4 saatlik", m)
+        self.assertEqual(tt.calistirilacak(b + 3 * 60_000), ["4h"])
+        self.assertEqual(tt.calistirilacak(b + 40 * 60_000), ["4h"])        # GitHub geç başlatsa da
+        self.assertEqual(tt.calistirilacak(b + saat + 3 * 60_000), [])        # 1 saatlik mesaj artık yok
+        self.assertEqual(tt.calistirilacak(b + saat, elle=True), ["4h"])
+        self.assertEqual(tt.calistirilacak(b + 60_000, onbes=True), ["4h", "15m"])
+        self.assertEqual(tt.calistirilacak(b + saat + 16 * 60_000, onbes=True), ["15m"])
 
     def test_ayni_mum_iki_kez_gitmez(self):
         import os
@@ -120,13 +151,9 @@ class TaramaTests(unittest.TestCase):
         self.assertIn("Dikdörtgen ↑", kir)
         self.assertIn("geçmiş test", kir)
         self.assertIn("Piyasa genişliği hesaplanamadı", kir)      # 50 coinden az
-        yak = m.split("🔹 Erken uyarı · formasyon kırılımına yaklaşanlar")[1]
-        self.assertIn("BBB_TRY", yak)
-        self.assertIn("Yükselen üçgen: kırılım", yak)
-        veri = {"AAATRY": satirlar("1h_kirilim_boga_bayragi", 3_600_000)}
-        with mock.patch.object(tt, "_get", sahte_get(veri)):
-            m = tt.mesaj(tt.tara(now, "1h"))
-        self.assertIn("Boğa bayrağı ↑", m)
+        self.assertTrue(next(x for x in r["sonuc"] if x["s"] == "BBB_TRY")["fm_yaklasan"])   # BBB kırılıma yaklaşıyor ama mesajda yaklaşanlar bölümü yok
+        self.assertNotIn("BBB_TRY", m)
+        self.assertNotIn("🔹", m)
         self.assertIn("1s BOĞA BAYRAĞI ↑", tt._fm_etiket({"fm_kirilim": [{"baslik": "Boğa bayrağı"}]}, "1h"))
         self.assertIn("4s İKİLİ DİP ↑", tt._fm_etiket({"fm_kirilim": [{"baslik": "İkili dip"}]}, "4h"))
 

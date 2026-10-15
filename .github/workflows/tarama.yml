@@ -1,14 +1,17 @@
 name: 4s tarama
 on:
-  # Asıl zamanlayıcı cron-job.org: her saatin 1. dakikasında bu iş akışını otomatik=evet ile başlatır.
-  # GitHub'ın kendi zamanlayıcısı yedektir (30-40 dk gecikebilir); aynı mum gonderilen.json sayesinde iki kez gitmez.
-  # Her saat 1 saatlik mum; 00/04/08/12/16/20 UTC'de (TR 03/07/11/15/19/23) 4 saatlik de.
+  # Telegram'a yalnızca 4 saatlik 3 yeşil mum + formasyon kırılımı ve 15 dakikalık erken uyarı gider (15.10.2026).
+  # Asıl zamanlayıcı cron-job.org: her 15 dakikada bir (her saatin 1, 16, 31 ve 46. dakikası) bu iş akışını otomatik=evet
+  # ile başlatır. Her çalıştırma son kapanan 15 dakikalık mumda erken uyarıya bakar (eşleşme yoksa mesaj yok);
+  # 00/04/08/12/16/20 UTC (TR 03/07/11/15/19/23) saatlerinde 4 saatlik mesajı da gönderir.
+  # GitHub'ın kendi zamanlayıcısı yalnızca 4 saatlik için yedektir (30-40 dk gecikebilir); aynı mum gonderilen.json
+  # sayesinde iki kez gitmez. 15 dakikada bir çalışmak için depo herkese açık olmalı (gizli depoda aylık dakika yetmez).
   schedule:
-    - cron: "3 * * * *"
+    - cron: "3 0,4,8,12,16,20 * * *"
   workflow_dispatch:
     inputs:
       otomatik:
-        description: "Dış zamanlayıcıdan geliyorsa evet (elle çalıştırmada boş bırakın: 1s ve 4s ikisi de gönderilir)"
+        description: "Dış zamanlayıcıdan geliyorsa evet (elle çalıştırmada boş bırakın: son 4 saatlik mum gönderilir)"
         required: false
         default: "hayir"
 permissions:
@@ -24,12 +27,13 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: main   # en güncel gonderilen.json okunsun
-      # ubuntu-latest'te Python 3 hazır gelir (ayrı kurulum yok: ücretsiz dakikalar her saat çalışmaya yetsin)
+      # ubuntu-latest'te Python 3 hazır gelir (ayrı kurulum yok, çalıştırma kısa sürsün)
       - name: Tara ve Telegram'a gönder
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           OTOMATIK: ${{ inputs.otomatik }}
+          ONBES_DK: evet   # 15 dakikalık erken uyarı GitHub'dan gönderilir (hayir yazılırsa durur)
         run: python3 telegram_tarama.py
       - name: Son sonucu kaydet (depo aktif kalsın diye)
         if: always()

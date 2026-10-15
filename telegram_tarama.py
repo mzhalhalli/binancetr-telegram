@@ -1,17 +1,20 @@
-"""Binance TR hazır taramalarını son kapanan 1 saatlik (her saat) ve 4 saatlik (4 saatte bir) mumda çalıştırır,
-sonucu Telegram kanalına yollar. Elle çalıştırmada (Run workflow) ikisi de gönderilir.
+"""Binance TR taramalarını çalıştırıp sonucu Telegram kanalına yollar. 15.10.2026'dan beri kanala yalnızca şunlar gider:
+  1) 4 saatlik: Bollinger (21, 2) orta bandının üstünde ardışık 3 yeşil mum
+  2) 4 saatlik: formasyon kırılımı (15.10.2026 geçmiş testinde rastgele girişten iyi çıkan yukarı kırılımlar:
+     genişleyen formasyon, dikdörtgen, yükselen üçgen, ikili dip; btr/formasyon.py)
+  3) 15 dakikalık erken uyarı (BLUR_TRY 15.10 11:45 gibi patlama öncesi sessiz hazırlık mumu, 8 şartın 8'i).
+     Dış zamanlayıcı (cron-job.org) her 15 dakikada bir otomatik=evet ile çalıştırır; iş akışında ONBES_DK=evet.
+     Eşleşen coin yoksa mesaj atılmaz. Mum kapanışından 10 dakikadan geç başlayan çalıştırma bu mumu göndermez
+     (eski uyarı gitmesin, aynı mum iki kez gitmesin). Depo herkese açık olmalı: gizli depoda GitHub'ın aylık ücretsiz
+     dakikası 15 dakikada bir çalışmaya yetmez.
+Elle çalıştırmada (Run workflow) son 4 saatlik mum her zaman gönderilir.
 
 Yalnızca herkese açık piyasa verisini okur: borsa API anahtarı, hesap ve emir yoktur.
 Gerekenler (GitHub > Settings > Secrets and variables > Actions):
   TELEGRAM_BOT_TOKEN  BotFather'ın verdiği anahtar
   TELEGRAM_CHAT_ID    kanal adı (@kanalim) ya da -100 ile başlayan kanal numarası
-Taramalar (bilgisayardaki bottaki hazır taramalarla aynı):
-  1) Bollinger (21, 2): son 3 mum ardışık yeşil ve orta bandın üstünde kapattı
-  2) Formasyon kırılımı: 15.10.2026 geçmiş testinde rastgele girişten iyi çıkan 6 yukarı kırılım (btr/formasyon.py)
-     1 saatlik: boğa bayrağı, genişleyen formasyon; 4 saatlik: genişleyen formasyon, dikdörtgen, yükselen üçgen, ikili dip
-  3) Erken uyarı: BLUR_TRY 15.10 11:45 gibi patlama öncesi sessiz hazırlık mumu (8 şartın 8'i) ve
-     kırılım çizgisine 1 ATR'den yakın aynı formasyonlar (izleme listesi)
-Süpriz taraması 15.10.2026'da kullanıcının isteğiyle mesajlardan kaldırıldı (btr/supriz.py analiz için duruyor).
+1 saatlik mesajlar, 4 saatlik erken uyarı ve formasyon kırılımına yaklaşanlar listesi 15.10.2026'da kullanıcının isteğiyle
+kaldırıldı; süpriz taraması da aynı gün kaldırıldı.
 """
 from __future__ import annotations
 
@@ -29,8 +32,8 @@ from btr import erken as er
 from btr import formasyon as fo
 from btr import indikator as ind
 
-ARALIK_MS = {"1h": 3_600_000, "4h": 14_400_000}
-ARALIK_AD = {"1h": "1 saatlik", "4h": "4 saatlik"}
+ARALIK_MS = {"15m": 900_000, "1h": 3_600_000, "4h": 14_400_000}
+ARALIK_AD = {"15m": "15 dakikalık", "1h": "1 saatlik", "4h": "4 saatlik"}
 LIMIT = 490          # formasyon dönüş noktaları için ~480 kapanmış mum (istek ağırlığı 500'e kadar aynı)
 LISTE_EN_COK = 25    # bir bölümde gösterilen en çok coin
 TR = timezone(timedelta(hours=3))
@@ -139,12 +142,16 @@ def tara(now_ms: int | None = None, aralik="4h", paralel=10, sem: list | None = 
             "piyasa": piyasa, "sonuc": sonuc}
 
 
-def calistirilacak(now_ms: int, elle=False) -> list[str]:
-    """Her saat 1 saatlik; son kapanan saat 4 saatlik mumun da kapanışıysa (UTC 00/04/08/12/16/20) 4 saatlik de."""
+ONBES_GEC_MS = 10 * 60_000   # 15 dakikalık mum kapanışından bu kadar sonra başlayan çalıştırma o mumu göndermez
+
+
+def calistirilacak(now_ms: int, elle=False, onbes=False) -> list[str]:
+    """4 saatlik mum UTC 00/04/08/12/16/20'de kapanır: o saatin içindeki çalıştırma 4 saatliği tarar (aynı mum iki kez
+    gitmez). onbes: dış zamanlayıcının çalıştırması ve ONBES_DK=evet; son kapanan 15 dakikalık mumda erken uyarıya bakar."""
     if elle:
-        return ["1h", "4h"]
-    son_kapanis = now_ms // ARALIK_MS["1h"] * ARALIK_MS["1h"]
-    return ["1h"] + (["4h"] if son_kapanis % ARALIK_MS["4h"] == 0 else [])
+        return ["4h"]
+    son_saat = now_ms // ARALIK_MS["1h"] * ARALIK_MS["1h"]
+    return (["4h"] if son_saat % ARALIK_MS["4h"] == 0 else []) + (["15m"] if onbes else [])
 
 
 def _sayi(x: float) -> str:
@@ -184,41 +191,49 @@ def _kisalt(satirlar: list[str], adet: int, satir_basina: int) -> list[str]:
     return satirlar[:LISTE_EN_COK * satir_basina] + [f"• … ve {adet - LISTE_EN_COK} coin daha"]
 
 
+def _baslik(r: dict) -> str:
+    aralik = r.get("aralik", "4h")
+    t0 = datetime.fromtimestamp(r["son_mum"] / 1000, TR)
+    t1 = t0 + timedelta(milliseconds=ARALIK_MS[aralik])
+    bas = f"{t0:%d.%m %H:%M}–{t1:%H:%M} (TR saati)\n{r['taranan']} TRY çifti tarandı"
+    return bas + (f", {r['hata']} coinde veri alınamadı" if r["hata"] else "")
+
+
 def mesaj(r: dict) -> str:
+    """4 saatlik mesaj: orta bandın üstünde 3 yeşil mum ve formasyon kırılımı."""
     aralik = r.get("aralik", "4h")
     if r["son_mum"] is None:
         return f"⚠️ Binance TR {ARALIK_AD[aralik]} tarama: veri alınamadı ({r['hata']} hata). {r['hata_ornek'][:1]}"
-    t0 = datetime.fromtimestamp(r["son_mum"] / 1000, TR)
-    t1 = t0 + timedelta(milliseconds=ARALIK_MS[aralik])
-    bas = f"📊 Binance TR · {ARALIK_AD[aralik]} kapanış {t0:%d.%m %H:%M}–{t1:%H:%M} (TR saati)\n{r['taranan']} TRY çifti tarandı"
-    if r["hata"]:
-        bas += f", {r['hata']} coinde veri alınamadı"
     bb = sorted((x for x in r["sonuc"] if x["bb"]), key=lambda x: -x["hacim"])
-    erk = sorted((x for x in r["sonuc"] if x["erken"]), key=lambda x: -x["hacim"])
     fmk = sorted(((x, f) for x in r["sonuc"] for f in x.get("fm_kirilim", [])), key=lambda xf: (not xf[1].get("uygun"), -xf[0]["hacim"]))
-    fmy = sorted(((x, f) for x in r["sonuc"] for f in x.get("fm_yaklasan", [])), key=lambda xf: (not xf[1].get("uygun"), xf[1]["uzaklik_pct"]))
 
-    satir = [bas, "", f"🟢 Orta bandın üstünde ardışık 3 yeşil mum (BOLL 21,2): {len(bb)}"]
-    satir += _kisalt([f"• {x['s']}  {_sayi(x['fiyat'])}  ({x['bb_acik']})  hacim {_hacim(x['hacim'])} TRY"
-                      + (" 🟠 ERKEN UYARI" if x["erken"] else "") + _fm_etiket(x, aralik) for x in bb], len(bb), 1) or ["• yok"]
+    satir = [f"📊 Binance TR · {ARALIK_AD[aralik]} kapanış {_baslik(r)}", "",
+             f"🟢 Orta bandın üstünde ardışık 3 yeşil mum (BOLL 21,2): {len(bb)}"]
+    satir += _kisalt([f"• {x['s']}  {_sayi(x['fiyat'])}  ({x['bb_acik']})  hacim {_hacim(x['hacim'])} TRY" + _fm_etiket(x, aralik)
+                      for x in bb], len(bb), 1) or ["• yok"]
     if aralik in fo.SECILI:
         adlar = ", ".join(fo.AD[a].replace("İ", "i").lower() for a in fo.SECILI[aralik])
         satir += ["", f"🔷 Formasyon kırılımı (geçmişte rastgeleden iyi çıkan; {adlar}): {len(fmk)}", _piyasa_satiri(r.get("piyasa"))]
         fs = []
         for x, f in fmk:
             fs += [f"• {x['s']}  {_sayi(x['fiyat'])}  {f['baslik']} ↑  hedef {_sayi(f['hedef'])} (+{_yuzde(f['hedef_pct'])}) · "
-                   f"zarar-kes {_sayi(f['stop'])} (–{_yuzde(f['stop_pct'])})" + (" 🟠 ERKEN UYARI" if x["erken"] else ""),
+                   f"zarar-kes {_sayi(f['stop'])} (–{_yuzde(f['stop_pct'])})",
                    f"   {fo.gecmis_metni(aralik, f['ad'])} · {_uygun_isareti(f)} {f['uygun_not']}"]
         satir += _kisalt(fs, len(fmk), 2) or ["• yok"]
-    satir += ["", f"🟠 Erken uyarı (BLUR_TRY 15.10 patlama öncesi benzeri, 8/8; izlemeye al): {len(erk)}"]
-    satir += _kisalt([f"• {x['s']}  {_sayi(x['fiyat'])}  hacim {_hacim(x['hacim'])} TRY{_fm_etiket(x, aralik)}\n   {x['erken_detay']}"
-                      for x in erk], len(erk), 1) or ["• yok"]
-    if aralik in fo.SECILI:
-        satir += ["", f"🔹 Erken uyarı · formasyon kırılımına yaklaşanlar (çizgiye 1 ATR'den yakın; izleme listesi): {len(fmy)}"]
-        fs = [f"• {x['s']}  {_sayi(x['fiyat'])}  {f['baslik']}: kırılım {_sayi(f['seviye'])} ({_yuzde(f['uzaklik_pct'])} yukarıda) · "
-              f"hedef {_sayi(f['hedef'])} · zarar-kes {_sayi(f['stop'])}" + (f" · ⚠ {f['uygun_not']}" if f.get("uygun") is False else "")
-              for x, f in fmy]
-        satir += _kisalt(fs, len(fmy), 1) or ["• yok"]
+    satir += ["", "Yalnızca borsa verisi; yatırım tavsiyesi değildir."]
+    return "\n".join(satir)
+
+
+def mesaj_erken(r: dict) -> str | None:
+    """15 dakikalık erken uyarı mesajı; eşleşen coin yoksa ya da veri alınamadıysa None (mesaj atılmaz)."""
+    if r["son_mum"] is None:
+        return None
+    erk = sorted((x for x in r["sonuc"] if x["erken"]), key=lambda x: -x["hacim"])
+    if not erk:
+        return None
+    satir = [f"🟠 Binance TR · 15 dakikalık erken uyarı · kapanış {_baslik(r)}",
+             "BLUR_TRY 15.10 patlama öncesi benzeri, 8 şartın 8'i; izlemeye al", ""]
+    satir += _kisalt([f"• {x['s']}  {_sayi(x['fiyat'])}  hacim {_hacim(x['hacim'])} TRY\n   {x['erken_detay']}" for x in erk], len(erk), 1)
     satir += ["", "Yalnızca borsa verisi; yatırım tavsiyesi değildir."]
     return "\n".join(satir)
 
@@ -262,7 +277,13 @@ def main():
     now_ms = int(time.time() * 1000)
     # dış zamanlayıcı (cron-job.org) "otomatik=evet" ile başlatır; Run workflow düğmesi elle çalıştırmadır
     elle = os.environ.get("GITHUB_EVENT_NAME") == "workflow_dispatch" and os.environ.get("OTOMATIK", "").lower() != "evet"
-    araliklar = calistirilacak(now_ms, elle)
+    # 15 dakikalık erken uyarı yalnızca dış zamanlayıcının çalıştırmasında (GitHub'ın gecikmeli yedeği ve elle çalıştırma bakmaz)
+    onbes = (os.environ.get("ONBES_DK", "").lower() == "evet" and not elle
+             and os.environ.get("GITHUB_EVENT_NAME") == "workflow_dispatch")
+    araliklar = calistirilacak(now_ms, elle, onbes)
+    if not araliklar:
+        print("Bu çalıştırmada taranacak mum yok (4 saatlik kapanış saati değil, 15 dakikalık tarama kapalı).")
+        return
     onceki = _gonderilen_oku()
     mesajlar = []
     try:
@@ -276,19 +297,21 @@ def main():
             r = tara(now_ms, aralik, sem=sem)
         except Exception as e:   # veri hiç alınamadıysa da kanala haber ver (ör. 451 = bölge kısıtlaması)
             r = {"aralik": aralik, "taranan": 0, "son_mum": None, "hata": 1, "hata_ornek": [str(e)[:200]], "sonuc": []}
-        if not elle and r["son_mum"] is not None and r["son_mum"] <= int(onceki.get(aralik, 0)):
+        if aralik == "15m":
+            if r["son_mum"] is not None and now_ms - (r["son_mum"] + ARALIK_MS["15m"]) > ONBES_GEC_MS:
+                print("15m: çalıştırma mum kapanışından 10 dakikadan geç başladı, eski uyarı gönderilmedi\n")
+                continue
+        elif not elle and r["son_mum"] is not None and r["son_mum"] <= int(onceki.get(aralik, 0)):
             print(f"{aralik}: bu mum daha önce gönderildi (dış zamanlayıcı ya da yedek çalıştırma), atlandı\n")
             continue
-        m = mesaj(r)
-        print(m + "\n")
+        m = mesaj_erken(r) if aralik == "15m" else mesaj(r)
+        print((m or f"{aralik}: erken uyarı yok ya da veri alınamadı, mesaj atılmadı") + "\n")
         mesajlar.append((aralik, m, r["son_mum"]))
         if aralik == "4h":   # depo aktif kalsın diye 4 saatte bir kaydedilir (her saat commit atılmasın)
             with open("son_sonuc.json", "w", encoding="utf-8") as f:
                 json.dump({"ts": int(time.time()), "son_mum": r["son_mum"], "taranan": r["taranan"], "hata": r["hata"],
                            "bb": [x["s"] for x in r["sonuc"] if x["bb"]],
-                           "erken": [x["s"] for x in r["sonuc"] if x["erken"]],
                            "formasyon": {x["s"]: [f["ad"] for f in x["fm_kirilim"]] for x in r["sonuc"] if x["fm_kirilim"]},
-                           "formasyon_yaklasan": {x["s"]: [f["ad"] for f in x["fm_yaklasan"]] for x in r["sonuc"] if x["fm_yaklasan"]},
                            "piyasa": r.get("piyasa")},
                           f, ensure_ascii=False, indent=1)
     if not token or not chat:
@@ -296,8 +319,9 @@ def main():
         sys.exit(1)
     gonderilen = dict(onceki)
     for aralik, m, son_mum in mesajlar:
-        gonder(token, chat, m)
-        if son_mum is not None:
+        if m:
+            gonder(token, chat, m)
+        if son_mum is not None and aralik != "15m":      # 15 dakikalık her çalıştırmada commit atılmasın diye kaydedilmez
             gonderilen[aralik] = max(son_mum, int(gonderilen.get(aralik, 0)))
             with open(GONDERILEN, "w", encoding="utf-8") as f:
                 json.dump(gonderilen, f)
