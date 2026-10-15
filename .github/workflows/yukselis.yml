@@ -6,6 +6,7 @@ name: sert yukselis analizi
 # commit mesajında [canli] varsa iyi çıkan 1h/4h yukarı kırılımlar canlı izlenir (analiz/formasyon_canli.py)
 # commit mesajında [piyasa] varsa 1h/4h formasyon testi piyasa durumuna göre bölünür (analiz/sonuc/formasyon_piyasa.json)
 # commit mesajında [cuzdan] varsa 15m erken uyarı cüzdan denemesi çalışır (analiz/cuzdan_sim.py; BAS/BIT saatleri)
+# commit mesajında [coin] varsa tek coinin mumları erken uyarı ve uygunluk kurallarından geçirilir (analiz/coin_incele.py)
 # commit mesajında [fbkontrol] varsa bota eklenen formasyon bulucusu gerçek veriyle geçmiş testle karşılaştırılır
 on:
   push:
@@ -36,9 +37,11 @@ jobs:
           PIYASA: ${{ contains(github.event.head_commit.message, '[piyasa]') && '1' || '0' }}
           CUZDAN_SIM: ${{ contains(github.event.head_commit.message, '[cuzdan]') && '1' || '0' }}
           FBKONTROL: ${{ contains(github.event.head_commit.message, '[fbkontrol]') && '1' || '0' }}
+          COIN_INCELE: ${{ contains(github.event.head_commit.message, '[coin]') && '1' || '0' }}
         run: |
           # birden çok etiket varsa her biri sırayla çalışır; hiç etiket yoksa sert yükseliş profili
           calisti=0
+          if [ "$COIN_INCELE" = "1" ]; then for a in 15m 1h; do COIN=INIT_TRY ARALIK=$a BAS="2026-10-15 20:00" BIT="2026-10-16 01:00" python3 analiz/coin_incele.py; done; calisti=1; fi
           if [ "$FBKONTROL" = "1" ]; then python3 analiz/formasyon_bot_kontrol.py; calisti=1; fi
           if [ "$CUZDAN_SIM" = "1" ]; then python3 analiz/cuzdan_sim.py; calisti=1; fi
           if [ "$CANLI" = "1" ]; then python3 analiz/formasyon_canli.py; calisti=1; fi

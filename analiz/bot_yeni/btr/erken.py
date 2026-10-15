@@ -51,7 +51,7 @@ def hesapla(kap: list[float], hacim: list[float], acilis: list[float]) -> dict |
     ort = sum(hacim[-hn - 1:-1]) / hn
     kat = hacim[-1] / ort if ort > 0 else 0
     sartlar = [
-        (yuzdelik <= ESIK["bant_yuzdelik"], f"bant %{bw:.1f} (son {len(gecmis)} mumun en dar %{yuzdelik:.0f}'i)"),
+        (yuzdelik <= ESIK["bant_yuzdelik"], f"bant %{bw:.1f} (son {len(gecmis)} mumun en dar %{yuzdelik:.0f} dilimi)"),
         (ESIK["yuzde_b_min"] <= yb <= ESIK["yuzde_b_max"], f"üst banda yakın (%B {yb:.2f})"),
         (hist[-1] > 0 and hist[-1] > hist[-2], f"MACD hist {hist[-1]:.4g} artıyor" if hist[-1] > hist[-2] else f"MACD hist {hist[-1]:.4g}"),
         (macd_dondu or ema_kesti, "yeni dönüş: " + ("MACD artıya döndü" if macd_dondu else "EMA9 EMA21'i kesti" if ema_kesti else "yok")),
