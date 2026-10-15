@@ -186,7 +186,10 @@ def fiyat(x: float) -> str:
 def kural_metni(d: dict) -> list[str]:
     adimlar = []
     for k, (kar, oran) in enumerate(d["satis"]):
-        ne = "elde kalanın tamamı" if oran >= 100 else (f"%{oran:g}'si" if k == 0 else f"elde kalanın %{oran:g}'si")
+        if oran >= 100:
+            ne = "tamamı" if k == 0 else "elde kalanın tamamı"
+        else:
+            ne = f"%{oran:g}'si" if k == 0 else f"elde kalanın %{oran:g}'si"
         adimlar.append(f"%{kar:g} kârda {ne}")
     stop = (f"Alıştan %{d['stop']:g} düşünce elde kalanın tamamı satıldı (zarar-kes)." if d.get("stop") is not None
             else "Zarar-kes yok.")
