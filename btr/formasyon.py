@@ -230,6 +230,13 @@ def bul(acilis: list[float], yuksek: list[float], dusuk: list[float], kapanis: l
     return {"kirilim": list(kir.values()), "yaklasan": list(yak.values())}
 
 
+def yuvarla(x: float, basamak: int = 4) -> float:
+    """Gösterim için: borsadaki fiyatlar gibi 4 anlamlı basamak (1000 üstünde tam sayı)."""
+    if x <= 0:
+        return x
+    return round(x, max(basamak - 1 - math.floor(math.log10(x)), 0))
+
+
 def _ogeyi_yap(f: dict, t: int, fiyat: float) -> dict | None:
     seviye = f["ust"](t)
     hedef, stop = seviye + f["yuk"], f["stop"]
@@ -238,7 +245,7 @@ def _ogeyi_yap(f: dict, t: int, fiyat: float) -> dict | None:
     hp, sp = (hedef / fiyat - 1) * 100, (1 - stop / fiyat) * 100
     if sp > 40 or hp > 300:
         return None
-    return {"ad": f["ad"], "baslik": AD[f["ad"]], "seviye": seviye, "hedef": hedef, "stop": stop,
+    return {"ad": f["ad"], "baslik": AD[f["ad"]], "seviye": yuvarla(seviye), "hedef": yuvarla(hedef), "stop": yuvarla(stop),
             "hedef_pct": round(hp, 2), "stop_pct": round(sp, 2)}
 
 
@@ -259,8 +266,8 @@ def uygunluk(aralik: str, ad: str, genislik_pct: float | None, btc_ust: bool | N
         if genislik_pct is None:
             return None, "piyasa genişliği bilinmiyor"
         if genislik_pct >= GUCLU_PIYASA:
-            return True, f"piyasa güçlü (coinlerin %{genislik_pct:.0f}'i MA50 üstünde)"
-        return False, f"piyasa zayıf (coinlerin %{genislik_pct:.0f}'i MA50 üstünde): geçmişte bu durumda rastgeleden iyi değildi"
+            return True, f"piyasa güçlü (MA50 üstündeki coin oranı %{genislik_pct:.0f})"
+        return False, f"piyasa zayıf (MA50 üstündeki coin oranı %{genislik_pct:.0f}): geçmişte bu durumda rastgeleden iyi değildi"
     if btc_ust is None:
         return None, "BTC_TRY durumu bilinmiyor"
     return (True, "BTC_TRY MA50 üstünde") if btc_ust else (False, "BTC_TRY MA50 altında: geçmişte bu durumda ortalama zarardaydı")

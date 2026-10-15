@@ -167,7 +167,7 @@ def _piyasa_satiri(p: dict | None) -> str:
     if not p:
         return ""
     g = p.get("genislik_pct")
-    m = (f"Piyasa: coinlerin {_yuzde(g)}'i MA50 üstünde ({'güçlü' if g >= fo.GUCLU_PIYASA else 'zayıf'})" if g is not None
+    m = (f"Piyasa: MA50 üstündeki coin oranı {_yuzde(g)} ({'güçlü' if g >= fo.GUCLU_PIYASA else 'zayıf'})" if g is not None
          else f"Piyasa genişliği hesaplanamadı ({p.get('coin', 0)} coin)")
     if p.get("btc_ust") is not None:
         m += f" · BTC_TRY MA50 {'üstünde' if p['btc_ust'] else 'altında'}"
