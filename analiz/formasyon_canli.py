@@ -4,6 +4,7 @@ Yalnızca herkese açık mum verisini okur; bota ve Telegram'a bir şey eklemez.
 Takip edilenler: 1 saatlik boğa bayrağı ve genişleyen formasyon; 4 saatlik genişleyen formasyon, dikdörtgen,
 yükselen üçgen ve ikili dip yukarı kırılımları. Kırılım, hedef ve zarar-kes formasyon.py ile aynı kurallarla bulunur.
 Her kırılım için durum: hedef (zarar-kesten önce), zarar-kes, süre doldu ya da açık (şu ana kadarki en yüksek/en düşük).
+Özetteki başarı oranı yalnızca süresi tamamen dolmuş kırılımlardan hesaplanır.
 TAKIP_BAS (TR saati) sonrasında kapanan kırılımlar ileri testtir; geçmiş testte görülmemiş veridir.
 Sonuç: analiz/sonuc/formasyon_canli.json
 """
@@ -61,14 +62,19 @@ def durum(h, l, c, ts, t, hedef, stop, H, iv) -> dict:
 
 
 def ozet(liste: list[dict]) -> dict:
-    biten = [x for x in liste if x["durum"] != "açık"]
-    o = {"n": len(liste), "acik": len(liste) - len(biten), "biten": len(biten)}
-    if biten:
-        o.update(hedef=sum(x["durum"] == "hedef" for x in biten), zarar_kes=sum(x["durum"] == "zarar-kes" for x in biten),
-                 sure_doldu=sum(x["durum"] == "süre doldu" for x in biten),
-                 basari_pct=round(sum(x["durum"] == "hedef" for x in biten) / len(biten) * 100, 1),
-                 rastgele_basari_pct=round(statistics.fmean(x["rastgele_basari_pct"] for x in biten), 1),
-                 ort_getiri_pct=round(statistics.fmean(x["getiri_pct"] for x in biten), 2))
+    """Başarı yalnızca süresi tamamen dolmuş kırılımlardan hesaplanır. Süresi dolmamışlarda zarar-kes hedeften
+    çabuk geldiği için, "sonuçlananlar"a bakmak başarıyı olduğundan düşük gösterir."""
+    tam = [x for x in liste if x["gecen_mum"] >= x["sure_mum"]]
+    acik = [x for x in liste if x["gecen_mum"] < x["sure_mum"]]
+    o = {"n": len(liste), "suresi_dolan": len(tam), "suresi_dolmayan": len(acik),
+         "suresi_dolmayan_hedef": sum(x["durum"] == "hedef" for x in acik),
+         "suresi_dolmayan_zarar_kes": sum(x["durum"] == "zarar-kes" for x in acik)}
+    if tam:
+        o.update(hedef=sum(x["durum"] == "hedef" for x in tam), zarar_kes=sum(x["durum"] == "zarar-kes" for x in tam),
+                 sure_doldu=sum(x["durum"] == "süre doldu" for x in tam),
+                 basari_pct=round(sum(x["durum"] == "hedef" for x in tam) / len(tam) * 100, 1),
+                 rastgele_basari_pct=round(statistics.fmean(x["rastgele_basari_pct"] for x in tam), 1),
+                 ort_getiri_pct=round(statistics.fmean(x["getiri_pct"] for x in tam), 2))
     return o
 
 
