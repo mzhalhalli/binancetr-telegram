@@ -1,0 +1,24 @@
+name: erken uyari analizi
+# yalnızca analiz-erken-15m dalına gönderim (push) yapılınca çalışır; ana daldaki taramayı etkilemez
+on:
+  push:
+    branches: [analiz-erken-15m]
+permissions:
+  contents: write
+jobs:
+  analiz:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Son 30 günün 15 dakikalık erken uyarılarını test et
+        env:
+          GUN: "30"
+        run: python3 analiz/erken_backtest.py
+      - name: Sonucu dala kaydet
+        run: |
+          git config user.name "tarama-bot"
+          git config user.email "tarama-bot@users.noreply.github.com"
+          git add analiz/sonuc
+          git commit -m "erken uyarı 15dk analiz sonucu" || true
+          git push || true
