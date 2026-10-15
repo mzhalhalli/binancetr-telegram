@@ -1,7 +1,9 @@
 name: 4s tarama
 on:
   schedule:
-    - cron: "3 0,4,8,12,16,20 * * *"
+    # her saat başından 3 dk sonra: 1 saatlik mum; 00/04/08/12/16/20 UTC'de (TR 03/07/11/15/19/23) 4 saatlik de
+    # GitHub zamanlanmış işleri 5-15 dk geç başlatabilir
+    - cron: "3 * * * *"
   workflow_dispatch: {}
 permissions:
   contents: write
@@ -11,18 +13,16 @@ concurrency:
 jobs:
   tara:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 8
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
+      # ubuntu-latest'te Python 3 hazır gelir (ayrı kurulum yok: ücretsiz dakikalar her saat çalışmaya yetsin)
       - name: Tara ve Telegram'a gönder
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        run: python telegram_tarama.py
-      - name: Son sonucu kaydet
+        run: python3 telegram_tarama.py
+      - name: Son sonucu kaydet (depo aktif kalsın diye)
         if: always()
         run: |
           git config user.name "tarama-bot"

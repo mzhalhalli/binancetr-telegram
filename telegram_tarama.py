@@ -1,4 +1,5 @@
-"""Binance TR hazır taramalarını son kapanan 4 saatlik mumda çalıştırır ve sonucu Telegram kanalına yollar.
+"""Binance TR hazır taramalarını son kapanan 1 saatlik (her saat) ve 4 saatlik (4 saatte bir) mumda çalıştırır,
+sonucu Telegram kanalına yollar. Elle çalıştırmada (Run workflow) ikisi de gönderilir.
 
 Yalnızca herkese açık piyasa verisini okur: borsa API anahtarı, hesap ve emir yoktur.
 Gerekenler (GitHub > Settings > Secrets and variables > Actions):
@@ -6,7 +7,8 @@ Gerekenler (GitHub > Settings > Secrets and variables > Actions):
   TELEGRAM_CHAT_ID    kanal adı (@kanalim) ya da -100 ile başlayan kanal numarası
 Taramalar (bilgisayardaki bottaki hazır taramalarla aynı):
   1) Bollinger (21, 2): son 3 mum ardışık yeşil ve orta bandın üstünde kapattı
-  2) Süpriz: WAL_TRY 14.10.2026 yükselişine benzeyenler (7 şartın en az 6'sı)
+  2) Süpriz: WAL_TRY 14.10 (4s) ve BLUR_TRY 15.10 (15dk) yükselişlerine benzeyenler (7 şartın en az 6'sı)
+  3) Erken uyarı: BLUR_TRY 15.10 11:45 gibi patlama öncesi sessiz hazırlık mumu (8 şartın 8'i)
 """
 from __future__ import annotations
 
@@ -20,11 +22,12 @@ import urllib.request
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timedelta, timezone
 
+from btr import erken as er
 from btr import indikator as ind
 from btr import supriz as sp
 
-ARALIK = "4h"
-ARALIK_MS = 14_400_000
+ARALIK_MS = {"1h": 3_600_000, "4h": 14_400_000}
+ARALIK_AD = {"1h": "1 saatlik", "4h": "4 saatlik"}
 LIMIT = 200
 TR = timezone(timedelta(hours=3))
 # piyasa verisi kaynakları (sırayla denenir); Binance TR'deki coinlerin mumları Binance defterinden gelir
@@ -66,9 +69,9 @@ def semboller(quote="TRY") -> list[dict]:
             if x["quoteAsset"] == quote and x["status"] == "TRADING"]
 
 
-def mumlar(bn: str, now_ms: int) -> list:
-    start = now_ms - (LIMIT + 1) * ARALIK_MS
-    rows = _api("/api/v3/klines", {"symbol": bn, "interval": ARALIK, "startTime": start, "limit": LIMIT + 2})
+def mumlar(bn: str, now_ms: int, aralik="4h") -> list:
+    start = now_ms - (LIMIT + 1) * ARALIK_MS[aralik]
+    rows = _api("/api/v3/klines", {"symbol": bn, "interval": aralik, "startTime": start, "limit": LIMIT + 2})
     tekil = {int(r[0]): r for r in rows if isinstance(r, list) and len(r) >= 8}
     return [tekil[k] for k in sorted(tekil) if int(tekil[k][6]) < now_ms]   # yalnızca kapanmış mumlar
 
@@ -95,19 +98,21 @@ def degerlendir(rows: list) -> dict | None:
     hq = [float(r[7]) for r in rows]
     bb, bb_acik = bb_uc_yesil(kap, acl)
     sup = sp.hesapla(kap, hq, acl)
+    erk = er.hesapla(kap, hq, acl)
     return {"fiyat": kap[-1], "mum_ts": int(rows[-1][0]), "hacim": hq[-1], "bb": bb, "bb_acik": bb_acik,
-            "supriz": sup["puan"] if sup else 0, "supriz_detay": sup["detay"] if sup else ""}
+            "supriz": sup["puan"] if sup else 0, "supriz_detay": sup["detay"] if sup else "",
+            "erken": bool(erk and erk["ok"]), "erken_detay": erk["detay"] if erk else ""}
 
 
-def tara(now_ms: int | None = None, paralel=6) -> dict:
+def tara(now_ms: int | None = None, aralik="4h", paralel=10, sem: list | None = None) -> dict:
     now_ms = now_ms or int(time.time() * 1000)
-    sem = semboller()
+    sem = sem if sem is not None else semboller()
     sonuc, hata = [], []
 
     def bir(s):
         try:
-            r = degerlendir(mumlar(s["bn"], now_ms))
-            if r and r["mum_ts"] >= now_ms - 2 * ARALIK_MS:      # işlemden kalkmış coinleri atla
+            r = degerlendir(mumlar(s["bn"], now_ms, aralik))
+            if r and r["mum_ts"] >= now_ms - 2 * ARALIK_MS[aralik]:      # işlemden kalkmış coinleri atla
                 sonuc.append({"s": s["s"], **r})
         except Exception as e:
             hata.append(f"{s['s']}: {e}")
@@ -116,7 +121,15 @@ def tara(now_ms: int | None = None, paralel=6) -> dict:
         list(ex.map(bir, sem))
     son_mum = max((x["mum_ts"] for x in sonuc), default=None)
     sonuc = [x for x in sonuc if x["mum_ts"] == son_mum]
-    return {"taranan": len(sem), "son_mum": son_mum, "hata": len(hata), "hata_ornek": hata[:3], "sonuc": sonuc}
+    return {"aralik": aralik, "taranan": len(sem), "son_mum": son_mum, "hata": len(hata), "hata_ornek": hata[:3], "sonuc": sonuc}
+
+
+def calistirilacak(now_ms: int, elle=False) -> list[str]:
+    """Her saat 1 saatlik; son kapanan saat 4 saatlik mumun da kapanışıysa (UTC 00/04/08/12/16/20) 4 saatlik de."""
+    if elle:
+        return ["1h", "4h"]
+    son_kapanis = now_ms // ARALIK_MS["1h"] * ARALIK_MS["1h"]
+    return ["1h"] + (["4h"] if son_kapanis % ARALIK_MS["4h"] == 0 else [])
 
 
 def _sayi(x: float) -> str:
@@ -128,23 +141,29 @@ def _hacim(x: float) -> str:
 
 
 def mesaj(r: dict) -> str:
+    aralik = r.get("aralik", "4h")
     if r["son_mum"] is None:
-        return f"⚠️ Binance TR 4s tarama: veri alınamadı ({r['hata']} hata). {r['hata_ornek'][:1]}"
+        return f"⚠️ Binance TR {ARALIK_AD[aralik]} tarama: veri alınamadı ({r['hata']} hata). {r['hata_ornek'][:1]}"
     t0 = datetime.fromtimestamp(r["son_mum"] / 1000, TR)
-    t1 = t0 + timedelta(hours=4)
-    bas = f"📊 Binance TR · 4 saatlik kapanış {t0:%d.%m %H:%M}–{t1:%H:%M} (TR saati)\n{r['taranan']} TRY çifti tarandı"
+    t1 = t0 + timedelta(milliseconds=ARALIK_MS[aralik])
+    bas = f"📊 Binance TR · {ARALIK_AD[aralik]} kapanış {t0:%d.%m %H:%M}–{t1:%H:%M} (TR saati)\n{r['taranan']} TRY çifti tarandı"
     if r["hata"]:
         bas += f", {r['hata']} coinde veri alınamadı"
     bb = sorted((x for x in r["sonuc"] if x["bb"]), key=lambda x: (-x["supriz"], -x["hacim"]))
     sup = sorted((x for x in r["sonuc"] if x["supriz"] >= sp.TOPLAM - 1), key=lambda x: (-x["supriz"], -x["hacim"]))
+    erk = sorted((x for x in r["sonuc"] if x["erken"]), key=lambda x: -x["hacim"])
 
-    def etiket(x):
-        return " 🟣 SÜPRİZ" if x["supriz"] >= sp.TOPLAM else (" 🟪 süpriz adayı 6/7" if x["supriz"] == sp.TOPLAM - 1 else "")
+    def etiket(x, erken=True):
+        e = " 🟠 ERKEN UYARI" if erken and x["erken"] else ""
+        return e + (" 🟣 SÜPRİZ" if x["supriz"] >= sp.TOPLAM else (" 🟪 süpriz adayı 6/7" if x["supriz"] == sp.TOPLAM - 1 else ""))
 
     satir = [bas, "", f"🟢 Orta bandın üstünde ardışık 3 yeşil mum (BOLL 21,2): {len(bb)}"]
     satir += [f"• {x['s']}  {_sayi(x['fiyat'])}  ({x['bb_acik']})  hacim {_hacim(x['hacim'])} TRY{etiket(x)}" for x in bb] or ["• yok"]
-    satir += ["", f"🟣 Süpriz (WAL_TRY 14.10 benzeri, 7 şartın en az 6'sı): {len(sup)}"]
+    satir += ["", f"🟣 Süpriz (WAL_TRY 14.10 / BLUR_TRY 15.10 benzeri, 7 şartın en az 6'sı): {len(sup)}"]
     satir += [f"• {x['s']}  {_sayi(x['fiyat'])}  {x['supriz']}/7{etiket(x)}\n   {x['supriz_detay']}" for x in sup] or ["• yok"]
+    satir += ["", f"🟠 Erken uyarı (BLUR_TRY 15.10 patlama öncesi benzeri, 8/8; izlemeye al): {len(erk)}"]
+    satir += [f"• {x['s']}  {_sayi(x['fiyat'])}  hacim {_hacim(x['hacim'])} TRY{etiket(x, False)}\n   {x['erken_detay']}"
+              for x in erk] or ["• yok"]
     satir += ["", "Yalnızca borsa verisi; yatırım tavsiyesi değildir."]
     return "\n".join(satir)
 
@@ -176,20 +195,35 @@ def gonder(token: str, chat: str, metin: str):
 
 def main():
     token, chat = os.environ.get("TELEGRAM_BOT_TOKEN", ""), os.environ.get("TELEGRAM_CHAT_ID", "")
+    now_ms = int(time.time() * 1000)
+    araliklar = calistirilacak(now_ms, os.environ.get("GITHUB_EVENT_NAME") == "workflow_dispatch")
+    mesajlar = []
     try:
-        r = tara()
-    except Exception as e:   # veri hiç alınamadıysa da kanala haber ver (ör. 451 = bölge kısıtlaması)
-        r = {"taranan": 0, "son_mum": None, "hata": 1, "hata_ornek": [str(e)[:200]], "sonuc": []}
-    m = mesaj(r)
-    print(m)
-    with open("son_sonuc.json", "w", encoding="utf-8") as f:
-        json.dump({"ts": int(time.time()), "son_mum": r["son_mum"], "taranan": r["taranan"], "hata": r["hata"],
-                   "bb": [x["s"] for x in r["sonuc"] if x["bb"]],
-                   "supriz": {x["s"]: x["supriz"] for x in r["sonuc"] if x["supriz"] >= sp.TOPLAM - 1}}, f, ensure_ascii=False, indent=1)
+        sem = semboller()
+    except Exception as e:
+        sem, sem_hata = None, e
+    for aralik in araliklar:
+        try:
+            if sem is None:
+                raise sem_hata
+            r = tara(now_ms, aralik, sem=sem)
+        except Exception as e:   # veri hiç alınamadıysa da kanala haber ver (ör. 451 = bölge kısıtlaması)
+            r = {"aralik": aralik, "taranan": 0, "son_mum": None, "hata": 1, "hata_ornek": [str(e)[:200]], "sonuc": []}
+        m = mesaj(r)
+        print(m + "\n")
+        mesajlar.append(m)
+        if aralik == "4h":   # depo aktif kalsın diye 4 saatte bir kaydedilir (her saat commit atılmasın)
+            with open("son_sonuc.json", "w", encoding="utf-8") as f:
+                json.dump({"ts": int(time.time()), "son_mum": r["son_mum"], "taranan": r["taranan"], "hata": r["hata"],
+                           "bb": [x["s"] for x in r["sonuc"] if x["bb"]],
+                           "erken": [x["s"] for x in r["sonuc"] if x["erken"]],
+                           "supriz": {x["s"]: x["supriz"] for x in r["sonuc"] if x["supriz"] >= sp.TOPLAM - 1}},
+                          f, ensure_ascii=False, indent=1)
     if not token or not chat:
         print("TELEGRAM_BOT_TOKEN / TELEGRAM_CHAT_ID tanımlı değil; mesaj gönderilmedi.", file=sys.stderr)
         sys.exit(1)
-    gonder(token, chat, m)
+    for m in mesajlar:
+        gonder(token, chat, m)
 
 
 if __name__ == "__main__":

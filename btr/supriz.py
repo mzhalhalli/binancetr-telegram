@@ -23,6 +23,27 @@ REFERANS = {
     "oncesi": {"en_dar_bant_pct": 9.3, "macd_hist_artiya": "13.10 15:00", "ema_sirasi": "EMA9 > EMA21 > EMA50"},
 }
 
+# 2. örnek: BLUR_TRY 15.10.2026, 15 dakikalık (TR saati). Mevcut eşikler 12:00 ve 12:15 mumlarını 7/7 yakalar.
+REFERANS_BLUR = {
+    "sembol": "BLUR_TRY", "aralik": "15m", "tarih": "15.10.2026",
+    # mum saati = açılış saati; 11:30 mumu 11:45'te, 11:45 mumu 12:00'de kapanır
+    "oncesi_1130": {"kapanis_saati": "11:45", "kapanis": 0.509, "degisim_pct": 1.0, "hacim_try": 773_101, "hacim_kat": 0.9,
+                    "rsi": 51, "bb_alt": 0.4947, "bb_orta": 0.5074, "bb_ust": 0.5201, "bant_pct": 5.0,
+                    "macd_hist": -0.0003, "ema9": 0.5064, "ema21": 0.5073, "ema50": 0.5095, "alici_pay_pct": 73},
+    "oncesi_1145": {"kapanis_saati": "12:00", "kapanis": 0.519, "degisim_pct": 1.8, "hacim_try": 1_046_035, "hacim_kat": 1.2, "rsi": 58,
+                    "bb_alt": 0.4967, "bb_orta": 0.5086, "bb_ust": 0.5205, "bant_pct": 4.7,
+                    "macd_hist": 0.0006, "macd_hist_artiya": "11:45 (10:15'ten beri eksiydi)",
+                    "ema9": 0.5089, "ema21": 0.5084, "ema50": 0.5099, "ema100": 0.5195,
+                    "alici_pay_pct": 57, "not": "9 saat 0,49-0,53 aralığında sıkışma, EMA9 EMA21'i yukarı kesti"},
+    "mumlar": [
+        {"saat": "12:00", "kapanis": 0.571, "degisim_pct": 10.0, "hacim_try": 17_319_773, "hacim_kat": 20.0,
+         "rsi": 77, "bb_ust": 0.5405, "bant_pct": 11.1, "macd_hist": 0.0045, "islem": 1632, "alici_pay_pct": 63},
+        {"saat": "12:15", "kapanis": 0.650, "degisim_pct": 13.8, "hacim_try": 101_499_567, "hacim_kat": 59.9,
+         "rsi": 87, "bb_ust": 0.5841, "bant_pct": 25.0, "macd_hist": 0.0117, "islem": 9754, "alici_pay_pct": 46},
+    ],
+}
+REFERANSLAR = [REFERANS, REFERANS_BLUR]
+
 ESIK = {"degisim_pct": 5.0, "hacim_kat": 5.0, "hacim_n": 20, "rsi": 70.0, "bb_n": 21, "bb_k": 2.0,
         "bant_acilma_kat": 2.0, "bant_geri": 12}
 GEREKLI_MUM = 160
