@@ -101,6 +101,38 @@ class TaramaTests(unittest.TestCase):
             finally:
                 os.chdir(eski)
 
+    def test_formasyon_bolumleri(self):
+        # yapay seriler: AAA son 4s mumunda dikdörtgen kırılımı, BBB yükselen üçgen kırılımına yaklaşıyor
+        ornek = json.loads((Path(__file__).parent / "formasyon_ornek.json").read_text())
+        now = 1792080000000 + 60_000                     # 4s kapanışından 1 dk sonra
+
+        def satirlar(ad, iv):
+            x = ornek[ad]["ohlc"]
+            son_acilis = now // iv * iv - iv
+            return [[son_acilis - (len(x) - 1 - i) * iv, str(o), str(h), str(l), str(c), "1", son_acilis - (len(x) - 1 - i) * iv + iv - 1,
+                     str(c * 1000), 1, "0", "0", "0"] for i, (o, h, l, c) in enumerate(x)]
+        veri = {"AAATRY": satirlar("4h_kirilim_dikdortgen", 14_400_000), "BBBTRY": satirlar("4h_yaklasan_yukselen_ucgen", 14_400_000)}
+        with mock.patch.object(tt, "_get", sahte_get(veri)):
+            r = tt.tara(now, "4h")
+        m = tt.mesaj(r)
+        kir = m.split("🔷 Formasyon kırılımı")[1].split("🟠")[0]
+        self.assertIn("AAA_TRY", kir)
+        self.assertIn("Dikdörtgen ↑", kir)
+        self.assertIn("geçmiş test", kir)
+        self.assertIn("Piyasa genişliği hesaplanamadı", kir)      # 50 coinden az
+        yak = m.split("🔹 Erken uyarı · formasyon kırılımına yaklaşanlar")[1]
+        self.assertIn("BBB_TRY", yak)
+        self.assertIn("Yükselen üçgen: kırılım", yak)
+        veri = {"AAATRY": satirlar("1h_kirilim_boga_bayragi", 3_600_000)}
+        with mock.patch.object(tt, "_get", sahte_get(veri)):
+            m = tt.mesaj(tt.tara(now, "1h"))
+        self.assertIn("Boğa bayrağı ↑", m)
+        self.assertIn("1s BOĞA BAYRAĞI ↑", tt._fm_etiket({"fm_kirilim": [{"baslik": "Boğa bayrağı"}]}, "1h"))
+        self.assertIn("4s İKİLİ DİP ↑", tt._fm_etiket({"fm_kirilim": [{"baslik": "İkili dip"}]}, "4h"))
+
+    def test_uzun_liste_kisalir(self):
+        self.assertEqual(len(tt._kisalt([f"• {i}" for i in range(40)], 40, 1)), tt.LISTE_EN_COK + 1)
+
     def test_parcala(self):
         p = tt.parcala("\n".join("x" * 100 for _ in range(100)))
         self.assertTrue(all(len(s) <= 3900 for s in p))
