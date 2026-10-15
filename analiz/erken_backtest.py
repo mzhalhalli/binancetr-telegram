@@ -77,12 +77,19 @@ def analiz(sym: str, rows: list, bas_ms: int):
     ts = [int(r[0]) for r in rows]
     sinyal, taban = [], []
     son = -10**9
+    n = len(rows)
+    # sert yükseliş mumu: +%5 ve üstü, hacim önceki 20 mum ortalamasının 5 katı ve üstü
+    sert_mum = [False] * n
+    for j in range(20, n):
+        ort = sum(q[j - 20:j]) / 20
+        sert_mum[j] = o[j] > 0 and c[j] / o[j] - 1 >= 0.05 and ort > 0 and q[j] >= 5 * ort
+    sinyal_i = set()
     for i in range(PENCERE - 1, len(rows)):
         if ts[i] < bas_ms or c[i] <= 0:
             continue
         if i + ILERI < len(rows):
             taban.append(((max(h[i + 1:i + ILERI + 1]) / c[i] - 1) * 100, (c[i + ILERI] / c[i] - 1) * 100,
-                          (max(h[i + 1:i + 5]) / c[i] - 1) * 100))
+                          (max(h[i + 1:i + 5]) / c[i] - 1) * 100, q[i], any(sert_mum[i + 1:i + 5])))
         if c[i] <= o[i]:                     # hızlı ön eleme: yeşil mum ve %B 0,80-1,10 (kuralın 2 şartı)
             continue
         b = ind.bollinger(c[i - 20:i + 1], 21, 2.0)
@@ -97,8 +104,12 @@ def analiz(sym: str, rows: list, bas_ms: int):
             continue
         tekrar = i - son <= TEKRAR
         son = i
+        sinyal_i.add(i)
         sinyal.append({"s": sym, "ts": ts[i], "fiyat": c[i], "hacim": q[i], "tekrar": tekrar, **ileri(o, h, l, c, q, i)})
-    return sinyal, taban
+    # patlamaların kaçından önceki 4 mumda (1 saat) erken uyarı vardı
+    patlama = [(sym, ts[j], any(k in sinyal_i for k in range(j - 4, j)))
+               for j in range(PENCERE, n) if ts[j] >= bas_ms and sert_mum[j] and not sert_mum[j - 1]]
+    return sinyal, taban, patlama
 
 
 def ozet(xs: list[dict] | list[tuple], al) -> dict:
@@ -118,14 +129,15 @@ def main():
     bit_ms = int(time.time() * 1000) // IV * IV
     bas_ms = bit_ms - GUN * 86_400_000
     sem = [s for s in tt.semboller() if s["s"].split("_")[0] not in STABIL]
-    sinyaller, taban, hata = [], [], []
+    sinyaller, taban, hata, patlamalar = [], [], [], []
 
     def bir(s):
         try:
             rows = mumlar(s["bn"], bas_ms - PENCERE * IV, bit_ms)
-            si, ta = analiz(s["s"], rows, bas_ms)
+            si, ta, pa = analiz(s["s"], rows, bas_ms)
             sinyaller.extend(si)
             taban.extend(ta)
+            patlamalar.extend(pa)
         except Exception as e:
             hata.append(f"{s['s']}: {e}")
 
@@ -145,7 +157,18 @@ def main():
                    "dd_4s": ozet(tam, lambda x: x["dd_4s"]),
                    "sert_pct": round(sum(1 for x in tam if x["sert"]) / len(tam) * 100, 1) if tam else None},
         "taban": {"n": len(taban), "max_1s": ozet(taban, lambda x: x[2]), "max_4s": ozet(taban, lambda x: x[0]),
-                  "kap_4s": ozet(taban, lambda x: x[1])},
+                  "kap_4s": ozet(taban, lambda x: x[1]),
+                  "sert_pct": round(sum(1 for x in taban if x[4]) / len(taban) * 100, 2) if taban else None},
+        # mum hacmine göre (TRY): sinyal ve taban ayrı ayrı (hacimli coinler doğal olarak daha oynak)
+        "hacim_grup": [{"alt": lo, "ust": hi,
+                        "sinyal": ozet([x for x in tam if lo <= x["hacim"] < hi], lambda x: x["max_4s"]),
+                        "sinyal_kap4s": ozet([x for x in tam if lo <= x["hacim"] < hi], lambda x: x["kap_4s"]),
+                        "taban": ozet([x for x in taban if lo <= x[3] < hi], lambda x: x[0]),
+                        "taban_kap4s": ozet([x for x in taban if lo <= x[3] < hi], lambda x: x[1])}
+                       for lo, hi in ((0, 1e5), (1e5, 1e6), (1e6, 1e15))],
+        "patlama": {"n": len(patlamalar), "onceden_uyari": sum(1 for x in patlamalar if x[2]),
+                    "ornek": [{"s": s_, "zaman": datetime.fromtimestamp(t / 1000, TR).strftime("%d.%m %H:%M"), "uyari": u}
+                              for s_, t, u in sorted(patlamalar, key=lambda x: x[1])[-40:]]},
         "liste": [{**x, "zaman": datetime.fromtimestamp(x["ts"] / 1000, TR).strftime("%d.%m %H:%M")} for x in ilk],
     }
     out = KOK / "analiz" / "sonuc"
