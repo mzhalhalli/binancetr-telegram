@@ -281,23 +281,11 @@ def sonuc_olc(h, l, c, e, yon, hedef, stop, H) -> tuple | None:
     return 0, yon * (c[e + H] / c[e] - 1) * 100
 
 
-def grafik_olaylari(rows: list, rng) -> list[dict]:
-    o = np.array([float(r[1]) for r in rows])
-    h = np.array([float(r[2]) for r in rows])
-    l = np.array([float(r[3]) for r in rows])
-    c = np.array([float(r[4]) for r in rows])
-    q = np.array([float(r[7]) for r in rows])
-    ts = np.array([int(r[0]) for r in rows], dtype=np.int64)
+def kirilimlar(h, l, c, P):
+    """Formasyon kırılımları, bulundukları sırayla: (formasyon, kırılım mumu, yön, hedef, zarar-kes, hedef %, zarar-kes %, süre).
+    Kırılım yalnızca formasyon bilindikten sonraki kapanışlarla aranır (geleceğe bakılmaz)."""
     n = len(c)
-    if n < 60:
-        return []
-    atr = atr_dizi(h, l, c)
-    P = zigzag(h, l, atr)
-    q20 = np.full(n, np.nan)
-    if n > 21:
-        cs = np.concatenate(([0.0], np.cumsum(q)))
-        q20[21:] = (cs[21:n] - cs[1:n - 20]) / 20      # önceki 20 mumun ortalaması
-    olay, gorulen = [], set()
+    gorulen = set()
     for j in range(len(P)):
         t0 = P[j][3]
         for f in formasyonlar(P, j):
@@ -336,24 +324,49 @@ def grafik_olaylari(rows: list, rng) -> list[dict]:
             hp, sp_ = yon * (hedef / c[t] - 1) * 100, yon * (1 - stop / c[t]) * 100
             if sp_ > 40 or hp > 300:
                 continue
-            s = sonuc_olc(h, l, c, t, yon, hedef, stop, H)
-            if s is None:
-                continue
-            # aynı coinde rastgele mumlardan aynı hedef/zarar-kes uzaklığıyla giriş
-            rs = []
-            for r in rng.integers(30, n - H - 1, RASTGELE) if n - H - 1 > 30 else []:
-                hr = c[r] * (1 + yon * hp / 100)
-                sr = c[r] * (1 - yon * sp_ / 100)
-                x = sonuc_olc(h, l, c, int(r), yon, hr, sr, H)
-                if x:
-                    rs.append(x)
-            if not rs:
-                continue
-            olay.append({"ad": f["ad"], "yon": yon, "ts": int(ts[t]), "sonuc": s[0], "getiri": s[1],
-                         "r_kazanc": statistics.fmean(1 if x[0] == 1 else 0 for x in rs),
-                         "r_getiri": statistics.fmean(x[1] for x in rs),
-                         "hedef_pct": hp, "stop_pct": sp_, "hacim_kat": float(q[t] / q20[t]) if q20[t] and q20[t] > 0 else None,
-                         "fiyat": float(c[t]), "hedef": float(hedef), "stop": float(stop), "H": H})
+            yield f, t, yon, hedef, stop, hp, sp_, H
+
+
+def rastgele_kiyas(h, l, c, yon, hp, sp_, H, rng) -> list[tuple]:
+    """Aynı coinde rastgele mumlardan aynı hedef/zarar-kes uzaklığıyla giriş sonuçları."""
+    n = len(c)
+    rs = []
+    for r in rng.integers(30, n - H - 1, RASTGELE) if n - H - 1 > 30 else []:
+        x = sonuc_olc(h, l, c, int(r), yon, c[r] * (1 + yon * hp / 100), c[r] * (1 - yon * sp_ / 100), H)
+        if x:
+            rs.append(x)
+    return rs
+
+
+def grafik_olaylari(rows: list, rng) -> list[dict]:
+    o = np.array([float(r[1]) for r in rows])
+    h = np.array([float(r[2]) for r in rows])
+    l = np.array([float(r[3]) for r in rows])
+    c = np.array([float(r[4]) for r in rows])
+    q = np.array([float(r[7]) for r in rows])
+    ts = np.array([int(r[0]) for r in rows], dtype=np.int64)
+    n = len(c)
+    if n < 60:
+        return []
+    atr = atr_dizi(h, l, c)
+    P = zigzag(h, l, atr)
+    q20 = np.full(n, np.nan)
+    if n > 21:
+        cs = np.concatenate(([0.0], np.cumsum(q)))
+        q20[21:] = (cs[21:n] - cs[1:n - 20]) / 20      # önceki 20 mumun ortalaması
+    olay = []
+    for f, t, yon, hedef, stop, hp, sp_, H in kirilimlar(h, l, c, P):
+        s = sonuc_olc(h, l, c, t, yon, hedef, stop, H)
+        if s is None:
+            continue
+        rs = rastgele_kiyas(h, l, c, yon, hp, sp_, H, rng)
+        if not rs:
+            continue
+        olay.append({"ad": f["ad"], "yon": yon, "ts": int(ts[t]), "sonuc": s[0], "getiri": s[1],
+                     "r_kazanc": statistics.fmean(1 if x[0] == 1 else 0 for x in rs),
+                     "r_getiri": statistics.fmean(x[1] for x in rs),
+                     "hedef_pct": hp, "stop_pct": sp_, "hacim_kat": float(q[t] / q20[t]) if q20[t] and q20[t] > 0 else None,
+                     "fiyat": float(c[t]), "hedef": float(hedef), "stop": float(stop), "H": H})
     return olay
 
 
