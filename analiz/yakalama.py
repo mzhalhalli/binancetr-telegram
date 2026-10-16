@@ -46,6 +46,8 @@ UFUK = 240                # dakika
 BEKLE = 60                # aynı coinde iki sinyal arası en az (dakika)
 KOMISYON = 0.2            # alış + satış, %
 YOLLAR = {"kar2_zarar5": (2, 5), "kar3_zarar2": (3, 2), "kar5_zarar3": (5, 3)}
+# sabit hedef yerine: tepeden geri çekilince sat (iz süren zarar-kes; başta -%5) ya da süre dolunca sat
+CIKISLAR = {"iz2": 2.0, "iz3": 3.0, "iz5": 5.0, "sure15": 15, "sure60": 60}
 ANI = [(k, x, m) for k in (1, 3, 5) for x in (1.5, 2.0, 3.0) for m in (5, 10)]
 TEPE = (5, 10)
 KURALLAR = [f"ani_{k}dk_{x:g}_{m}x" for k, x, m in ANI] + [f"tepe24_{m}x" for m in TEPE] + ["momentum_hacim", "trend_hacim", "rastgele"]
@@ -116,11 +118,30 @@ def sonuc(h, l, c, i) -> dict | None:
             r[ad] = (-1, -sl - KOMISYON)
         else:
             r[ad] = (0, (c[i + UFUK] / g - 1) * 100 - KOMISYON)
+    for ad, v in CIKISLAR.items():
+        if ad.startswith("sure"):
+            deg = (c[i + v] / g - 1) * 100 - KOMISYON
+        else:
+            deg = iz_sur(hh, ll, c[i + UFUK], g, v)
+        r[ad] = (1 if deg > 0 else -1 if deg < 0 else 0, deg)
     return r
 
 
+def iz_sur(hh, ll, son, g, geri_pct, ilk_sl=5.0) -> float:
+    """Giriş g; her dakika zarar-kes = max(girişin -%ilk_sl'si, görülen en yüksek fiyatın -%geri_pct'si).
+    Dakikanın düşüğü zarar-kese değerse o fiyattan satılır (o dakikanın tepesi henüz sayılmaz: temkinli)."""
+    tepe = g
+    for x, y in zip(hh, ll):
+        stop = max(g * (1 - ilk_sl / 100), tepe * (1 - geri_pct / 100))
+        if y <= stop:
+            return (stop / g - 1) * 100 - KOMISYON
+        if x > tepe:
+            tepe = x
+    return (son / g - 1) * 100 - KOMISYON
+
+
 def bos_toplam():
-    return {"n": 0, "gun": set(), "max60": 0.0, "max60_5": 0, **{ad: {"kar": 0, "zarar": 0, "toplam": 0.0} for ad in YOLLAR}}
+    return {"n": 0, "gun": set(), "max60": 0.0, "max60_5": 0, **{ad: {"kar": 0, "zarar": 0, "toplam": 0.0} for ad in (*YOLLAR, *CIKISLAR)}}
 
 
 def analiz(a: np.ndarray, bas_ms: int, ayrim: int, rng) -> tuple[dict, dict]:
@@ -161,7 +182,7 @@ def analiz(a: np.ndarray, bas_ms: int, ayrim: int, rng) -> tuple[dict, dict]:
             dk[son_dk[s]] = True
         kosul[ad] = dk
     rast = np.zeros(n, dtype=bool)
-    rast[rng.integers(0, 47) + np.arange(0, n, 47)[:-1]] = True
+    rast[rng.integers(0, 97) + np.arange(0, n, 97)[:-1]] = True
     kosul["rastgele"] = rast
     gecerli = ts >= bas_ms
     for kural, kos in kosul.items():
@@ -174,7 +195,7 @@ def analiz(a: np.ndarray, bas_ms: int, ayrim: int, rng) -> tuple[dict, dict]:
             t["gun"].add(int(ts[i] // 86_400_000))
             t["max60"] += r["max60"]
             t["max60_5"] += r["max60"] >= 5
-            for ad in YOLLAR:
+            for ad in (*YOLLAR, *CIKISLAR):
                 kod, deg = r[ad]
                 t[ad]["kar"] += kod == 1
                 t[ad]["zarar"] += kod == -1
@@ -225,7 +246,7 @@ def ozet_t(t) -> dict:
     n = t["n"]
     out = {"sinyal": n, "gunluk": round(n / max(1, len(t["gun"])), 1), "max60_ort": round(t["max60"] / n, 2) if n else None,
            "max60_5_pct": round(t["max60_5"] / n * 100, 1) if n else None}
-    for ad in YOLLAR:
+    for ad in (*YOLLAR, *CIKISLAR):
         x = t[ad]
         out[ad] = {"kar_pct": round(x["kar"] / n * 100, 1) if n else None, "zarar_pct": round(x["zarar"] / n * 100, 1) if n else None,
                    "ort_sonuc": round(x["toplam"] / n, 2) if n else None}
@@ -260,7 +281,7 @@ def main():
     tarih = lambda ms: datetime.fromtimestamp(ms / 1000, yp.TR).strftime("%d.%m.%Y %H:%M")
     out = {"olusturma": datetime.now(yp.TR).strftime("%d.%m.%Y %H:%M"), "gun": GUN, "coin": len(sem), "hata": len(hata),
            "hata_ornek": hata[:5], "egitim": f"{tarih(bas_ms)} – {tarih(ayrim)}", "deneme": f"{tarih(ayrim)} – {tarih(bit_ms)}",
-           "yollar": YOLLAR, "olaylar": OLAYLAR, "kurallar": {}, "yakalama": {}}
+           "yollar": YOLLAR, "cikislar": CIKISLAR, "olaylar": OLAYLAR, "kurallar": {}, "yakalama": {}}
     for kural in KURALLAR:
         out["kurallar"][kural] = {d: ozet_t(T[kural][d]) for d in ("egitim", "deneme")}
     for ev in OLAYLAR:
