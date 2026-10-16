@@ -1,15 +1,14 @@
 {
- "ts": 1792166501,
- "son_mum": 1792152000000,
+ "ts": 1792180904,
+ "son_mum": 1792166400000,
  "taranan": 310,
  "hata": 0,
  "bb": [
-  "TIA_TRY",
-  "DODO_TRY"
+  "USD1_TRY"
  ],
  "formasyon": {},
  "piyasa": {
-  "genislik_pct": 16.1,
+  "genislik_pct": 13.9,
   "coin": 310,
   "btc_ust": false
  }
