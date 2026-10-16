@@ -22,7 +22,7 @@ concurrency:
 jobs:
   tara:
     runs-on: ubuntu-latest
-    timeout-minutes: 8
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
         with:
@@ -35,12 +35,21 @@ jobs:
           OTOMATIK: ${{ inputs.otomatik }}
           ONBES_DK: evet   # 15 dakikalık erken uyarı GitHub'dan gönderilir (hayir yazılırsa durur)
         run: python3 telegram_tarama.py
+      # BTC 15 dk + 1 saat + 4 saat göstergesinin üçü GÜÇLÜ AL olunca bir kez "BTC GERÇEK GÜÇLÜ AL DURUMUNDA" (16.10.2026)
+      - name: BTC güçlü al uyarısı
+        if: always()
+        continue-on-error: true
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python3 btc_uyari.py
       - name: Son sonucu kaydet (depo aktif kalsın diye)
         if: always()
         run: |
           git config user.name "tarama-bot"
           git config user.email "tarama-bot@users.noreply.github.com"
           git add son_sonuc.json gonderilen.json || true
+          git add btc_uyari.json 2>/dev/null || true
           git commit -m "tarama sonucu" || true
           git pull --rebase -q origin main || true
           git push || true
