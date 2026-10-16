@@ -9,6 +9,7 @@ name: sert yukselis analizi
 # commit mesajında [coin] varsa tek coinin mumları erken uyarı ve uygunluk kurallarından geçirilir (analiz/coin_incele.py)
 # commit mesajında [yakalama] varsa sert yükselişi 1 dakikalık mumlarla zamanında yakalama denemesi çalışır (analiz/yakalama.py)
 # commit mesajında [onay] varsa formasyon kırılımından sonra 1-2 yeşil mum onayı test edilir (analiz/onay_testi.py)
+# commit mesajında [hafta] varsa son 7 gün erken uyarı ile formasyon girişleri karşılaştırılır (analiz/hafta_karsilastir.py)
 # commit mesajında [fbkontrol] varsa bota eklenen formasyon bulucusu gerçek veriyle geçmiş testle karşılaştırılır
 on:
   push:
@@ -42,9 +43,11 @@ jobs:
           COIN_INCELE: ${{ contains(github.event.head_commit.message, '[coin]') && '1' || '0' }}
           YAKALAMA: ${{ contains(github.event.head_commit.message, '[yakalama]') && '1' || '0' }}
           ONAY: ${{ contains(github.event.head_commit.message, '[onay]') && '1' || '0' }}
+          HAFTA: ${{ contains(github.event.head_commit.message, '[hafta]') && '1' || '0' }}
         run: |
           # birden çok etiket varsa her biri sırayla çalışır; hiç etiket yoksa sert yükseliş profili
           calisti=0
+          if [ "$HAFTA" = "1" ]; then python3 analiz/hafta_karsilastir.py; calisti=1; fi
           if [ "$ONAY" = "1" ]; then python3 analiz/onay_testi.py; calisti=1; fi
           if [ "$YAKALAMA" = "1" ]; then python3 analiz/yakalama.py; calisti=1; fi
           if [ "$COIN_INCELE" = "1" ]; then for a in 15m 1h; do COIN=INIT_TRY ARALIK=$a BAS="2026-10-15 20:00" BIT="2026-10-16 01:00" python3 analiz/coin_incele.py; done; calisti=1; fi
