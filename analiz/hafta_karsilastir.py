@@ -153,7 +153,7 @@ def main():
     for s, d in ham.items():
         for e in d["rastgele"]:
             i, p, neden = cik(d["o"], d["h"], d["l"], d["c"], e)
-            rnd.append({"neden": neden, "net_pct": net_pct(d["c"][e], p)})
+            rnd.append({"s": s, "neden": neden, "net_pct": net_pct(d["c"][e], p), "sure_dk": (i - e) * 15})
 
     def ozet(L):
         if not L:
