@@ -84,6 +84,15 @@ def tepe_dakika(kayit, bn):
     return None, None
 
 
+def _f(x) -> str:
+    """Türkçe sayı: ondalık virgül."""
+    return format(x, "g").replace(".", ",")
+
+
+def _p(x, isaret=True) -> str:
+    return "-" if x is None else ("%" + format(x, "+.2f" if isaret else ".2f")).replace(".", ",").replace("%+", "+%").replace("%-", "−%")
+
+
 def md(sonuc) -> str:
     sat = [f"# Son {GUN} gün: 15 dakikalık mumda %{ESIK:g} ve üstü yükselenler", "",
            f"Dönem: {sonuc['bas']} – {sonuc['son']} (TR saati, mum saati açılış saatidir). Binance TR'deki TRY coinleri, "
@@ -104,18 +113,17 @@ def md(sonuc) -> str:
             "|---|---|---|---|---|---|---|---|---|---|---|---|---|"]
     for n, k in enumerate(sonuc["liste1"], 1):
         td = f"{k['tepe_saat']} ({k['tepe_dk']}. dk)" if k.get("tepe_saat") else "-"
-        sat.append(f"| {n} | {k['coin']} | {saat(k['ts'], '%d.%m.%Y')} | {saat(k['ts'], '%H:%M')} | {k['acilis']:g} | {k['yuksek']:g} | "
-                   f"{k['kapanis']:g} | +%{k['yuksek_pct']:.2f} | {k['kapanis_pct']:+.2f}% | "
-                   f"{'-' if k['onceki_degisim_pct'] is None else format(k['onceki_degisim_pct'], '+.2f') + '%'} | {td} | "
-                   f"{k['hacim_try']:,} | {'-' if k['hacim_kat'] is None else format(k['hacim_kat'], 'g') + 'x'} |")
+        sat.append(f"| {n} | {k['coin']} | {saat(k['ts'], '%d.%m.%Y')} | {saat(k['ts'], '%H:%M')} | {_f(k['acilis'])} | {_f(k['yuksek'])} | "
+                   f"{_f(k['kapanis'])} | {_p(k['yuksek_pct'])} | {_p(k['kapanis_pct'])} | {_p(k['onceki_degisim_pct'])} | {td} | "
+                   f"{format(k['hacim_try'], ',').replace(',', '.')} | {'-' if k['hacim_kat'] is None else _f(k['hacim_kat']) + 'x'} |")
     sat += ["", "## Liste 2 (bilgi için): 4 mum (1 saat) içinde başlangıçtan %10+", "",
             "Başlangıç: ilk mumun açılışı. Tepe: sonraki 4 mumun en yükseği. Son kapanış %: 4. mumun kapanışı / başlangıç. "
             "Tek mumda: bu 4 mumdan biri Liste 1'de var mı.", "",
             "| # | Coin | Tarih | Başlangıç saati | Başlangıç | Tepe | Tepe saati | Yükseliş % | Son kapanış % | Tek mumda |",
             "|---|---|---|---|---|---|---|---|---|---|"]
     for n, k in enumerate(sonuc["liste2"], 1):
-        sat.append(f"| {n} | {k['coin']} | {saat(k['ts'], '%d.%m.%Y')} | {saat(k['ts'], '%H:%M')} | {k['acilis']:g} | {k['tepe']:g} | "
-                   f"{saat(k['tepe_ts'], '%H:%M')} | +%{k['yukselis_pct']:.2f} | {k['son_kapanis_pct']:+.2f}% | {'evet' if k['tek_mumda'] else 'hayır'} |")
+        sat.append(f"| {n} | {k['coin']} | {saat(k['ts'], '%d.%m.%Y')} | {saat(k['ts'], '%H:%M')} | {_f(k['acilis'])} | {_f(k['tepe'])} | "
+                   f"{saat(k['tepe_ts'], '%H:%M')} | {_p(k['yukselis_pct'])} | {_p(k['son_kapanis_pct'])} | {'evet' if k['tek_mumda'] else 'hayır'} |")
     if sonuc["hata"]:
         sat += ["", "Veri alınamayan coinler: " + ", ".join(sonuc["hata"])]
     return "\n".join(sat) + "\n"
