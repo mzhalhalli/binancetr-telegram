@@ -11,6 +11,7 @@ name: sert yukselis analizi
 # commit mesajında [onay] varsa formasyon kırılımından sonra 1-2 yeşil mum onayı test edilir (analiz/onay_testi.py)
 # commit mesajında [hafta] varsa son 7 gün erken uyarı ile formasyon girişleri karşılaştırılır (analiz/hafta_karsilastir.py)
 # commit mesajında [islem] varsa 16.10 gerçek cüzdan işlemleri incelenir (analiz/islem_incele.py)
+# commit mesajında [yuzde10] varsa son 7 günde tek 15 dakikalık mumda %10+ yükselenler listelenir (analiz/yuzde10_hafta.py)
 # commit mesajında [fbkontrol] varsa bota eklenen formasyon bulucusu gerçek veriyle geçmiş testle karşılaştırılır
 on:
   push:
@@ -46,9 +47,11 @@ jobs:
           ONAY: ${{ contains(github.event.head_commit.message, '[onay]') && '1' || '0' }}
           HAFTA: ${{ contains(github.event.head_commit.message, '[hafta]') && '1' || '0' }}
           ISLEM: ${{ contains(github.event.head_commit.message, '[islem]') && '1' || '0' }}
+          YUZDE10: ${{ contains(github.event.head_commit.message, '[yuzde10]') && '1' || '0' }}
         run: |
           # birden çok etiket varsa her biri sırayla çalışır; hiç etiket yoksa sert yükseliş profili
           calisti=0
+          if [ "$YUZDE10" = "1" ]; then python3 analiz/yuzde10_hafta.py; calisti=1; fi
           if [ "$ISLEM" = "1" ]; then python3 analiz/islem_incele.py; calisti=1; fi
           if [ "$HAFTA" = "1" ]; then python3 analiz/hafta_karsilastir.py; calisti=1; fi
           if [ "$ONAY" = "1" ]; then python3 analiz/onay_testi.py; calisti=1; fi
