@@ -1,0 +1,556 @@
+{
+ "secim_olay": 87,
+ "sinama_olay": 90,
+ "secim_mum": 205632,
+ "sinama_mum": 205632,
+ "tek": {
+  "0.5": [
+   {
+    "indikator": "aralik36",
+    "ad": "son 36 mumun fiyat aralığı % (15 dk'da 9 saat)",
+    "yon": ">=",
+    "esik": 8.5561,
+    "hedef": 0.5,
+    "secim_yakalanan": 44,
+    "secim_sinyal": 23510,
+    "sinama_yakalanan": 51,
+    "sinama_sinyal": 22205
+   },
+   {
+    "indikator": "c_ma50",
+    "ad": "fiyat / MA50 farkı %",
+    "yon": ">=",
+    "esik": 1.4744,
+    "hedef": 0.5,
+    "secim_yakalanan": 44,
+    "secim_sinyal": 25915,
+    "sinama_yakalanan": 51,
+    "sinama_sinyal": 28976
+   },
+   {
+    "indikator": "bw",
+    "ad": "Bollinger bant genişliği %",
+    "yon": ">=",
+    "esik": 5.6015,
+    "hedef": 0.5,
+    "secim_yakalanan": 44,
+    "secim_sinyal": 27503,
+    "sinama_yakalanan": 49,
+    "sinama_sinyal": 23570
+   },
+   {
+    "indikator": "c_ma20",
+    "ad": "fiyat / MA20 farkı %",
+    "yon": ">=",
+    "esik": 0.7648,
+    "hedef": 0.5,
+    "secim_yakalanan": 44,
+    "secim_sinyal": 33783,
+    "sinama_yakalanan": 49,
+    "sinama_sinyal": 38535
+   },
+   {
+    "indikator": "get96",
+    "ad": "son 96 mum getirisi % (15 dk'da 24 saat)",
+    "yon": ">=",
+    "esik": 2.834,
+    "hedef": 0.5,
+    "secim_yakalanan": 44,
+    "secim_sinyal": 36314,
+    "sinama_yakalanan": 53,
+    "sinama_sinyal": 35155
+   }
+  ],
+  "0.75": [
+   {
+    "indikator": "bw",
+    "ad": "Bollinger bant genişliği %",
+    "yon": ">=",
+    "esik": 2.9549,
+    "hedef": 0.75,
+    "secim_yakalanan": 65,
+    "secim_sinyal": 80988,
+    "sinama_yakalanan": 68,
+    "sinama_sinyal": 72802
+   },
+   {
+    "indikator": "aralik36",
+    "ad": "son 36 mumun fiyat aralığı % (15 dk'da 9 saat)",
+    "yon": ">=",
+    "esik": 4.3181,
+    "hedef": 0.75,
+    "secim_yakalanan": 65,
+    "secim_sinyal": 87073,
+    "sinama_yakalanan": 74,
+    "sinama_sinyal": 72901
+   },
+   {
+    "indikator": "alici",
+    "ad": "alıcı payı (bu mum, 0-1)",
+    "yon": ">=",
+    "esik": 0.4031,
+    "hedef": 0.75,
+    "secim_yakalanan": 60,
+    "secim_sinyal": 98472,
+    "sinama_yakalanan": 64,
+    "sinama_sinyal": 99129
+   },
+   {
+    "indikator": "bwp",
+    "ad": "bant genişliği yüzdeliği (son 100 mum içinde, düşük = sıkışma)",
+    "yon": ">=",
+    "esik": 42.0,
+    "hedef": 0.75,
+    "secim_yakalanan": 65,
+    "secim_sinyal": 115139,
+    "sinama_yakalanan": 73,
+    "sinama_sinyal": 113790
+   },
+   {
+    "indikator": "alici4",
+    "ad": "alıcı payı (son 4 mum, 0-1)",
+    "yon": ">=",
+    "esik": 0.4287,
+    "hedef": 0.75,
+    "secim_yakalanan": 64,
+    "secim_sinyal": 117169,
+    "sinama_yakalanan": 67,
+    "sinama_sinyal": 117555
+   }
+  ],
+  "0.9": [
+   {
+    "indikator": "alici",
+    "ad": "alıcı payı (bu mum, 0-1)",
+    "yon": ">=",
+    "esik": 0.2092,
+    "hedef": 0.9,
+    "secim_yakalanan": 72,
+    "secim_sinyal": 125691,
+    "sinama_yakalanan": 75,
+    "sinama_sinyal": 126348
+   },
+   {
+    "indikator": "aralik36",
+    "ad": "son 36 mumun fiyat aralığı % (15 dk'da 9 saat)",
+    "yon": ">=",
+    "esik": 2.9462,
+    "hedef": 0.9,
+    "secim_yakalanan": 78,
+    "secim_sinyal": 130869,
+    "sinama_yakalanan": 84,
+    "sinama_sinyal": 120658
+   },
+   {
+    "indikator": "bw",
+    "ad": "Bollinger bant genişliği %",
+    "yon": ">=",
+    "esik": 1.8245,
+    "hedef": 0.9,
+    "secim_yakalanan": 78,
+    "secim_sinyal": 138919,
+    "sinama_yakalanan": 85,
+    "sinama_sinyal": 133797
+   },
+   {
+    "indikator": "bwp",
+    "ad": "bant genişliği yüzdeliği (son 100 mum içinde, düşük = sıkışma)",
+    "yon": ">=",
+    "esik": 19.6,
+    "hedef": 0.9,
+    "secim_yakalanan": 78,
+    "secim_sinyal": 155369,
+    "sinama_yakalanan": 81,
+    "sinama_sinyal": 156241
+   },
+   {
+    "indikator": "alici4",
+    "ad": "alıcı payı (son 4 mum, 0-1)",
+    "yon": ">=",
+    "esik": 0.2704,
+    "hedef": 0.9,
+    "secim_yakalanan": 77,
+    "secim_sinyal": 158880,
+    "sinama_yakalanan": 85,
+    "sinama_sinyal": 159269
+   }
+  ],
+  "1.0": [
+   {
+    "indikator": "alici",
+    "ad": "alıcı payı (bu mum, 0-1)",
+    "yon": ">=",
+    "esik": 0.0,
+    "hedef": 1.0,
+    "secim_yakalanan": 80,
+    "secim_sinyal": 173401,
+    "sinama_yakalanan": 86,
+    "sinama_sinyal": 174206
+   },
+   {
+    "indikator": "bw",
+    "ad": "Bollinger bant genişliği %",
+    "yon": ">=",
+    "esik": 1.2232,
+    "hedef": 1.0,
+    "secim_yakalanan": 87,
+    "secim_sinyal": 176366,
+    "sinama_yakalanan": 88,
+    "sinama_sinyal": 173986
+   },
+   {
+    "indikator": "alici4",
+    "ad": "alıcı payı (son 4 mum, 0-1)",
+    "yon": "<=",
+    "esik": 1.0,
+    "hedef": 1.0,
+    "secim_yakalanan": 86,
+    "secim_sinyal": 193774,
+    "sinama_yakalanan": 88,
+    "sinama_sinyal": 193695
+   },
+   {
+    "indikator": "aralik36",
+    "ad": "son 36 mumun fiyat aralığı % (15 dk'da 9 saat)",
+    "yon": ">=",
+    "esik": 1.2048,
+    "hedef": 1.0,
+    "secim_yakalanan": 87,
+    "secim_sinyal": 194608,
+    "sinama_yakalanan": 89,
+    "sinama_sinyal": 194220
+   },
+   {
+    "indikator": "get96",
+    "ad": "son 96 mum getirisi % (15 dk'da 24 saat)",
+    "yon": ">=",
+    "esik": -14.8383,
+    "hedef": 1.0,
+    "secim_yakalanan": 87,
+    "secim_sinyal": 204080,
+    "sinama_yakalanan": 89,
+    "sinama_sinyal": 204994
+   }
+  ]
+ },
+ "gevsek8": [
+  {
+   "en_az": 8,
+   "secim_yakalanan": 2,
+   "secim_sinyal": 1567,
+   "sinama_yakalanan": 0,
+   "sinama_sinyal": 2058
+  },
+  {
+   "en_az": 7,
+   "secim_yakalanan": 5,
+   "secim_sinyal": 7770,
+   "sinama_yakalanan": 3,
+   "sinama_sinyal": 9226
+  },
+  {
+   "en_az": 6,
+   "secim_yakalanan": 8,
+   "secim_sinyal": 19766,
+   "sinama_yakalanan": 6,
+   "sinama_sinyal": 23031
+  },
+  {
+   "en_az": 5,
+   "secim_yakalanan": 19,
+   "secim_sinyal": 38670,
+   "sinama_yakalanan": 19,
+   "sinama_sinyal": 44854
+  },
+  {
+   "en_az": 4,
+   "secim_yakalanan": 38,
+   "secim_sinyal": 74373,
+   "sinama_yakalanan": 52,
+   "sinama_sinyal": 83190
+  },
+  {
+   "en_az": 3,
+   "secim_yakalanan": 61,
+   "secim_sinyal": 115009,
+   "sinama_yakalanan": 66,
+   "sinama_sinyal": 126390
+  },
+  {
+   "en_az": 2,
+   "secim_yakalanan": 77,
+   "secim_sinyal": 163622,
+   "sinama_yakalanan": 80,
+   "sinama_sinyal": 169883
+  },
+  {
+   "en_az": 1,
+   "secim_yakalanan": 85,
+   "secim_sinyal": 202240,
+   "sinama_yakalanan": 86,
+   "sinama_sinyal": 202372
+  },
+  {
+   "en_az": 0,
+   "secim_yakalanan": 87,
+   "secim_sinyal": 205632,
+   "sinama_yakalanan": 90,
+   "sinama_sinyal": 205632
+  }
+ ],
+ "birlesim": [
+  {
+   "sart": "önceki 36 mumun tepesine uzaklık % (artı = tepeyi aştı) ≥ 6.566",
+   "secim_yakalanan": 5,
+   "secim_sinyal": 21,
+   "sinama_yakalanan": 2,
+   "sinama_sinyal": 38
+  },
+  {
+   "sart": "fiyat / MA20 farkı % ≥ 17.6",
+   "secim_yakalanan": 7,
+   "secim_sinyal": 72,
+   "sinama_yakalanan": 5,
+   "sinama_sinyal": 102
+  },
+  {
+   "sart": "fiyat / EMA200 farkı % ≥ 24.09",
+   "secim_yakalanan": 11,
+   "secim_sinyal": 398,
+   "sinama_yakalanan": 12,
+   "sinama_sinyal": 417
+  },
+  {
+   "sart": "fiyat / MA200 farkı % ≥ 25.5",
+   "secim_yakalanan": 12,
+   "secim_sinyal": 502,
+   "sinama_yakalanan": 12,
+   "sinama_sinyal": 535
+  },
+  {
+   "sart": "mum değişimi % ≥ 3.564",
+   "secim_yakalanan": 14,
+   "secim_sinyal": 724,
+   "sinama_yakalanan": 20,
+   "sinama_sinyal": 747
+  },
+  {
+   "sart": "önceki 36 mumun tepesine uzaklık % (artı = tepeyi aştı) ≥ 1.21",
+   "secim_yakalanan": 18,
+   "secim_sinyal": 1148,
+   "sinama_yakalanan": 23,
+   "sinama_sinyal": 1235
+  },
+  {
+   "sart": "işlem sayısı / önceki 20 mum ortalaması (kat) ≥ 42.05",
+   "secim_yakalanan": 20,
+   "secim_sinyal": 1408,
+   "sinama_yakalanan": 24,
+   "sinama_sinyal": 1482
+  },
+  {
+   "sart": "son 96 mumun TRY hacmi (log10; 6 = 1 milyon, 7 = 10 milyon) ≥ 9.009",
+   "secim_yakalanan": 23,
+   "secim_sinyal": 1862,
+   "sinama_yakalanan": 24,
+   "sinama_sinyal": 1641
+  },
+  {
+   "sart": "önceki 96 mumun tepesine uzaklık % (15 dk'da 24 saat) ≥ 0.7815",
+   "secim_yakalanan": 24,
+   "secim_sinyal": 2071,
+   "sinama_yakalanan": 27,
+   "sinama_sinyal": 1928
+  },
+  {
+   "sart": "mum değişimi % ≤ -1.679",
+   "secim_yakalanan": 30,
+   "secim_sinyal": 3574,
+   "sinama_yakalanan": 33,
+   "sinama_sinyal": 3567
+  },
+  {
+   "sart": "fiyat / MA50 farkı % ≥ 6.5",
+   "secim_yakalanan": 34,
+   "secim_sinyal": 4624,
+   "sinama_yakalanan": 41,
+   "sinama_sinyal": 4715
+  },
+  {
+   "sart": "fiyat / MA20 farkı % ≥ 4.038",
+   "secim_yakalanan": 36,
+   "secim_sinyal": 5241,
+   "sinama_yakalanan": 45,
+   "sinama_sinyal": 5112
+  },
+  {
+   "sart": "RSI 14 ≥ 79.31",
+   "secim_yakalanan": 38,
+   "secim_sinyal": 6161,
+   "sinama_yakalanan": 45,
+   "sinama_sinyal": 6819
+  },
+  {
+   "sart": "mum değişimi % ≥ 1.145",
+   "secim_yakalanan": 44,
+   "secim_sinyal": 9121,
+   "sinama_yakalanan": 54,
+   "sinama_sinyal": 9133
+  },
+  {
+   "sart": "önceki 36 mumun tepesine uzaklık % (artı = tepeyi aştı) ≤ -11.5",
+   "secim_yakalanan": 48,
+   "secim_sinyal": 11549,
+   "sinama_yakalanan": 56,
+   "sinama_sinyal": 11336
+  },
+  {
+   "sart": "önceki 36 mumun tepesine uzaklık % (artı = tepeyi aştı) ≤ -8.116",
+   "secim_yakalanan": 52,
+   "secim_sinyal": 15794,
+   "sinama_yakalanan": 58,
+   "sinama_sinyal": 15646
+  },
+  {
+   "sart": "fiyat / MA20 farkı % ≤ -3.438",
+   "secim_yakalanan": 53,
+   "secim_sinyal": 16705,
+   "sinama_yakalanan": 59,
+   "sinama_sinyal": 17101
+  },
+  {
+   "sart": "RSI'nin son 4 mumdaki değişimi ≥ 26.09",
+   "secim_yakalanan": 54,
+   "secim_sinyal": 18035,
+   "sinama_yakalanan": 59,
+   "sinama_sinyal": 18120
+  },
+  {
+   "sart": "son 16 mum getirisi % (15 dk'da 4 saat) ≥ 5.25",
+   "secim_yakalanan": 55,
+   "secim_sinyal": 19409,
+   "sinama_yakalanan": 59,
+   "sinama_sinyal": 18903
+  },
+  {
+   "sart": "EMA9 / EMA21 farkı % ≥ 1.283",
+   "secim_yakalanan": 56,
+   "secim_sinyal": 20143,
+   "sinama_yakalanan": 60,
+   "sinama_sinyal": 19552
+  },
+  {
+   "sart": "fiyat / MA20 farkı % ≥ 2.793",
+   "secim_yakalanan": 57,
+   "secim_sinyal": 21177,
+   "sinama_yakalanan": 61,
+   "sinama_sinyal": 20147
+  },
+  {
+   "sart": "son 96 mum getirisi % (15 dk'da 24 saat) ≤ -8.106",
+   "secim_yakalanan": 62,
+   "secim_sinyal": 28603,
+   "sinama_yakalanan": 62,
+   "sinama_sinyal": 25270
+  },
+  {
+   "sart": "RSI 14 ≤ 25.22",
+   "secim_yakalanan": 64,
+   "secim_sinyal": 32255,
+   "sinama_yakalanan": 63,
+   "sinama_sinyal": 29679
+  },
+  {
+   "sart": "RSI'nin son 4 mumdaki değişimi ≤ -17.5",
+   "secim_yakalanan": 67,
+   "secim_sinyal": 37191,
+   "sinama_yakalanan": 64,
+   "sinama_sinyal": 34959
+  },
+  {
+   "sart": "EMA9 / EMA21 farkı % ≥ 0.9824",
+   "secim_yakalanan": 68,
+   "secim_sinyal": 39069,
+   "sinama_yakalanan": 65,
+   "sinama_sinyal": 36427
+  },
+  {
+   "sart": "son 96 mum getirisi % (15 dk'da 24 saat) ≥ 6.819",
+   "secim_yakalanan": 70,
+   "secim_sinyal": 44245,
+   "sinama_yakalanan": 67,
+   "sinama_sinyal": 41177
+  },
+  {
+   "sart": "önceki 96 mumun tepesine uzaklık % (15 dk'da 24 saat) ≤ -8.794",
+   "secim_yakalanan": 73,
+   "secim_sinyal": 51874,
+   "sinama_yakalanan": 68,
+   "sinama_sinyal": 48382
+  },
+  {
+   "sart": "Bollinger %B (0 alt bant, 1 üst bant) ≤ -0.0911",
+   "secim_yakalanan": 74,
+   "secim_sinyal": 54642,
+   "sinama_yakalanan": 69,
+   "sinama_sinyal": 50620
+  },
+  {
+   "sart": "son 3 mumun hacmi / ondan önceki 20 mum ortalaması (kat) ≤ 0.08469",
+   "secim_yakalanan": 78,
+   "secim_sinyal": 74315,
+   "sinama_yakalanan": 72,
+   "sinama_sinyal": 69888
+  },
+  {
+   "sart": "RSI'nin son 4 mumdaki değişimi ≥ 15.92",
+   "secim_yakalanan": 79,
+   "secim_sinyal": 79345,
+   "sinama_yakalanan": 73,
+   "sinama_sinyal": 75199
+  },
+  {
+   "sart": "alıcı payı (son 4 mum, 0-1) ≤ 0.0938",
+   "secim_yakalanan": 81,
+   "secim_sinyal": 89196,
+   "sinama_yakalanan": 74,
+   "sinama_sinyal": 84931
+  },
+  {
+   "sart": "Bollinger bant genişliği % ≥ 5.602",
+   "secim_yakalanan": 82,
+   "secim_sinyal": 95427,
+   "sinama_yakalanan": 75,
+   "sinama_sinyal": 90217
+  },
+  {
+   "sart": "son 96 mumun TRY hacmi (log10; 6 = 1 milyon, 7 = 10 milyon) ≤ 6.21",
+   "secim_yakalanan": 83,
+   "secim_sinyal": 101658,
+   "sinama_yakalanan": 75,
+   "sinama_sinyal": 97335
+  },
+  {
+   "sart": "EMA21 / EMA50 farkı % ≥ 0.7165",
+   "secim_yakalanan": 84,
+   "secim_sinyal": 108038,
+   "sinama_yakalanan": 80,
+   "sinama_sinyal": 104946
+  },
+  {
+   "sart": "hacim / önceki 20 mum ortalaması (kat) ≥ 2.763",
+   "secim_yakalanan": 85,
+   "secim_sinyal": 117590,
+   "sinama_yakalanan": 80,
+   "sinama_sinyal": 114844
+  },
+  {
+   "sart": "bant genişliği yüzdeliği (son 100 mum içinde, düşük = sıkışma) ≤ 19.6",
+   "secim_yakalanan": 87,
+   "secim_sinyal": 141519,
+   "sinama_yakalanan": 84,
+   "sinama_sinyal": 140241
+  }
+ ],
+ "sure_sn": 83
+}
