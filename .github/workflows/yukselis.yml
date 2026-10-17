@@ -15,6 +15,7 @@ name: sert yukselis analizi
 # commit mesajında [sart9] varsa %10+ yükselişlerden önceki mumun indikatörleri incelenir, 9. şart adayları çıkarılır (analiz/sart9.py)
 # commit mesajında [yeniset] varsa %10+ yükselişlere göre yeni 15 dk şart seti aranır, önceki haftada sınanır (analiz/yeni_set.py)
 # commit mesajında [kapsama] varsa yükselişlerin %50-%100'ünü yakalamak için gereken sinyal sayısı hesaplanır (analiz/kapsama_egrisi.py)
+# commit mesajında [hedef5] varsa sonraki 15 dk / 1 saatte +%5 hedefini en yüksek oranla tutturan şartlar aranır (analiz/hedef5.py)
 # commit mesajında [fbkontrol] varsa bota eklenen formasyon bulucusu gerçek veriyle geçmiş testle karşılaştırılır
 on:
   push:
@@ -54,9 +55,11 @@ jobs:
           SART9: ${{ contains(github.event.head_commit.message, '[sart9]') && '1' || '0' }}
           YENISET: ${{ contains(github.event.head_commit.message, '[yeniset]') && '1' || '0' }}
           KAPSAMA: ${{ contains(github.event.head_commit.message, '[kapsama]') && '1' || '0' }}
+          HEDEF5: ${{ contains(github.event.head_commit.message, '[hedef5]') && '1' || '0' }}
         run: |
           # birden çok etiket varsa her biri sırayla çalışır; hiç etiket yoksa sert yükseliş profili
           calisti=0
+          if [ "$HEDEF5" = "1" ]; then SON_MS=1792225800000 python3 analiz/hedef5.py; calisti=1; fi
           if [ "$KAPSAMA" = "1" ]; then SON_MS=1792225800000 python3 analiz/kapsama_egrisi.py; calisti=1; fi
           if [ "$YENISET" = "1" ]; then SON_MS=1792225800000 python3 analiz/yeni_set.py; calisti=1; fi
           if [ "$SART9" = "1" ]; then SON_MS=1792225800000 python3 analiz/sart9.py; calisti=1; fi
