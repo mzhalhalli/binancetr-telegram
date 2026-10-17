@@ -1,0 +1,3176 @@
+{
+ "bas": "10.10.2026 11:30",
+ "son": "17.10.2026 11:30",
+ "esik_pct": 10.0,
+ "taranan": 306,
+ "hata": [],
+ "gunluk": [
+  [
+   "10.10.2026",
+   17
+  ],
+  [
+   "11.10.2026",
+   8
+  ],
+  [
+   "12.10.2026",
+   12
+  ],
+  [
+   "13.10.2026",
+   9
+  ],
+  [
+   "14.10.2026",
+   6
+  ],
+  [
+   "15.10.2026",
+   21
+  ],
+  [
+   "16.10.2026",
+   13
+  ],
+  [
+   "17.10.2026",
+   1
+  ]
+ ],
+ "coin_sayisi": [
+  [
+   "WAL_TRY",
+   4
+  ],
+  [
+   "STRAX_TRY",
+   4
+  ],
+  [
+   "AMP_TRY",
+   4
+  ],
+  [
+   "ERA_TRY",
+   3
+  ],
+  [
+   "INIT_TRY",
+   3
+  ],
+  [
+   "OGN_TRY",
+   3
+  ],
+  [
+   "LUMIA_TRY",
+   3
+  ],
+  [
+   "CKB_TRY",
+   3
+  ],
+  [
+   "RSR_TRY",
+   3
+  ],
+  [
+   "MIRA_TRY",
+   3
+  ],
+  [
+   "CFX_TRY",
+   2
+  ],
+  [
+   "SKL_TRY",
+   2
+  ],
+  [
+   "AUCTION_TRY",
+   2
+  ],
+  [
+   "RAD_TRY",
+   2
+  ],
+  [
+   "BLUR_TRY",
+   2
+  ],
+  [
+   "KITE_TRY",
+   2
+  ],
+  [
+   "ANIME_TRY",
+   2
+  ],
+  [
+   "NXPC_TRY",
+   2
+  ],
+  [
+   "CATI_TRY",
+   2
+  ],
+  [
+   "BREV_TRY",
+   1
+  ],
+  [
+   "RONIN_TRY",
+   1
+  ],
+  [
+   "ARPA_TRY",
+   1
+  ],
+  [
+   "ME_TRY",
+   1
+  ],
+  [
+   "BEL_TRY",
+   1
+  ],
+  [
+   "GAS_TRY",
+   1
+  ],
+  [
+   "MAV_TRY",
+   1
+  ],
+  [
+   "STRK_TRY",
+   1
+  ],
+  [
+   "CAKE_TRY",
+   1
+  ],
+  [
+   "MAGIC_TRY",
+   1
+  ],
+  [
+   "W_TRY",
+   1
+  ],
+  [
+   "SXT_TRY",
+   1
+  ],
+  [
+   "IO_TRY",
+   1
+  ],
+  [
+   "MET_TRY",
+   1
+  ],
+  [
+   "LDO_TRY",
+   1
+  ],
+  [
+   "2Z_TRY",
+   1
+  ],
+  [
+   "DOGS_TRY",
+   1
+  ],
+  [
+   "MITO_TRY",
+   1
+  ],
+  [
+   "EGLD_TRY",
+   1
+  ],
+  [
+   "MORPHO_TRY",
+   1
+  ],
+  [
+   "FF_TRY",
+   1
+  ],
+  [
+   "STX_TRY",
+   1
+  ],
+  [
+   "LAZIO_TRY",
+   1
+  ],
+  [
+   "BCH_TRY",
+   1
+  ],
+  [
+   "XPL_TRY",
+   1
+  ],
+  [
+   "PUMP_TRY",
+   1
+  ],
+  [
+   "PYTH_TRY",
+   1
+  ],
+  [
+   "GENIUS_TRY",
+   1
+  ],
+  [
+   "ETC_TRY",
+   1
+  ],
+  [
+   "NIGHT_TRY",
+   1
+  ],
+  [
+   "WCT_TRY",
+   1
+  ],
+  [
+   "SKY_TRY",
+   1
+  ],
+  [
+   "A_TRY",
+   1
+  ],
+  [
+   "MASK_TRY",
+   1
+  ],
+  [
+   "AI_TRY",
+   1
+  ],
+  [
+   "USUAL_TRY",
+   1
+  ]
+ ],
+ "liste1": [
+  {
+   "coin": "ERA_TRY",
+   "ts": 1791621000000,
+   "acilis": 4.04,
+   "yuksek": 5.58,
+   "kapanis": 5.48,
+   "yuksek_pct": 38.12,
+   "kapanis_pct": 35.64,
+   "onceki_degisim_pct": 35.98,
+   "hacim_try": 103450911,
+   "hacim_kat": 41.09,
+   "tepe_saat": "11:44",
+   "tepe_dk": 15
+  },
+  {
+   "coin": "INIT_TRY",
+   "ts": 1791621000000,
+   "acilis": 5.513,
+   "yuksek": 6.191,
+   "kapanis": 5.571,
+   "yuksek_pct": 12.3,
+   "kapanis_pct": 1.05,
+   "onceki_degisim_pct": 0.85,
+   "hacim_try": 446953,
+   "hacim_kat": 10.56,
+   "tepe_saat": "11:40",
+   "tepe_dk": 11
+  },
+  {
+   "coin": "OGN_TRY",
+   "ts": 1791621000000,
+   "acilis": 1.692,
+   "yuksek": 1.904,
+   "kapanis": 1.766,
+   "yuksek_pct": 12.53,
+   "kapanis_pct": 4.37,
+   "onceki_degisim_pct": 4.13,
+   "hacim_try": 47170739,
+   "hacim_kat": 6.5,
+   "tepe_saat": "11:39",
+   "tepe_dk": 10
+  },
+  {
+   "coin": "BREV_TRY",
+   "ts": 1791621900000,
+   "acilis": 4.46,
+   "yuksek": 5.41,
+   "kapanis": 4.37,
+   "yuksek_pct": 21.3,
+   "kapanis_pct": -2.02,
+   "onceki_degisim_pct": -2.02,
+   "hacim_try": 21782465,
+   "hacim_kat": 321.36,
+   "tepe_saat": "11:52",
+   "tepe_dk": 8
+  },
+  {
+   "coin": "RONIN_TRY",
+   "ts": 1791621900000,
+   "acilis": 3.33,
+   "yuksek": 4.23,
+   "kapanis": 3.47,
+   "yuksek_pct": 27.03,
+   "kapanis_pct": 4.2,
+   "onceki_degisim_pct": 4.52,
+   "hacim_try": 69789604,
+   "hacim_kat": 315.82,
+   "tepe_saat": "11:48",
+   "tepe_dk": 4
+  },
+  {
+   "coin": "ARPA_TRY",
+   "ts": 1791624600000,
+   "acilis": 0.6127,
+   "yuksek": 0.6864,
+   "kapanis": 0.6553,
+   "yuksek_pct": 12.03,
+   "kapanis_pct": 6.95,
+   "onceki_degisim_pct": 6.95,
+   "hacim_try": 40820325,
+   "hacim_kat": 4.53,
+   "tepe_saat": "12:42",
+   "tepe_dk": 13
+  },
+  {
+   "coin": "ME_TRY",
+   "ts": 1791624600000,
+   "acilis": 3.628,
+   "yuksek": 4.575,
+   "kapanis": 3.665,
+   "yuksek_pct": 26.1,
+   "kapanis_pct": 1.02,
+   "onceki_degisim_pct": 1.22,
+   "hacim_try": 1387308,
+   "hacim_kat": 15.05,
+   "tepe_saat": "12:37",
+   "tepe_dk": 8
+  },
+  {
+   "coin": "WAL_TRY",
+   "ts": 1791629100000,
+   "acilis": 1.853,
+   "yuksek": 2.198,
+   "kapanis": 2.115,
+   "yuksek_pct": 18.62,
+   "kapanis_pct": 14.14,
+   "onceki_degisim_pct": 13.47,
+   "hacim_try": 42279146,
+   "hacim_kat": 61.23,
+   "tepe_saat": "13:56",
+   "tepe_dk": 12
+  },
+  {
+   "coin": "BEL_TRY",
+   "ts": 1791632700000,
+   "acilis": 6.31,
+   "yuksek": 7.14,
+   "kapanis": 6.76,
+   "yuksek_pct": 13.15,
+   "kapanis_pct": 7.13,
+   "onceki_degisim_pct": 7.13,
+   "hacim_try": 33118882,
+   "hacim_kat": 14.49,
+   "tepe_saat": "14:59",
+   "tepe_dk": 15
+  },
+  {
+   "coin": "CFX_TRY",
+   "ts": 1791632700000,
+   "acilis": 2.529,
+   "yuksek": 2.855,
+   "kapanis": 2.566,
+   "yuksek_pct": 12.89,
+   "kapanis_pct": 1.46,
+   "onceki_degisim_pct": 2.72,
+   "hacim_try": 212288,
+   "hacim_kat": 64.2,
+   "tepe_saat": "14:56",
+   "tepe_dk": 12
+  },
+  {
+   "coin": "ERA_TRY",
+   "ts": 1791637200000,
+   "acilis": 4.16,
+   "yuksek": 4.59,
+   "kapanis": 4.4,
+   "yuksek_pct": 10.34,
+   "kapanis_pct": 5.77,
+   "onceki_degisim_pct": 6.02,
+   "hacim_try": 31635536,
+   "hacim_kat": 1.76,
+   "tepe_saat": "16:08",
+   "tepe_dk": 9
+  },
+  {
+   "coin": "CFX_TRY",
+   "ts": 1791638100000,
+   "acilis": 2.61,
+   "yuksek": 3.0,
+   "kapanis": 2.75,
+   "yuksek_pct": 14.94,
+   "kapanis_pct": 5.36,
+   "onceki_degisim_pct": 5.28,
+   "hacim_try": 22696357,
+   "hacim_kat": 87.29,
+   "tepe_saat": "16:24",
+   "tepe_dk": 10
+  },
+  {
+   "coin": "GAS_TRY",
+   "ts": 1791638100000,
+   "acilis": 66.9,
+   "yuksek": 80.0,
+   "kapanis": 67.7,
+   "yuksek_pct": 19.58,
+   "kapanis_pct": 1.2,
+   "onceki_degisim_pct": 1.96,
+   "hacim_try": 564263,
+   "hacim_kat": 505.93,
+   "tepe_saat": "16:23",
+   "tepe_dk": 9
+  },
+  {
+   "coin": "MAV_TRY",
+   "ts": 1791639000000,
+   "acilis": 0.58,
+   "yuksek": 0.66,
+   "kapanis": 0.61,
+   "yuksek_pct": 13.79,
+   "kapanis_pct": 5.17,
+   "onceki_degisim_pct": 7.02,
+   "hacim_try": 27860199,
+   "hacim_kat": 313.0,
+   "tepe_saat": "16:32",
+   "tepe_dk": 3
+  },
+  {
+   "coin": "STRK_TRY",
+   "ts": 1791641700000,
+   "acilis": 3.668,
+   "yuksek": 4.074,
+   "kapanis": 3.836,
+   "yuksek_pct": 11.07,
+   "kapanis_pct": 4.58,
+   "onceki_degisim_pct": 4.64,
+   "hacim_try": 22875197,
+   "hacim_kat": 13.74,
+   "tepe_saat": "17:18",
+   "tepe_dk": 4
+  },
+  {
+   "coin": "STRAX_TRY",
+   "ts": 1791646200000,
+   "acilis": 0.548,
+   "yuksek": 0.635,
+   "kapanis": 0.622,
+   "yuksek_pct": 15.88,
+   "kapanis_pct": 13.5,
+   "onceki_degisim_pct": 13.3,
+   "hacim_try": 6653831,
+   "hacim_kat": 83.01,
+   "tepe_saat": "18:44",
+   "tepe_dk": 15
+  },
+  {
+   "coin": "CAKE_TRY",
+   "ts": 1791659700000,
+   "acilis": 109.29,
+   "yuksek": 123.8,
+   "kapanis": 109.83,
+   "yuksek_pct": 13.28,
+   "kapanis_pct": 0.49,
+   "onceki_degisim_pct": 0.77,
+   "hacim_try": 171973,
+   "hacim_kat": 1.34,
+   "tepe_saat": "22:15",
+   "tepe_dk": 1
+  },
+  {
+   "coin": "LUMIA_TRY",
+   "ts": 1791691200000,
+   "acilis": 5.301,
+   "yuksek": 7.2,
+   "kapanis": 7.059,
+   "yuksek_pct": 35.82,
+   "kapanis_pct": 33.16,
+   "onceki_degisim_pct": 32.91,
+   "hacim_try": 67207831,
+   "hacim_kat": 26.64,
+   "tepe_saat": "07:14",
+   "tepe_dk": 15
+  },
+  {
+   "coin": "ERA_TRY",
+   "ts": 1791692100000,
+   "acilis": 3.73,
+   "yuksek": 4.21,
+   "kapanis": 4.0,
+   "yuksek_pct": 12.87,
+   "kapanis_pct": 7.24,
+   "onceki_degisim_pct": 6.95,
+   "hacim_try": 23080899,
+   "hacim_kat": 29.98,
+   "tepe_saat": "07:21",
+   "tepe_dk": 7
+  },
+  {
+   "coin": "LUMIA_TRY",
+   "ts": 1791692100000,
+   "acilis": 7.059,
+   "yuksek": 7.83,
+   "kapanis": 7.507,
+   "yuksek_pct": 10.92,
+   "kapanis_pct": 6.35,
+   "onceki_degisim_pct": 6.35,
+   "hacim_try": 52696540,
+   "hacim_kat": 9.04,
+   "tepe_saat": "07:21",
+   "tepe_dk": 7
+  },
+  {
+   "coin": "LUMIA_TRY",
+   "ts": 1791697500000,
+   "acilis": 7.672,
+   "yuksek": 9.0,
+   "kapanis": 8.461,
+   "yuksek_pct": 17.31,
+   "kapanis_pct": 10.28,
+   "onceki_degisim_pct": 10.36,
+   "hacim_try": 47288648,
+   "hacim_kat": 3.49,
+   "tepe_saat": "08:51",
+   "tepe_dk": 7
+  },
+  {
+   "coin": "MAGIC_TRY",
+   "ts": 1791722700000,
+   "acilis": 5.97,
+   "yuksek": 6.58,
+   "kapanis": 6.47,
+   "yuksek_pct": 10.22,
+   "kapanis_pct": 8.38,
+   "onceki_degisim_pct": 8.56,
+   "hacim_try": 50326134,
+   "hacim_kat": 2.39,
+   "tepe_saat": "15:57",
+   "tepe_dk": 13
+  },
+  {
+   "coin": "CKB_TRY",
+   "ts": 1791724500000,
+   "acilis": 0.078,
+   "yuksek": 0.0935,
+   "kapanis": 0.0901,
+   "yuksek_pct": 19.87,
+   "kapanis_pct": 15.51,
+   "onceki_degisim_pct": 15.51,
+   "hacim_try": 39912457,
+   "hacim_kat": 54.8,
+   "tepe_saat": "16:23",
+   "tepe_dk": 9
+  },
+  {
+   "coin": "CKB_TRY",
+   "ts": 1791751500000,
+   "acilis": 0.091,
+   "yuksek": 0.1068,
+   "kapanis": 0.1038,
+   "yuksek_pct": 17.36,
+   "kapanis_pct": 14.07,
+   "onceki_degisim_pct": 14.32,
+   "hacim_try": 50609146,
+   "hacim_kat": 11.33,
+   "tepe_saat": "23:55",
+   "tepe_dk": 11
+  },
+  {
+   "coin": "RSR_TRY",
+   "ts": 1791751500000,
+   "acilis": 0.0807,
+   "yuksek": 0.0898,
+   "kapanis": 0.0812,
+   "yuksek_pct": 11.28,
+   "kapanis_pct": 0.62,
+   "onceki_degisim_pct": 1.5,
+   "hacim_try": 311846,
+   "hacim_kat": 37.24,
+   "tepe_saat": "23:47",
+   "tepe_dk": 3
+  },
+  {
+   "coin": "W_TRY",
+   "ts": 1791772200000,
+   "acilis": 1.1988,
+   "yuksek": 1.3959,
+   "kapanis": 1.3787,
+   "yuksek_pct": 16.44,
+   "kapanis_pct": 15.01,
+   "onceki_degisim_pct": 15.32,
+   "hacim_try": 49213010,
+   "hacim_kat": 11.5,
+   "tepe_saat": "05:37",
+   "tepe_dk": 8
+  },
+  {
+   "coin": "RSR_TRY",
+   "ts": 1791780300000,
+   "acilis": 0.0817,
+   "yuksek": 0.1465,
+   "kapanis": 0.1329,
+   "yuksek_pct": 79.31,
+   "kapanis_pct": 62.67,
+   "onceki_degisim_pct": 62.27,
+   "hacim_try": 11727478,
+   "hacim_kat": 1313.42,
+   "tepe_saat": "07:56",
+   "tepe_dk": 12
+  },
+  {
+   "coin": "SKL_TRY",
+   "ts": 1791780300000,
+   "acilis": 0.25,
+   "yuksek": 0.28,
+   "kapanis": 0.251,
+   "yuksek_pct": 12.0,
+   "kapanis_pct": 0.4,
+   "onceki_degisim_pct": 0.4,
+   "hacim_try": 3604402,
+   "hacim_kat": 15.94,
+   "tepe_saat": "07:51",
+   "tepe_dk": 7
+  },
+  {
+   "coin": "RSR_TRY",
+   "ts": 1791783000000,
+   "acilis": 0.1226,
+   "yuksek": 0.1357,
+   "kapanis": 0.1181,
+   "yuksek_pct": 10.69,
+   "kapanis_pct": -3.67,
+   "onceki_degisim_pct": -3.91,
+   "hacim_try": 24133798,
+   "hacim_kat": 8.01,
+   "tepe_saat": "08:31",
+   "tepe_dk": 2
+  },
+  {
+   "coin": "AUCTION_TRY",
+   "ts": 1791794700000,
+   "acilis": 183.6,
+   "yuksek": 210.0,
+   "kapanis": 185.2,
+   "yuksek_pct": 14.38,
+   "kapanis_pct": 0.87,
+   "onceki_degisim_pct": 0.87,
+   "hacim_try": 1661561,
+   "hacim_kat": 218.2,
+   "tepe_saat": "11:56",
+   "tepe_dk": 12
+  },
+  {
+   "coin": "SXT_TRY",
+   "ts": 1791809100000,
+   "acilis": 0.4919,
+   "yuksek": 0.57,
+   "kapanis": 0.55,
+   "yuksek_pct": 15.88,
+   "kapanis_pct": 11.81,
+   "onceki_degisim_pct": 12.73,
+   "hacim_try": 25709151,
+   "hacim_kat": 27.39,
+   "tepe_saat": "15:58",
+   "tepe_dk": 14
+  },
+  {
+   "coin": "RAD_TRY",
+   "ts": 1791810900000,
+   "acilis": 15.82,
+   "yuksek": 17.66,
+   "kapanis": 17.37,
+   "yuksek_pct": 11.63,
+   "kapanis_pct": 9.8,
+   "onceki_degisim_pct": 9.38,
+   "hacim_try": 33266343,
+   "hacim_kat": 29.55,
+   "tepe_saat": "16:26",
+   "tepe_dk": 12
+  },
+  {
+   "coin": "OGN_TRY",
+   "ts": 1791820800000,
+   "acilis": 1.644,
+   "yuksek": 1.835,
+   "kapanis": 1.784,
+   "yuksek_pct": 11.62,
+   "kapanis_pct": 8.52,
+   "onceki_degisim_pct": 8.58,
+   "hacim_try": 36000860,
+   "hacim_kat": 15.38,
+   "tepe_saat": "19:07",
+   "tepe_dk": 8
+  },
+  {
+   "coin": "IO_TRY",
+   "ts": 1791821700000,
+   "acilis": 8.209,
+   "yuksek": 9.12,
+   "kapanis": 8.333,
+   "yuksek_pct": 11.1,
+   "kapanis_pct": 1.51,
+   "onceki_degisim_pct": 2.03,
+   "hacim_try": 1507392,
+   "hacim_kat": 1.87,
+   "tepe_saat": "19:20",
+   "tepe_dk": 6
+  },
+  {
+   "coin": "SKL_TRY",
+   "ts": 1791821700000,
+   "acilis": 0.256,
+   "yuksek": 0.284,
+   "kapanis": 0.276,
+   "yuksek_pct": 10.94,
+   "kapanis_pct": 7.81,
+   "onceki_degisim_pct": 8.66,
+   "hacim_try": 22646443,
+   "hacim_kat": 15.32,
+   "tepe_saat": "19:28",
+   "tepe_dk": 14
+  },
+  {
+   "coin": "MET_TRY",
+   "ts": 1791824400000,
+   "acilis": 18.82,
+   "yuksek": 21.5,
+   "kapanis": 19.1,
+   "yuksek_pct": 14.24,
+   "kapanis_pct": 1.49,
+   "onceki_degisim_pct": 1.17,
+   "hacim_try": 210740,
+   "hacim_kat": 1.2,
+   "tepe_saat": "20:14",
+   "tepe_dk": 15
+  },
+  {
+   "coin": "STRAX_TRY",
+   "ts": 1791832500000,
+   "acilis": 0.545,
+   "yuksek": 0.655,
+   "kapanis": 0.653,
+   "yuksek_pct": 20.18,
+   "kapanis_pct": 19.82,
+   "onceki_degisim_pct": 19.82,
+   "hacim_try": 14112701,
+   "hacim_kat": 282.11,
+   "tepe_saat": "22:29",
+   "tepe_dk": 15
+  },
+  {
+   "coin": "AUCTION_TRY",
+   "ts": 1791846000000,
+   "acilis": 176.8,
+   "yuksek": 200.0,
+   "kapanis": 177.5,
+   "yuksek_pct": 13.12,
+   "kapanis_pct": 0.4,
+   "onceki_degisim_pct": -0.62,
+   "hacim_try": 162593,
+   "hacim_kat": 12.72,
+   "tepe_saat": "02:04",
+   "tepe_dk": 5
+  },
+  {
+   "coin": "LDO_TRY",
+   "ts": 1791854100000,
+   "acilis": 19.59,
+   "yuksek": 21.98,
+   "kapanis": 19.5,
+   "yuksek_pct": 12.2,
+   "kapanis_pct": -0.46,
+   "onceki_degisim_pct": 0.26,
+   "hacim_try": 2206850,
+   "hacim_kat": 9.73,
+   "tepe_saat": "04:18",
+   "tepe_dk": 4
+  },
+  {
+   "coin": "2Z_TRY",
+   "ts": 1791864000000,
+   "acilis": 1.724,
+   "yuksek": 1.9,
+   "kapanis": 1.739,
+   "yuksek_pct": 10.21,
+   "kapanis_pct": 0.87,
+   "onceki_degisim_pct": 1.05,
+   "hacim_try": 3747903,
+   "hacim_kat": 21.96,
+   "tepe_saat": "07:12",
+   "tepe_dk": 13
+  },
+  {
+   "coin": "DOGS_TRY",
+   "ts": 1791867600000,
+   "acilis": 0.00208,
+   "yuksek": 0.002366,
+   "kapanis": 0.002107,
+   "yuksek_pct": 13.75,
+   "kapanis_pct": 1.3,
+   "onceki_degisim_pct": 1.25,
+   "hacim_try": 412163,
+   "hacim_kat": 7.47,
+   "tepe_saat": "08:10",
+   "tepe_dk": 11
+  },
+  {
+   "coin": "MIRA_TRY",
+   "ts": 1791883800000,
+   "acilis": 2.345,
+   "yuksek": 2.744,
+   "kapanis": 2.349,
+   "yuksek_pct": 17.01,
+   "kapanis_pct": 0.17,
+   "onceki_degisim_pct": 0.3,
+   "hacim_try": 149987,
+   "hacim_kat": 44.04,
+   "tepe_saat": "12:33",
+   "tepe_dk": 4
+  },
+  {
+   "coin": "MIRA_TRY",
+   "ts": 1791885600000,
+   "acilis": 2.339,
+   "yuksek": 2.744,
+   "kapanis": 2.351,
+   "yuksek_pct": 17.32,
+   "kapanis_pct": 0.51,
+   "onceki_degisim_pct": 0.56,
+   "hacim_try": 90273,
+   "hacim_kat": 7.44,
+   "tepe_saat": "13:03",
+   "tepe_dk": 4
+  },
+  {
+   "coin": "MIRA_TRY",
+   "ts": 1791896400000,
+   "acilis": 2.341,
+   "yuksek": 2.619,
+   "kapanis": 2.381,
+   "yuksek_pct": 11.88,
+   "kapanis_pct": 1.71,
+   "onceki_degisim_pct": 1.75,
+   "hacim_try": 390327,
+   "hacim_kat": 10.27,
+   "tepe_saat": "16:00",
+   "tepe_dk": 1
+  },
+  {
+   "coin": "AMP_TRY",
+   "ts": 1791905400000,
+   "acilis": 0.0339,
+   "yuksek": 0.0375,
+   "kapanis": 0.0369,
+   "yuksek_pct": 10.62,
+   "kapanis_pct": 8.85,
+   "onceki_degisim_pct": 8.85,
+   "hacim_try": 28638042,
+   "hacim_kat": 4.59,
+   "tepe_saat": "18:44",
+   "tepe_dk": 15
+  },
+  {
+   "coin": "AMP_TRY",
+   "ts": 1791912600000,
+   "acilis": 0.036,
+   "yuksek": 0.0409,
+   "kapanis": 0.04,
+   "yuksek_pct": 13.61,
+   "kapanis_pct": 11.11,
+   "onceki_degisim_pct": 11.73,
+   "hacim_try": 34005561,
+   "hacim_kat": 4.32,
+   "tepe_saat": "20:42",
+   "tepe_dk": 13
+  },
+  {
+   "coin": "MITO_TRY",
+   "ts": 1791972900000,
+   "acilis": 0.685,
+   "yuksek": 0.788,
+   "kapanis": 0.722,
+   "yuksek_pct": 15.04,
+   "kapanis_pct": 5.4,
+   "onceki_degisim_pct": 5.4,
+   "hacim_try": 14786206,
+   "hacim_kat": 69.75,
+   "tepe_saat": "13:18",
+   "tepe_dk": 4
+  },
+  {
+   "coin": "EGLD_TRY",
+   "ts": 1791983700000,
+   "acilis": 180.0,
+   "yuksek": 198.0,
+   "kapanis": 181.5,
+   "yuksek_pct": 10.0,
+   "kapanis_pct": 0.83,
+   "onceki_degisim_pct": 0.17,
+   "hacim_try": 494036,
+   "hacim_kat": 4.23,
+   "tepe_saat": "16:27",
+   "tepe_dk": 13
+  },
+  {
+   "coin": "AMP_TRY",
+   "ts": 1791986400000,
+   "acilis": 0.0335,
+   "yuksek": 0.0372,
+   "kapanis": 0.037,
+   "yuksek_pct": 11.04,
+   "kapanis_pct": 10.45,
+   "onceki_degisim_pct": 10.12,
+   "hacim_try": 12363125,
+   "hacim_kat": 5.57,
+   "tepe_saat": "17:14",
+   "tepe_dk": 15
+  },
+  {
+   "coin": "MORPHO_TRY",
+   "ts": 1791987300000,
+   "acilis": 112.82,
+   "yuksek": 125.0,
+   "kapanis": 113.55,
+   "yuksek_pct": 10.8,
+   "kapanis_pct": 0.65,
+   "onceki_degisim_pct": 0.91,
+   "hacim_try": 551061,
+   "hacim_kat": 15.68,
+   "tepe_saat": "17:19",
+   "tepe_dk": 5
+  },
+  {
+   "coin": "OGN_TRY",
+   "ts": 1791990900000,
+   "acilis": 1.544,
+   "yuksek": 1.817,
+   "kapanis": 1.6,
+   "yuksek_pct": 17.68,
+   "kapanis_pct": 3.63,
+   "onceki_degisim_pct": 3.63,
+   "hacim_try": 13686114,
+   "hacim_kat": 12.68,
+   "tepe_saat": "18:20",
+   "tepe_dk": 6
+  },
+  {
+   "coin": "WAL_TRY",
+   "ts": 1791995400000,
+   "acilis": 2.74,
+   "yuksek": 3.044,
+   "kapanis": 2.981,
+   "yuksek_pct": 11.09,
+   "kapanis_pct": 8.8,
+   "onceki_degisim_pct": 8.91,
+   "hacim_try": 51312848,
+   "hacim_kat": 4.2,
+   "tepe_saat": "19:44",
+   "tepe_dk": 15
+  },
+  {
+   "coin": "WAL_TRY",
+   "ts": 1792012500000,
+   "acilis": 2.973,
+   "yuksek": 3.291,
+   "kapanis": 3.272,
+   "yuksek_pct": 10.7,
+   "kapanis_pct": 10.06,
+   "onceki_degisim_pct": 9.98,
+   "hacim_try": 33701400,
+   "hacim_kat": 1.77,
+   "tepe_saat": "00:29",
+   "tepe_dk": 15
+  },
+  {
+   "coin": "FF_TRY",
+   "ts": 1792035000000,
+   "acilis": 5.126,
+   "yuksek": 5.766,
+   "kapanis": 5.358,
+   "yuksek_pct": 12.49,
+   "kapanis_pct": 4.53,
+   "onceki_degisim_pct": 5.83,
+   "hacim_try": 2601511,
+   "hacim_kat": 45.93,
+   "tepe_saat": "06:35",
+   "tepe_dk": 6
+  },
+  {
+   "coin": "BLUR_TRY",
+   "ts": 1792054800000,
+   "acilis": 0.519,
+   "yuksek": 0.58,
+   "kapanis": 0.571,
+   "yuksek_pct": 11.75,
+   "kapanis_pct": 10.02,
+   "onceki_degisim_pct": 10.02,
+   "hacim_try": 17319773,
+   "hacim_kat": 19.99,
+   "tepe_saat": "12:14",
+   "tepe_dk": 15
+  },
+  {
+   "coin": "BLUR_TRY",
+   "ts": 1792055700000,
+   "acilis": 0.571,
+   "yuksek": 0.678,
+   "kapanis": 0.65,
+   "yuksek_pct": 18.74,
+   "kapanis_pct": 13.84,
+   "onceki_degisim_pct": 13.84,
+   "hacim_try": 101499567,
+   "hacim_kat": 59.87,
+   "tepe_saat": "12:20",
+   "tepe_dk": 6
+  },
+  {
+   "coin": "STX_TRY",
+   "ts": 1792056600000,
+   "acilis": 19.87,
+   "yuksek": 22.19,
+   "kapanis": 19.95,
+   "yuksek_pct": 11.68,
+   "kapanis_pct": 0.4,
+   "onceki_degisim_pct": -0.1,
+   "hacim_try": 738087,
+   "hacim_kat": 4.09,
+   "tepe_saat": "12:40",
+   "tepe_dk": 11
+  },
+  {
+   "coin": "LAZIO_TRY",
+   "ts": 1792069200000,
+   "acilis": 20.64,
+   "yuksek": 24.0,
+   "kapanis": 22.24,
+   "yuksek_pct": 16.28,
+   "kapanis_pct": 7.75,
+   "onceki_degisim_pct": 7.44,
+   "hacim_try": 35707583,
+   "hacim_kat": 55.09,
+   "tepe_saat": "16:07",
+   "tepe_dk": 8
+  },
+  {
+   "coin": "BCH_TRY",
+   "ts": 1792071000000,
+   "acilis": 12936.0,
+   "yuksek": 14348.0,
+   "kapanis": 13082.0,
+   "yuksek_pct": 10.92,
+   "kapanis_pct": 1.13,
+   "onceki_degisim_pct": 1.03,
+   "hacim_try": 201677,
+   "hacim_kat": 4.16,
+   "tepe_saat": "16:41",
+   "tepe_dk": 12
+  },
+  {
+   "coin": "XPL_TRY",
+   "ts": 1792072800000,
+   "acilis": 4.073,
+   "yuksek": 5.36,
+   "kapanis": 4.129,
+   "yuksek_pct": 31.6,
+   "kapanis_pct": 1.37,
+   "onceki_degisim_pct": 1.13,
+   "hacim_try": 17953115,
+   "hacim_kat": 20.24,
+   "tepe_saat": "17:10",
+   "tepe_dk": 11
+  },
+  {
+   "coin": "STRAX_TRY",
+   "ts": 1792073700000,
+   "acilis": 0.511,
+   "yuksek": 0.685,
+   "kapanis": 0.601,
+   "yuksek_pct": 34.05,
+   "kapanis_pct": 17.61,
+   "onceki_degisim_pct": 17.61,
+   "hacim_try": 43140364,
+   "hacim_kat": 639.81,
+   "tepe_saat": "17:22",
+   "tepe_dk": 8
+  },
+  {
+   "coin": "PUMP_TRY",
+   "ts": 1792074600000,
+   "acilis": 0.2146,
+   "yuksek": 0.241,
+   "kapanis": 0.2186,
+   "yuksek_pct": 12.3,
+   "kapanis_pct": 1.86,
+   "onceki_degisim_pct": 1.82,
+   "hacim_try": 3884236,
+   "hacim_kat": 4.97,
+   "tepe_saat": "17:44",
+   "tepe_dk": 15
+  },
+  {
+   "coin": "KITE_TRY",
+   "ts": 1792076400000,
+   "acilis": 6.058,
+   "yuksek": 6.8,
+   "kapanis": 6.143,
+   "yuksek_pct": 12.25,
+   "kapanis_pct": 1.4,
+   "onceki_degisim_pct": 1.42,
+   "hacim_try": 248495,
+   "hacim_kat": 3.32,
+   "tepe_saat": "18:12",
+   "tepe_dk": 13
+  },
+  {
+   "coin": "PYTH_TRY",
+   "ts": 1792076400000,
+   "acilis": 4.44,
+   "yuksek": 5.75,
+   "kapanis": 4.56,
+   "yuksek_pct": 29.5,
+   "kapanis_pct": 2.7,
+   "onceki_degisim_pct": 2.98,
+   "hacim_try": 26186187,
+   "hacim_kat": 11.06,
+   "tepe_saat": "18:04",
+   "tepe_dk": 5
+  },
+  {
+   "coin": "WAL_TRY",
+   "ts": 1792076400000,
+   "acilis": 2.693,
+   "yuksek": 2.973,
+   "kapanis": 2.757,
+   "yuksek_pct": 10.4,
+   "kapanis_pct": 2.38,
+   "onceki_degisim_pct": 2.41,
+   "hacim_try": 17943408,
+   "hacim_kat": 2.92,
+   "tepe_saat": "18:09",
+   "tepe_dk": 10
+  },
+  {
+   "coin": "GENIUS_TRY",
+   "ts": 1792079100000,
+   "acilis": 13.43,
+   "yuksek": 15.0,
+   "kapanis": 14.8,
+   "yuksek_pct": 11.69,
+   "kapanis_pct": 10.2,
+   "onceki_degisim_pct": 10.2,
+   "hacim_try": 3733245,
+   "hacim_kat": 35.9,
+   "tepe_saat": "18:56",
+   "tepe_dk": 12
+  },
+  {
+   "coin": "ANIME_TRY",
+   "ts": 1792081800000,
+   "acilis": 0.144,
+   "yuksek": 0.165,
+   "kapanis": 0.159,
+   "yuksek_pct": 14.58,
+   "kapanis_pct": 10.42,
+   "onceki_degisim_pct": 11.19,
+   "hacim_try": 6634619,
+   "hacim_kat": 330.74,
+   "tepe_saat": "19:40",
+   "tepe_dk": 11
+  },
+  {
+   "coin": "ETC_TRY",
+   "ts": 1792081800000,
+   "acilis": 393.5,
+   "yuksek": 465.0,
+   "kapanis": 395.7,
+   "yuksek_pct": 18.17,
+   "kapanis_pct": 0.56,
+   "onceki_degisim_pct": 0.53,
+   "hacim_try": 92702,
+   "hacim_kat": 2.84,
+   "tepe_saat": "19:34",
+   "tepe_dk": 5
+  },
+  {
+   "coin": "NXPC_TRY",
+   "ts": 1792081800000,
+   "acilis": 9.84,
+   "yuksek": 15.0,
+   "kapanis": 12.4,
+   "yuksek_pct": 52.44,
+   "kapanis_pct": 26.02,
+   "onceki_degisim_pct": 26.66,
+   "hacim_try": 20700976,
+   "hacim_kat": 1988.14,
+   "tepe_saat": "19:44",
+   "tepe_dk": 15
+  },
+  {
+   "coin": "ANIME_TRY",
+   "ts": 1792082700000,
+   "acilis": 0.16,
+   "yuksek": 0.195,
+   "kapanis": 0.145,
+   "yuksek_pct": 21.88,
+   "kapanis_pct": -9.38,
+   "onceki_degisim_pct": -8.81,
+   "hacim_try": 45992666,
+   "hacim_kat": 130.89,
+   "tepe_saat": "19:56",
+   "tepe_dk": 12
+  },
+  {
+   "coin": "NXPC_TRY",
+   "ts": 1792082700000,
+   "acilis": 12.4,
+   "yuksek": 16.0,
+   "kapanis": 13.15,
+   "yuksek_pct": 29.03,
+   "kapanis_pct": 6.05,
+   "onceki_degisim_pct": 6.05,
+   "hacim_try": 56895478,
+   "hacim_kat": 54.42,
+   "tepe_saat": "19:48",
+   "tepe_dk": 4
+  },
+  {
+   "coin": "NIGHT_TRY",
+   "ts": 1792090800000,
+   "acilis": 2.101,
+   "yuksek": 2.5,
+   "kapanis": 2.088,
+   "yuksek_pct": 18.99,
+   "kapanis_pct": -0.62,
+   "onceki_degisim_pct": -0.14,
+   "hacim_try": 290649,
+   "hacim_kat": 2.37,
+   "tepe_saat": "22:02",
+   "tepe_dk": 3
+  },
+  {
+   "coin": "INIT_TRY",
+   "ts": 1792097100000,
+   "acilis": 6.553,
+   "yuksek": 7.21,
+   "kapanis": 6.671,
+   "yuksek_pct": 10.03,
+   "kapanis_pct": 1.8,
+   "onceki_degisim_pct": 1.93,
+   "hacim_try": 14950575,
+   "hacim_kat": 26.63,
+   "tepe_saat": "23:53",
+   "tepe_dk": 9
+  },
+  {
+   "coin": "WCT_TRY",
+   "ts": 1792106100000,
+   "acilis": 1.914,
+   "yuksek": 2.11,
+   "kapanis": 1.922,
+   "yuksek_pct": 10.24,
+   "kapanis_pct": 0.42,
+   "onceki_degisim_pct": 0.26,
+   "hacim_try": 93234,
+   "hacim_kat": 1.06,
+   "tepe_saat": "02:29",
+   "tepe_dk": 15
+  },
+  {
+   "coin": "CKB_TRY",
+   "ts": 1792143000000,
+   "acilis": 0.0745,
+   "yuksek": 0.082,
+   "kapanis": 0.0749,
+   "yuksek_pct": 10.07,
+   "kapanis_pct": 0.54,
+   "onceki_degisim_pct": 0.54,
+   "hacim_try": 968362,
+   "hacim_kat": 8.1,
+   "tepe_saat": "12:30",
+   "tepe_dk": 1
+  },
+  {
+   "coin": "KITE_TRY",
+   "ts": 1792148400000,
+   "acilis": 6.052,
+   "yuksek": 6.7,
+   "kapanis": 6.07,
+   "yuksek_pct": 10.71,
+   "kapanis_pct": 0.3,
+   "onceki_degisim_pct": 0.07,
+   "hacim_try": 859711,
+   "hacim_kat": 14.38,
+   "tepe_saat": "14:13",
+   "tepe_dk": 14
+  },
+  {
+   "coin": "SKY_TRY",
+   "ts": 1792149300000,
+   "acilis": 3.597,
+   "yuksek": 4.149,
+   "kapanis": 3.641,
+   "yuksek_pct": 15.35,
+   "kapanis_pct": 1.22,
+   "onceki_degisim_pct": 1.73,
+   "hacim_try": 343919,
+   "hacim_kat": 23.97,
+   "tepe_saat": "14:28",
+   "tepe_dk": 14
+  },
+  {
+   "coin": "CATI_TRY",
+   "ts": 1792150200000,
+   "acilis": 2.638,
+   "yuksek": 2.922,
+   "kapanis": 2.667,
+   "yuksek_pct": 10.77,
+   "kapanis_pct": 1.1,
+   "onceki_degisim_pct": 1.1,
+   "hacim_try": 177406,
+   "hacim_kat": 9.6,
+   "tepe_saat": "14:37",
+   "tepe_dk": 8
+  },
+  {
+   "coin": "A_TRY",
+   "ts": 1792160100000,
+   "acilis": 5.22,
+   "yuksek": 5.89,
+   "kapanis": 5.46,
+   "yuksek_pct": 12.84,
+   "kapanis_pct": 4.6,
+   "onceki_degisim_pct": 4.2,
+   "hacim_try": 7623285,
+   "hacim_kat": 36.43,
+   "tepe_saat": "17:28",
+   "tepe_dk": 14
+  },
+  {
+   "coin": "AMP_TRY",
+   "ts": 1792162800000,
+   "acilis": 0.0343,
+   "yuksek": 0.0399,
+   "kapanis": 0.0388,
+   "yuksek_pct": 16.33,
+   "kapanis_pct": 13.12,
+   "onceki_degisim_pct": 13.45,
+   "hacim_try": 48400228,
+   "hacim_kat": 53.54,
+   "tepe_saat": "18:13",
+   "tepe_dk": 14
+  },
+  {
+   "coin": "MASK_TRY",
+   "ts": 1792162800000,
+   "acilis": 21.22,
+   "yuksek": 24.55,
+   "kapanis": 21.0,
+   "yuksek_pct": 15.69,
+   "kapanis_pct": -1.04,
+   "onceki_degisim_pct": -1.22,
+   "hacim_try": 2365886,
+   "hacim_kat": 198.69,
+   "tepe_saat": "18:03",
+   "tepe_dk": 4
+  },
+  {
+   "coin": "AI_TRY",
+   "ts": 1792166400000,
+   "acilis": 0.94,
+   "yuksek": 1.04,
+   "kapanis": 1.02,
+   "yuksek_pct": 10.64,
+   "kapanis_pct": 8.51,
+   "onceki_degisim_pct": 8.51,
+   "hacim_try": 11409231,
+   "hacim_kat": 134.16,
+   "tepe_saat": "19:11",
+   "tepe_dk": 12
+  },
+  {
+   "coin": "CATI_TRY",
+   "ts": 1792166400000,
+   "acilis": 2.594,
+   "yuksek": 2.896,
+   "kapanis": 2.622,
+   "yuksek_pct": 11.64,
+   "kapanis_pct": 1.08,
+   "onceki_degisim_pct": 1.08,
+   "hacim_try": 62342,
+   "hacim_kat": 3.28,
+   "tepe_saat": "19:06",
+   "tepe_dk": 7
+  },
+  {
+   "coin": "STRAX_TRY",
+   "ts": 1792170900000,
+   "acilis": 0.528,
+   "yuksek": 0.59,
+   "kapanis": 0.55,
+   "yuksek_pct": 11.74,
+   "kapanis_pct": 4.17,
+   "onceki_degisim_pct": 3.97,
+   "hacim_try": 25319511,
+   "hacim_kat": 11.34,
+   "tepe_saat": "20:20",
+   "tepe_dk": 6
+  },
+  {
+   "coin": "INIT_TRY",
+   "ts": 1792171800000,
+   "acilis": 6.098,
+   "yuksek": 7.21,
+   "kapanis": 6.227,
+   "yuksek_pct": 18.24,
+   "kapanis_pct": 2.12,
+   "onceki_degisim_pct": 2.12,
+   "hacim_try": 732394,
+   "hacim_kat": 2.28,
+   "tepe_saat": "20:40",
+   "tepe_dk": 11
+  },
+  {
+   "coin": "RAD_TRY",
+   "ts": 1792176300000,
+   "acilis": 15.23,
+   "yuksek": 16.85,
+   "kapanis": 16.29,
+   "yuksek_pct": 10.64,
+   "kapanis_pct": 6.96,
+   "onceki_degisim_pct": 7.31,
+   "hacim_try": 39523010,
+   "hacim_kat": 9.18,
+   "tepe_saat": "21:52",
+   "tepe_dk": 8
+  },
+  {
+   "coin": "USUAL_TRY",
+   "ts": 1792185300000,
+   "acilis": 0.524,
+   "yuksek": 0.577,
+   "kapanis": 0.529,
+   "yuksek_pct": 10.11,
+   "kapanis_pct": 0.95,
+   "onceki_degisim_pct": 1.34,
+   "hacim_try": 867098,
+   "hacim_kat": 11.84,
+   "tepe_saat": "00:22",
+   "tepe_dk": 8
+  }
+ ],
+ "liste2": [
+  {
+   "coin": "BREV_TRY",
+   "ts": 1791621000000,
+   "acilis": 4.38,
+   "tepe": 5.41,
+   "tepe_ts": 1791621900000,
+   "yukselis_pct": 23.52,
+   "son_kapanis_pct": -2.97,
+   "tek_mumda": true
+  },
+  {
+   "coin": "ERA_TRY",
+   "ts": 1791621000000,
+   "acilis": 4.04,
+   "tepe": 5.58,
+   "tepe_ts": 1791621000000,
+   "yukselis_pct": 38.12,
+   "son_kapanis_pct": -0.99,
+   "tek_mumda": true
+  },
+  {
+   "coin": "INIT_TRY",
+   "ts": 1791621000000,
+   "acilis": 5.513,
+   "tepe": 6.191,
+   "tepe_ts": 1791621000000,
+   "yukselis_pct": 12.3,
+   "son_kapanis_pct": 2.16,
+   "tek_mumda": true
+  },
+  {
+   "coin": "OGN_TRY",
+   "ts": 1791621000000,
+   "acilis": 1.692,
+   "tepe": 1.904,
+   "tepe_ts": 1791621000000,
+   "yukselis_pct": 12.53,
+   "son_kapanis_pct": 2.78,
+   "tek_mumda": true
+  },
+  {
+   "coin": "RONIN_TRY",
+   "ts": 1791621000000,
+   "acilis": 3.28,
+   "tepe": 4.23,
+   "tepe_ts": 1791621900000,
+   "yukselis_pct": 28.96,
+   "son_kapanis_pct": -3.05,
+   "tek_mumda": true
+  },
+  {
+   "coin": "ARPA_TRY",
+   "ts": 1791621900000,
+   "acilis": 0.5909,
+   "tepe": 0.6864,
+   "tepe_ts": 1791624600000,
+   "yukselis_pct": 16.16,
+   "son_kapanis_pct": 10.9,
+   "tek_mumda": true
+  },
+  {
+   "coin": "ME_TRY",
+   "ts": 1791621900000,
+   "acilis": 3.587,
+   "tepe": 4.575,
+   "tepe_ts": 1791624600000,
+   "yukselis_pct": 27.54,
+   "son_kapanis_pct": 2.17,
+   "tek_mumda": true
+  },
+  {
+   "coin": "ERA_TRY",
+   "ts": 1791624600000,
+   "acilis": 3.99,
+   "tepe": 4.4,
+   "tepe_ts": 1791627300000,
+   "yukselis_pct": 10.28,
+   "son_kapanis_pct": 8.27,
+   "tek_mumda": false
+  },
+  {
+   "coin": "WAL_TRY",
+   "ts": 1791626400000,
+   "acilis": 1.789,
+   "tepe": 2.198,
+   "tepe_ts": 1791629100000,
+   "yukselis_pct": 22.86,
+   "son_kapanis_pct": 18.22,
+   "tek_mumda": true
+  },
+  {
+   "coin": "ORCA_TRY",
+   "ts": 1791628200000,
+   "acilis": 118.1,
+   "tepe": 130.0,
+   "tepe_ts": 1791630900000,
+   "yukselis_pct": 10.08,
+   "son_kapanis_pct": 8.38,
+   "tek_mumda": false
+  },
+  {
+   "coin": "BEL_TRY",
+   "ts": 1791630000000,
+   "acilis": 6.26,
+   "tepe": 7.14,
+   "tepe_ts": 1791632700000,
+   "yukselis_pct": 14.06,
+   "son_kapanis_pct": 7.99,
+   "tek_mumda": true
+  },
+  {
+   "coin": "CFX_TRY",
+   "ts": 1791630000000,
+   "acilis": 2.496,
+   "tepe": 2.855,
+   "tepe_ts": 1791632700000,
+   "yukselis_pct": 14.38,
+   "son_kapanis_pct": 2.8,
+   "tek_mumda": true
+  },
+  {
+   "coin": "LUMIA_TRY",
+   "ts": 1791632700000,
+   "acilis": 5.449,
+   "tepe": 6.154,
+   "tepe_ts": 1791635400000,
+   "yukselis_pct": 12.94,
+   "son_kapanis_pct": 10.19,
+   "tek_mumda": false
+  },
+  {
+   "coin": "ERA_TRY",
+   "ts": 1791634500000,
+   "acilis": 3.96,
+   "tepe": 4.59,
+   "tepe_ts": 1791637200000,
+   "yukselis_pct": 15.91,
+   "son_kapanis_pct": 11.11,
+   "tek_mumda": true
+  },
+  {
+   "coin": "CFX_TRY",
+   "ts": 1791635400000,
+   "acilis": 2.545,
+   "tepe": 3.0,
+   "tepe_ts": 1791638100000,
+   "yukselis_pct": 17.88,
+   "son_kapanis_pct": 8.06,
+   "tek_mumda": true
+  },
+  {
+   "coin": "GAS_TRY",
+   "ts": 1791635400000,
+   "acilis": 66.3,
+   "tepe": 80.0,
+   "tepe_ts": 1791638100000,
+   "yukselis_pct": 20.66,
+   "son_kapanis_pct": 2.11,
+   "tek_mumda": true
+  },
+  {
+   "coin": "MAV_TRY",
+   "ts": 1791636300000,
+   "acilis": 0.58,
+   "tepe": 0.66,
+   "tepe_ts": 1791639000000,
+   "yukselis_pct": 13.79,
+   "son_kapanis_pct": 5.17,
+   "tek_mumda": true
+  },
+  {
+   "coin": "STRK_TRY",
+   "ts": 1791639000000,
+   "acilis": 3.579,
+   "tepe": 4.074,
+   "tepe_ts": 1791641700000,
+   "yukselis_pct": 13.83,
+   "son_kapanis_pct": 7.18,
+   "tek_mumda": true
+  },
+  {
+   "coin": "CFX_TRY",
+   "ts": 1791639900000,
+   "acilis": 2.667,
+   "tepe": 2.98,
+   "tepe_ts": 1791642600000,
+   "yukselis_pct": 11.74,
+   "son_kapanis_pct": 10.57,
+   "tek_mumda": false
+  },
+  {
+   "coin": "CKB_TRY",
+   "ts": 1791639900000,
+   "acilis": 0.0664,
+   "tepe": 0.0749,
+   "tepe_ts": 1791642600000,
+   "yukselis_pct": 12.8,
+   "son_kapanis_pct": 4.97,
+   "tek_mumda": false
+  },
+  {
+   "coin": "STRK_TRY",
+   "ts": 1791642600000,
+   "acilis": 3.844,
+   "tepe": 4.447,
+   "tepe_ts": 1791645300000,
+   "yukselis_pct": 15.69,
+   "son_kapanis_pct": 12.9,
+   "tek_mumda": false
+  },
+  {
+   "coin": "STRAX_TRY",
+   "ts": 1791643500000,
+   "acilis": 0.532,
+   "tepe": 0.635,
+   "tepe_ts": 1791646200000,
+   "yukselis_pct": 19.36,
+   "son_kapanis_pct": 16.92,
+   "tek_mumda": true
+  },
+  {
+   "coin": "STRK_TRY",
+   "ts": 1791646200000,
+   "acilis": 4.34,
+   "tepe": 4.853,
+   "tepe_ts": 1791648900000,
+   "yukselis_pct": 11.82,
+   "son_kapanis_pct": 4.54,
+   "tek_mumda": false
+  },
+  {
+   "coin": "YB_TRY",
+   "ts": 1791647100000,
+   "acilis": 3.85,
+   "tepe": 4.25,
+   "tepe_ts": 1791649800000,
+   "yukselis_pct": 10.39,
+   "son_kapanis_pct": 6.23,
+   "tek_mumda": false
+  },
+  {
+   "coin": "ACT_TRY",
+   "ts": 1791648000000,
+   "acilis": 0.5024,
+   "tepe": 0.558,
+   "tepe_ts": 1791650700000,
+   "yukselis_pct": 11.07,
+   "son_kapanis_pct": 10.71,
+   "tek_mumda": false
+  },
+  {
+   "coin": "CHIP_TRY",
+   "ts": 1791651600000,
+   "acilis": 2.6564,
+   "tepe": 2.94,
+   "tepe_ts": 1791654300000,
+   "yukselis_pct": 10.68,
+   "son_kapanis_pct": 8.24,
+   "tek_mumda": false
+  },
+  {
+   "coin": "STRK_TRY",
+   "ts": 1791653400000,
+   "acilis": 4.626,
+   "tepe": 5.144,
+   "tepe_ts": 1791656100000,
+   "yukselis_pct": 11.2,
+   "son_kapanis_pct": 8.95,
+   "tek_mumda": false
+  },
+  {
+   "coin": "CHIP_TRY",
+   "ts": 1791655200000,
+   "acilis": 2.8753,
+   "tepe": 3.1698,
+   "tepe_ts": 1791657900000,
+   "yukselis_pct": 10.24,
+   "son_kapanis_pct": 8.21,
+   "tek_mumda": false
+  },
+  {
+   "coin": "CAKE_TRY",
+   "ts": 1791657000000,
+   "acilis": 108.93,
+   "tepe": 123.8,
+   "tepe_ts": 1791659700000,
+   "yukselis_pct": 13.65,
+   "son_kapanis_pct": 0.83,
+   "tek_mumda": true
+  },
+  {
+   "coin": "STRK_TRY",
+   "ts": 1791679500000,
+   "acilis": 5.055,
+   "tepe": 5.756,
+   "tepe_ts": 1791682200000,
+   "yukselis_pct": 13.87,
+   "son_kapanis_pct": 12.6,
+   "tek_mumda": false
+  },
+  {
+   "coin": "LUMIA_TRY",
+   "ts": 1791688500000,
+   "acilis": 5.314,
+   "tepe": 7.2,
+   "tepe_ts": 1791691200000,
+   "yukselis_pct": 35.49,
+   "son_kapanis_pct": 32.84,
+   "tek_mumda": true
+  },
+  {
+   "coin": "ERA_TRY",
+   "ts": 1791689400000,
+   "acilis": 3.76,
+   "tepe": 4.21,
+   "tepe_ts": 1791692100000,
+   "yukselis_pct": 11.97,
+   "son_kapanis_pct": 6.38,
+   "tek_mumda": true
+  },
+  {
+   "coin": "LUMIA_TRY",
+   "ts": 1791692100000,
+   "acilis": 7.059,
+   "tepe": 7.83,
+   "tepe_ts": 1791692100000,
+   "yukselis_pct": 10.92,
+   "son_kapanis_pct": 5.71,
+   "tek_mumda": true
+  },
+  {
+   "coin": "MANTA_TRY",
+   "ts": 1791693900000,
+   "acilis": 3.25,
+   "tepe": 3.58,
+   "tepe_ts": 1791696600000,
+   "yukselis_pct": 10.15,
+   "son_kapanis_pct": 2.71,
+   "tek_mumda": false
+  },
+  {
+   "coin": "MAGIC_TRY",
+   "ts": 1791694800000,
+   "acilis": 4.97,
+   "tepe": 5.56,
+   "tepe_ts": 1791697500000,
+   "yukselis_pct": 11.87,
+   "son_kapanis_pct": 9.66,
+   "tek_mumda": false
+  },
+  {
+   "coin": "ERA_TRY",
+   "ts": 1791695700000,
+   "acilis": 4.12,
+   "tepe": 4.63,
+   "tepe_ts": 1791698400000,
+   "yukselis_pct": 12.38,
+   "son_kapanis_pct": 7.77,
+   "tek_mumda": false
+  },
+  {
+   "coin": "LUMIA_TRY",
+   "ts": 1791695700000,
+   "acilis": 7.455,
+   "tepe": 9.0,
+   "tepe_ts": 1791697500000,
+   "yukselis_pct": 20.72,
+   "son_kapanis_pct": 11.6,
+   "tek_mumda": true
+  },
+  {
+   "coin": "CFX_TRY",
+   "ts": 1791697500000,
+   "acilis": 2.938,
+   "tepe": 3.299,
+   "tepe_ts": 1791700200000,
+   "yukselis_pct": 12.29,
+   "son_kapanis_pct": 11.47,
+   "tek_mumda": false
+  },
+  {
+   "coin": "CKB_TRY",
+   "ts": 1791699300000,
+   "acilis": 0.07,
+   "tepe": 0.0773,
+   "tepe_ts": 1791702000000,
+   "yukselis_pct": 10.43,
+   "son_kapanis_pct": 4.43,
+   "tek_mumda": false
+  },
+  {
+   "coin": "MAGIC_TRY",
+   "ts": 1791700200000,
+   "acilis": 5.4,
+   "tepe": 6.03,
+   "tepe_ts": 1791702900000,
+   "yukselis_pct": 11.67,
+   "son_kapanis_pct": 10.93,
+   "tek_mumda": false
+  },
+  {
+   "coin": "MAGIC_TRY",
+   "ts": 1791704700000,
+   "acilis": 5.77,
+   "tepe": 6.56,
+   "tepe_ts": 1791707400000,
+   "yukselis_pct": 13.69,
+   "son_kapanis_pct": 11.61,
+   "tek_mumda": false
+  },
+  {
+   "coin": "SENT_TRY",
+   "ts": 1791713700000,
+   "acilis": 1.0669,
+   "tepe": 1.2,
+   "tepe_ts": 1791716400000,
+   "yukselis_pct": 12.48,
+   "son_kapanis_pct": 7.14,
+   "tek_mumda": false
+  },
+  {
+   "coin": "CKB_TRY",
+   "ts": 1791721800000,
+   "acilis": 0.0737,
+   "tepe": 0.0935,
+   "tepe_ts": 1791724500000,
+   "yukselis_pct": 26.87,
+   "son_kapanis_pct": 22.25,
+   "tek_mumda": true
+  },
+  {
+   "coin": "MAGIC_TRY",
+   "ts": 1791721800000,
+   "acilis": 5.94,
+   "tepe": 6.58,
+   "tepe_ts": 1791722700000,
+   "yukselis_pct": 10.77,
+   "son_kapanis_pct": 4.38,
+   "tek_mumda": true
+  },
+  {
+   "coin": "NEAR_TRY",
+   "ts": 1791730800000,
+   "acilis": 262.7,
+   "tepe": 290.0,
+   "tepe_ts": 1791733500000,
+   "yukselis_pct": 10.39,
+   "son_kapanis_pct": 8.34,
+   "tek_mumda": false
+  },
+  {
+   "coin": "S_TRY",
+   "ts": 1791731700000,
+   "acilis": 2.594,
+   "tepe": 2.876,
+   "tepe_ts": 1791734400000,
+   "yukselis_pct": 10.87,
+   "son_kapanis_pct": 10.76,
+   "tek_mumda": false
+  },
+  {
+   "coin": "S_TRY",
+   "ts": 1791735300000,
+   "acilis": 2.874,
+   "tepe": 3.246,
+   "tepe_ts": 1791738000000,
+   "yukselis_pct": 12.94,
+   "son_kapanis_pct": 11.31,
+   "tek_mumda": false
+  },
+  {
+   "coin": "MAGIC_TRY",
+   "ts": 1791737100000,
+   "acilis": 6.14,
+   "tepe": 6.86,
+   "tepe_ts": 1791739800000,
+   "yukselis_pct": 11.73,
+   "son_kapanis_pct": 9.12,
+   "tek_mumda": false
+  },
+  {
+   "coin": "DYM_TRY",
+   "ts": 1791741600000,
+   "acilis": 0.9742,
+   "tepe": 1.133,
+   "tepe_ts": 1791744300000,
+   "yukselis_pct": 16.3,
+   "son_kapanis_pct": 14.4,
+   "tek_mumda": false
+  },
+  {
+   "coin": "W_TRY",
+   "ts": 1791742500000,
+   "acilis": 0.9442,
+   "tepe": 1.0435,
+   "tepe_ts": 1791745200000,
+   "yukselis_pct": 10.52,
+   "son_kapanis_pct": 8.59,
+   "tek_mumda": false
+  },
+  {
+   "coin": "W_TRY",
+   "ts": 1791746100000,
+   "acilis": 1.0253,
+   "tepe": 1.145,
+   "tepe_ts": 1791747900000,
+   "yukselis_pct": 11.67,
+   "son_kapanis_pct": 9.1,
+   "tek_mumda": false
+  },
+  {
+   "coin": "CKB_TRY",
+   "ts": 1791748800000,
+   "acilis": 0.0856,
+   "tepe": 0.1068,
+   "tepe_ts": 1791751500000,
+   "yukselis_pct": 24.77,
+   "son_kapanis_pct": 21.26,
+   "tek_mumda": true
+  },
+  {
+   "coin": "F_TRY",
+   "ts": 1791748800000,
+   "acilis": 0.1627,
+   "tepe": 0.1793,
+   "tepe_ts": 1791751500000,
+   "yukselis_pct": 10.2,
+   "son_kapanis_pct": -0.43,
+   "tek_mumda": false
+  },
+  {
+   "coin": "RSR_TRY",
+   "ts": 1791748800000,
+   "acilis": 0.08,
+   "tepe": 0.0898,
+   "tepe_ts": 1791751500000,
+   "yukselis_pct": 12.25,
+   "son_kapanis_pct": 1.5,
+   "tek_mumda": true
+  },
+  {
+   "coin": "W_TRY",
+   "ts": 1791768600000,
+   "acilis": 1.0898,
+   "tepe": 1.2087,
+   "tepe_ts": 1791771300000,
+   "yukselis_pct": 10.91,
+   "son_kapanis_pct": 9.7,
+   "tek_mumda": false
+  },
+  {
+   "coin": "MUBARAK_TRY",
+   "ts": 1791769500000,
+   "acilis": 3.476,
+   "tepe": 3.894,
+   "tepe_ts": 1791772200000,
+   "yukselis_pct": 12.03,
+   "son_kapanis_pct": 11.48,
+   "tek_mumda": false
+  },
+  {
+   "coin": "W_TRY",
+   "ts": 1791772200000,
+   "acilis": 1.1988,
+   "tepe": 1.4738,
+   "tepe_ts": 1791774900000,
+   "yukselis_pct": 22.94,
+   "son_kapanis_pct": 19.78,
+   "tek_mumda": true
+  },
+  {
+   "coin": "RSR_TRY",
+   "ts": 1791777600000,
+   "acilis": 0.0812,
+   "tepe": 0.1465,
+   "tepe_ts": 1791780300000,
+   "yukselis_pct": 80.42,
+   "son_kapanis_pct": 63.67,
+   "tek_mumda": true
+  },
+  {
+   "coin": "SKL_TRY",
+   "ts": 1791777600000,
+   "acilis": 0.245,
+   "tepe": 0.28,
+   "tepe_ts": 1791780300000,
+   "yukselis_pct": 14.29,
+   "son_kapanis_pct": 2.45,
+   "tek_mumda": true
+  },
+  {
+   "coin": "SXT_TRY",
+   "ts": 1791780300000,
+   "acilis": 0.4604,
+   "tepe": 0.5201,
+   "tepe_ts": 1791783000000,
+   "yukselis_pct": 12.97,
+   "son_kapanis_pct": 10.75,
+   "tek_mumda": false
+  },
+  {
+   "coin": "RSR_TRY",
+   "ts": 1791783000000,
+   "acilis": 0.1226,
+   "tepe": 0.1357,
+   "tepe_ts": 1791783000000,
+   "yukselis_pct": 10.69,
+   "son_kapanis_pct": -2.04,
+   "tek_mumda": true
+  },
+  {
+   "coin": "CYBER_TRY",
+   "ts": 1791783900000,
+   "acilis": 17.9,
+   "tepe": 19.7,
+   "tepe_ts": 1791786600000,
+   "yukselis_pct": 10.06,
+   "son_kapanis_pct": 5.03,
+   "tek_mumda": false
+  },
+  {
+   "coin": "W_TRY",
+   "ts": 1791784800000,
+   "acilis": 1.375,
+   "tepe": 1.5237,
+   "tepe_ts": 1791786600000,
+   "yukselis_pct": 10.81,
+   "son_kapanis_pct": 3.58,
+   "tek_mumda": false
+  },
+  {
+   "coin": "AUCTION_TRY",
+   "ts": 1791792000000,
+   "acilis": 184.6,
+   "tepe": 210.0,
+   "tepe_ts": 1791794700000,
+   "yukselis_pct": 13.76,
+   "son_kapanis_pct": 0.33,
+   "tek_mumda": true
+  },
+  {
+   "coin": "RED_TRY",
+   "ts": 1791797400000,
+   "acilis": 7.99,
+   "tepe": 9.23,
+   "tepe_ts": 1791800100000,
+   "yukselis_pct": 15.52,
+   "son_kapanis_pct": 10.76,
+   "tek_mumda": false
+  },
+  {
+   "coin": "RSR_TRY",
+   "ts": 1791800100000,
+   "acilis": 0.1055,
+   "tepe": 0.1171,
+   "tepe_ts": 1791802800000,
+   "yukselis_pct": 11.0,
+   "son_kapanis_pct": 10.14,
+   "tek_mumda": false
+  },
+  {
+   "coin": "RSR_TRY",
+   "ts": 1791803700000,
+   "acilis": 0.1162,
+   "tepe": 0.135,
+   "tepe_ts": 1791806400000,
+   "yukselis_pct": 16.18,
+   "son_kapanis_pct": 9.72,
+   "tek_mumda": false
+  },
+  {
+   "coin": "SXT_TRY",
+   "ts": 1791806400000,
+   "acilis": 0.4842,
+   "tepe": 0.57,
+   "tepe_ts": 1791809100000,
+   "yukselis_pct": 17.72,
+   "son_kapanis_pct": 13.59,
+   "tek_mumda": true
+  },
+  {
+   "coin": "RAD_TRY",
+   "ts": 1791808200000,
+   "acilis": 15.43,
+   "tepe": 17.66,
+   "tepe_ts": 1791810900000,
+   "yukselis_pct": 14.45,
+   "son_kapanis_pct": 12.57,
+   "tek_mumda": true
+  },
+  {
+   "coin": "RSR_TRY",
+   "ts": 1791810000000,
+   "acilis": 0.1163,
+   "tepe": 0.1286,
+   "tepe_ts": 1791812700000,
+   "yukselis_pct": 10.58,
+   "son_kapanis_pct": 5.59,
+   "tek_mumda": false
+  },
+  {
+   "coin": "OGN_TRY",
+   "ts": 1791818100000,
+   "acilis": 1.6,
+   "tepe": 1.835,
+   "tepe_ts": 1791820800000,
+   "yukselis_pct": 14.69,
+   "son_kapanis_pct": 11.5,
+   "tek_mumda": true
+  },
+  {
+   "coin": "SKL_TRY",
+   "ts": 1791819000000,
+   "acilis": 0.252,
+   "tepe": 0.284,
+   "tepe_ts": 1791821700000,
+   "yukselis_pct": 12.7,
+   "son_kapanis_pct": 9.52,
+   "tek_mumda": true
+  },
+  {
+   "coin": "IO_TRY",
+   "ts": 1791820800000,
+   "acilis": 8.152,
+   "tepe": 9.12,
+   "tepe_ts": 1791821700000,
+   "yukselis_pct": 11.87,
+   "son_kapanis_pct": 1.77,
+   "tek_mumda": true
+  },
+  {
+   "coin": "MET_TRY",
+   "ts": 1791821700000,
+   "acilis": 19.47,
+   "tepe": 21.5,
+   "tepe_ts": 1791824400000,
+   "yukselis_pct": 10.43,
+   "son_kapanis_pct": -1.9,
+   "tek_mumda": true
+  },
+  {
+   "coin": "DYM_TRY",
+   "ts": 1791822600000,
+   "acilis": 0.9613,
+   "tepe": 1.058,
+   "tepe_ts": 1791823500000,
+   "yukselis_pct": 10.06,
+   "son_kapanis_pct": 1.65,
+   "tek_mumda": false
+  },
+  {
+   "coin": "OGN_TRY",
+   "ts": 1791823500000,
+   "acilis": 1.714,
+   "tepe": 1.953,
+   "tepe_ts": 1791826200000,
+   "yukselis_pct": 13.94,
+   "son_kapanis_pct": 13.36,
+   "tek_mumda": false
+  },
+  {
+   "coin": "OGN_TRY",
+   "ts": 1791828900000,
+   "acilis": 1.863,
+   "tepe": 2.078,
+   "tepe_ts": 1791829800000,
+   "yukselis_pct": 11.54,
+   "son_kapanis_pct": 6.6,
+   "tek_mumda": false
+  },
+  {
+   "coin": "LAZIO_TRY",
+   "ts": 1791829800000,
+   "acilis": 20.14,
+   "tepe": 22.4,
+   "tepe_ts": 1791832500000,
+   "yukselis_pct": 11.22,
+   "son_kapanis_pct": 4.22,
+   "tek_mumda": false
+  },
+  {
+   "coin": "STRAX_TRY",
+   "ts": 1791829800000,
+   "acilis": 0.545,
+   "tepe": 0.655,
+   "tepe_ts": 1791832500000,
+   "yukselis_pct": 20.18,
+   "son_kapanis_pct": 19.82,
+   "tek_mumda": true
+  },
+  {
+   "coin": "AMP_TRY",
+   "ts": 1791834300000,
+   "acilis": 0.0305,
+   "tepe": 0.0355,
+   "tepe_ts": 1791837000000,
+   "yukselis_pct": 16.39,
+   "son_kapanis_pct": 12.46,
+   "tek_mumda": false
+  },
+  {
+   "coin": "AMP_TRY",
+   "ts": 1791839700000,
+   "acilis": 0.0322,
+   "tepe": 0.0355,
+   "tepe_ts": 1791841500000,
+   "yukselis_pct": 10.25,
+   "son_kapanis_pct": 1.86,
+   "tek_mumda": false
+  },
+  {
+   "coin": "AUCTION_TRY",
+   "ts": 1791843300000,
+   "acilis": 178.2,
+   "tepe": 200.0,
+   "tepe_ts": 1791846000000,
+   "yukselis_pct": 12.23,
+   "son_kapanis_pct": -0.39,
+   "tek_mumda": true
+  },
+  {
+   "coin": "LDO_TRY",
+   "ts": 1791851400000,
+   "acilis": 19.57,
+   "tepe": 21.98,
+   "tepe_ts": 1791854100000,
+   "yukselis_pct": 12.31,
+   "son_kapanis_pct": -0.36,
+   "tek_mumda": true
+  },
+  {
+   "coin": "MAGIC_TRY",
+   "ts": 1791853200000,
+   "acilis": 5.74,
+   "tepe": 6.62,
+   "tepe_ts": 1791855900000,
+   "yukselis_pct": 15.33,
+   "son_kapanis_pct": 13.24,
+   "tek_mumda": false
+  },
+  {
+   "coin": "LUMIA_TRY",
+   "ts": 1791855000000,
+   "acilis": 4.996,
+   "tepe": 5.5,
+   "tepe_ts": 1791857700000,
+   "yukselis_pct": 10.09,
+   "son_kapanis_pct": 10.09,
+   "tek_mumda": false
+  },
+  {
+   "coin": "TIA_TRY",
+   "ts": 1791856800000,
+   "acilis": 25.73,
+   "tepe": 28.35,
+   "tepe_ts": 1791859500000,
+   "yukselis_pct": 10.18,
+   "son_kapanis_pct": 9.76,
+   "tek_mumda": false
+  },
+  {
+   "coin": "STX_TRY",
+   "ts": 1791859500000,
+   "acilis": 20.09,
+   "tepe": 22.5,
+   "tepe_ts": 1791862200000,
+   "yukselis_pct": 12.0,
+   "son_kapanis_pct": 10.0,
+   "tek_mumda": false
+  },
+  {
+   "coin": "2Z_TRY",
+   "ts": 1791861300000,
+   "acilis": 1.698,
+   "tepe": 1.9,
+   "tepe_ts": 1791864000000,
+   "yukselis_pct": 11.9,
+   "son_kapanis_pct": 2.41,
+   "tek_mumda": true
+  },
+  {
+   "coin": "DOGS_TRY",
+   "ts": 1791864900000,
+   "acilis": 0.002064,
+   "tepe": 0.002366,
+   "tepe_ts": 1791867600000,
+   "yukselis_pct": 14.63,
+   "son_kapanis_pct": 2.08,
+   "tek_mumda": true
+  },
+  {
+   "coin": "OGN_TRY",
+   "ts": 1791867600000,
+   "acilis": 1.67,
+   "tepe": 1.87,
+   "tepe_ts": 1791870300000,
+   "yukselis_pct": 11.98,
+   "son_kapanis_pct": 10.48,
+   "tek_mumda": false
+  },
+  {
+   "coin": "OGN_TRY",
+   "ts": 1791871200000,
+   "acilis": 1.842,
+   "tepe": 2.05,
+   "tepe_ts": 1791872100000,
+   "yukselis_pct": 11.29,
+   "son_kapanis_pct": 2.5,
+   "tek_mumda": false
+  },
+  {
+   "coin": "AMP_TRY",
+   "ts": 1791876600000,
+   "acilis": 0.0314,
+   "tepe": 0.0352,
+   "tepe_ts": 1791879300000,
+   "yukselis_pct": 12.1,
+   "son_kapanis_pct": 9.24,
+   "tek_mumda": false
+  },
+  {
+   "coin": "MIRA_TRY",
+   "ts": 1791881100000,
+   "acilis": 2.36,
+   "tepe": 2.744,
+   "tepe_ts": 1791883800000,
+   "yukselis_pct": 16.27,
+   "son_kapanis_pct": -0.47,
+   "tek_mumda": true
+  },
+  {
+   "coin": "OGN_TRY",
+   "ts": 1791882900000,
+   "acilis": 1.928,
+   "tepe": 2.156,
+   "tepe_ts": 1791885600000,
+   "yukselis_pct": 11.83,
+   "son_kapanis_pct": 8.14,
+   "tek_mumda": false
+  },
+  {
+   "coin": "MIRA_TRY",
+   "ts": 1791884700000,
+   "acilis": 2.338,
+   "tepe": 2.744,
+   "tepe_ts": 1791885600000,
+   "yukselis_pct": 17.37,
+   "son_kapanis_pct": 0.09,
+   "tek_mumda": true
+  },
+  {
+   "coin": "AMP_TRY",
+   "ts": 1791885600000,
+   "acilis": 0.0335,
+   "tepe": 0.037,
+   "tepe_ts": 1791888300000,
+   "yukselis_pct": 10.45,
+   "son_kapanis_pct": 9.85,
+   "tek_mumda": false
+  },
+  {
+   "coin": "S_TRY",
+   "ts": 1791890100000,
+   "acilis": 2.828,
+   "tepe": 3.153,
+   "tepe_ts": 1791892800000,
+   "yukselis_pct": 11.49,
+   "son_kapanis_pct": 6.97,
+   "tek_mumda": false
+  },
+  {
+   "coin": "MIRA_TRY",
+   "ts": 1791893700000,
+   "acilis": 2.309,
+   "tepe": 2.619,
+   "tepe_ts": 1791896400000,
+   "yukselis_pct": 13.43,
+   "son_kapanis_pct": 3.12,
+   "tek_mumda": true
+  },
+  {
+   "coin": "S_TRY",
+   "ts": 1791893700000,
+   "acilis": 3.021,
+   "tepe": 3.4,
+   "tepe_ts": 1791896400000,
+   "yukselis_pct": 12.55,
+   "son_kapanis_pct": 10.43,
+   "tek_mumda": false
+  },
+  {
+   "coin": "CATI_TRY",
+   "ts": 1791897300000,
+   "acilis": 2.858,
+   "tepe": 3.148,
+   "tepe_ts": 1791900000000,
+   "yukselis_pct": 10.15,
+   "son_kapanis_pct": 1.01,
+   "tek_mumda": false
+  },
+  {
+   "coin": "AMP_TRY",
+   "ts": 1791902700000,
+   "acilis": 0.0334,
+   "tepe": 0.0375,
+   "tepe_ts": 1791905400000,
+   "yukselis_pct": 12.28,
+   "son_kapanis_pct": 10.48,
+   "tek_mumda": true
+  },
+  {
+   "coin": "AMP_TRY",
+   "ts": 1791909900000,
+   "acilis": 0.0366,
+   "tepe": 0.0409,
+   "tepe_ts": 1791912600000,
+   "yukselis_pct": 11.75,
+   "son_kapanis_pct": 9.29,
+   "tek_mumda": true
+  },
+  {
+   "coin": "AMP_TRY",
+   "ts": 1791950400000,
+   "acilis": 0.0361,
+   "tepe": 0.0398,
+   "tepe_ts": 1791953100000,
+   "yukselis_pct": 10.25,
+   "son_kapanis_pct": 7.76,
+   "tek_mumda": false
+  },
+  {
+   "coin": "WAL_TRY",
+   "ts": 1791953100000,
+   "acilis": 1.99,
+   "tepe": 2.235,
+   "tepe_ts": 1791955800000,
+   "yukselis_pct": 12.31,
+   "son_kapanis_pct": 8.89,
+   "tek_mumda": false
+  },
+  {
+   "coin": "WAL_TRY",
+   "ts": 1791956700000,
+   "acilis": 2.169,
+   "tepe": 2.499,
+   "tepe_ts": 1791958500000,
+   "yukselis_pct": 15.21,
+   "son_kapanis_pct": 9.17,
+   "tek_mumda": false
+  },
+  {
+   "coin": "GPS_TRY",
+   "ts": 1791960300000,
+   "acilis": 0.404,
+   "tepe": 0.445,
+   "tepe_ts": 1791963000000,
+   "yukselis_pct": 10.15,
+   "son_kapanis_pct": 5.2,
+   "tek_mumda": false
+  },
+  {
+   "coin": "WAL_TRY",
+   "ts": 1791966600000,
+   "acilis": 2.305,
+   "tepe": 2.624,
+   "tepe_ts": 1791969300000,
+   "yukselis_pct": 13.84,
+   "son_kapanis_pct": 12.49,
+   "tek_mumda": false
+  },
+  {
+   "coin": "MITO_TRY",
+   "ts": 1791970200000,
+   "acilis": 0.688,
+   "tepe": 0.788,
+   "tepe_ts": 1791972900000,
+   "yukselis_pct": 14.53,
+   "son_kapanis_pct": 4.94,
+   "tek_mumda": true
+  },
+  {
+   "coin": "AUDIO_TRY",
+   "ts": 1791983700000,
+   "acilis": 0.7732,
+   "tepe": 0.8651,
+   "tepe_ts": 1791986400000,
+   "yukselis_pct": 11.89,
+   "son_kapanis_pct": 3.26,
+   "tek_mumda": false
+  },
+  {
+   "coin": "EGLD_TRY",
+   "ts": 1791983700000,
+   "acilis": 180.0,
+   "tepe": 198.0,
+   "tepe_ts": 1791983700000,
+   "yukselis_pct": 10.0,
+   "son_kapanis_pct": -0.72,
+   "tek_mumda": true
+  },
+  {
+   "coin": "MORPHO_TRY",
+   "ts": 1791984600000,
+   "acilis": 113.5,
+   "tepe": 125.0,
+   "tepe_ts": 1791987300000,
+   "yukselis_pct": 10.13,
+   "son_kapanis_pct": 0.04,
+   "tek_mumda": true
+  },
+  {
+   "coin": "AMP_TRY",
+   "ts": 1791985500000,
+   "acilis": 0.0336,
+   "tepe": 0.0373,
+   "tepe_ts": 1791987300000,
+   "yukselis_pct": 11.01,
+   "son_kapanis_pct": 8.63,
+   "tek_mumda": true
+  },
+  {
+   "coin": "OGN_TRY",
+   "ts": 1791988200000,
+   "acilis": 1.539,
+   "tepe": 1.817,
+   "tepe_ts": 1791990900000,
+   "yukselis_pct": 18.06,
+   "son_kapanis_pct": 3.96,
+   "tek_mumda": true
+  },
+  {
+   "coin": "PORTO_TRY",
+   "ts": 1791988200000,
+   "acilis": 22.3,
+   "tepe": 24.9,
+   "tepe_ts": 1791990900000,
+   "yukselis_pct": 11.66,
+   "son_kapanis_pct": 6.86,
+   "tek_mumda": false
+  },
+  {
+   "coin": "WAL_TRY",
+   "ts": 1791991800000,
+   "acilis": 2.511,
+   "tepe": 2.773,
+   "tepe_ts": 1791994500000,
+   "yukselis_pct": 10.43,
+   "son_kapanis_pct": 9.0,
+   "tek_mumda": false
+  },
+  {
+   "coin": "AXL_TRY",
+   "ts": 1791994500000,
+   "acilis": 2.89,
+   "tepe": 3.21,
+   "tepe_ts": 1791997200000,
+   "yukselis_pct": 11.07,
+   "son_kapanis_pct": 8.3,
+   "tek_mumda": false
+  },
+  {
+   "coin": "WAL_TRY",
+   "ts": 1791995400000,
+   "acilis": 2.74,
+   "tepe": 3.079,
+   "tepe_ts": 1791998100000,
+   "yukselis_pct": 12.37,
+   "son_kapanis_pct": 11.9,
+   "tek_mumda": true
+  },
+  {
+   "coin": "WAL_TRY",
+   "ts": 1792009800000,
+   "acilis": 2.958,
+   "tepe": 3.291,
+   "tepe_ts": 1792012500000,
+   "yukselis_pct": 11.26,
+   "son_kapanis_pct": 10.62,
+   "tek_mumda": true
+  },
+  {
+   "coin": "WAL_TRY",
+   "ts": 1792026900000,
+   "acilis": 2.789,
+   "tepe": 3.25,
+   "tepe_ts": 1792029600000,
+   "yukselis_pct": 16.53,
+   "son_kapanis_pct": 12.48,
+   "tek_mumda": false
+  },
+  {
+   "coin": "FF_TRY",
+   "ts": 1792032300000,
+   "acilis": 5.131,
+   "tepe": 5.766,
+   "tepe_ts": 1792035000000,
+   "yukselis_pct": 12.38,
+   "son_kapanis_pct": 4.42,
+   "tek_mumda": true
+  },
+  {
+   "coin": "ZK_TRY",
+   "ts": 1792035000000,
+   "acilis": 0.759,
+   "tepe": 0.869,
+   "tepe_ts": 1792037700000,
+   "yukselis_pct": 14.49,
+   "son_kapanis_pct": 13.44,
+   "tek_mumda": false
+  },
+  {
+   "coin": "WAL_TRY",
+   "ts": 1792043100000,
+   "acilis": 2.635,
+   "tepe": 2.95,
+   "tepe_ts": 1792045800000,
+   "yukselis_pct": 11.95,
+   "son_kapanis_pct": 11.08,
+   "tek_mumda": false
+  },
+  {
+   "coin": "BLUR_TRY",
+   "ts": 1792052100000,
+   "acilis": 0.507,
+   "tepe": 0.58,
+   "tepe_ts": 1792054800000,
+   "yukselis_pct": 14.4,
+   "son_kapanis_pct": 12.62,
+   "tek_mumda": true
+  },
+  {
+   "coin": "BLUR_TRY",
+   "ts": 1792055700000,
+   "acilis": 0.571,
+   "tepe": 0.678,
+   "tepe_ts": 1792055700000,
+   "yukselis_pct": 18.74,
+   "son_kapanis_pct": 11.03,
+   "tek_mumda": true
+  },
+  {
+   "coin": "STRK_TRY",
+   "ts": 1792055700000,
+   "acilis": 4.082,
+   "tepe": 4.5,
+   "tepe_ts": 1792058400000,
+   "yukselis_pct": 10.24,
+   "son_kapanis_pct": 6.54,
+   "tek_mumda": false
+  },
+  {
+   "coin": "STX_TRY",
+   "ts": 1792056600000,
+   "acilis": 19.87,
+   "tepe": 22.19,
+   "tepe_ts": 1792056600000,
+   "yukselis_pct": 11.68,
+   "son_kapanis_pct": -5.18,
+   "tek_mumda": true
+  },
+  {
+   "coin": "LAZIO_TRY",
+   "ts": 1792066500000,
+   "acilis": 19.68,
+   "tepe": 24.0,
+   "tepe_ts": 1792069200000,
+   "yukselis_pct": 21.95,
+   "son_kapanis_pct": 13.01,
+   "tek_mumda": true
+  },
+  {
+   "coin": "BCH_TRY",
+   "ts": 1792068300000,
+   "acilis": 12996.0,
+   "tepe": 14348.0,
+   "tepe_ts": 1792071000000,
+   "yukselis_pct": 10.4,
+   "son_kapanis_pct": 0.66,
+   "tek_mumda": true
+  },
+  {
+   "coin": "XPL_TRY",
+   "ts": 1792070100000,
+   "acilis": 3.997,
+   "tepe": 5.36,
+   "tepe_ts": 1792072800000,
+   "yukselis_pct": 34.1,
+   "son_kapanis_pct": 3.3,
+   "tek_mumda": true
+  },
+  {
+   "coin": "STRAX_TRY",
+   "ts": 1792071000000,
+   "acilis": 0.498,
+   "tepe": 0.685,
+   "tepe_ts": 1792073700000,
+   "yukselis_pct": 37.55,
+   "son_kapanis_pct": 20.68,
+   "tek_mumda": true
+  },
+  {
+   "coin": "PUMP_TRY",
+   "ts": 1792071900000,
+   "acilis": 0.2123,
+   "tepe": 0.241,
+   "tepe_ts": 1792074600000,
+   "yukselis_pct": 13.52,
+   "son_kapanis_pct": 2.97,
+   "tek_mumda": true
+  },
+  {
+   "coin": "CHIP_TRY",
+   "ts": 1792072800000,
+   "acilis": 2.1089,
+   "tepe": 2.3315,
+   "tepe_ts": 1792075500000,
+   "yukselis_pct": 10.56,
+   "son_kapanis_pct": 10.11,
+   "tek_mumda": false
+  },
+  {
+   "coin": "JTO_TRY",
+   "ts": 1792072800000,
+   "acilis": 21.87,
+   "tepe": 24.06,
+   "tepe_ts": 1792075500000,
+   "yukselis_pct": 10.01,
+   "son_kapanis_pct": 4.85,
+   "tek_mumda": false
+  },
+  {
+   "coin": "STRK_TRY",
+   "ts": 1792072800000,
+   "acilis": 3.734,
+   "tepe": 4.32,
+   "tepe_ts": 1792075500000,
+   "yukselis_pct": 15.69,
+   "son_kapanis_pct": 12.67,
+   "tek_mumda": false
+  },
+  {
+   "coin": "KITE_TRY",
+   "ts": 1792073700000,
+   "acilis": 5.923,
+   "tepe": 6.8,
+   "tepe_ts": 1792076400000,
+   "yukselis_pct": 14.81,
+   "son_kapanis_pct": 3.71,
+   "tek_mumda": true
+  },
+  {
+   "coin": "PYTH_TRY",
+   "ts": 1792073700000,
+   "acilis": 4.286,
+   "tepe": 5.75,
+   "tepe_ts": 1792076400000,
+   "yukselis_pct": 34.16,
+   "son_kapanis_pct": 6.39,
+   "tek_mumda": true
+  },
+  {
+   "coin": "WAL_TRY",
+   "ts": 1792073700000,
+   "acilis": 2.682,
+   "tepe": 2.973,
+   "tepe_ts": 1792076400000,
+   "yukselis_pct": 10.85,
+   "son_kapanis_pct": 2.8,
+   "tek_mumda": true
+  },
+  {
+   "coin": "STRK_TRY",
+   "ts": 1792076400000,
+   "acilis": 4.206,
+   "tepe": 4.85,
+   "tepe_ts": 1792079100000,
+   "yukselis_pct": 15.31,
+   "son_kapanis_pct": 13.31,
+   "tek_mumda": false
+  },
+  {
+   "coin": "ANIME_TRY",
+   "ts": 1792079100000,
+   "acilis": 0.143,
+   "tepe": 0.165,
+   "tepe_ts": 1792081800000,
+   "yukselis_pct": 15.38,
+   "son_kapanis_pct": 11.19,
+   "tek_mumda": true
+  },
+  {
+   "coin": "ETC_TRY",
+   "ts": 1792079100000,
+   "acilis": 396.1,
+   "tepe": 465.0,
+   "tepe_ts": 1792081800000,
+   "yukselis_pct": 17.39,
+   "son_kapanis_pct": -0.1,
+   "tek_mumda": true
+  },
+  {
+   "coin": "GENIUS_TRY",
+   "ts": 1792079100000,
+   "acilis": 13.43,
+   "tepe": 15.0,
+   "tepe_ts": 1792079100000,
+   "yukselis_pct": 11.69,
+   "son_kapanis_pct": 9.68,
+   "tek_mumda": true
+  },
+  {
+   "coin": "NXPC_TRY",
+   "ts": 1792079100000,
+   "acilis": 9.74,
+   "tepe": 15.0,
+   "tepe_ts": 1792081800000,
+   "yukselis_pct": 54.0,
+   "son_kapanis_pct": 27.31,
+   "tek_mumda": true
+  },
+  {
+   "coin": "ANIME_TRY",
+   "ts": 1792082700000,
+   "acilis": 0.16,
+   "tepe": 0.195,
+   "tepe_ts": 1792082700000,
+   "yukselis_pct": 21.88,
+   "son_kapanis_pct": -6.88,
+   "tek_mumda": true
+  },
+  {
+   "coin": "NXPC_TRY",
+   "ts": 1792082700000,
+   "acilis": 12.4,
+   "tepe": 16.0,
+   "tepe_ts": 1792082700000,
+   "yukselis_pct": 29.03,
+   "son_kapanis_pct": 1.94,
+   "tek_mumda": true
+  },
+  {
+   "coin": "ANIME_TRY",
+   "ts": 1792087200000,
+   "acilis": 0.15,
+   "tepe": 0.175,
+   "tepe_ts": 1792089900000,
+   "yukselis_pct": 16.67,
+   "son_kapanis_pct": 4.67,
+   "tek_mumda": false
+  },
+  {
+   "coin": "NIGHT_TRY",
+   "ts": 1792088100000,
+   "acilis": 2.085,
+   "tepe": 2.5,
+   "tepe_ts": 1792090800000,
+   "yukselis_pct": 19.9,
+   "son_kapanis_pct": 0.14,
+   "tek_mumda": true
+  },
+  {
+   "coin": "ANIME_TRY",
+   "ts": 1792090800000,
+   "acilis": 0.158,
+   "tepe": 0.186,
+   "tepe_ts": 1792092600000,
+   "yukselis_pct": 17.72,
+   "son_kapanis_pct": 9.49,
+   "tek_mumda": false
+  },
+  {
+   "coin": "INIT_TRY",
+   "ts": 1792094400000,
+   "acilis": 6.496,
+   "tepe": 7.21,
+   "tepe_ts": 1792097100000,
+   "yukselis_pct": 10.99,
+   "son_kapanis_pct": 2.69,
+   "tek_mumda": true
+  },
+  {
+   "coin": "ZAMA_TRY",
+   "ts": 1792103400000,
+   "acilis": 3.194,
+   "tepe": 3.657,
+   "tepe_ts": 1792106100000,
+   "yukselis_pct": 14.5,
+   "son_kapanis_pct": 14.5,
+   "tek_mumda": false
+  },
+  {
+   "coin": "WCT_TRY",
+   "ts": 1792106100000,
+   "acilis": 1.914,
+   "tepe": 2.11,
+   "tepe_ts": 1792106100000,
+   "yukselis_pct": 10.24,
+   "son_kapanis_pct": 0.78,
+   "tek_mumda": true
+  },
+  {
+   "coin": "TIA_TRY",
+   "ts": 1792132200000,
+   "acilis": 31.17,
+   "tepe": 35.23,
+   "tepe_ts": 1792134900000,
+   "yukselis_pct": 13.03,
+   "son_kapanis_pct": 5.94,
+   "tek_mumda": false
+  },
+  {
+   "coin": "SOLV_TRY",
+   "ts": 1792134900000,
+   "acilis": 0.205,
+   "tepe": 0.233,
+   "tepe_ts": 1792137600000,
+   "yukselis_pct": 13.66,
+   "son_kapanis_pct": 5.37,
+   "tek_mumda": false
+  },
+  {
+   "coin": "CKB_TRY",
+   "ts": 1792140300000,
+   "acilis": 0.0742,
+   "tepe": 0.082,
+   "tepe_ts": 1792143000000,
+   "yukselis_pct": 10.51,
+   "son_kapanis_pct": 0.94,
+   "tek_mumda": true
+  },
+  {
+   "coin": "KITE_TRY",
+   "ts": 1792145700000,
+   "acilis": 6.032,
+   "tepe": 6.7,
+   "tepe_ts": 1792148400000,
+   "yukselis_pct": 11.07,
+   "son_kapanis_pct": 0.63,
+   "tek_mumda": true
+  },
+  {
+   "coin": "SKY_TRY",
+   "ts": 1792146600000,
+   "acilis": 3.586,
+   "tepe": 4.149,
+   "tepe_ts": 1792149300000,
+   "yukselis_pct": 15.7,
+   "son_kapanis_pct": 1.53,
+   "tek_mumda": true
+  },
+  {
+   "coin": "CATI_TRY",
+   "ts": 1792147500000,
+   "acilis": 2.612,
+   "tepe": 2.922,
+   "tepe_ts": 1792150200000,
+   "yukselis_pct": 11.87,
+   "son_kapanis_pct": 2.11,
+   "tek_mumda": true
+  },
+  {
+   "coin": "A_TRY",
+   "ts": 1792157400000,
+   "acilis": 5.17,
+   "tepe": 5.89,
+   "tepe_ts": 1792160100000,
+   "yukselis_pct": 13.93,
+   "son_kapanis_pct": 5.61,
+   "tek_mumda": true
+  },
+  {
+   "coin": "AMP_TRY",
+   "ts": 1792160100000,
+   "acilis": 0.0335,
+   "tepe": 0.0399,
+   "tepe_ts": 1792162800000,
+   "yukselis_pct": 19.1,
+   "son_kapanis_pct": 15.82,
+   "tek_mumda": true
+  },
+  {
+   "coin": "MASK_TRY",
+   "ts": 1792160100000,
+   "acilis": 21.26,
+   "tepe": 24.55,
+   "tepe_ts": 1792162800000,
+   "yukselis_pct": 15.48,
+   "son_kapanis_pct": -1.22,
+   "tek_mumda": true
+  },
+  {
+   "coin": "RAD_TRY",
+   "ts": 1792161900000,
+   "acilis": 13.82,
+   "tepe": 15.24,
+   "tepe_ts": 1792164600000,
+   "yukselis_pct": 10.27,
+   "son_kapanis_pct": 7.45,
+   "tek_mumda": false
+  },
+  {
+   "coin": "STRAX_TRY",
+   "ts": 1792161900000,
+   "acilis": 0.517,
+   "tepe": 0.58,
+   "tepe_ts": 1792164600000,
+   "yukselis_pct": 12.19,
+   "son_kapanis_pct": 0.97,
+   "tek_mumda": false
+  },
+  {
+   "coin": "CATI_TRY",
+   "ts": 1792163700000,
+   "acilis": 2.594,
+   "tepe": 2.896,
+   "tepe_ts": 1792166400000,
+   "yukselis_pct": 11.64,
+   "son_kapanis_pct": 1.08,
+   "tek_mumda": true
+  },
+  {
+   "coin": "AMP_TRY",
+   "ts": 1792165500000,
+   "acilis": 0.0361,
+   "tepe": 0.0399,
+   "tepe_ts": 1792168200000,
+   "yukselis_pct": 10.53,
+   "son_kapanis_pct": 9.14,
+   "tek_mumda": false
+  },
+  {
+   "coin": "AI_TRY",
+   "ts": 1792166400000,
+   "acilis": 0.94,
+   "tepe": 1.04,
+   "tepe_ts": 1792166400000,
+   "yukselis_pct": 10.64,
+   "son_kapanis_pct": 2.13,
+   "tek_mumda": true
+  },
+  {
+   "coin": "STRAX_TRY",
+   "ts": 1792168200000,
+   "acilis": 0.514,
+   "tepe": 0.59,
+   "tepe_ts": 1792170900000,
+   "yukselis_pct": 14.79,
+   "son_kapanis_pct": 7.0,
+   "tek_mumda": true
+  },
+  {
+   "coin": "INIT_TRY",
+   "ts": 1792169100000,
+   "acilis": 6.533,
+   "tepe": 7.21,
+   "tepe_ts": 1792171800000,
+   "yukselis_pct": 10.36,
+   "son_kapanis_pct": -4.68,
+   "tek_mumda": true
+  },
+  {
+   "coin": "STRAX_TRY",
+   "ts": 1792172700000,
+   "acilis": 0.524,
+   "tepe": 0.58,
+   "tepe_ts": 1792173600000,
+   "yukselis_pct": 10.69,
+   "son_kapanis_pct": 4.96,
+   "tek_mumda": false
+  },
+  {
+   "coin": "RAD_TRY",
+   "ts": 1792173600000,
+   "acilis": 14.33,
+   "tepe": 16.85,
+   "tepe_ts": 1792176300000,
+   "yukselis_pct": 17.59,
+   "son_kapanis_pct": 13.68,
+   "tek_mumda": true
+  },
+  {
+   "coin": "USUAL_TRY",
+   "ts": 1792182600000,
+   "acilis": 0.511,
+   "tepe": 0.577,
+   "tepe_ts": 1792185300000,
+   "yukselis_pct": 12.92,
+   "son_kapanis_pct": 3.52,
+   "tek_mumda": true
+  }
+ ],
+ "sure_sn": 51
+}

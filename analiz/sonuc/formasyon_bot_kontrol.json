@@ -1,0 +1,87 @@
+{
+ "olusturma": "15.10.2026 21:53",
+ "coin": 306,
+ "aralik": {
+  "1h": {
+   "kontrol": 61000,
+   "beklenen": 70,
+   "bulunan": 70,
+   "eksik": [],
+   "fazla": [],
+   "olay_ad": {
+    "boga_bayragi": 43,
+    "genisleyen": 27
+   },
+   "hata": 0,
+   "eksik_sayi": 0,
+   "fazla_sayi": 0,
+   "mesaj": "📊 Binance TR · 1 saatlik kapanış 15.10 20:00–21:00 (TR saati)\n310 TRY çifti tarandı\n\n🟢 Orta bandın üstünde ardışık 3 yeşil mum (BOLL 21,2): 66\n• ANIME_TRY  0,15  (+1.4% +1.4% +2.7%)  hacim 23.9 mn TRY\n• NEAR_TRY  260,3  (+3.6% +0.1% +2.9%)  hacim 14.0 mn TRY\n• INJ_TRY  405  (+5.8% +2.1% +0.3%)  hacim 13.6 mn TRY\n• MEGA_TRY  2,364  (+2.0% +1.4% +0.8%)  hacim 7.9 mn TRY\n• SENT_TRY  1,013  (+2.8% +0.5% +1.7%)  hacim 5.5 mn TRY\n• EIGEN_TRY  12,423  (+4.3% +0.8% +0.2%)  hacim 4.3 mn TRY\n• JTO_TRY  23,57  (+1.4% +0.5% +1.1%)  hacim 3.6 mn TRY\n• ONDO_TRY  22,76  (+3.1% +0.2% +0.1%)  hacim 3.2 mn TRY\n• DODO_TRY  1,0468  (+0.1% +0.9% +0.7%)  hacim 2.4 mn TRY\n• COTI_TRY  0,5709  (+1.2% +0.9% +1.2%)  hacim 2.2 mn TRY\n• THE_TRY  2,817  (+0.8% +1.9% +0.9%)  hacim 1.8 mn TRY\n• RVN_TRY  0,0764  (+1.2% +0.8% +0.7%)  hacim 1.8 mn TRY\n• BB_TRY  0,425  (+1.6% +0.4% +0.1%)  hacim 1.8 mn TRY\n• TAO_TRY  13.650  (+2.0% +0.3% +0.8%)  hacim 1.7 mn TRY\n• SUPER_TRY  10,05  (+3.0% +1.1% +0.9%)  hacim 1.7 mn TRY\n• OP_TRY  7  (+3.3% +0.6% +1.4%)  hacim 1.7 mn TRY\n• IO_TRY  8,198  (+2.3% +1.1% +0.6%)  hacim 1.5 mn TRY\n• ARKM_TRY  6,214  (+2.2% +0.1% +0.6%)  hacim 992 bin TRY\n• UMA_TRY  19,43  (+1.3% +0.3% +0.5%)  hacim 929 bin TRY\n• GUN_TRY  0,123  (+1.7% +0.8% +1.7%)  hacim 920 bin TRY\n• OPN_TRY  3,18  (+1.0% +0.3% +1.9%)  hacim 899 bin TRY\n• TOWNS_TRY  0,0835  (+1.8% +0.5% +0.2%)  hacim 790 bin TRY\n• PIXEL_TRY  0,278  (+1.5% +0.7% +0.4%)  hacim 765 bin TRY\n• AVNT_TRY  5,96  (+3.5% +0.2% +0.8%)  hacim 653 bin TRY\n• DYM_TRY  0,9058  (+2.0% +0.4% +0.6%)  hacim 637 bin TRY\n• … ve 41 coin daha\n\n🔷 Formasyon kırılımı (geçmişte rastgeleden iyi çıkan; boğa bayrağı, genişleyen formasyon): 0\nPiyasa: coinlerin %46,8'i MA50 üstünde (zayıf) · BTC_TRY MA50 üstünde\n• yok\n\n🟠 Erken uyarı (BLUR_TRY 15.10 patlama öncesi benzeri, 8/8; izlemeye al): 0\n• yok\n\n🔹 Erken uyarı · formasyon kırılımına yaklaşanlar (çizgiye 1 ATR'den yakın; izleme listesi): 0\n• yok\n\nYalnızca borsa verisi; yatırım tavsiyesi değildir.",
+   "piyasa": {
+    "genislik_pct": 46.8,
+    "coin": 310,
+    "btc_ust": true
+   },
+   "simdi_kirilim": {},
+   "simdi_yaklasan": {}
+  },
+  "4h": {
+   "kontrol": 60400,
+   "beklenen": 313,
+   "bulunan": 313,
+   "eksik": [],
+   "fazla": [],
+   "olay_ad": {
+    "ikili_dip": 111,
+    "genisleyen": 56,
+    "yukselen_ucgen": 57,
+    "dikdortgen": 89
+   },
+   "hata": 0,
+   "eksik_sayi": 0,
+   "fazla_sayi": 0,
+   "mesaj": "📊 Binance TR · 4 saatlik kapanış 15.10 15:00–19:00 (TR saati)\n310 TRY çifti tarandı\n\n🟢 Orta bandın üstünde ardışık 3 yeşil mum (BOLL 21,2): 3\n• MEGA_TRY  2,315  (+4.1% +0.4% +0.1%)  hacim 17.1 mn TRY\n• FDUSD_TRY  49,32  (+0.0% +0.0% +0.1%)  hacim 12.9 mn TRY\n• CRV_TRY  17,51  (+6.2% +0.9% +1.5%)  hacim 7.4 mn TRY\n\n🔷 Formasyon kırılımı (geçmişte rastgeleden iyi çıkan; genişleyen formasyon, dikdörtgen, yükselen üçgen, ikili dip): 2\nPiyasa: coinlerin %19,0'i MA50 üstünde (zayıf) · BTC_TRY MA50 altında\n• DODO_TRY  1,03  Yükselen üçgen ↑  hedef 1,17442 (+%14,0) · zarar-kes 0,9352 (–%9,2)\n   geçmiş test (764 kırılım): hedefe ulaşma %45,8 (rastgele %39,3), işlem başı ort. +%0,6 (rastgele +%0,0) · ⚠ piyasa zayıf (coinlerin %19'i MA50 üstünde): geçmişte bu durumda rastgeleden iyi değildi\n• UNI_TRY  372,8  Dikdörtgen ↑  hedef 427,357 (+%14,6) · zarar-kes 334,6 (–%10,2)\n   geçmiş test (1003 kırılım): hedefe ulaşma %53,5 (rastgele %46,1), işlem başı ort. +%0,8 (rastgele +%0,1) · ⚠ piyasa zayıf (coinlerin %19'i MA50 üstünde): geçmişte bu durumda rastgeleden iyi değildi\n\n🟠 Erken uyarı (BLUR_TRY 15.10 patlama öncesi benzeri, 8/8; izlemeye al): 1\n• RED_TRY  8,04  hacim 3.3 mn TRY\n   ✓ bant %8.6 (son 100 mumun en dar %15'i) · ✓ üst banda yakın (%B 0.99) · ✓ MACD hist 0.01544 artıyor · ✓ yeni dönüş: MACD artıya döndü · ✓ EMA9 > EMA21 · ✓ RSI 59 · ✓ hacim 0.3x (henüz patlamadı) · ✓ mum +7.6%\n\n🔹 Erken uyarı · formasyon kırılımına yaklaşanlar (çizgiye 1 ATR'den yakın; izleme listesi): 10\n• ASTER_TRY  34,91  İkili dip: kırılım 35,58 (%1,9 yukarıda) · hedef 38,21 · zarar-kes 32,95\n• MEGA_TRY  2,315  İkili dip: kırılım 2,368 (%2,3 yukarıda) · hedef 2,669 · zarar-kes 2,067\n• MORPHO_TRY  120,7  İkili dip: kırılım 124,2 (%2,9 yukarıda) · hedef 136,94 · zarar-kes 111,46\n• FF_TRY  5,722  Yükselen üçgen: kırılım 5,764 (%0,7 yukarıda) · hedef 6,71 · zarar-kes 5,047 · ⚠ piyasa zayıf (coinlerin %19'i MA50 üstünde): geçmişte bu durumda rastgeleden iyi değildi\n• WLFI_TRY  2,861  Dikdörtgen: kırılım 2,8885 (%1,0 yukarıda) · hedef 3,0345 · zarar-kes 2,739 · ⚠ piyasa zayıf (coinlerin %19'i MA50 üstünde): geçmişte bu durumda rastgeleden iyi değildi\n• MEGA_TRY  2,315  Dikdörtgen: kırılım 2,34325 (%1,2 yukarıda) · hedef 2,67125 · zarar-kes 2,079 · ⚠ piyasa zayıf (coinlerin %19'i MA50 üstünde): geçmişte bu durumda rastgeleden iyi değildi\n• BCH_TRY  13.625  Dikdörtgen: kırılım 13.817,7 (%1,4 yukarıda) · hedef 15.341,7 · zarar-kes 12.626 · ⚠ piyasa zayıf (coinlerin %19'i MA50 üstünde): geçmişte bu durumda rastgeleden iyi değildi\n• PEPE_TRY  0,00020541  Yükselen üçgen: kırılım 0,000208524 (%1,5 yukarıda) · hedef 0,000241584 · zarar-kes 0,0001858 · ⚠ piyasa zayıf (coinlerin %19'i MA50 üstünde): geçmişte bu durumda rastgeleden iyi değildi\n• ZK_TRY  0,872  Dikdörtgen: kırılım 0,9055 (%3,8 yukarıda) · hedef 1,0795 · zarar-kes 0,732 · ⚠ piyasa zayıf (coinlerin %19'i MA50 üstünde): geçmişte bu durumda rastgeleden iyi değildi\n• ZK_TRY  0,872  Genişleyen formasyon: kırılım 0,906333 (%3,9 yukarıda) · hedef 1,21833 · zarar-kes 0,526 · ⚠ piyasa zayıf (coinlerin %19'i MA50 üstünde): geçmişte bu durumda rastgeleden iyi değildi\n\nYalnızca borsa verisi; yatırım tavsiyesi değildir.",
+   "piyasa": {
+    "genislik_pct": 19.0,
+    "coin": 310,
+    "btc_ust": false
+   },
+   "simdi_kirilim": {
+    "UNI_TRY": [
+     "dikdortgen"
+    ],
+    "DODO_TRY": [
+     "yukselen_ucgen"
+    ]
+   },
+   "simdi_yaklasan": {
+    "PEPE_TRY": [
+     "yukselen_ucgen"
+    ],
+    "BCH_TRY": [
+     "dikdortgen"
+    ],
+    "ZK_TRY": [
+     "genisleyen",
+     "dikdortgen"
+    ],
+    "WLFI_TRY": [
+     "dikdortgen"
+    ],
+    "FF_TRY": [
+     "yukselen_ucgen"
+    ],
+    "MORPHO_TRY": [
+     "ikili_dip"
+    ],
+    "ASTER_TRY": [
+     "ikili_dip"
+    ],
+    "MEGA_TRY": [
+     "ikili_dip",
+     "dikdortgen"
+    ]
+   }
+  }
+ },
+ "sure_sn": 164
+}

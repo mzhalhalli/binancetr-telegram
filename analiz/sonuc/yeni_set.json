@@ -1,0 +1,1026 @@
+{
+ "bas": 1791016200000,
+ "ayrim": 1791621000000,
+ "son": 1792225800000,
+ "coin": 305,
+ "mum": 409920,
+ "olay_egitim": 87,
+ "olay_sinama": 90,
+ "taban": {
+  "egitim": {
+   "sinyal": 204960,
+   "gunluk": 29280.0,
+   "yakalanan": 87,
+   "olay": 87,
+   "kapsama_pct": 100.0,
+   "isabet_pct": 0.04,
+   "kap1_med": 0.0,
+   "dus1_med": -0.08,
+   "max16_med": 0.83,
+   "kap16_med": -0.14,
+   "min16_med": -1.01,
+   "max16_5_pct": 5.2,
+   "min16_5_pct": 5.3
+  },
+  "sinama": {
+   "sinyal": 204960,
+   "gunluk": 29280.0,
+   "yakalanan": 90,
+   "olay": 90,
+   "kapsama_pct": 100.0,
+   "isabet_pct": 0.04,
+   "kap1_med": 0.0,
+   "dus1_med": -0.07,
+   "max16_med": 0.9,
+   "kap16_med": 0.0,
+   "min16_med": -0.82,
+   "max16_5_pct": 4.9,
+   "min16_5_pct": 4.8
+  }
+ },
+ "sekiz": {
+  "egitim": {
+   "sinyal": 1273,
+   "gunluk": 181.9,
+   "yakalanan": 2,
+   "olay": 87,
+   "kapsama_pct": 2.3,
+   "isabet_pct": 0.16,
+   "kap1_med": -0.05,
+   "dus1_med": -0.22,
+   "max16_med": 0.72,
+   "kap16_med": -0.4,
+   "min16_med": -1.22,
+   "max16_5_pct": 5.5,
+   "min16_5_pct": 6.3
+  },
+  "sinama": {
+   "sinyal": 1613,
+   "gunluk": 230.4,
+   "yakalanan": 0,
+   "olay": 90,
+   "kapsama_pct": 0.0,
+   "isabet_pct": 0.0,
+   "kap1_med": 0.0,
+   "dus1_med": -0.15,
+   "max16_med": 0.88,
+   "kap16_med": -0.05,
+   "min16_med": -0.88,
+   "max16_5_pct": 4.3,
+   "min16_5_pct": 5.3
+  }
+ },
+ "setler": [
+  {
+   "kosullar": [
+    [
+     "c_ma50",
+     ">=",
+     2.9447093913038143
+    ]
+   ],
+   "metin": "c_ma50 ≥ 2.945",
+   "egitim": {
+    "sinyal": 1080,
+    "gunluk": 154.3,
+    "yakalanan": 6,
+    "olay": 87,
+    "kapsama_pct": 6.9,
+    "isabet_pct": 0.56,
+    "kap1_med": -0.1,
+    "dus1_med": -0.52,
+    "max16_med": 1.65,
+    "kap16_med": -0.49,
+    "min16_med": -1.78,
+    "max16_5_pct": 15.7,
+    "min16_5_pct": 12.8
+   },
+   "sinama": {
+    "sinyal": 1100,
+    "gunluk": 157.1,
+    "yakalanan": 8,
+    "olay": 90,
+    "kapsama_pct": 8.9,
+    "isabet_pct": 0.73,
+    "kap1_med": -0.11,
+    "dus1_med": -0.48,
+    "max16_med": 1.56,
+    "kap16_med": -0.71,
+    "min16_med": -1.98,
+    "max16_5_pct": 15.5,
+    "min16_5_pct": 13.1
+   }
+  },
+  {
+   "kosullar": [
+    [
+     "c_ma20",
+     ">=",
+     1.9693954112450534
+    ]
+   ],
+   "metin": "c_ma20 ≥ 1.969",
+   "egitim": {
+    "sinyal": 1717,
+    "gunluk": 245.3,
+    "yakalanan": 9,
+    "olay": 87,
+    "kapsama_pct": 10.3,
+    "isabet_pct": 0.52,
+    "kap1_med": 0.0,
+    "dus1_med": -0.43,
+    "max16_med": 1.73,
+    "kap16_med": -0.25,
+    "min16_med": -1.61,
+    "max16_5_pct": 14.2,
+    "min16_5_pct": 10.9
+   },
+   "sinama": {
+    "sinyal": 1787,
+    "gunluk": 255.3,
+    "yakalanan": 12,
+    "olay": 90,
+    "kapsama_pct": 13.3,
+    "isabet_pct": 0.67,
+    "kap1_med": -0.05,
+    "dus1_med": -0.43,
+    "max16_med": 1.37,
+    "kap16_med": -0.49,
+    "min16_med": -1.69,
+    "max16_5_pct": 13.8,
+    "min16_5_pct": 10.6
+   }
+  },
+  {
+   "kosullar": [
+    [
+     "aralik36",
+     ">=",
+     11.693013085339922
+    ]
+   ],
+   "metin": "aralik36 ≥ 11.69",
+   "egitim": {
+    "sinyal": 347,
+    "gunluk": 49.6,
+    "yakalanan": 7,
+    "olay": 87,
+    "kapsama_pct": 8.0,
+    "isabet_pct": 2.02,
+    "kap1_med": 0.0,
+    "dus1_med": -0.6,
+    "max16_med": 2.64,
+    "kap16_med": -0.16,
+    "min16_med": -2.4,
+    "max16_5_pct": 25.6,
+    "min16_5_pct": 23.3
+   },
+   "sinama": {
+    "sinyal": 340,
+    "gunluk": 48.6,
+    "yakalanan": 7,
+    "olay": 90,
+    "kapsama_pct": 7.8,
+    "isabet_pct": 2.06,
+    "kap1_med": 0.0,
+    "dus1_med": -0.72,
+    "max16_med": 2.89,
+    "kap16_med": 0.12,
+    "min16_med": -2.69,
+    "max16_5_pct": 31.8,
+    "min16_5_pct": 22.4
+   }
+  },
+  {
+   "kosullar": [
+    [
+     "aralik36",
+     ">=",
+     11.693013085339922
+    ],
+    [
+     "hk",
+     ">=",
+     4.772858232511752
+    ]
+   ],
+   "metin": "aralik36 ≥ 11.69 VE hk ≥ 4.773",
+   "egitim": {
+    "sinyal": 253,
+    "gunluk": 36.1,
+    "yakalanan": 7,
+    "olay": 87,
+    "kapsama_pct": 8.0,
+    "isabet_pct": 2.77,
+    "kap1_med": -0.07,
+    "dus1_med": -0.8,
+    "max16_med": 2.53,
+    "kap16_med": -0.98,
+    "min16_med": -2.88,
+    "max16_5_pct": 26.9,
+    "min16_5_pct": 31.2
+   },
+   "sinama": {
+    "sinyal": 268,
+    "gunluk": 38.3,
+    "yakalanan": 5,
+    "olay": 90,
+    "kapsama_pct": 5.6,
+    "isabet_pct": 1.87,
+    "kap1_med": -0.25,
+    "dus1_med": -0.85,
+    "max16_med": 2.43,
+    "kap16_med": -0.68,
+    "min16_med": -2.99,
+    "max16_5_pct": 28.7,
+    "min16_5_pct": 30.6
+   }
+  },
+  {
+   "kosullar": [
+    [
+     "aralik36",
+     ">=",
+     11.693013085339922
+    ],
+    [
+     "islem_k",
+     ">=",
+     3.9776482491247767
+    ]
+   ],
+   "metin": "aralik36 ≥ 11.69 VE islem_k ≥ 3.978",
+   "egitim": {
+    "sinyal": 277,
+    "gunluk": 39.6,
+    "yakalanan": 7,
+    "olay": 87,
+    "kapsama_pct": 8.0,
+    "isabet_pct": 2.53,
+    "kap1_med": -0.07,
+    "dus1_med": -0.85,
+    "max16_med": 2.6,
+    "kap16_med": -1.07,
+    "min16_med": -2.96,
+    "max16_5_pct": 28.5,
+    "min16_5_pct": 32.1
+   },
+   "sinama": {
+    "sinyal": 300,
+    "gunluk": 42.9,
+    "yakalanan": 6,
+    "olay": 90,
+    "kapsama_pct": 6.7,
+    "isabet_pct": 2.0,
+    "kap1_med": -0.3,
+    "dus1_med": -1.04,
+    "max16_med": 2.41,
+    "kap16_med": -0.78,
+    "min16_med": -3.23,
+    "max16_5_pct": 28.3,
+    "min16_5_pct": 31.7
+   }
+  },
+  {
+   "kosullar": [
+    [
+     "bw",
+     ">=",
+     8.232931254590742
+    ],
+    [
+     "hk",
+     ">=",
+     4.772858232511752
+    ]
+   ],
+   "metin": "bw ≥ 8.233 VE hk ≥ 4.773",
+   "egitim": {
+    "sinyal": 257,
+    "gunluk": 36.7,
+    "yakalanan": 8,
+    "olay": 87,
+    "kapsama_pct": 9.2,
+    "isabet_pct": 3.11,
+    "kap1_med": 0.0,
+    "dus1_med": -0.84,
+    "max16_med": 2.63,
+    "kap16_med": -0.95,
+    "min16_med": -2.81,
+    "max16_5_pct": 28.4,
+    "min16_5_pct": 28.4
+   },
+   "sinama": {
+    "sinyal": 254,
+    "gunluk": 36.3,
+    "yakalanan": 7,
+    "olay": 90,
+    "kapsama_pct": 7.8,
+    "isabet_pct": 2.76,
+    "kap1_med": -0.23,
+    "dus1_med": -0.95,
+    "max16_med": 2.99,
+    "kap16_med": -0.54,
+    "min16_med": -3.3,
+    "max16_5_pct": 29.9,
+    "min16_5_pct": 31.5
+   }
+  },
+  {
+   "kosullar": [
+    [
+     "aralik36",
+     ">=",
+     11.693013085339922
+    ],
+    [
+     "tepe96",
+     ">=",
+     -0.39215686274509665
+    ],
+    [
+     "rsi_d",
+     ">=",
+     15.357890525620316
+    ]
+   ],
+   "metin": "aralik36 ≥ 11.69 VE tepe96 ≥ -0.3922 VE rsi_d ≥ 15.36",
+   "egitim": {
+    "sinyal": 68,
+    "gunluk": 9.7,
+    "yakalanan": 6,
+    "olay": 87,
+    "kapsama_pct": 6.9,
+    "isabet_pct": 8.82,
+    "kap1_med": -0.73,
+    "dus1_med": -2.54,
+    "max16_med": 3.71,
+    "kap16_med": -3.47,
+    "min16_med": -5.54,
+    "max16_5_pct": 42.6,
+    "min16_5_pct": 57.4
+   },
+   "sinama": {
+    "sinyal": 78,
+    "gunluk": 11.1,
+    "yakalanan": 3,
+    "olay": 90,
+    "kapsama_pct": 3.3,
+    "isabet_pct": 3.85,
+    "kap1_med": -1.2,
+    "dus1_med": -2.86,
+    "max16_med": 3.95,
+    "kap16_med": -4.67,
+    "min16_med": -8.23,
+    "max16_5_pct": 43.6,
+    "min16_5_pct": 66.7
+   }
+  },
+  {
+   "kosullar": [
+    [
+     "aralik36",
+     ">=",
+     11.693013085339922
+    ],
+    [
+     "tepe96",
+     ">=",
+     -0.7789678675754641
+    ],
+    [
+     "rsi_d",
+     ">=",
+     15.357890525620316
+    ]
+   ],
+   "metin": "aralik36 ≥ 11.69 VE tepe96 ≥ -0.779 VE rsi_d ≥ 15.36",
+   "egitim": {
+    "sinyal": 72,
+    "gunluk": 10.3,
+    "yakalanan": 6,
+    "olay": 87,
+    "kapsama_pct": 6.9,
+    "isabet_pct": 8.33,
+    "kap1_med": -0.63,
+    "dus1_med": -2.4,
+    "max16_med": 3.71,
+    "kap16_med": -3.34,
+    "min16_med": -5.36,
+    "max16_5_pct": 43.1,
+    "min16_5_pct": 55.6
+   },
+   "sinama": {
+    "sinyal": 81,
+    "gunluk": 11.6,
+    "yakalanan": 3,
+    "olay": 90,
+    "kapsama_pct": 3.3,
+    "isabet_pct": 3.7,
+    "kap1_med": -1.03,
+    "dus1_med": -2.76,
+    "max16_med": 3.9,
+    "kap16_med": -4.18,
+    "min16_med": -8.04,
+    "max16_5_pct": 43.2,
+    "min16_5_pct": 67.9
+   }
+  },
+  {
+   "kosullar": [
+    [
+     "aralik36",
+     ">=",
+     11.693013085339922
+    ],
+    [
+     "tepe96",
+     ">=",
+     -0.7789678675754641
+    ],
+    [
+     "rsi_d",
+     ">=",
+     11.278915648696865
+    ]
+   ],
+   "metin": "aralik36 ≥ 11.69 VE tepe96 ≥ -0.779 VE rsi_d ≥ 11.28",
+   "egitim": {
+    "sinyal": 102,
+    "gunluk": 14.6,
+    "yakalanan": 8,
+    "olay": 87,
+    "kapsama_pct": 9.2,
+    "isabet_pct": 7.84,
+    "kap1_med": -0.38,
+    "dus1_med": -2.0,
+    "max16_med": 3.82,
+    "kap16_med": -3.26,
+    "min16_med": -5.3,
+    "max16_5_pct": 45.1,
+    "min16_5_pct": 52.9
+   },
+   "sinama": {
+    "sinyal": 109,
+    "gunluk": 15.6,
+    "yakalanan": 2,
+    "olay": 90,
+    "kapsama_pct": 2.2,
+    "isabet_pct": 1.83,
+    "kap1_med": -1.12,
+    "dus1_med": -2.3,
+    "max16_med": 4.0,
+    "kap16_med": -2.48,
+    "min16_med": -6.27,
+    "max16_5_pct": 44.0,
+    "min16_5_pct": 60.6
+   }
+  },
+  {
+   "kosullar": [
+    [
+     "aralik36",
+     ">=",
+     11.693013085339922
+    ],
+    [
+     "tepe96",
+     ">=",
+     -0.39215686274509665
+    ],
+    [
+     "rsi_d",
+     ">=",
+     15.357890525620316
+    ],
+    [
+     "bw",
+     ">=",
+     8.232931254590742
+    ]
+   ],
+   "metin": "aralik36 ≥ 11.69 VE tepe96 ≥ -0.3922 VE rsi_d ≥ 15.36 VE bw ≥ 8.233",
+   "egitim": {
+    "sinyal": 52,
+    "gunluk": 7.4,
+    "yakalanan": 6,
+    "olay": 87,
+    "kapsama_pct": 6.9,
+    "isabet_pct": 11.54,
+    "kap1_med": -1.24,
+    "dus1_med": -3.14,
+    "max16_med": 4.51,
+    "kap16_med": -4.74,
+    "min16_med": -7.44,
+    "max16_5_pct": 48.1,
+    "min16_5_pct": 65.4
+   },
+   "sinama": {
+    "sinyal": 67,
+    "gunluk": 9.6,
+    "yakalanan": 3,
+    "olay": 90,
+    "kapsama_pct": 3.3,
+    "isabet_pct": 4.48,
+    "kap1_med": -1.19,
+    "dus1_med": -3.04,
+    "max16_med": 4.67,
+    "kap16_med": -5.23,
+    "min16_med": -8.57,
+    "max16_5_pct": 47.8,
+    "min16_5_pct": 71.6
+   }
+  },
+  {
+   "kosullar": [
+    [
+     "aralik36",
+     ">=",
+     11.693013085339922
+    ],
+    [
+     "tepe96",
+     ">=",
+     -0.39215686274509665
+    ],
+    [
+     "rsi_d",
+     ">=",
+     15.357890525620316
+    ],
+    [
+     "hist",
+     ">=",
+     0.2968545000412497
+    ]
+   ],
+   "metin": "aralik36 ≥ 11.69 VE tepe96 ≥ -0.3922 VE rsi_d ≥ 15.36 VE hist ≥ 0.2969",
+   "egitim": {
+    "sinyal": 55,
+    "gunluk": 7.9,
+    "yakalanan": 6,
+    "olay": 87,
+    "kapsama_pct": 6.9,
+    "isabet_pct": 10.91,
+    "kap1_med": -1.23,
+    "dus1_med": -2.72,
+    "max16_med": 4.17,
+    "kap16_med": -4.84,
+    "min16_med": -6.14,
+    "max16_5_pct": 47.3,
+    "min16_5_pct": 60.0
+   },
+   "sinama": {
+    "sinyal": 76,
+    "gunluk": 10.9,
+    "yakalanan": 3,
+    "olay": 90,
+    "kapsama_pct": 3.3,
+    "isabet_pct": 3.95,
+    "kap1_med": -1.32,
+    "dus1_med": -2.96,
+    "max16_med": 4.09,
+    "kap16_med": -5.38,
+    "min16_med": -8.5,
+    "max16_5_pct": 44.7,
+    "min16_5_pct": 69.7
+   }
+  },
+  {
+   "kosullar": [
+    [
+     "aralik36",
+     ">=",
+     11.693013085339922
+    ],
+    [
+     "tepe96",
+     ">=",
+     -0.7789678675754641
+    ],
+    [
+     "rsi_d",
+     ">=",
+     15.357890525620316
+    ],
+    [
+     "bw",
+     ">=",
+     8.232931254590742
+    ]
+   ],
+   "metin": "aralik36 ≥ 11.69 VE tepe96 ≥ -0.779 VE rsi_d ≥ 15.36 VE bw ≥ 8.233",
+   "egitim": {
+    "sinyal": 53,
+    "gunluk": 7.6,
+    "yakalanan": 6,
+    "olay": 87,
+    "kapsama_pct": 6.9,
+    "isabet_pct": 11.32,
+    "kap1_med": -1.23,
+    "dus1_med": -3.01,
+    "max16_med": 4.85,
+    "kap16_med": -4.61,
+    "min16_med": -7.01,
+    "max16_5_pct": 49.1,
+    "min16_5_pct": 66.0
+   },
+   "sinama": {
+    "sinyal": 70,
+    "gunluk": 10.0,
+    "yakalanan": 3,
+    "olay": 90,
+    "kapsama_pct": 3.3,
+    "isabet_pct": 4.29,
+    "kap1_med": -0.95,
+    "dus1_med": -2.97,
+    "max16_med": 4.66,
+    "kap16_med": -5.22,
+    "min16_med": -8.23,
+    "max16_5_pct": 47.1,
+    "min16_5_pct": 72.9
+   }
+  },
+  {
+   "kosullar": [
+    [
+     "aralik36",
+     ">=",
+     11.693013085339922
+    ],
+    [
+     "tepe96",
+     ">=",
+     -0.39215686274509665
+    ],
+    [
+     "rsi_d",
+     ">=",
+     15.357890525620316
+    ],
+    [
+     "bw",
+     ">=",
+     8.232931254590742
+    ],
+    [
+     "get96",
+     ">=",
+     6.7252006287746955
+    ]
+   ],
+   "metin": "aralik36 ≥ 11.69 VE tepe96 ≥ -0.3922 VE rsi_d ≥ 15.36 VE bw ≥ 8.233 VE get96 ≥ 6.725",
+   "egitim": {
+    "sinyal": 48,
+    "gunluk": 6.9,
+    "yakalanan": 6,
+    "olay": 87,
+    "kapsama_pct": 6.9,
+    "isabet_pct": 12.5,
+    "kap1_med": -1.2,
+    "dus1_med": -3.31,
+    "max16_med": 4.94,
+    "kap16_med": -4.74,
+    "min16_med": -7.44,
+    "max16_5_pct": 50.0,
+    "min16_5_pct": 64.6
+   },
+   "sinama": {
+    "sinyal": 64,
+    "gunluk": 9.1,
+    "yakalanan": 3,
+    "olay": 90,
+    "kapsama_pct": 3.3,
+    "isabet_pct": 4.69,
+    "kap1_med": -1.2,
+    "dus1_med": -3.06,
+    "max16_med": 4.66,
+    "kap16_med": -5.59,
+    "min16_med": -8.67,
+    "max16_5_pct": 46.9,
+    "min16_5_pct": 75.0
+   }
+  },
+  {
+   "kosullar": [
+    [
+     "aralik36",
+     ">=",
+     11.693013085339922
+    ],
+    [
+     "tepe96",
+     ">=",
+     -0.39215686274509665
+    ],
+    [
+     "rsi_d",
+     ">=",
+     15.357890525620316
+    ],
+    [
+     "hist",
+     ">=",
+     0.2968545000412497
+    ],
+    [
+     "get96",
+     ">=",
+     6.7252006287746955
+    ]
+   ],
+   "metin": "aralik36 ≥ 11.69 VE tepe96 ≥ -0.3922 VE rsi_d ≥ 15.36 VE hist ≥ 0.2969 VE get96 ≥ 6.725",
+   "egitim": {
+    "sinyal": 49,
+    "gunluk": 7.0,
+    "yakalanan": 6,
+    "olay": 87,
+    "kapsama_pct": 6.9,
+    "isabet_pct": 12.24,
+    "kap1_med": -1.23,
+    "dus1_med": -3.01,
+    "max16_med": 5.03,
+    "kap16_med": -4.87,
+    "min16_med": -6.84,
+    "max16_5_pct": 51.0,
+    "min16_5_pct": 63.3
+   },
+   "sinama": {
+    "sinyal": 69,
+    "gunluk": 9.9,
+    "yakalanan": 3,
+    "olay": 90,
+    "kapsama_pct": 3.3,
+    "isabet_pct": 4.35,
+    "kap1_med": -1.22,
+    "dus1_med": -2.99,
+    "max16_med": 4.64,
+    "kap16_med": -5.62,
+    "min16_med": -8.76,
+    "max16_5_pct": 46.4,
+    "min16_5_pct": 73.9
+   }
+  },
+  {
+   "kosullar": [
+    [
+     "aralik36",
+     ">=",
+     11.693013085339922
+    ],
+    [
+     "tepe96",
+     ">=",
+     -0.39215686274509665
+    ],
+    [
+     "rsi_d",
+     ">=",
+     15.357890525620316
+    ],
+    [
+     "bw",
+     ">=",
+     8.232931254590742
+    ],
+    [
+     "deg",
+     ">=",
+     0.7067137809187118
+    ]
+   ],
+   "metin": "aralik36 ≥ 11.69 VE tepe96 ≥ -0.3922 VE rsi_d ≥ 15.36 VE bw ≥ 8.233 VE deg ≥ 0.7067",
+   "egitim": {
+    "sinyal": 50,
+    "gunluk": 7.1,
+    "yakalanan": 6,
+    "olay": 87,
+    "kapsama_pct": 6.9,
+    "isabet_pct": 12.0,
+    "kap1_med": -1.24,
+    "dus1_med": -3.14,
+    "max16_med": 4.34,
+    "kap16_med": -4.9,
+    "min16_med": -8.05,
+    "max16_5_pct": 48.0,
+    "min16_5_pct": 68.0
+   },
+   "sinama": {
+    "sinyal": 66,
+    "gunluk": 9.4,
+    "yakalanan": 2,
+    "olay": 90,
+    "kapsama_pct": 2.2,
+    "isabet_pct": 3.03,
+    "kap1_med": -1.2,
+    "dus1_med": -3.06,
+    "max16_med": 4.66,
+    "kap16_med": -5.38,
+    "min16_med": -8.58,
+    "max16_5_pct": 47.0,
+    "min16_5_pct": 72.7
+   }
+  },
+  {
+   "kosullar": [
+    [
+     "aralik36",
+     ">=",
+     11.693013085339922
+    ],
+    [
+     "tepe96",
+     ">=",
+     -0.39215686274509665
+    ],
+    [
+     "rsi_d",
+     ">=",
+     15.357890525620316
+    ],
+    [
+     "bw",
+     ">=",
+     8.232931254590742
+    ],
+    [
+     "get96",
+     ">=",
+     6.7252006287746955
+    ],
+    [
+     "bwp",
+     ">=",
+     72.0
+    ]
+   ],
+   "metin": "aralik36 ≥ 11.69 VE tepe96 ≥ -0.3922 VE rsi_d ≥ 15.36 VE bw ≥ 8.233 VE get96 ≥ 6.725 VE bwp ≥ 72",
+   "egitim": {
+    "sinyal": 46,
+    "gunluk": 6.6,
+    "yakalanan": 6,
+    "olay": 87,
+    "kapsama_pct": 6.9,
+    "isabet_pct": 13.04,
+    "kap1_med": -1.24,
+    "dus1_med": -3.14,
+    "max16_med": 4.94,
+    "kap16_med": -4.9,
+    "min16_med": -7.55,
+    "max16_5_pct": 50.0,
+    "min16_5_pct": 63.0
+   },
+   "sinama": {
+    "sinyal": 61,
+    "gunluk": 8.7,
+    "yakalanan": 2,
+    "olay": 90,
+    "kapsama_pct": 2.2,
+    "isabet_pct": 3.28,
+    "kap1_med": -1.42,
+    "dus1_med": -3.1,
+    "max16_med": 4.67,
+    "kap16_med": -5.62,
+    "min16_med": -8.58,
+    "max16_5_pct": 47.5,
+    "min16_5_pct": 75.4
+   }
+  },
+  {
+   "kosullar": [
+    [
+     "aralik36",
+     ">=",
+     11.693013085339922
+    ],
+    [
+     "tepe96",
+     ">=",
+     -0.39215686274509665
+    ],
+    [
+     "rsi_d",
+     ">=",
+     15.357890525620316
+    ],
+    [
+     "bw",
+     ">=",
+     8.232931254590742
+    ],
+    [
+     "get96",
+     ">=",
+     6.7252006287746955
+    ],
+    [
+     "hist",
+     ">=",
+     0.2968545000412497
+    ]
+   ],
+   "metin": "aralik36 ≥ 11.69 VE tepe96 ≥ -0.3922 VE rsi_d ≥ 15.36 VE bw ≥ 8.233 VE get96 ≥ 6.725 VE hist ≥ 0.2969",
+   "egitim": {
+    "sinyal": 46,
+    "gunluk": 6.6,
+    "yakalanan": 6,
+    "olay": 87,
+    "kapsama_pct": 6.9,
+    "isabet_pct": 13.04,
+    "kap1_med": -1.24,
+    "dus1_med": -3.14,
+    "max16_med": 4.94,
+    "kap16_med": -4.9,
+    "min16_med": -7.55,
+    "max16_5_pct": 50.0,
+    "min16_5_pct": 63.0
+   },
+   "sinama": {
+    "sinyal": 64,
+    "gunluk": 9.1,
+    "yakalanan": 3,
+    "olay": 90,
+    "kapsama_pct": 3.3,
+    "isabet_pct": 4.69,
+    "kap1_med": -1.2,
+    "dus1_med": -3.06,
+    "max16_med": 4.66,
+    "kap16_med": -5.76,
+    "min16_med": -8.82,
+    "max16_5_pct": 46.9,
+    "min16_5_pct": 76.6
+   }
+  },
+  {
+   "kosullar": [
+    [
+     "aralik36",
+     ">=",
+     11.693013085339922
+    ],
+    [
+     "tepe96",
+     ">=",
+     -0.39215686274509665
+    ],
+    [
+     "rsi_d",
+     ">=",
+     15.357890525620316
+    ],
+    [
+     "bw",
+     ">=",
+     8.232931254590742
+    ],
+    [
+     "get96",
+     ">=",
+     6.7252006287746955
+    ],
+    [
+     "hk",
+     ">=",
+     2.7910662047219934
+    ]
+   ],
+   "metin": "aralik36 ≥ 11.69 VE tepe96 ≥ -0.3922 VE rsi_d ≥ 15.36 VE bw ≥ 8.233 VE get96 ≥ 6.725 VE hk ≥ 2.791",
+   "egitim": {
+    "sinyal": 47,
+    "gunluk": 6.7,
+    "yakalanan": 6,
+    "olay": 87,
+    "kapsama_pct": 6.9,
+    "isabet_pct": 12.77,
+    "kap1_med": -1.23,
+    "dus1_med": -3.34,
+    "max16_med": 4.85,
+    "kap16_med": -4.87,
+    "min16_med": -7.86,
+    "max16_5_pct": 48.9,
+    "min16_5_pct": 66.0
+   },
+   "sinama": {
+    "sinyal": 64,
+    "gunluk": 9.1,
+    "yakalanan": 3,
+    "olay": 90,
+    "kapsama_pct": 3.3,
+    "isabet_pct": 4.69,
+    "kap1_med": -1.2,
+    "dus1_med": -3.06,
+    "max16_med": 4.66,
+    "kap16_med": -5.59,
+    "min16_med": -8.67,
+    "max16_5_pct": 46.9,
+    "min16_5_pct": 75.0
+   }
+  }
+ ],
+ "ayar": {
+  "derinlik": 6,
+  "min_gunluk": 2.0,
+  "min_poz": 6
+ },
+ "sure_sn": 96
+}

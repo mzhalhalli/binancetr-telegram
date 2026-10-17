@@ -1,0 +1,86 @@
+name: sert yukselis analizi
+# yalnızca analiz-yukselis dalına gönderim (push) yapılınca çalışır; ana daldaki taramayı etkilemez
+# commit mesajında [ornek] varsa yalnızca analiz/ornekler.json'daki örnekler incelenir (hızlı)
+# commit mesajında [hedef] varsa hedef (1.-4. hedef, zarar-kes) testi çalışır
+# commit mesajında [formasyon] varsa grafik ve mum formasyonları testi çalışır (15m, 1h, 4h, 1d, 1w)
+# commit mesajında [canli] varsa iyi çıkan 1h/4h yukarı kırılımlar canlı izlenir (analiz/formasyon_canli.py)
+# commit mesajında [piyasa] varsa 1h/4h formasyon testi piyasa durumuna göre bölünür (analiz/sonuc/formasyon_piyasa.json)
+# commit mesajında [cuzdan] varsa 15m erken uyarı cüzdan denemesi çalışır (analiz/cuzdan_sim.py; BAS/BIT saatleri)
+# commit mesajında [coin] varsa tek coinin mumları erken uyarı ve uygunluk kurallarından geçirilir (analiz/coin_incele.py)
+# commit mesajında [yakalama] varsa sert yükselişi 1 dakikalık mumlarla zamanında yakalama denemesi çalışır (analiz/yakalama.py)
+# commit mesajında [onay] varsa formasyon kırılımından sonra 1-2 yeşil mum onayı test edilir (analiz/onay_testi.py)
+# commit mesajında [hafta] varsa son 7 gün erken uyarı ile formasyon girişleri karşılaştırılır (analiz/hafta_karsilastir.py)
+# commit mesajında [islem] varsa 16.10 gerçek cüzdan işlemleri incelenir (analiz/islem_incele.py)
+# commit mesajında [yuzde10] varsa son 7 günde tek 15 dakikalık mumda %10+ yükselenler listelenir (analiz/yuzde10_hafta.py)
+# commit mesajında [sart9] varsa %10+ yükselişlerden önceki mumun indikatörleri incelenir, 9. şart adayları çıkarılır (analiz/sart9.py)
+# commit mesajında [yeniset] varsa %10+ yükselişlere göre yeni 15 dk şart seti aranır, önceki haftada sınanır (analiz/yeni_set.py)
+# commit mesajında [kapsama] varsa yükselişlerin %50-%100'ünü yakalamak için gereken sinyal sayısı hesaplanır (analiz/kapsama_egrisi.py)
+# commit mesajında [hedef5] varsa sonraki 15 dk / 1 saatte +%5 hedefini en yüksek oranla tutturan şartlar aranır (analiz/hedef5.py)
+# commit mesajında [fbkontrol] varsa bota eklenen formasyon bulucusu gerçek veriyle geçmiş testle karşılaştırılır
+on:
+  push:
+    branches: [analiz-yukselis]
+permissions:
+  contents: write
+concurrency:
+  group: yukselis
+  cancel-in-progress: true
+jobs:
+  analiz:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install numpy
+      - name: Son 30 günün sert yükselişlerini incele
+        env:
+          ARALIK: "15m"
+          GUN: "30"
+          SADECE_ORNEK: ${{ contains(github.event.head_commit.message, '[ornek]') && '1' || '0' }}
+          HEDEF: ${{ contains(github.event.head_commit.message, '[hedef]') && '1' || '0' }}
+          FORMASYON: ${{ contains(github.event.head_commit.message, '[formasyon]') && '1' || '0' }}
+          CANLI: ${{ contains(github.event.head_commit.message, '[canli]') && '1' || '0' }}
+          PIYASA: ${{ contains(github.event.head_commit.message, '[piyasa]') && '1' || '0' }}
+          CUZDAN_SIM: ${{ contains(github.event.head_commit.message, '[cuzdan]') && '1' || '0' }}
+          FBKONTROL: ${{ contains(github.event.head_commit.message, '[fbkontrol]') && '1' || '0' }}
+          COIN_INCELE: ${{ contains(github.event.head_commit.message, '[coin]') && '1' || '0' }}
+          YAKALAMA: ${{ contains(github.event.head_commit.message, '[yakalama]') && '1' || '0' }}
+          ONAY: ${{ contains(github.event.head_commit.message, '[onay]') && '1' || '0' }}
+          HAFTA: ${{ contains(github.event.head_commit.message, '[hafta]') && '1' || '0' }}
+          ISLEM: ${{ contains(github.event.head_commit.message, '[islem]') && '1' || '0' }}
+          YUZDE10: ${{ contains(github.event.head_commit.message, '[yuzde10]') && '1' || '0' }}
+          SART9: ${{ contains(github.event.head_commit.message, '[sart9]') && '1' || '0' }}
+          YENISET: ${{ contains(github.event.head_commit.message, '[yeniset]') && '1' || '0' }}
+          KAPSAMA: ${{ contains(github.event.head_commit.message, '[kapsama]') && '1' || '0' }}
+          HEDEF5: ${{ contains(github.event.head_commit.message, '[hedef5]') && '1' || '0' }}
+        run: |
+          # birden çok etiket varsa her biri sırayla çalışır; hiç etiket yoksa sert yükseliş profili
+          calisti=0
+          if [ "$HEDEF5" = "1" ]; then SON_MS=1792225800000 python3 analiz/hedef5.py; calisti=1; fi
+          if [ "$KAPSAMA" = "1" ]; then SON_MS=1792225800000 python3 analiz/kapsama_egrisi.py; calisti=1; fi
+          if [ "$YENISET" = "1" ]; then SON_MS=1792225800000 python3 analiz/yeni_set.py; calisti=1; fi
+          if [ "$SART9" = "1" ]; then SON_MS=1792225800000 python3 analiz/sart9.py; calisti=1; fi
+          if [ "$YUZDE10" = "1" ]; then python3 analiz/yuzde10_hafta.py; calisti=1; fi
+          if [ "$ISLEM" = "1" ]; then python3 analiz/islem_incele.py; calisti=1; fi
+          if [ "$HAFTA" = "1" ]; then python3 analiz/hafta_karsilastir.py; calisti=1; fi
+          if [ "$ONAY" = "1" ]; then python3 analiz/onay_testi.py; calisti=1; fi
+          if [ "$YAKALAMA" = "1" ]; then python3 analiz/yakalama.py; calisti=1; fi
+          if [ "$COIN_INCELE" = "1" ]; then for a in 15m 1h; do COIN=INIT_TRY ARALIK=$a BAS="2026-10-15 20:00" BIT="2026-10-16 01:00" python3 analiz/coin_incele.py; done; calisti=1; fi
+          if [ "$FBKONTROL" = "1" ]; then python3 analiz/formasyon_bot_kontrol.py; calisti=1; fi
+          if [ "$CUZDAN_SIM" = "1" ]; then python3 analiz/cuzdan_sim.py; calisti=1; fi
+          if [ "$CANLI" = "1" ]; then python3 analiz/formasyon_canli.py; calisti=1; fi
+          if [ "$PIYASA" = "1" ]; then ARALIKLAR=1h,4h CIKTI=formasyon_piyasa.json python3 analiz/formasyon.py; calisti=1; fi
+          if [ "$FORMASYON" = "1" ]; then python3 analiz/formasyon.py; calisti=1; fi
+          if [ "$HEDEF" = "1" ]; then python3 analiz/hedef_backtest.py; calisti=1; fi
+          if [ "$calisti" = "0" ]; then python3 analiz/yukselis_profili.py; fi
+      - name: Sonucu dala kaydet
+        run: |
+          git config user.name "tarama-bot"
+          git config user.email "tarama-bot@users.noreply.github.com"
+          git add analiz/sonuc
+          git commit -m "sert yükseliş analiz sonucu" || true
+          git pull --rebase origin analiz-yukselis || true
+          git push origin HEAD:analiz-yukselis || true   # yeniden çalıştırmada (Re-run) da sonuç dala yazılsın
