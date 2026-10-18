@@ -1,14 +1,14 @@
 {
- "ts": 1792339311,
- "son_mum": 1792324800000,
+ "ts": 1792353712,
+ "son_mum": 1792339200000,
  "taranan": 310,
  "hata": 0,
  "bb": [
-  "LAZIO_TRY"
+  "AMP_TRY"
  ],
  "formasyon": {},
  "piyasa": {
-  "genislik_pct": 6.8,
+  "genislik_pct": 4.2,
   "coin": 310,
   "btc_ust": false
  }
