@@ -1,23 +1,15 @@
 {
- "ts": 1792267310,
- "son_mum": 1792252800000,
+ "ts": 1792281701,
+ "son_mum": 1792267200000,
  "taranan": 310,
  "hata": 0,
  "bb": [
-  "USDT_TRY",
   "FDUSD_TRY",
-  "USDC_TRY"
+  "LISTA_TRY"
  ],
- "formasyon": {
-  "ALT_TRY": [
-   "ikili_dip"
-  ],
-  "USDC_TRY": [
-   "genisleyen"
-  ]
- },
+ "formasyon": {},
  "piyasa": {
-  "genislik_pct": 11.6,
+  "genislik_pct": 10.3,
   "coin": 310,
   "btc_ust": false
  }
