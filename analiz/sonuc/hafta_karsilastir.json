@@ -1,0 +1,3621 @@
+{
+ "olusturma": "16.10.2026 13:41",
+ "bas": "09.10 13:30",
+ "bit": "16.10 13:30",
+ "coin": 306,
+ "veri_olan": 306,
+ "hata": 0,
+ "hata_ornek": [],
+ "kural": {
+  "kar_al": 2.0,
+  "zarar_kes": 5.0,
+  "komisyon": 0.001,
+  "alim": 200.0,
+  "cuzdan": 1000.0,
+  "en_cok": 3
+ },
+ "rastgele": {
+  "islem": 6055,
+  "coin": 306,
+  "kar_al": 3195,
+  "zarar_kes": 2248,
+  "acik": 612,
+  "kar_al_pct": 52.8,
+  "ort_net_pct": -1.007,
+  "medyan_net_pct": 1.796,
+  "toplam_tl_200": -12197.93,
+  "kapanan_sure_dk_medyan": 495
+ },
+ "piyasa_ort_pct": -3.45,
+ "piyasa_medyan_pct": -4.02,
+ "gruplar": {
+  "erken_15m": {
+   "ozet": {
+    "islem": 1717,
+    "coin": 288,
+    "kar_al": 895,
+    "zarar_kes": 646,
+    "acik": 176,
+    "kar_al_pct": 52.1,
+    "ort_net_pct": -1.076,
+    "medyan_net_pct": 1.796,
+    "toplam_tl_200": -3694.49,
+    "kapanan_sure_dk_medyan": 540
+   },
+   "formasyon": {
+    "erken": {
+     "islem": 1717,
+     "coin": 288,
+     "kar_al": 895,
+     "zarar_kes": 646,
+     "acik": 176,
+     "kar_al_pct": 52.1,
+     "ort_net_pct": -1.076,
+     "medyan_net_pct": 1.796,
+     "toplam_tl_200": -3694.49,
+     "kapanan_sure_dk_medyan": 540
+    }
+   },
+   "cuzdan": {
+    "alim": 31,
+    "atlanan": 1686,
+    "kar_al": 21,
+    "zarar_kes": 7,
+    "acik": 3,
+    "nakit": 402.61,
+    "acik_deger": 600.71,
+    "son": 1003.33,
+    "kar_tl": 3.33,
+    "kar_pct": 0.33,
+    "islemler": [
+     {
+      "s": "SKL_TRY",
+      "formasyon": "erken",
+      "neden": "kâr al",
+      "giris": "09.10 14:30",
+      "cikis": "09.10 14:45",
+      "net_pct": 1.8
+     },
+     {
+      "s": "HUMA_TRY",
+      "formasyon": "erken",
+      "neden": "kâr al",
+      "giris": "09.10 14:45",
+      "cikis": "09.10 15:30",
+      "net_pct": 1.8
+     },
+     {
+      "s": "OPN_TRY",
+      "formasyon": "erken",
+      "neden": "kâr al",
+      "giris": "09.10 14:45",
+      "cikis": "09.10 16:00",
+      "net_pct": 1.8
+     },
+     {
+      "s": "TRX_TRY",
+      "formasyon": "erken",
+      "neden": "açık",
+      "giris": "09.10 14:45",
+      "cikis": "-",
+      "net_pct": 0.96
+     },
+     {
+      "s": "ATM_TRY",
+      "formasyon": "erken",
+      "neden": "kâr al",
+      "giris": "09.10 15:30",
+      "cikis": "10.10 07:15",
+      "net_pct": 1.84
+     },
+     {
+      "s": "EUL_TRY",
+      "formasyon": "erken",
+      "neden": "kâr al",
+      "giris": "09.10 16:00",
+      "cikis": "11.10 20:45",
+      "net_pct": 1.8
+     },
+     {
+      "s": "BANK_TRY",
+      "formasyon": "erken",
+      "neden": "kâr al",
+      "giris": "10.10 07:15",
+      "cikis": "11.10 06:30",
+      "net_pct": 1.8
+     },
+     {
+      "s": "MAGIC_TRY",
+      "formasyon": "erken",
+      "neden": "kâr al",
+      "giris": "11.10 07:15",
+      "cikis": "11.10 07:30",
+      "net_pct": 1.8
+     },
+     {
+      "s": "LAZIO_TRY",
+      "formasyon": "erken",
+      "neden": "kâr al",
+      "giris": "11.10 07:45",
+      "cikis": "12.10 16:45",
+      "net_pct": 1.8
+     },
+     {
+      "s": "XAI_TRY",
+      "formasyon": "erken",
+      "neden": "kâr al",
+      "giris": "11.10 20:45",
+      "cikis": "11.10 23:15",
+      "net_pct": 1.8
+     },
+     {
+      "s": "ACH_TRY",
+      "formasyon": "erken",
+      "neden": "zarar-kes",
+      "giris": "11.10 23:15",
+      "cikis": "13.10 03:15",
+      "net_pct": -5.19
+     },
+     {
+      "s": "OGN_TRY",
+      "formasyon": "erken",
+      "neden": "kâr al",
+      "giris": "12.10 16:45",
+      "cikis": "12.10 18:15",
+      "net_pct": 1.8
+     },
+     {
+      "s": "YB_TRY",
+      "formasyon": "erken",
+      "neden": "kâr al",
+      "giris": "12.10 19:00",
+      "cikis": "12.10 21:00",
+      "net_pct": 1.8
+     },
+     {
+      "s": "AXL_TRY",
+      "formasyon": "erken",
+      "neden": "kâr al",
+      "giris": "12.10 21:15",
+      "cikis": "12.10 21:45",
+      "net_pct": 1.8
+     },
+     {
+      "s": "TWT_TRY",
+      "formasyon": "erken",
+      "neden": "zarar-kes",
+      "giris": "12.10 22:30",
+      "cikis": "13.10 04:00",
+      "net_pct": -5.19
+     },
+     {
+      "s": "S_TRY",
+      "formasyon": "erken",
+      "neden": "kâr al",
+      "giris": "13.10 04:30",
+      "cikis": "13.10 05:15",
+      "net_pct": 1.8
+     },
+     {
+      "s": "OPN_TRY",
+      "formasyon": "erken",
+      "neden": "kâr al",
+      "giris": "13.10 05:00",
+      "cikis": "13.10 08:15",
+      "net_pct": 1.8
+     },
+     {
+      "s": "DYM_TRY",
+      "formasyon": "erken",
+      "neden": "kâr al",
+      "giris": "13.10 05:30",
+      "cikis": "13.10 08:00",
+      "net_pct": 1.8
+     },
+     {
+      "s": "ALGO_TRY",
+      "formasyon": "erken",
+      "neden": "zarar-kes",
+      "giris": "13.10 08:00",
+      "cikis": "14.10 22:15",
+      "net_pct": -5.19
+     },
+     {
+      "s": "API3_TRY",
+      "formasyon": "erken",
+      "neden": "kâr al",
+      "giris": "13.10 08:15",
+      "cikis": "13.10 10:30",
+      "net_pct": 1.8
+     },
+     {
+      "s": "BEAMX_TRY",
+      "formasyon": "erken",
+      "neden": "kâr al",
+      "giris": "13.10 11:15",
+      "cikis": "13.10 22:15",
+      "net_pct": 1.8
+     },
+     {
+      "s": "ALPINE_TRY",
+      "formasyon": "erken",
+      "neden": "zarar-kes",
+      "giris": "13.10 22:15",
+      "cikis": "15.10 05:30",
+      "net_pct": -5.19
+     },
+     {
+      "s": "DOT_TRY",
+      "formasyon": "erken",
+      "neden": "zarar-kes",
+      "giris": "14.10 22:30",
+      "cikis": "15.10 05:30",
+      "net_pct": -5.19
+     },
+     {
+      "s": "RED_TRY",
+      "formasyon": "erken",
+      "neden": "zarar-kes",
+      "giris": "15.10 07:45",
+      "cikis": "15.10 13:30",
+      "net_pct": -5.19
+     },
+     {
+      "s": "NIL_TRY",
+      "formasyon": "erken",
+      "neden": "kâr al",
+      "giris": "15.10 08:45",
+      "cikis": "15.10 09:45",
+      "net_pct": 1.8
+     },
+     {
+      "s": "OGN_TRY",
+      "formasyon": "erken",
+      "neden": "kâr al",
+      "giris": "15.10 09:45",
+      "cikis": "15.10 10:45",
+      "net_pct": 1.8
+     },
+     {
+      "s": "BEAMX_TRY",
+      "formasyon": "erken",
+      "neden": "zarar-kes",
+      "giris": "15.10 10:45",
+      "cikis": "16.10 03:00",
+      "net_pct": -5.31
+     },
+     {
+      "s": "LINEA_TRY",
+      "formasyon": "erken",
+      "neden": "kâr al",
+      "giris": "15.10 13:45",
+      "cikis": "15.10 18:30",
+      "net_pct": 1.8
+     },
+     {
+      "s": "CATI_TRY",
+      "formasyon": "erken",
+      "neden": "açık",
+      "giris": "15.10 18:30",
+      "cikis": "-",
+      "net_pct": 0.07
+     },
+     {
+      "s": "MANTA_TRY",
+      "formasyon": "erken",
+      "neden": "kâr al",
+      "giris": "16.10 03:30",
+      "cikis": "16.10 10:30",
+      "net_pct": 1.8
+     },
+     {
+      "s": "WCT_TRY",
+      "formasyon": "erken",
+      "neden": "açık",
+      "giris": "16.10 10:30",
+      "cikis": "-",
+      "net_pct": -0.67
+     }
+    ]
+   },
+   "gun": {
+    "09.10": {
+     "islem": 160,
+     "coin": 118,
+     "kar_al": 140,
+     "zarar_kes": 12,
+     "acik": 8,
+     "kar_al_pct": 87.5,
+     "ort_net_pct": 1.21,
+     "medyan_net_pct": 1.796,
+     "toplam_tl_200": 387.26,
+     "kapanan_sure_dk_medyan": 450.0
+    },
+    "10.10": {
+     "islem": 404,
+     "coin": 190,
+     "kar_al": 292,
+     "zarar_kes": 99,
+     "acik": 13,
+     "kar_al_pct": 72.3,
+     "ort_net_pct": 0.02,
+     "medyan_net_pct": 1.796,
+     "toplam_tl_200": 16.35,
+     "kapanan_sure_dk_medyan": 1020
+    },
+    "11.10": {
+     "islem": 213,
+     "coin": 131,
+     "kar_al": 148,
+     "zarar_kes": 61,
+     "acik": 4,
+     "kar_al_pct": 69.5,
+     "ort_net_pct": -0.242,
+     "medyan_net_pct": 1.796,
+     "toplam_tl_200": -102.96,
+     "kapanan_sure_dk_medyan": 510
+    },
+    "12.10": {
+     "islem": 168,
+     "coin": 114,
+     "kar_al": 41,
+     "zarar_kes": 126,
+     "acik": 1,
+     "kar_al_pct": 24.4,
+     "ort_net_pct": -3.462,
+     "medyan_net_pct": -5.19,
+     "toplam_tl_200": -1163.2,
+     "kapanan_sure_dk_medyan": 615
+    },
+    "13.10": {
+     "islem": 232,
+     "coin": 145,
+     "kar_al": 94,
+     "zarar_kes": 135,
+     "acik": 3,
+     "kar_al_pct": 40.5,
+     "ort_net_pct": -2.316,
+     "medyan_net_pct": -5.19,
+     "toplam_tl_200": -1074.63,
+     "kapanan_sure_dk_medyan": 1035
+    },
+    "14.10": {
+     "islem": 188,
+     "coin": 122,
+     "kar_al": 40,
+     "zarar_kes": 139,
+     "acik": 9,
+     "kar_al_pct": 21.3,
+     "ort_net_pct": -3.549,
+     "medyan_net_pct": -5.19,
+     "toplam_tl_200": -1334.41,
+     "kapanan_sure_dk_medyan": 690
+    },
+    "15.10": {
+     "islem": 186,
+     "coin": 122,
+     "kar_al": 94,
+     "zarar_kes": 71,
+     "acik": 21,
+     "kar_al_pct": 50.5,
+     "ort_net_pct": -1.086,
+     "medyan_net_pct": 1.796,
+     "toplam_tl_200": -404.14,
+     "kapanan_sure_dk_medyan": 195
+    },
+    "16.10": {
+     "islem": 166,
+     "coin": 117,
+     "kar_al": 46,
+     "zarar_kes": 3,
+     "acik": 117,
+     "kar_al_pct": 27.7,
+     "ort_net_pct": -0.056,
+     "medyan_net_pct": -0.122,
+     "toplam_tl_200": -18.76,
+     "kapanan_sure_dk_medyan": 150
+    }
+   },
+   "en_iyi": [
+    {
+     "s": "TURBO_TRY",
+     "giris": "09.10 17:45",
+     "net_pct": 2.34,
+     "neden": "kâr al"
+    },
+    {
+     "s": "STX_TRY",
+     "giris": "16.10 00:15",
+     "net_pct": 2.32,
+     "neden": "kâr al"
+    },
+    {
+     "s": "BABY_TRY",
+     "giris": "10.10 00:45",
+     "net_pct": 2.32,
+     "neden": "kâr al"
+    },
+    {
+     "s": "LDO_TRY",
+     "giris": "10.10 01:45",
+     "net_pct": 2.31,
+     "neden": "kâr al"
+    },
+    {
+     "s": "KITE_TRY",
+     "giris": "13.10 17:15",
+     "net_pct": 2.31,
+     "neden": "kâr al"
+    }
+   ],
+   "en_kotu": [
+    {
+     "s": "METIS_TRY",
+     "giris": "13.10 17:45",
+     "net_pct": -6.07,
+     "neden": "zarar-kes"
+    },
+    {
+     "s": "NEO_TRY",
+     "giris": "13.10 21:15",
+     "net_pct": -5.75,
+     "neden": "zarar-kes"
+    },
+    {
+     "s": "ACH_TRY",
+     "giris": "14.10 10:30",
+     "net_pct": -5.75,
+     "neden": "zarar-kes"
+    },
+    {
+     "s": "XTZ_TRY",
+     "giris": "12.10 11:15",
+     "net_pct": -5.73,
+     "neden": "zarar-kes"
+    },
+    {
+     "s": "THETA_TRY",
+     "giris": "13.10 23:30",
+     "net_pct": -5.69,
+     "neden": "zarar-kes"
+    }
+   ]
+  },
+  "K0_15m": {
+   "ozet": {
+    "islem": 1194,
+    "coin": 302,
+    "kar_al": 653,
+    "zarar_kes": 414,
+    "acik": 127,
+    "kar_al_pct": 54.7,
+    "ort_net_pct": -0.857,
+    "medyan_net_pct": 1.796,
+    "toplam_tl_200": -2047.6,
+    "kapanan_sure_dk_medyan": 420
+   },
+   "formasyon": {
+    "boga_bayragi": {
+     "islem": 185,
+     "coin": 143,
+     "kar_al": 94,
+     "zarar_kes": 50,
+     "acik": 41,
+     "kar_al_pct": 50.8,
+     "ort_net_pct": -0.65,
+     "medyan_net_pct": 1.796,
+     "toplam_tl_200": -240.38,
+     "kapanan_sure_dk_medyan": 352.5
+    },
+    "dikdortgen": {
+     "islem": 247,
+     "coin": 175,
+     "kar_al": 151,
+     "zarar_kes": 76,
+     "acik": 20,
+     "kar_al_pct": 61.1,
+     "ort_net_pct": -0.498,
+     "medyan_net_pct": 1.796,
+     "toplam_tl_200": -245.98,
+     "kapanan_sure_dk_medyan": 330
+    },
+    "genisleyen": {
+     "islem": 123,
+     "coin": 103,
+     "kar_al": 72,
+     "zarar_kes": 42,
+     "acik": 9,
+     "kar_al_pct": 58.5,
+     "ort_net_pct": -0.742,
+     "medyan_net_pct": 1.796,
+     "toplam_tl_200": -182.45,
+     "kapanan_sure_dk_medyan": 442.5
+    },
+    "ikili_dip": {
+     "islem": 476,
+     "coin": 249,
+     "kar_al": 256,
+     "zarar_kes": 173,
+     "acik": 47,
+     "kar_al_pct": 53.8,
+     "ort_net_pct": -0.932,
+     "medyan_net_pct": 1.796,
+     "toplam_tl_200": -887.61,
+     "kapanan_sure_dk_medyan": 405
+    },
+    "yukselen_ucgen": {
+     "islem": 163,
+     "coin": 135,
+     "kar_al": 80,
+     "zarar_kes": 73,
+     "acik": 10,
+     "kar_al_pct": 49.1,
+     "ort_net_pct": -1.507,
+     "medyan_net_pct": -0.129,
+     "toplam_tl_200": -491.17,
+     "kapanan_sure_dk_medyan": 615
+    }
+   },
+   "cuzdan": {
+    "alim": 22,
+    "atlanan": 1172,
+    "kar_al": 11,
+    "zarar_kes": 8,
+    "acik": 3,
+    "nakit": 356.48,
+    "acik_deger": 602.18,
+    "son": 958.66,
+    "kar_tl": -41.34,
+    "kar_pct": -4.13,
+    "islemler": [
+     {
+      "s": "MARSCOIN_TRY",
+      "formasyon": "yukselen_ucgen",
+      "neden": "kâr al",
+      "giris": "09.10 14:30",
+      "cikis": "10.10 18:30",
+      "net_pct": 1.8
+     },
+     {
+      "s": "TRX_TRY",
+      "formasyon": "ikili_dip",
+      "neden": "açık",
+      "giris": "09.10 14:30",
+      "cikis": "-",
+      "net_pct": 0.97
+     },
+     {
+      "s": "ARB_TRY",
+      "formasyon": "boga_bayragi",
+      "neden": "kâr al",
+      "giris": "09.10 14:45",
+      "cikis": "10.10 03:15",
+      "net_pct": 1.8
+     },
+     {
+      "s": "EIGEN_TRY",
+      "formasyon": "ikili_dip",
+      "neden": "kâr al",
+      "giris": "10.10 03:15",
+      "cikis": "10.10 08:30",
+      "net_pct": 1.8
+     },
+     {
+      "s": "LDO_TRY",
+      "formasyon": "genisleyen",
+      "neden": "kâr al",
+      "giris": "10.10 08:30",
+      "cikis": "10.10 09:00",
+      "net_pct": 1.8
+     },
+     {
+      "s": "LPT_TRY",
+      "formasyon": "boga_bayragi",
+      "neden": "kâr al",
+      "giris": "10.10 09:15",
+      "cikis": "10.10 09:30",
+      "net_pct": 1.8
+     },
+     {
+      "s": "MET_TRY",
+      "formasyon": "ikili_dip",
+      "neden": "kâr al",
+      "giris": "10.10 09:30",
+      "cikis": "10.10 12:15",
+      "net_pct": 1.8
+     },
+     {
+      "s": "APE_TRY",
+      "formasyon": "boga_bayragi",
+      "neden": "kâr al",
+      "giris": "10.10 12:30",
+      "cikis": "11.10 09:30",
+      "net_pct": 1.8
+     },
+     {
+      "s": "ACM_TRY",
+      "formasyon": "genisleyen",
+      "neden": "zarar-kes",
+      "giris": "10.10 18:30",
+      "cikis": "13.10 03:15",
+      "net_pct": -5.19
+     },
+     {
+      "s": "BEL_TRY",
+      "formasyon": "ikili_dip",
+      "neden": "zarar-kes",
+      "giris": "11.10 09:30",
+      "cikis": "12.10 16:45",
+      "net_pct": -5.19
+     },
+     {
+      "s": "PSG_TRY",
+      "formasyon": "ikili_dip",
+      "neden": "zarar-kes",
+      "giris": "12.10 17:15",
+      "cikis": "15.10 05:30",
+      "net_pct": -5.19
+     },
+     {
+      "s": "PARTI_TRY",
+      "formasyon": "boga_bayragi",
+      "neden": "zarar-kes",
+      "giris": "13.10 05:00",
+      "cikis": "13.10 12:15",
+      "net_pct": -5.19
+     },
+     {
+      "s": "ATM_TRY",
+      "formasyon": "boga_bayragi",
+      "neden": "kâr al",
+      "giris": "13.10 12:30",
+      "cikis": "13.10 14:15",
+      "net_pct": 1.8
+     },
+     {
+      "s": "STRK_TRY",
+      "formasyon": "ikili_dip",
+      "neden": "zarar-kes",
+      "giris": "13.10 14:30",
+      "cikis": "13.10 15:30",
+      "net_pct": -5.19
+     },
+     {
+      "s": "COW_TRY",
+      "formasyon": "ikili_dip",
+      "neden": "zarar-kes",
+      "giris": "13.10 15:45",
+      "cikis": "15.10 00:15",
+      "net_pct": -5.19
+     },
+     {
+      "s": "NIL_TRY",
+      "formasyon": "genisleyen",
+      "neden": "zarar-kes",
+      "giris": "15.10 00:15",
+      "cikis": "15.10 00:30",
+      "net_pct": -5.19
+     },
+     {
+      "s": "PARTI_TRY",
+      "formasyon": "dikdortgen",
+      "neden": "kâr al",
+      "giris": "15.10 00:30",
+      "cikis": "15.10 18:45",
+      "net_pct": 1.8
+     },
+     {
+      "s": "RSR_TRY",
+      "formasyon": "ikili_dip",
+      "neden": "kâr al",
+      "giris": "15.10 06:15",
+      "cikis": "15.10 07:30",
+      "net_pct": 1.8
+     },
+     {
+      "s": "ACM_TRY",
+      "formasyon": "ikili_dip",
+      "neden": "açık",
+      "giris": "15.10 08:00",
+      "cikis": "-",
+      "net_pct": 1.07
+     },
+     {
+      "s": "BEAMX_TRY",
+      "formasyon": "ikili_dip",
+      "neden": "zarar-kes",
+      "giris": "15.10 18:45",
+      "cikis": "16.10 00:15",
+      "net_pct": -5.19
+     },
+     {
+      "s": "ESP_TRY",
+      "formasyon": "yukselen_ucgen",
+      "neden": "kâr al",
+      "giris": "16.10 01:30",
+      "cikis": "16.10 12:15",
+      "net_pct": 1.8
+     },
+     {
+      "s": "JTO_TRY",
+      "formasyon": "dikdortgen",
+      "neden": "açık",
+      "giris": "16.10 12:15",
+      "cikis": "-",
+      "net_pct": -0.95
+     }
+    ]
+   },
+   "gun": {
+    "09.10": {
+     "islem": 100,
+     "coin": 71,
+     "kar_al": 87,
+     "zarar_kes": 7,
+     "acik": 6,
+     "kar_al_pct": 87.0,
+     "ort_net_pct": 1.244,
+     "medyan_net_pct": 1.796,
+     "toplam_tl_200": 248.81,
+     "kapanan_sure_dk_medyan": 382.5
+    },
+    "10.10": {
+     "islem": 229,
+     "coin": 160,
+     "kar_al": 176,
+     "zarar_kes": 51,
+     "acik": 2,
+     "kar_al_pct": 76.9,
+     "ort_net_pct": 0.231,
+     "medyan_net_pct": 1.796,
+     "toplam_tl_200": 105.96,
+     "kapanan_sure_dk_medyan": 540
+    },
+    "11.10": {
+     "islem": 179,
+     "coin": 137,
+     "kar_al": 105,
+     "zarar_kes": 71,
+     "acik": 3,
+     "kar_al_pct": 58.7,
+     "ort_net_pct": -1.004,
+     "medyan_net_pct": 1.796,
+     "toplam_tl_200": -359.34,
+     "kapanan_sure_dk_medyan": 817.5
+    },
+    "12.10": {
+     "islem": 167,
+     "coin": 131,
+     "kar_al": 38,
+     "zarar_kes": 126,
+     "acik": 3,
+     "kar_al_pct": 22.8,
+     "ort_net_pct": -3.544,
+     "medyan_net_pct": -5.19,
+     "toplam_tl_200": -1183.65,
+     "kapanan_sure_dk_medyan": 705.0
+    },
+    "13.10": {
+     "islem": 77,
+     "coin": 63,
+     "kar_al": 28,
+     "zarar_kes": 46,
+     "acik": 3,
+     "kar_al_pct": 36.4,
+     "ort_net_pct": -2.479,
+     "medyan_net_pct": -5.19,
+     "toplam_tl_200": -381.78,
+     "kapanan_sure_dk_medyan": 457.5
+    },
+    "14.10": {
+     "islem": 141,
+     "coin": 106,
+     "kar_al": 38,
+     "zarar_kes": 97,
+     "acik": 6,
+     "kar_al_pct": 27.0,
+     "ort_net_pct": -3.139,
+     "medyan_net_pct": -5.19,
+     "toplam_tl_200": -885.21,
+     "kapanan_sure_dk_medyan": 570
+    },
+    "15.10": {
+     "islem": 187,
+     "coin": 143,
+     "kar_al": 154,
+     "zarar_kes": 13,
+     "acik": 20,
+     "kar_al_pct": 82.4,
+     "ort_net_pct": 1.176,
+     "medyan_net_pct": 1.796,
+     "toplam_tl_200": 439.73,
+     "kapanan_sure_dk_medyan": 60
+    },
+    "16.10": {
+     "islem": 114,
+     "coin": 84,
+     "kar_al": 27,
+     "zarar_kes": 3,
+     "acik": 84,
+     "kar_al_pct": 23.7,
+     "ort_net_pct": -0.141,
+     "medyan_net_pct": -0.2,
+     "toplam_tl_200": -32.11,
+     "kapanan_sure_dk_medyan": 150.0
+    }
+   },
+   "en_iyi": [
+    {
+     "s": "PROVE_TRY",
+     "giris": "15.10 15:00",
+     "net_pct": 3.87,
+     "neden": "kâr al"
+    },
+    {
+     "s": "PROVE_TRY",
+     "giris": "15.10 08:15",
+     "net_pct": 3.3,
+     "neden": "kâr al"
+    },
+    {
+     "s": "AT_TRY",
+     "giris": "13.10 08:45",
+     "net_pct": 2.83,
+     "neden": "kâr al"
+    },
+    {
+     "s": "TURTLE_TRY",
+     "giris": "15.10 17:15",
+     "net_pct": 2.5,
+     "neden": "kâr al"
+    },
+    {
+     "s": "HAEDAL_TRY",
+     "giris": "15.10 17:45",
+     "net_pct": 2.48,
+     "neden": "kâr al"
+    }
+   ],
+   "en_kotu": [
+    {
+     "s": "MANA_TRY",
+     "giris": "13.10 23:15",
+     "net_pct": -7.11,
+     "neden": "zarar-kes"
+    },
+    {
+     "s": "MIRA_TRY",
+     "giris": "14.10 15:15",
+     "net_pct": -6.74,
+     "neden": "zarar-kes"
+    },
+    {
+     "s": "ZAMA_TRY",
+     "giris": "14.10 06:45",
+     "net_pct": -6.67,
+     "neden": "zarar-kes"
+    },
+    {
+     "s": "SLP_TRY",
+     "giris": "13.10 08:00",
+     "net_pct": -6.18,
+     "neden": "zarar-kes"
+    },
+    {
+     "s": "GAS_TRY",
+     "giris": "12.10 04:15",
+     "net_pct": -5.9,
+     "neden": "zarar-kes"
+    }
+   ]
+  },
+  "Y2_15m": {
+   "ozet": {
+    "islem": 177,
+    "coin": 125,
+    "kar_al": 99,
+    "zarar_kes": 52,
+    "acik": 26,
+    "kar_al_pct": 55.9,
+    "ort_net_pct": -0.624,
+    "medyan_net_pct": 1.796,
+    "toplam_tl_200": -220.99,
+    "kapanan_sure_dk_medyan": 300
+   },
+   "formasyon": {
+    "boga_bayragi": {
+     "islem": 18,
+     "coin": 17,
+     "kar_al": 10,
+     "zarar_kes": 5,
+     "acik": 3,
+     "kar_al_pct": 55.6,
+     "ort_net_pct": -0.524,
+     "medyan_net_pct": 1.796,
+     "toplam_tl_200": -18.85,
+     "kapanan_sure_dk_medyan": 285
+    },
+    "dikdortgen": {
+     "islem": 45,
+     "coin": 42,
+     "kar_al": 26,
+     "zarar_kes": 12,
+     "acik": 7,
+     "kar_al_pct": 57.8,
+     "ort_net_pct": -0.59,
+     "medyan_net_pct": 1.796,
+     "toplam_tl_200": -53.07,
+     "kapanan_sure_dk_medyan": 255.0
+    },
+    "genisleyen": {
+     "islem": 19,
+     "coin": 19,
+     "kar_al": 10,
+     "zarar_kes": 7,
+     "acik": 2,
+     "kar_al_pct": 52.6,
+     "ort_net_pct": -0.992,
+     "medyan_net_pct": 1.796,
+     "toplam_tl_200": -37.69,
+     "kapanan_sure_dk_medyan": 570
+    },
+    "ikili_dip": {
+     "islem": 70,
+     "coin": 62,
+     "kar_al": 39,
+     "zarar_kes": 20,
+     "acik": 11,
+     "kar_al_pct": 55.7,
+     "ort_net_pct": -0.549,
+     "medyan_net_pct": 1.796,
+     "toplam_tl_200": -76.9,
+     "kapanan_sure_dk_medyan": 255
+    },
+    "yukselen_ucgen": {
+     "islem": 25,
+     "coin": 24,
+     "kar_al": 14,
+     "zarar_kes": 8,
+     "acik": 3,
+     "kar_al_pct": 56.0,
+     "ort_net_pct": -0.69,
+     "medyan_net_pct": 1.796,
+     "toplam_tl_200": -34.49,
+     "kapanan_sure_dk_medyan": 360.0
+    }
+   },
+   "cuzdan": {
+    "alim": 25,
+    "atlanan": 152,
+    "kar_al": 13,
+    "zarar_kes": 9,
+    "acik": 3,
+    "nakit": 353.28,
+    "acik_deger": 597.9,
+    "son": 951.18,
+    "kar_tl": -48.82,
+    "kar_pct": -4.88,
+    "islemler": [
+     {
+      "s": "MARSCOIN_TRY",
+      "formasyon": "yukselen_ucgen",
+      "neden": "zarar-kes",
+      "giris": "09.10 15:00",
+      "cikis": "09.10 21:15",
+      "net_pct": -5.19
+     },
+     {
+      "s": "TRX_TRY",
+      "formasyon": "ikili_dip",
+      "neden": "açık",
+      "giris": "09.10 15:00",
+      "cikis": "-",
+      "net_pct": 0.95
+     },
+     {
+      "s": "RAD_TRY",
+      "formasyon": "yukselen_ucgen",
+      "neden": "zarar-kes",
+      "giris": "09.10 17:30",
+      "cikis": "09.10 17:45",
+      "net_pct": -5.19
+     },
+     {
+      "s": "ATM_TRY",
+      "formasyon": "dikdortgen",
+      "neden": "kâr al",
+      "giris": "09.10 18:15",
+      "cikis": "12.10 22:30",
+      "net_pct": 1.8
+     },
+     {
+      "s": "ALT_TRY",
+      "formasyon": "genisleyen",
+      "neden": "kâr al",
+      "giris": "09.10 21:15",
+      "cikis": "10.10 03:15",
+      "net_pct": 1.8
+     },
+     {
+      "s": "BB_TRY",
+      "formasyon": "genisleyen",
+      "neden": "kâr al",
+      "giris": "10.10 03:30",
+      "cikis": "10.10 12:00",
+      "net_pct": 1.8
+     },
+     {
+      "s": "HOLO_TRY",
+      "formasyon": "boga_bayragi",
+      "neden": "zarar-kes",
+      "giris": "10.10 12:15",
+      "cikis": "13.10 01:00",
+      "net_pct": -5.19
+     },
+     {
+      "s": "KAITO_TRY",
+      "formasyon": "ikili_dip",
+      "neden": "zarar-kes",
+      "giris": "12.10 23:15",
+      "cikis": "13.10 03:15",
+      "net_pct": -5.19
+     },
+     {
+      "s": "ZK_TRY",
+      "formasyon": "dikdortgen",
+      "neden": "kâr al",
+      "giris": "13.10 16:30",
+      "cikis": "13.10 16:45",
+      "net_pct": 1.8
+     },
+     {
+      "s": "ZK_TRY",
+      "formasyon": "ikili_dip",
+      "neden": "kâr al",
+      "giris": "13.10 16:45",
+      "cikis": "13.10 17:15",
+      "net_pct": 1.8
+     },
+     {
+      "s": "PENDLE_TRY",
+      "formasyon": "ikili_dip",
+      "neden": "kâr al",
+      "giris": "13.10 22:30",
+      "cikis": "14.10 06:30",
+      "net_pct": 1.8
+     },
+     {
+      "s": "RSR_TRY",
+      "formasyon": "ikili_dip",
+      "neden": "zarar-kes",
+      "giris": "14.10 01:00",
+      "cikis": "14.10 03:00",
+      "net_pct": -5.19
+     },
+     {
+      "s": "ESP_TRY",
+      "formasyon": "dikdortgen",
+      "neden": "kâr al",
+      "giris": "14.10 03:30",
+      "cikis": "14.10 06:30",
+      "net_pct": 1.8
+     },
+     {
+      "s": "FF_TRY",
+      "formasyon": "boga_bayragi",
+      "neden": "zarar-kes",
+      "giris": "14.10 07:30",
+      "cikis": "14.10 15:45",
+      "net_pct": -5.19
+     },
+     {
+      "s": "ALGO_TRY",
+      "formasyon": "yukselen_ucgen",
+      "neden": "zarar-kes",
+      "giris": "14.10 08:45",
+      "cikis": "14.10 17:45",
+      "net_pct": -5.19
+     },
+     {
+      "s": "MANTA_TRY",
+      "formasyon": "dikdortgen",
+      "neden": "kâr al",
+      "giris": "14.10 20:30",
+      "cikis": "15.10 00:30",
+      "net_pct": 1.8
+     },
+     {
+      "s": "INIT_TRY",
+      "formasyon": "ikili_dip",
+      "neden": "zarar-kes",
+      "giris": "14.10 22:15",
+      "cikis": "15.10 15:00",
+      "net_pct": -5.19
+     },
+     {
+      "s": "SHELL_TRY",
+      "formasyon": "dikdortgen",
+      "neden": "zarar-kes",
+      "giris": "15.10 01:15",
+      "cikis": "15.10 05:30",
+      "net_pct": -5.19
+     },
+     {
+      "s": "ZK_TRY",
+      "formasyon": "ikili_dip",
+      "neden": "kâr al",
+      "giris": "15.10 07:45",
+      "cikis": "15.10 08:15",
+      "net_pct": 1.8
+     },
+     {
+      "s": "0G_TRY",
+      "formasyon": "boga_bayragi",
+      "neden": "kâr al",
+      "giris": "15.10 12:15",
+      "cikis": "15.10 18:30",
+      "net_pct": 1.8
+     },
+     {
+      "s": "LUNA_TRY",
+      "formasyon": "yukselen_ucgen",
+      "neden": "kâr al",
+      "giris": "15.10 15:15",
+      "cikis": "15.10 18:00",
+      "net_pct": 1.8
+     },
+     {
+      "s": "ACH_TRY",
+      "formasyon": "ikili_dip",
+      "neden": "kâr al",
+      "giris": "15.10 18:00",
+      "cikis": "15.10 19:15",
+      "net_pct": 1.8
+     },
+     {
+      "s": "HEI_TRY",
+      "formasyon": "ikili_dip",
+      "neden": "açık",
+      "giris": "15.10 18:30",
+      "cikis": "-",
+      "net_pct": -0.69
+     },
+     {
+      "s": "PLUME_TRY",
+      "formasyon": "dikdortgen",
+      "neden": "kâr al",
+      "giris": "15.10 19:15",
+      "cikis": "15.10 23:30",
+      "net_pct": 1.8
+     },
+     {
+      "s": "ICP_TRY",
+      "formasyon": "ikili_dip",
+      "neden": "açık",
+      "giris": "16.10 10:15",
+      "cikis": "-",
+      "net_pct": -1.31
+     }
+    ]
+   },
+   "gun": {
+    "09.10": {
+     "islem": 17,
+     "coin": 13,
+     "kar_al": 11,
+     "zarar_kes": 5,
+     "acik": 1,
+     "kar_al_pct": 64.7,
+     "ort_net_pct": -0.309,
+     "medyan_net_pct": 1.796,
+     "toplam_tl_200": -10.49,
+     "kapanan_sure_dk_medyan": 292.5
+    },
+    "10.10": {
+     "islem": 22,
+     "coin": 18,
+     "kar_al": 20,
+     "zarar_kes": 2,
+     "acik": 0,
+     "kar_al_pct": 90.9,
+     "ort_net_pct": 1.161,
+     "medyan_net_pct": 1.796,
+     "toplam_tl_200": 51.09,
+     "kapanan_sure_dk_medyan": 375.0
+    },
+    "11.10": {
+     "islem": 26,
+     "coin": 23,
+     "kar_al": 12,
+     "zarar_kes": 14,
+     "acik": 0,
+     "kar_al_pct": 46.2,
+     "ort_net_pct": -1.964,
+     "medyan_net_pct": -5.19,
+     "toplam_tl_200": -102.11,
+     "kapanan_sure_dk_medyan": 1380.0
+    },
+    "12.10": {
+     "islem": 23,
+     "coin": 19,
+     "kar_al": 3,
+     "zarar_kes": 19,
+     "acik": 1,
+     "kar_al_pct": 13.0,
+     "ort_net_pct": -4.147,
+     "medyan_net_pct": -5.19,
+     "toplam_tl_200": -190.76,
+     "kapanan_sure_dk_medyan": 675.0
+    },
+    "13.10": {
+     "islem": 3,
+     "coin": 2,
+     "kar_al": 3,
+     "zarar_kes": 0,
+     "acik": 0,
+     "kar_al_pct": 100.0,
+     "ort_net_pct": 1.796,
+     "medyan_net_pct": 1.796,
+     "toplam_tl_200": 10.78,
+     "kapanan_sure_dk_medyan": 30
+    },
+    "14.10": {
+     "islem": 16,
+     "coin": 15,
+     "kar_al": 6,
+     "zarar_kes": 9,
+     "acik": 1,
+     "kar_al_pct": 37.5,
+     "ort_net_pct": -2.198,
+     "medyan_net_pct": -5.19,
+     "toplam_tl_200": -70.33,
+     "kapanan_sure_dk_medyan": 495
+    },
+    "15.10": {
+     "islem": 64,
+     "coin": 55,
+     "kar_al": 44,
+     "zarar_kes": 3,
+     "acik": 17,
+     "kar_al_pct": 68.8,
+     "ort_net_pct": 0.778,
+     "medyan_net_pct": 1.796,
+     "toplam_tl_200": 99.54,
+     "kapanan_sure_dk_medyan": 75
+    },
+    "16.10": {
+     "islem": 6,
+     "coin": 6,
+     "kar_al": 0,
+     "zarar_kes": 0,
+     "acik": 6,
+     "kar_al_pct": 0.0,
+     "ort_net_pct": -0.727,
+     "medyan_net_pct": -1.019,
+     "toplam_tl_200": -8.72,
+     "kapanan_sure_dk_medyan": null
+    }
+   },
+   "en_iyi": [
+    {
+     "s": "MORPHO_TRY",
+     "giris": "15.10 17:45",
+     "net_pct": 2.15,
+     "neden": "kâr al"
+    },
+    {
+     "s": "HUMA_TRY",
+     "giris": "11.10 21:30",
+     "net_pct": 1.96,
+     "neden": "kâr al"
+    },
+    {
+     "s": "TURTLE_TRY",
+     "giris": "15.10 17:45",
+     "net_pct": 1.93,
+     "neden": "kâr al"
+    },
+    {
+     "s": "HYPER_TRY",
+     "giris": "15.10 18:30",
+     "net_pct": 1.92,
+     "neden": "kâr al"
+    },
+    {
+     "s": "AIXBT_TRY",
+     "giris": "15.10 18:15",
+     "net_pct": 1.88,
+     "neden": "kâr al"
+    }
+   ],
+   "en_kotu": [
+    {
+     "s": "ORCA_TRY",
+     "giris": "14.10 06:15",
+     "net_pct": -5.58,
+     "neden": "zarar-kes"
+    },
+    {
+     "s": "SPK_TRY",
+     "giris": "11.10 05:00",
+     "net_pct": -5.35,
+     "neden": "zarar-kes"
+    },
+    {
+     "s": "PENDLE_TRY",
+     "giris": "11.10 02:15",
+     "net_pct": -5.2,
+     "neden": "zarar-kes"
+    },
+    {
+     "s": "SHIB_TRY",
+     "giris": "11.10 18:15",
+     "net_pct": -5.19,
+     "neden": "zarar-kes"
+    },
+    {
+     "s": "SHIB_TRY",
+     "giris": "11.10 18:15",
+     "net_pct": -5.19,
+     "neden": "zarar-kes"
+    }
+   ]
+  },
+  "RT_15m": {
+   "ozet": {
+    "islem": 351,
+    "coin": 198,
+    "kar_al": 206,
+    "zarar_kes": 100,
+    "acik": 45,
+    "kar_al_pct": 58.7,
+    "ort_net_pct": -0.489,
+    "medyan_net_pct": 1.796,
+    "toplam_tl_200": -343.5,
+    "kapanan_sure_dk_medyan": 270.0
+   },
+   "formasyon": {
+    "boga_bayragi": {
+     "islem": 45,
+     "coin": 44,
+     "kar_al": 25,
+     "zarar_kes": 10,
+     "acik": 10,
+     "kar_al_pct": 55.6,
+     "ort_net_pct": -0.202,
+     "medyan_net_pct": 1.796,
+     "toplam_tl_200": -18.14,
+     "kapanan_sure_dk_medyan": 240
+    },
+    "dikdortgen": {
+     "islem": 79,
+     "coin": 67,
+     "kar_al": 51,
+     "zarar_kes": 20,
+     "acik": 8,
+     "kar_al_pct": 64.6,
+     "ort_net_pct": -0.207,
+     "medyan_net_pct": 1.796,
+     "toplam_tl_200": -32.75,
+     "kapanan_sure_dk_medyan": 255
+    },
+    "genisleyen": {
+     "islem": 38,
+     "coin": 37,
+     "kar_al": 25,
+     "zarar_kes": 10,
+     "acik": 3,
+     "kar_al_pct": 65.8,
+     "ort_net_pct": -0.162,
+     "medyan_net_pct": 1.796,
+     "toplam_tl_200": -12.32,
+     "kapanan_sure_dk_medyan": 120
+    },
+    "ikili_dip": {
+     "islem": 146,
+     "coin": 126,
+     "kar_al": 85,
+     "zarar_kes": 44,
+     "acik": 17,
+     "kar_al_pct": 58.2,
+     "ort_net_pct": -0.57,
+     "medyan_net_pct": 1.796,
+     "toplam_tl_200": -166.41,
+     "kapanan_sure_dk_medyan": 330
+    },
+    "yukselen_ucgen": {
+     "islem": 43,
+     "coin": 42,
+     "kar_al": 20,
+     "zarar_kes": 16,
+     "acik": 7,
+     "kar_al_pct": 46.5,
+     "ort_net_pct": -1.324,
+     "medyan_net_pct": -0.376,
+     "toplam_tl_200": -113.88,
+     "kapanan_sure_dk_medyan": 577.5
+    }
+   },
+   "cuzdan": {
+    "alim": 21,
+    "atlanan": 330,
+    "kar_al": 12,
+    "zarar_kes": 6,
+    "acik": 3,
+    "nakit": 385.21,
+    "acik_deger": 599.41,
+    "son": 984.61,
+    "kar_tl": -15.39,
+    "kar_pct": -1.54,
+    "islemler": [
+     {
+      "s": "MARSCOIN_TRY",
+      "formasyon": "yukselen_ucgen",
+      "neden": "kâr al",
+      "giris": "09.10 14:45",
+      "cikis": "10.10 18:45",
+      "net_pct": 1.8
+     },
+     {
+      "s": "TRX_TRY",
+      "formasyon": "ikili_dip",
+      "neden": "açık",
+      "giris": "09.10 14:45",
+      "cikis": "-",
+      "net_pct": 0.96
+     },
+     {
+      "s": "ATM_TRY",
+      "formasyon": "ikili_dip",
+      "neden": "kâr al",
+      "giris": "09.10 18:15",
+      "cikis": "12.10 22:30",
+      "net_pct": 1.8
+     },
+     {
+      "s": "WLD_TRY",
+      "formasyon": "ikili_dip",
+      "neden": "kâr al",
+      "giris": "10.10 18:45",
+      "cikis": "11.10 17:45",
+      "net_pct": 1.8
+     },
+     {
+      "s": "ALGO_TRY",
+      "formasyon": "genisleyen",
+      "neden": "kâr al",
+      "giris": "11.10 17:45",
+      "cikis": "11.10 18:30",
+      "net_pct": 1.8
+     },
+     {
+      "s": "DOGE_TRY",
+      "formasyon": "ikili_dip",
+      "neden": "kâr al",
+      "giris": "11.10 18:30",
+      "cikis": "12.10 08:00",
+      "net_pct": 1.8
+     },
+     {
+      "s": "BONK_TRY",
+      "formasyon": "dikdortgen",
+      "neden": "zarar-kes",
+      "giris": "12.10 08:00",
+      "cikis": "12.10 17:45",
+      "net_pct": -5.19
+     },
+     {
+      "s": "BEAMX_TRY",
+      "formasyon": "dikdortgen",
+      "neden": "kâr al",
+      "giris": "12.10 20:15",
+      "cikis": "12.10 21:15",
+      "net_pct": 1.8
+     },
+     {
+      "s": "ACH_TRY",
+      "formasyon": "ikili_dip",
+      "neden": "zarar-kes",
+      "giris": "12.10 21:45",
+      "cikis": "13.10 03:15",
+      "net_pct": -5.19
+     },
+     {
+      "s": "KAITO_TRY",
+      "formasyon": "ikili_dip",
+      "neden": "zarar-kes",
+      "giris": "12.10 23:00",
+      "cikis": "13.10 03:15",
+      "net_pct": -5.19
+     },
+     {
+      "s": "WLFI_TRY",
+      "formasyon": "yukselen_ucgen",
+      "neden": "açık",
+      "giris": "13.10 06:30",
+      "cikis": "-",
+      "net_pct": -0.45
+     },
+     {
+      "s": "OPN_TRY",
+      "formasyon": "genisleyen",
+      "neden": "kâr al",
+      "giris": "13.10 08:00",
+      "cikis": "13.10 08:45",
+      "net_pct": 1.8
+     },
+     {
+      "s": "DODO_TRY",
+      "formasyon": "ikili_dip",
+      "neden": "kâr al",
+      "giris": "13.10 11:30",
+      "cikis": "14.10 00:15",
+      "net_pct": 1.8
+     },
+     {
+      "s": "GRT_TRY",
+      "formasyon": "ikili_dip",
+      "neden": "kâr al",
+      "giris": "14.10 00:15",
+      "cikis": "14.10 03:45",
+      "net_pct": 1.8
+     },
+     {
+      "s": "ADA_TRY",
+      "formasyon": "yukselen_ucgen",
+      "neden": "zarar-kes",
+      "giris": "14.10 03:45",
+      "cikis": "14.10 17:45",
+      "net_pct": -5.19
+     },
+     {
+      "s": "MORPHO_TRY",
+      "formasyon": "ikili_dip",
+      "neden": "zarar-kes",
+      "giris": "14.10 18:30",
+      "cikis": "15.10 15:45",
+      "net_pct": -5.19
+     },
+     {
+      "s": "PROVE_TRY",
+      "formasyon": "ikili_dip",
+      "neden": "kâr al",
+      "giris": "15.10 15:45",
+      "cikis": "15.10 18:15",
+      "net_pct": 3.99
+     },
+     {
+      "s": "CFX_TRY",
+      "formasyon": "ikili_dip",
+      "neden": "kâr al",
+      "giris": "15.10 18:15",
+      "cikis": "16.10 01:00",
+      "net_pct": 1.8
+     },
+     {
+      "s": "CHIP_TRY",
+      "formasyon": "boga_bayragi",
+      "neden": "kâr al",
+      "giris": "16.10 04:45",
+      "cikis": "16.10 05:15",
+      "net_pct": 1.8
+     },
+     {
+      "s": "ZIL_TRY",
+      "formasyon": "boga_bayragi",
+      "neden": "zarar-kes",
+      "giris": "16.10 05:15",
+      "cikis": "16.10 10:45",
+      "net_pct": -5.19
+     },
+     {
+      "s": "ASR_TRY",
+      "formasyon": "yukselen_ucgen",
+      "neden": "açık",
+      "giris": "16.10 10:45",
+      "cikis": "-",
+      "net_pct": -0.81
+     }
+    ]
+   },
+   "gun": {
+    "09.10": {
+     "islem": 39,
+     "coin": 30,
+     "kar_al": 38,
+     "zarar_kes": 0,
+     "acik": 1,
+     "kar_al_pct": 97.4,
+     "ort_net_pct": 1.792,
+     "medyan_net_pct": 1.796,
+     "toplam_tl_200": 139.74,
+     "kapanan_sure_dk_medyan": 322.5
+    },
+    "10.10": {
+     "islem": 62,
+     "coin": 50,
+     "kar_al": 46,
+     "zarar_kes": 15,
+     "acik": 1,
+     "kar_al_pct": 74.2,
+     "ort_net_pct": 0.076,
+     "medyan_net_pct": 1.796,
+     "toplam_tl_200": 9.4,
+     "kapanan_sure_dk_medyan": 585
+    },
+    "11.10": {
+     "islem": 49,
+     "coin": 44,
+     "kar_al": 32,
+     "zarar_kes": 16,
+     "acik": 1,
+     "kar_al_pct": 65.3,
+     "ort_net_pct": -0.532,
+     "medyan_net_pct": 1.796,
+     "toplam_tl_200": -52.14,
+     "kapanan_sure_dk_medyan": 442.5
+    },
+    "12.10": {
+     "islem": 47,
+     "coin": 40,
+     "kar_al": 12,
+     "zarar_kes": 33,
+     "acik": 2,
+     "kar_al_pct": 25.5,
+     "ort_net_pct": -3.259,
+     "medyan_net_pct": -5.19,
+     "toplam_tl_200": -306.32,
+     "kapanan_sure_dk_medyan": 570
+    },
+    "13.10": {
+     "islem": 18,
+     "coin": 15,
+     "kar_al": 10,
+     "zarar_kes": 7,
+     "acik": 1,
+     "kar_al_pct": 55.6,
+     "ort_net_pct": -1.045,
+     "medyan_net_pct": 1.796,
+     "toplam_tl_200": -37.63,
+     "kapanan_sure_dk_medyan": 210
+    },
+    "14.10": {
+     "islem": 32,
+     "coin": 29,
+     "kar_al": 9,
+     "zarar_kes": 21,
+     "acik": 2,
+     "kar_al_pct": 28.1,
+     "ort_net_pct": -2.837,
+     "medyan_net_pct": -5.19,
+     "toplam_tl_200": -181.54,
+     "kapanan_sure_dk_medyan": 517.5
+    },
+    "15.10": {
+     "islem": 69,
+     "coin": 62,
+     "kar_al": 53,
+     "zarar_kes": 5,
+     "acik": 11,
+     "kar_al_pct": 76.8,
+     "ort_net_pct": 0.908,
+     "medyan_net_pct": 1.796,
+     "toplam_tl_200": 125.35,
+     "kapanan_sure_dk_medyan": 60.0
+    },
+    "16.10": {
+     "islem": 35,
+     "coin": 27,
+     "kar_al": 6,
+     "zarar_kes": 3,
+     "acik": 26,
+     "kar_al_pct": 17.1,
+     "ort_net_pct": -0.577,
+     "medyan_net_pct": -0.59,
+     "toplam_tl_200": -40.36,
+     "kapanan_sure_dk_medyan": 90
+    }
+   },
+   "en_iyi": [
+    {
+     "s": "PROVE_TRY",
+     "giris": "15.10 15:45",
+     "net_pct": 3.99,
+     "neden": "kâr al"
+    },
+    {
+     "s": "NOT_TRY",
+     "giris": "09.10 20:45",
+     "net_pct": 2.02,
+     "neden": "kâr al"
+    },
+    {
+     "s": "NOT_TRY",
+     "giris": "09.10 20:45",
+     "net_pct": 2.02,
+     "neden": "kâr al"
+    },
+    {
+     "s": "WAL_TRY",
+     "giris": "14.10 04:45",
+     "net_pct": 2.01,
+     "neden": "kâr al"
+    },
+    {
+     "s": "MANA_TRY",
+     "giris": "10.10 00:45",
+     "net_pct": 1.95,
+     "neden": "kâr al"
+    }
+   ],
+   "en_kotu": [
+    {
+     "s": "1MBABYDOGE_TRY",
+     "giris": "11.10 16:45",
+     "net_pct": -5.59,
+     "neden": "zarar-kes"
+    },
+    {
+     "s": "ORCA_TRY",
+     "giris": "14.10 06:00",
+     "net_pct": -5.58,
+     "neden": "zarar-kes"
+    },
+    {
+     "s": "HOME_TRY",
+     "giris": "10.10 19:45",
+     "net_pct": -5.4,
+     "neden": "zarar-kes"
+    },
+    {
+     "s": "USTC_TRY",
+     "giris": "10.10 19:30",
+     "net_pct": -5.34,
+     "neden": "zarar-kes"
+    },
+    {
+     "s": "CHZ_TRY",
+     "giris": "11.10 19:15",
+     "net_pct": -5.24,
+     "neden": "zarar-kes"
+    }
+   ]
+  },
+  "K0_1h": {
+   "ozet": {
+    "islem": 62,
+    "coin": 48,
+    "kar_al": 37,
+    "zarar_kes": 22,
+    "acik": 3,
+    "kar_al_pct": 59.7,
+    "ort_net_pct": -0.793,
+    "medyan_net_pct": 1.796,
+    "toplam_tl_200": -98.38,
+    "kapanan_sure_dk_medyan": 210
+   },
+   "formasyon": {
+    "boga_bayragi": {
+     "islem": 43,
+     "coin": 42,
+     "kar_al": 27,
+     "zarar_kes": 15,
+     "acik": 1,
+     "kar_al_pct": 62.8,
+     "ort_net_pct": -0.677,
+     "medyan_net_pct": 1.796,
+     "toplam_tl_200": -58.21,
+     "kapanan_sure_dk_medyan": 195.0
+    },
+    "genisleyen": {
+     "islem": 19,
+     "coin": 19,
+     "kar_al": 10,
+     "zarar_kes": 7,
+     "acik": 2,
+     "kar_al_pct": 52.6,
+     "ort_net_pct": -1.057,
+     "medyan_net_pct": 1.796,
+     "toplam_tl_200": -40.17,
+     "kapanan_sure_dk_medyan": 300
+    }
+   },
+   "cuzdan": {
+    "alim": 21,
+    "atlanan": 41,
+    "kar_al": 14,
+    "zarar_kes": 5,
+    "acik": 2,
+    "nakit": 598.97,
+    "acik_deger": 396.8,
+    "son": 995.78,
+    "kar_tl": -4.22,
+    "kar_pct": -0.42,
+    "islemler": [
+     {
+      "s": "ROSE_TRY",
+      "formasyon": "boga_bayragi",
+      "neden": "kâr al",
+      "giris": "09.10 20:00",
+      "cikis": "09.10 20:15",
+      "net_pct": 1.8
+     },
+     {
+      "s": "PIXEL_TRY",
+      "formasyon": "genisleyen",
+      "neden": "kâr al",
+      "giris": "09.10 21:00",
+      "cikis": "09.10 21:15",
+      "net_pct": 1.8
+     },
+     {
+      "s": "ROSE_TRY",
+      "formasyon": "genisleyen",
+      "neden": "zarar-kes",
+      "giris": "09.10 21:00",
+      "cikis": "10.10 00:30",
+      "net_pct": -5.19
+     },
+     {
+      "s": "WCT_TRY",
+      "formasyon": "genisleyen",
+      "neden": "kâr al",
+      "giris": "09.10 21:00",
+      "cikis": "10.10 11:45",
+      "net_pct": 1.8
+     },
+     {
+      "s": "AXL_TRY",
+      "formasyon": "genisleyen",
+      "neden": "kâr al",
+      "giris": "10.10 02:00",
+      "cikis": "10.10 02:30",
+      "net_pct": 1.8
+     },
+     {
+      "s": "XAI_TRY",
+      "formasyon": "genisleyen",
+      "neden": "kâr al",
+      "giris": "10.10 02:00",
+      "cikis": "10.10 02:45",
+      "net_pct": 1.8
+     },
+     {
+      "s": "POLYX_TRY",
+      "formasyon": "boga_bayragi",
+      "neden": "kâr al",
+      "giris": "10.10 03:00",
+      "cikis": "11.10 21:15",
+      "net_pct": 1.8
+     },
+     {
+      "s": "BEL_TRY",
+      "formasyon": "boga_bayragi",
+      "neden": "kâr al",
+      "giris": "10.10 04:00",
+      "cikis": "10.10 06:30",
+      "net_pct": 1.8
+     },
+     {
+      "s": "WLFI_TRY",
+      "formasyon": "genisleyen",
+      "neden": "açık",
+      "giris": "10.10 07:00",
+      "cikis": "-",
+      "net_pct": -1.46
+     },
+     {
+      "s": "RONIN_TRY",
+      "formasyon": "genisleyen",
+      "neden": "zarar-kes",
+      "giris": "10.10 12:00",
+      "cikis": "10.10 12:15",
+      "net_pct": -5.19
+     },
+     {
+      "s": "CKB_TRY",
+      "formasyon": "boga_bayragi",
+      "neden": "kâr al",
+      "giris": "10.10 14:00",
+      "cikis": "10.10 17:15",
+      "net_pct": 2.06
+     },
+     {
+      "s": "STRK_TRY",
+      "formasyon": "boga_bayragi",
+      "neden": "kâr al",
+      "giris": "10.10 18:00",
+      "cikis": "10.10 18:15",
+      "net_pct": 1.8
+     },
+     {
+      "s": "YB_TRY",
+      "formasyon": "boga_bayragi",
+      "neden": "kâr al",
+      "giris": "10.10 19:00",
+      "cikis": "10.10 19:30",
+      "net_pct": 1.8
+     },
+     {
+      "s": "APT_TRY",
+      "formasyon": "boga_bayragi",
+      "neden": "kâr al",
+      "giris": "10.10 20:00",
+      "cikis": "10.10 21:15",
+      "net_pct": 1.8
+     },
+     {
+      "s": "CAKE_TRY",
+      "formasyon": "boga_bayragi",
+      "neden": "kâr al",
+      "giris": "10.10 23:00",
+      "cikis": "11.10 18:45",
+      "net_pct": 1.8
+     },
+     {
+      "s": "F_TRY",
+      "formasyon": "genisleyen",
+      "neden": "kâr al",
+      "giris": "11.10 19:00",
+      "cikis": "12.10 00:00",
+      "net_pct": 1.8
+     },
+     {
+      "s": "TRUMP_TRY",
+      "formasyon": "boga_bayragi",
+      "neden": "zarar-kes",
+      "giris": "11.10 23:00",
+      "cikis": "13.10 03:15",
+      "net_pct": -5.19
+     },
+     {
+      "s": "NEWT_TRY",
+      "formasyon": "boga_bayragi",
+      "neden": "zarar-kes",
+      "giris": "12.10 00:00",
+      "cikis": "12.10 17:45",
+      "net_pct": -5.19
+     },
+     {
+      "s": "ID_TRY",
+      "formasyon": "genisleyen",
+      "neden": "zarar-kes",
+      "giris": "12.10 23:00",
+      "cikis": "13.10 02:30",
+      "net_pct": -5.19
+     },
+     {
+      "s": "ZAMA_TRY",
+      "formasyon": "genisleyen",
+      "neden": "kâr al",
+      "giris": "13.10 08:00",
+      "cikis": "13.10 08:15",
+      "net_pct": 1.82
+     },
+     {
+      "s": "U_TRY",
+      "formasyon": "boga_bayragi",
+      "neden": "açık",
+      "giris": "14.10 18:00",
+      "cikis": "-",
+      "net_pct": -0.14
+     }
+    ]
+   },
+   "gun": {
+    "09.10": {
+     "islem": 5,
+     "coin": 3,
+     "kar_al": 4,
+     "zarar_kes": 1,
+     "acik": 0,
+     "kar_al_pct": 80.0,
+     "ort_net_pct": 0.399,
+     "medyan_net_pct": 1.796,
+     "toplam_tl_200": 3.99,
+     "kapanan_sure_dk_medyan": 15
+    },
+    "10.10": {
+     "islem": 19,
+     "coin": 17,
+     "kar_al": 14,
+     "zarar_kes": 4,
+     "acik": 1,
+     "kar_al_pct": 73.7,
+     "ort_net_pct": 0.162,
+     "medyan_net_pct": 1.796,
+     "toplam_tl_200": 6.15,
+     "kapanan_sure_dk_medyan": 52.5
+    },
+    "11.10": {
+     "islem": 26,
+     "coin": 20,
+     "kar_al": 16,
+     "zarar_kes": 10,
+     "acik": 0,
+     "kar_al_pct": 61.5,
+     "ort_net_pct": -0.884,
+     "medyan_net_pct": 1.796,
+     "toplam_tl_200": -45.97,
+     "kapanan_sure_dk_medyan": 705.0
+    },
+    "12.10": {
+     "islem": 9,
+     "coin": 9,
+     "kar_al": 2,
+     "zarar_kes": 7,
+     "acik": 0,
+     "kar_al_pct": 22.2,
+     "ort_net_pct": -3.644,
+     "medyan_net_pct": -5.19,
+     "toplam_tl_200": -65.59,
+     "kapanan_sure_dk_medyan": 390
+    },
+    "13.10": {
+     "islem": 1,
+     "coin": 1,
+     "kar_al": 1,
+     "zarar_kes": 0,
+     "acik": 0,
+     "kar_al_pct": 100.0,
+     "ort_net_pct": 1.818,
+     "medyan_net_pct": 1.818,
+     "toplam_tl_200": 3.64,
+     "kapanan_sure_dk_medyan": 15
+    },
+    "14.10": {
+     "islem": 2,
+     "coin": 1,
+     "kar_al": 0,
+     "zarar_kes": 0,
+     "acik": 2,
+     "kar_al_pct": 0.0,
+     "ort_net_pct": -0.149,
+     "medyan_net_pct": -0.149,
+     "toplam_tl_200": -0.6,
+     "kapanan_sure_dk_medyan": null
+    },
+    "15.10": {
+     "islem": 0
+    },
+    "16.10": {
+     "islem": 0
+    }
+   },
+   "en_iyi": [
+    {
+     "s": "PNUT_TRY",
+     "giris": "11.10 19:00",
+     "net_pct": 2.16,
+     "neden": "kâr al"
+    },
+    {
+     "s": "CKB_TRY",
+     "giris": "10.10 14:00",
+     "net_pct": 2.06,
+     "neden": "kâr al"
+    },
+    {
+     "s": "BERA_TRY",
+     "giris": "11.10 20:00",
+     "net_pct": 1.88,
+     "neden": "kâr al"
+    },
+    {
+     "s": "ZAMA_TRY",
+     "giris": "13.10 08:00",
+     "net_pct": 1.82,
+     "neden": "kâr al"
+    },
+    {
+     "s": "BEL_TRY",
+     "giris": "10.10 04:00",
+     "net_pct": 1.8,
+     "neden": "kâr al"
+    }
+   ],
+   "en_kotu": [
+    {
+     "s": "LAYER_TRY",
+     "giris": "11.10 01:00",
+     "net_pct": -5.33,
+     "neden": "zarar-kes"
+    },
+    {
+     "s": "HOLO_TRY",
+     "giris": "11.10 19:00",
+     "net_pct": -5.33,
+     "neden": "zarar-kes"
+    },
+    {
+     "s": "LISTA_TRY",
+     "giris": "10.10 06:00",
+     "net_pct": -5.31,
+     "neden": "zarar-kes"
+    },
+    {
+     "s": "KSM_TRY",
+     "giris": "12.10 10:00",
+     "net_pct": -5.25,
+     "neden": "zarar-kes"
+    },
+    {
+     "s": "BNB_TRY",
+     "giris": "11.10 20:00",
+     "net_pct": -5.19,
+     "neden": "zarar-kes"
+    }
+   ]
+  },
+  "Y2_1h": {
+   "ozet": {
+    "islem": 4,
+    "coin": 4,
+    "kar_al": 4,
+    "zarar_kes": 0,
+    "acik": 0,
+    "kar_al_pct": 100.0,
+    "ort_net_pct": 1.804,
+    "medyan_net_pct": 1.796,
+    "toplam_tl_200": 14.43,
+    "kapanan_sure_dk_medyan": 960.0
+   },
+   "formasyon": {
+    "boga_bayragi": {
+     "islem": 4,
+     "coin": 4,
+     "kar_al": 4,
+     "zarar_kes": 0,
+     "acik": 0,
+     "kar_al_pct": 100.0,
+     "ort_net_pct": 1.804,
+     "medyan_net_pct": 1.796,
+     "toplam_tl_200": 14.43,
+     "kapanan_sure_dk_medyan": 960.0
+    }
+   },
+   "cuzdan": {
+    "alim": 4,
+    "atlanan": 0,
+    "kar_al": 4,
+    "zarar_kes": 0,
+    "acik": 0,
+    "nakit": 1014.43,
+    "acik_deger": 0,
+    "son": 1014.43,
+    "kar_tl": 14.43,
+    "kar_pct": 1.44,
+    "islemler": [
+     {
+      "s": "APT_TRY",
+      "formasyon": "boga_bayragi",
+      "neden": "kâr al",
+      "giris": "10.10 22:00",
+      "cikis": "11.10 17:30",
+      "net_pct": 1.8
+     },
+     {
+      "s": "CAKE_TRY",
+      "formasyon": "boga_bayragi",
+      "neden": "kâr al",
+      "giris": "11.10 01:00",
+      "cikis": "11.10 22:30",
+      "net_pct": 1.83
+     },
+     {
+      "s": "TAO_TRY",
+      "formasyon": "boga_bayragi",
+      "neden": "kâr al",
+      "giris": "11.10 20:00",
+      "cikis": "12.10 08:30",
+      "net_pct": 1.8
+     },
+     {
+      "s": "CYBER_TRY",
+      "formasyon": "boga_bayragi",
+      "neden": "kâr al",
+      "giris": "12.10 12:00",
+      "cikis": "12.10 12:30",
+      "net_pct": 1.8
+     }
+    ]
+   },
+   "gun": {
+    "09.10": {
+     "islem": 0
+    },
+    "10.10": {
+     "islem": 1,
+     "coin": 1,
+     "kar_al": 1,
+     "zarar_kes": 0,
+     "acik": 0,
+     "kar_al_pct": 100.0,
+     "ort_net_pct": 1.796,
+     "medyan_net_pct": 1.796,
+     "toplam_tl_200": 3.59,
+     "kapanan_sure_dk_medyan": 1170
+    },
+    "11.10": {
+     "islem": 2,
+     "coin": 2,
+     "kar_al": 2,
+     "zarar_kes": 0,
+     "acik": 0,
+     "kar_al_pct": 100.0,
+     "ort_net_pct": 1.812,
+     "medyan_net_pct": 1.812,
+     "toplam_tl_200": 7.25,
+     "kapanan_sure_dk_medyan": 1020.0
+    },
+    "12.10": {
+     "islem": 1,
+     "coin": 1,
+     "kar_al": 1,
+     "zarar_kes": 0,
+     "acik": 0,
+     "kar_al_pct": 100.0,
+     "ort_net_pct": 1.796,
+     "medyan_net_pct": 1.796,
+     "toplam_tl_200": 3.59,
+     "kapanan_sure_dk_medyan": 30
+    },
+    "13.10": {
+     "islem": 0
+    },
+    "14.10": {
+     "islem": 0
+    },
+    "15.10": {
+     "islem": 0
+    },
+    "16.10": {
+     "islem": 0
+    }
+   },
+   "en_iyi": [
+    {
+     "s": "CAKE_TRY",
+     "giris": "11.10 01:00",
+     "net_pct": 1.83,
+     "neden": "kâr al"
+    },
+    {
+     "s": "APT_TRY",
+     "giris": "10.10 22:00",
+     "net_pct": 1.8,
+     "neden": "kâr al"
+    },
+    {
+     "s": "CYBER_TRY",
+     "giris": "12.10 12:00",
+     "net_pct": 1.8,
+     "neden": "kâr al"
+    },
+    {
+     "s": "TAO_TRY",
+     "giris": "11.10 20:00",
+     "net_pct": 1.8,
+     "neden": "kâr al"
+    }
+   ],
+   "en_kotu": [
+    {
+     "s": "APT_TRY",
+     "giris": "10.10 22:00",
+     "net_pct": 1.8,
+     "neden": "kâr al"
+    },
+    {
+     "s": "CYBER_TRY",
+     "giris": "12.10 12:00",
+     "net_pct": 1.8,
+     "neden": "kâr al"
+    },
+    {
+     "s": "TAO_TRY",
+     "giris": "11.10 20:00",
+     "net_pct": 1.8,
+     "neden": "kâr al"
+    },
+    {
+     "s": "CAKE_TRY",
+     "giris": "11.10 01:00",
+     "net_pct": 1.83,
+     "neden": "kâr al"
+    }
+   ]
+  },
+  "RT_1h": {
+   "ozet": {
+    "islem": 23,
+    "coin": 20,
+    "kar_al": 17,
+    "zarar_kes": 5,
+    "acik": 1,
+    "kar_al_pct": 73.9,
+    "ort_net_pct": 0.208,
+    "medyan_net_pct": 1.796,
+    "toplam_tl_200": 9.57,
+    "kapanan_sure_dk_medyan": 375.0
+   },
+   "formasyon": {
+    "boga_bayragi": {
+     "islem": 18,
+     "coin": 18,
+     "kar_al": 13,
+     "zarar_kes": 4,
+     "acik": 1,
+     "kar_al_pct": 72.2,
+     "ort_net_pct": 0.14,
+     "medyan_net_pct": 1.796,
+     "toplam_tl_200": 5.04,
+     "kapanan_sure_dk_medyan": 210
+    },
+    "genisleyen": {
+     "islem": 5,
+     "coin": 5,
+     "kar_al": 4,
+     "zarar_kes": 1,
+     "acik": 0,
+     "kar_al_pct": 80.0,
+     "ort_net_pct": 0.453,
+     "medyan_net_pct": 1.796,
+     "toplam_tl_200": 4.53,
+     "kapanan_sure_dk_medyan": 600
+    }
+   },
+   "cuzdan": {
+    "alim": 16,
+    "atlanan": 7,
+    "kar_al": 12,
+    "zarar_kes": 3,
+    "acik": 1,
+    "nakit": 812.68,
+    "acik_deger": 199.68,
+    "son": 1012.36,
+    "kar_tl": 12.36,
+    "kar_pct": 1.24,
+    "islemler": [
+     {
+      "s": "ROSE_TRY",
+      "formasyon": "boga_bayragi",
+      "neden": "zarar-kes",
+      "giris": "09.10 21:00",
+      "cikis": "10.10 00:30",
+      "net_pct": -5.19
+     },
+     {
+      "s": "XAI_TRY",
+      "formasyon": "genisleyen",
+      "neden": "kâr al",
+      "giris": "10.10 03:00",
+      "cikis": "10.10 06:00",
+      "net_pct": 1.8
+     },
+     {
+      "s": "AXL_TRY",
+      "formasyon": "genisleyen",
+      "neden": "kâr al",
+      "giris": "10.10 10:00",
+      "cikis": "10.10 20:00",
+      "net_pct": 2.07
+     },
+     {
+      "s": "CKB_TRY",
+      "formasyon": "boga_bayragi",
+      "neden": "kâr al",
+      "giris": "10.10 17:00",
+      "cikis": "10.10 17:30",
+      "net_pct": 1.88
+     },
+     {
+      "s": "ZK_TRY",
+      "formasyon": "boga_bayragi",
+      "neden": "kâr al",
+      "giris": "10.10 19:00",
+      "cikis": "10.10 19:15",
+      "net_pct": 1.8
+     },
+     {
+      "s": "YB_TRY",
+      "formasyon": "boga_bayragi",
+      "neden": "kâr al",
+      "giris": "10.10 20:00",
+      "cikis": "10.10 20:15",
+      "net_pct": 1.8
+     },
+     {
+      "s": "APT_TRY",
+      "formasyon": "boga_bayragi",
+      "neden": "kâr al",
+      "giris": "10.10 21:00",
+      "cikis": "10.10 21:15",
+      "net_pct": 1.8
+     },
+     {
+      "s": "CAKE_TRY",
+      "formasyon": "boga_bayragi",
+      "neden": "kâr al",
+      "giris": "11.10 00:00",
+      "cikis": "11.10 19:15",
+      "net_pct": 1.8
+     },
+     {
+      "s": "LA_TRY",
+      "formasyon": "genisleyen",
+      "neden": "kâr al",
+      "giris": "11.10 05:00",
+      "cikis": "11.10 07:15",
+      "net_pct": 1.8
+     },
+     {
+      "s": "S_TRY",
+      "formasyon": "boga_bayragi",
+      "neden": "kâr al",
+      "giris": "11.10 05:00",
+      "cikis": "11.10 08:15",
+      "net_pct": 1.8
+     },
+     {
+      "s": "SOLV_TRY",
+      "formasyon": "boga_bayragi",
+      "neden": "kâr al",
+      "giris": "11.10 15:00",
+      "cikis": "12.10 09:45",
+      "net_pct": 1.8
+     },
+     {
+      "s": "TAO_TRY",
+      "formasyon": "boga_bayragi",
+      "neden": "kâr al",
+      "giris": "11.10 19:00",
+      "cikis": "12.10 08:15",
+      "net_pct": 1.8
+     },
+     {
+      "s": "SAHARA_TRY",
+      "formasyon": "boga_bayragi",
+      "neden": "zarar-kes",
+      "giris": "11.10 20:00",
+      "cikis": "13.10 03:15",
+      "net_pct": -5.19
+     },
+     {
+      "s": "INJ_TRY",
+      "formasyon": "boga_bayragi",
+      "neden": "zarar-kes",
+      "giris": "12.10 11:00",
+      "cikis": "12.10 20:00",
+      "net_pct": -5.19
+     },
+     {
+      "s": "CYBER_TRY",
+      "formasyon": "boga_bayragi",
+      "neden": "kâr al",
+      "giris": "12.10 16:00",
+      "cikis": "12.10 17:45",
+      "net_pct": 1.8
+     },
+     {
+      "s": "U_TRY",
+      "formasyon": "boga_bayragi",
+      "neden": "açık",
+      "giris": "15.10 00:00",
+      "cikis": "-",
+      "net_pct": -0.16
+     }
+    ]
+   },
+   "gun": {
+    "09.10": {
+     "islem": 2,
+     "coin": 1,
+     "kar_al": 1,
+     "zarar_kes": 1,
+     "acik": 0,
+     "kar_al_pct": 50.0,
+     "ort_net_pct": -1.697,
+     "medyan_net_pct": -1.697,
+     "toplam_tl_200": -6.79,
+     "kapanan_sure_dk_medyan": 765.0
+    },
+    "10.10": {
+     "islem": 7,
+     "coin": 6,
+     "kar_al": 7,
+     "zarar_kes": 0,
+     "acik": 0,
+     "kar_al_pct": 100.0,
+     "ort_net_pct": 1.847,
+     "medyan_net_pct": 1.796,
+     "toplam_tl_200": 25.86,
+     "kapanan_sure_dk_medyan": 30
+    },
+    "11.10": {
+     "islem": 9,
+     "coin": 8,
+     "kar_al": 8,
+     "zarar_kes": 1,
+     "acik": 0,
+     "kar_al_pct": 88.9,
+     "ort_net_pct": 1.02,
+     "medyan_net_pct": 1.796,
+     "toplam_tl_200": 18.36,
+     "kapanan_sure_dk_medyan": 765
+    },
+    "12.10": {
+     "islem": 4,
+     "coin": 4,
+     "kar_al": 1,
+     "zarar_kes": 3,
+     "acik": 0,
+     "kar_al_pct": 25.0,
+     "ort_net_pct": -3.443,
+     "medyan_net_pct": -5.19,
+     "toplam_tl_200": -27.55,
+     "kapanan_sure_dk_medyan": 600.0
+    },
+    "13.10": {
+     "islem": 0
+    },
+    "14.10": {
+     "islem": 0
+    },
+    "15.10": {
+     "islem": 1,
+     "coin": 1,
+     "kar_al": 0,
+     "zarar_kes": 0,
+     "acik": 1,
+     "kar_al_pct": 0.0,
+     "ort_net_pct": -0.159,
+     "medyan_net_pct": -0.159,
+     "toplam_tl_200": -0.32,
+     "kapanan_sure_dk_medyan": null
+    },
+    "16.10": {
+     "islem": 0
+    }
+   },
+   "en_iyi": [
+    {
+     "s": "AXL_TRY",
+     "giris": "10.10 10:00",
+     "net_pct": 2.07,
+     "neden": "kâr al"
+    },
+    {
+     "s": "CKB_TRY",
+     "giris": "10.10 17:00",
+     "net_pct": 1.88,
+     "neden": "kâr al"
+    },
+    {
+     "s": "ROSE_TRY",
+     "giris": "09.10 23:00",
+     "net_pct": 1.8,
+     "neden": "kâr al"
+    },
+    {
+     "s": "APT_TRY",
+     "giris": "10.10 21:00",
+     "net_pct": 1.8,
+     "neden": "kâr al"
+    },
+    {
+     "s": "CYBER_TRY",
+     "giris": "12.10 16:00",
+     "net_pct": 1.8,
+     "neden": "kâr al"
+    }
+   ],
+   "en_kotu": [
+    {
+     "s": "ROSE_TRY",
+     "giris": "09.10 21:00",
+     "net_pct": -5.19,
+     "neden": "zarar-kes"
+    },
+    {
+     "s": "INJ_TRY",
+     "giris": "12.10 11:00",
+     "net_pct": -5.19,
+     "neden": "zarar-kes"
+    },
+    {
+     "s": "TWT_TRY",
+     "giris": "12.10 17:00",
+     "net_pct": -5.19,
+     "neden": "zarar-kes"
+    },
+    {
+     "s": "TRUMP_TRY",
+     "giris": "12.10 00:00",
+     "net_pct": -5.19,
+     "neden": "zarar-kes"
+    },
+    {
+     "s": "SAHARA_TRY",
+     "giris": "11.10 20:00",
+     "net_pct": -5.19,
+     "neden": "zarar-kes"
+    }
+   ]
+  },
+  "K0_4h": {
+   "ozet": {
+    "islem": 35,
+    "coin": 29,
+    "kar_al": 19,
+    "zarar_kes": 10,
+    "acik": 6,
+    "kar_al_pct": 54.3,
+    "ort_net_pct": -0.737,
+    "medyan_net_pct": 1.796,
+    "toplam_tl_200": -51.59,
+    "kapanan_sure_dk_medyan": 375
+   },
+   "formasyon": {
+    "dikdortgen": {
+     "islem": 16,
+     "coin": 16,
+     "kar_al": 6,
+     "zarar_kes": 5,
+     "acik": 5,
+     "kar_al_pct": 37.5,
+     "ort_net_pct": -1.511,
+     "medyan_net_pct": -1.098,
+     "toplam_tl_200": -48.36,
+     "kapanan_sure_dk_medyan": 390
+    },
+    "genisleyen": {
+     "islem": 1,
+     "coin": 1,
+     "kar_al": 1,
+     "zarar_kes": 0,
+     "acik": 0,
+     "kar_al_pct": 100.0,
+     "ort_net_pct": 1.796,
+     "medyan_net_pct": 1.796,
+     "toplam_tl_200": 3.59,
+     "kapanan_sure_dk_medyan": 15
+    },
+    "ikili_dip": {
+     "islem": 12,
+     "coin": 12,
+     "kar_al": 9,
+     "zarar_kes": 2,
+     "acik": 1,
+     "kar_al_pct": 75.0,
+     "ort_net_pct": 0.564,
+     "medyan_net_pct": 1.796,
+     "toplam_tl_200": 13.54,
+     "kapanan_sure_dk_medyan": 255
+    },
+    "yukselen_ucgen": {
+     "islem": 6,
+     "coin": 6,
+     "kar_al": 3,
+     "zarar_kes": 3,
+     "acik": 0,
+     "kar_al_pct": 50.0,
+     "ort_net_pct": -1.697,
+     "medyan_net_pct": -1.697,
+     "toplam_tl_200": -20.36,
+     "kapanan_sure_dk_medyan": 382.5
+    }
+   },
+   "cuzdan": {
+    "alim": 19,
+    "atlanan": 16,
+    "kar_al": 9,
+    "zarar_kes": 7,
+    "acik": 3,
+    "nakit": 359.67,
+    "acik_deger": 599.39,
+    "son": 959.06,
+    "kar_tl": -40.94,
+    "kar_pct": -4.09,
+    "islemler": [
+     {
+      "s": "CYBER_TRY",
+      "formasyon": "ikili_dip",
+      "neden": "kâr al",
+      "giris": "09.10 15:00",
+      "cikis": "09.10 15:15",
+      "net_pct": 1.8
+     },
+     {
+      "s": "ONT_TRY",
+      "formasyon": "yukselen_ucgen",
+      "neden": "zarar-kes",
+      "giris": "09.10 15:00",
+      "cikis": "09.10 21:15",
+      "net_pct": -5.19
+     },
+     {
+      "s": "SKL_TRY",
+      "formasyon": "dikdortgen",
+      "neden": "zarar-kes",
+      "giris": "09.10 15:00",
+      "cikis": "09.10 15:15",
+      "net_pct": -5.19
+     },
+     {
+      "s": "GENIUS_TRY",
+      "formasyon": "ikili_dip",
+      "neden": "kâr al",
+      "giris": "09.10 19:00",
+      "cikis": "10.10 02:00",
+      "net_pct": 1.8
+     },
+     {
+      "s": "ID_TRY",
+      "formasyon": "dikdortgen",
+      "neden": "kâr al",
+      "giris": "10.10 03:00",
+      "cikis": "12.10 14:15",
+      "net_pct": 1.8
+     },
+     {
+      "s": "BOME_TRY",
+      "formasyon": "dikdortgen",
+      "neden": "zarar-kes",
+      "giris": "10.10 07:00",
+      "cikis": "10.10 20:15",
+      "net_pct": -5.19
+     },
+     {
+      "s": "ARPA_TRY",
+      "formasyon": "ikili_dip",
+      "neden": "kâr al",
+      "giris": "10.10 11:00",
+      "cikis": "10.10 11:15",
+      "net_pct": 1.8
+     },
+     {
+      "s": "HOME_TRY",
+      "formasyon": "dikdortgen",
+      "neden": "zarar-kes",
+      "giris": "10.10 15:00",
+      "cikis": "13.10 00:45",
+      "net_pct": -5.19
+     },
+     {
+      "s": "HYPER_TRY",
+      "formasyon": "dikdortgen",
+      "neden": "kâr al",
+      "giris": "10.10 23:00",
+      "cikis": "11.10 00:45",
+      "net_pct": 1.8
+     },
+     {
+      "s": "BANK_TRY",
+      "formasyon": "ikili_dip",
+      "neden": "zarar-kes",
+      "giris": "11.10 11:00",
+      "cikis": "12.10 19:00",
+      "net_pct": -5.19
+     },
+     {
+      "s": "SOMI_TRY",
+      "formasyon": "yukselen_ucgen",
+      "neden": "zarar-kes",
+      "giris": "13.10 07:00",
+      "cikis": "14.10 12:30",
+      "net_pct": -5.19
+     },
+     {
+      "s": "ACE_TRY",
+      "formasyon": "yukselen_ucgen",
+      "neden": "zarar-kes",
+      "giris": "13.10 23:00",
+      "cikis": "14.10 15:45",
+      "net_pct": -5.19
+     },
+     {
+      "s": "INJ_TRY",
+      "formasyon": "yukselen_ucgen",
+      "neden": "kâr al",
+      "giris": "13.10 23:00",
+      "cikis": "13.10 23:45",
+      "net_pct": 1.8
+     },
+     {
+      "s": "OP_TRY",
+      "formasyon": "genisleyen",
+      "neden": "kâr al",
+      "giris": "14.10 03:00",
+      "cikis": "14.10 03:15",
+      "net_pct": 1.8
+     },
+     {
+      "s": "KITE_TRY",
+      "formasyon": "ikili_dip",
+      "neden": "kâr al",
+      "giris": "14.10 07:00",
+      "cikis": "14.10 09:15",
+      "net_pct": 1.8
+     },
+     {
+      "s": "TRX_TRY",
+      "formasyon": "ikili_dip",
+      "neden": "açık",
+      "giris": "14.10 11:00",
+      "cikis": "-",
+      "net_pct": 0.98
+     },
+     {
+      "s": "DODO_TRY",
+      "formasyon": "yukselen_ucgen",
+      "neden": "kâr al",
+      "giris": "15.10 19:00",
+      "cikis": "15.10 19:45",
+      "net_pct": 1.8
+     },
+     {
+      "s": "UNI_TRY",
+      "formasyon": "dikdortgen",
+      "neden": "açık",
+      "giris": "15.10 19:00",
+      "cikis": "-",
+      "net_pct": -2.13
+     },
+     {
+      "s": "BCH_TRY",
+      "formasyon": "dikdortgen",
+      "neden": "açık",
+      "giris": "15.10 23:00",
+      "cikis": "-",
+      "net_pct": 0.84
+     }
+    ]
+   },
+   "gun": {
+    "09.10": {
+     "islem": 5,
+     "coin": 4,
+     "kar_al": 3,
+     "zarar_kes": 2,
+     "acik": 0,
+     "kar_al_pct": 60.0,
+     "ort_net_pct": -0.998,
+     "medyan_net_pct": 1.796,
+     "toplam_tl_200": -9.98,
+     "kapanan_sure_dk_medyan": 15
+    },
+    "10.10": {
+     "islem": 9,
+     "coin": 8,
+     "kar_al": 5,
+     "zarar_kes": 4,
+     "acik": 0,
+     "kar_al_pct": 55.6,
+     "ort_net_pct": -1.309,
+     "medyan_net_pct": 1.796,
+     "toplam_tl_200": -23.56,
+     "kapanan_sure_dk_medyan": 795
+    },
+    "11.10": {
+     "islem": 3,
+     "coin": 3,
+     "kar_al": 2,
+     "zarar_kes": 1,
+     "acik": 0,
+     "kar_al_pct": 66.7,
+     "ort_net_pct": -0.532,
+     "medyan_net_pct": 1.796,
+     "toplam_tl_200": -3.19,
+     "kapanan_sure_dk_medyan": 180
+    },
+    "12.10": {
+     "islem": 4,
+     "coin": 2,
+     "kar_al": 3,
+     "zarar_kes": 1,
+     "acik": 0,
+     "kar_al_pct": 75.0,
+     "ort_net_pct": 0.05,
+     "medyan_net_pct": 1.796,
+     "toplam_tl_200": 0.4,
+     "kapanan_sure_dk_medyan": 390.0
+    },
+    "13.10": {
+     "islem": 3,
+     "coin": 3,
+     "kar_al": 1,
+     "zarar_kes": 2,
+     "acik": 0,
+     "kar_al_pct": 33.3,
+     "ort_net_pct": -2.861,
+     "medyan_net_pct": -5.19,
+     "toplam_tl_200": -17.17,
+     "kapanan_sure_dk_medyan": 1005
+    },
+    "14.10": {
+     "islem": 3,
+     "coin": 3,
+     "kar_al": 2,
+     "zarar_kes": 0,
+     "acik": 1,
+     "kar_al_pct": 66.7,
+     "ort_net_pct": 1.525,
+     "medyan_net_pct": 1.796,
+     "toplam_tl_200": 9.15,
+     "kapanan_sure_dk_medyan": 75.0
+    },
+    "15.10": {
+     "islem": 3,
+     "coin": 3,
+     "kar_al": 1,
+     "zarar_kes": 0,
+     "acik": 2,
+     "kar_al_pct": 33.3,
+     "ort_net_pct": 0.17,
+     "medyan_net_pct": 0.841,
+     "toplam_tl_200": 1.02,
+     "kapanan_sure_dk_medyan": 45
+    },
+    "16.10": {
+     "islem": 5,
+     "coin": 5,
+     "kar_al": 2,
+     "zarar_kes": 0,
+     "acik": 3,
+     "kar_al_pct": 40.0,
+     "ort_net_pct": -0.826,
+     "medyan_net_pct": -0.069,
+     "toplam_tl_200": -8.26,
+     "kapanan_sure_dk_medyan": 292.5
+    }
+   },
+   "en_iyi": [
+    {
+     "s": "ARPA_TRY",
+     "giris": "10.10 11:00",
+     "net_pct": 1.8,
+     "neden": "kâr al"
+    },
+    {
+     "s": "INJ_TRY",
+     "giris": "13.10 23:00",
+     "net_pct": 1.8,
+     "neden": "kâr al"
+    },
+    {
+     "s": "FIL_TRY",
+     "giris": "12.10 03:00",
+     "net_pct": 1.8,
+     "neden": "kâr al"
+    },
+    {
+     "s": "FIL_TRY",
+     "giris": "12.10 03:00",
+     "net_pct": 1.8,
+     "neden": "kâr al"
+    },
+    {
+     "s": "FIL_TRY",
+     "giris": "12.10 03:00",
+     "net_pct": 1.8,
+     "neden": "kâr al"
+    }
+   ],
+   "en_kotu": [
+    {
+     "s": "ONT_TRY",
+     "giris": "09.10 15:00",
+     "net_pct": -5.19,
+     "neden": "zarar-kes"
+    },
+    {
+     "s": "ACM_TRY",
+     "giris": "10.10 19:00",
+     "net_pct": -5.19,
+     "neden": "zarar-kes"
+    },
+    {
+     "s": "JTO_TRY",
+     "giris": "12.10 07:00",
+     "net_pct": -5.19,
+     "neden": "zarar-kes"
+    },
+    {
+     "s": "ACE_TRY",
+     "giris": "13.10 23:00",
+     "net_pct": -5.19,
+     "neden": "zarar-kes"
+    },
+    {
+     "s": "SKL_TRY",
+     "giris": "09.10 15:00",
+     "net_pct": -5.19,
+     "neden": "zarar-kes"
+    }
+   ]
+  },
+  "Y2_4h": {
+   "ozet": {
+    "islem": 8,
+    "coin": 4,
+    "kar_al": 6,
+    "zarar_kes": 1,
+    "acik": 1,
+    "kar_al_pct": 75.0,
+    "ort_net_pct": 0.55,
+    "medyan_net_pct": 1.796,
+    "toplam_tl_200": 8.8,
+    "kapanan_sure_dk_medyan": 285
+   },
+   "formasyon": {
+    "dikdortgen": {
+     "islem": 3,
+     "coin": 3,
+     "kar_al": 3,
+     "zarar_kes": 0,
+     "acik": 0,
+     "kar_al_pct": 100.0,
+     "ort_net_pct": 1.796,
+     "medyan_net_pct": 1.796,
+     "toplam_tl_200": 10.78,
+     "kapanan_sure_dk_medyan": 285
+    },
+    "ikili_dip": {
+     "islem": 3,
+     "coin": 3,
+     "kar_al": 2,
+     "zarar_kes": 1,
+     "acik": 0,
+     "kar_al_pct": 66.7,
+     "ort_net_pct": -0.532,
+     "medyan_net_pct": 1.796,
+     "toplam_tl_200": -3.19,
+     "kapanan_sure_dk_medyan": 285
+    },
+    "yukselen_ucgen": {
+     "islem": 2,
+     "coin": 2,
+     "kar_al": 1,
+     "zarar_kes": 0,
+     "acik": 1,
+     "kar_al_pct": 50.0,
+     "ort_net_pct": 0.305,
+     "medyan_net_pct": 0.305,
+     "toplam_tl_200": 1.22,
+     "kapanan_sure_dk_medyan": 75
+    }
+   },
+   "cuzdan": {
+    "alim": 5,
+    "atlanan": 3,
+    "kar_al": 3,
+    "zarar_kes": 1,
+    "acik": 1,
+    "nakit": 800.4,
+    "acik_deger": 197.63,
+    "son": 998.03,
+    "kar_tl": -1.97,
+    "kar_pct": -0.2,
+    "islemler": [
+     {
+      "s": "GENIUS_TRY",
+      "formasyon": "dikdortgen",
+      "neden": "kâr al",
+      "giris": "09.10 19:00",
+      "cikis": "10.10 02:00",
+      "net_pct": 1.8
+     },
+     {
+      "s": "GENIUS_TRY",
+      "formasyon": "ikili_dip",
+      "neden": "zarar-kes",
+      "giris": "10.10 03:00",
+      "cikis": "13.10 04:00",
+      "net_pct": -5.19
+     },
+     {
+      "s": "AERO_TRY",
+      "formasyon": "ikili_dip",
+      "neden": "kâr al",
+      "giris": "11.10 03:00",
+      "cikis": "11.10 07:45",
+      "net_pct": 1.8
+     },
+     {
+      "s": "FIL_TRY",
+      "formasyon": "ikili_dip",
+      "neden": "kâr al",
+      "giris": "12.10 11:00",
+      "cikis": "12.10 12:15",
+      "net_pct": 1.8
+     },
+     {
+      "s": "DODO_TRY",
+      "formasyon": "yukselen_ucgen",
+      "neden": "açık",
+      "giris": "16.10 03:00",
+      "cikis": "-",
+      "net_pct": -1.19
+     }
+    ]
+   },
+   "gun": {
+    "09.10": {
+     "islem": 1,
+     "coin": 1,
+     "kar_al": 1,
+     "zarar_kes": 0,
+     "acik": 0,
+     "kar_al_pct": 100.0,
+     "ort_net_pct": 1.796,
+     "medyan_net_pct": 1.796,
+     "toplam_tl_200": 3.59,
+     "kapanan_sure_dk_medyan": 420
+    },
+    "10.10": {
+     "islem": 1,
+     "coin": 1,
+     "kar_al": 0,
+     "zarar_kes": 1,
+     "acik": 0,
+     "kar_al_pct": 0.0,
+     "ort_net_pct": -5.19,
+     "medyan_net_pct": -5.19,
+     "toplam_tl_200": -10.38,
+     "kapanan_sure_dk_medyan": 4380
+    },
+    "11.10": {
+     "islem": 2,
+     "coin": 1,
+     "kar_al": 2,
+     "zarar_kes": 0,
+     "acik": 0,
+     "kar_al_pct": 100.0,
+     "ort_net_pct": 1.796,
+     "medyan_net_pct": 1.796,
+     "toplam_tl_200": 7.18,
+     "kapanan_sure_dk_medyan": 285.0
+    },
+    "12.10": {
+     "islem": 3,
+     "coin": 1,
+     "kar_al": 3,
+     "zarar_kes": 0,
+     "acik": 0,
+     "kar_al_pct": 100.0,
+     "ort_net_pct": 1.796,
+     "medyan_net_pct": 1.796,
+     "toplam_tl_200": 10.78,
+     "kapanan_sure_dk_medyan": 75
+    },
+    "13.10": {
+     "islem": 0
+    },
+    "14.10": {
+     "islem": 0
+    },
+    "15.10": {
+     "islem": 0
+    },
+    "16.10": {
+     "islem": 1,
+     "coin": 1,
+     "kar_al": 0,
+     "zarar_kes": 0,
+     "acik": 1,
+     "kar_al_pct": 0.0,
+     "ort_net_pct": -1.186,
+     "medyan_net_pct": -1.186,
+     "toplam_tl_200": -2.37,
+     "kapanan_sure_dk_medyan": null
+    }
+   },
+   "en_iyi": [
+    {
+     "s": "FIL_TRY",
+     "giris": "12.10 11:00",
+     "net_pct": 1.8,
+     "neden": "kâr al"
+    },
+    {
+     "s": "FIL_TRY",
+     "giris": "12.10 11:00",
+     "net_pct": 1.8,
+     "neden": "kâr al"
+    },
+    {
+     "s": "FIL_TRY",
+     "giris": "12.10 11:00",
+     "net_pct": 1.8,
+     "neden": "kâr al"
+    },
+    {
+     "s": "GENIUS_TRY",
+     "giris": "09.10 19:00",
+     "net_pct": 1.8,
+     "neden": "kâr al"
+    },
+    {
+     "s": "AERO_TRY",
+     "giris": "11.10 03:00",
+     "net_pct": 1.8,
+     "neden": "kâr al"
+    }
+   ],
+   "en_kotu": [
+    {
+     "s": "GENIUS_TRY",
+     "giris": "10.10 03:00",
+     "net_pct": -5.19,
+     "neden": "zarar-kes"
+    },
+    {
+     "s": "DODO_TRY",
+     "giris": "16.10 03:00",
+     "net_pct": -1.19,
+     "neden": "açık"
+    },
+    {
+     "s": "FIL_TRY",
+     "giris": "12.10 11:00",
+     "net_pct": 1.8,
+     "neden": "kâr al"
+    },
+    {
+     "s": "FIL_TRY",
+     "giris": "12.10 11:00",
+     "net_pct": 1.8,
+     "neden": "kâr al"
+    },
+    {
+     "s": "FIL_TRY",
+     "giris": "12.10 11:00",
+     "net_pct": 1.8,
+     "neden": "kâr al"
+    }
+   ]
+  },
+  "RT_4h": {
+   "ozet": {
+    "islem": 18,
+    "coin": 11,
+    "kar_al": 12,
+    "zarar_kes": 4,
+    "acik": 2,
+    "kar_al_pct": 66.7,
+    "ort_net_pct": -0.023,
+    "medyan_net_pct": 1.796,
+    "toplam_tl_200": -0.81,
+    "kapanan_sure_dk_medyan": 232.5
+   },
+   "formasyon": {
+    "dikdortgen": {
+     "islem": 8,
+     "coin": 8,
+     "kar_al": 5,
+     "zarar_kes": 2,
+     "acik": 1,
+     "kar_al_pct": 62.5,
+     "ort_net_pct": -0.194,
+     "medyan_net_pct": 1.796,
+     "toplam_tl_200": -3.11,
+     "kapanan_sure_dk_medyan": 315
+    },
+    "ikili_dip": {
+     "islem": 7,
+     "coin": 7,
+     "kar_al": 5,
+     "zarar_kes": 2,
+     "acik": 0,
+     "kar_al_pct": 71.4,
+     "ort_net_pct": -0.277,
+     "medyan_net_pct": 1.796,
+     "toplam_tl_200": -3.88,
+     "kapanan_sure_dk_medyan": 210
+    },
+    "yukselen_ucgen": {
+     "islem": 3,
+     "coin": 3,
+     "kar_al": 2,
+     "zarar_kes": 0,
+     "acik": 1,
+     "kar_al_pct": 66.7,
+     "ort_net_pct": 1.029,
+     "medyan_net_pct": 1.796,
+     "toplam_tl_200": 6.17,
+     "kapanan_sure_dk_medyan": 180.0
+    }
+   },
+   "cuzdan": {
+    "alim": 14,
+    "atlanan": 4,
+    "kar_al": 8,
+    "zarar_kes": 4,
+    "acik": 2,
+    "nakit": 586.14,
+    "acik_deger": 398.68,
+    "son": 984.82,
+    "kar_tl": -15.18,
+    "kar_pct": -1.52,
+    "islemler": [
+     {
+      "s": "GENIUS_TRY",
+      "formasyon": "dikdortgen",
+      "neden": "kâr al",
+      "giris": "09.10 15:00",
+      "cikis": "09.10 18:30",
+      "net_pct": 1.8
+     },
+     {
+      "s": "CYBER_TRY",
+      "formasyon": "ikili_dip",
+      "neden": "kâr al",
+      "giris": "09.10 23:00",
+      "cikis": "09.10 23:45",
+      "net_pct": 1.8
+     },
+     {
+      "s": "GENIUS_TRY",
+      "formasyon": "ikili_dip",
+      "neden": "kâr al",
+      "giris": "09.10 23:00",
+      "cikis": "10.10 03:15",
+      "net_pct": 1.8
+     },
+     {
+      "s": "SKL_TRY",
+      "formasyon": "dikdortgen",
+      "neden": "zarar-kes",
+      "giris": "10.10 03:00",
+      "cikis": "10.10 10:45",
+      "net_pct": -5.19
+     },
+     {
+      "s": "HOME_TRY",
+      "formasyon": "dikdortgen",
+      "neden": "zarar-kes",
+      "giris": "10.10 19:00",
+      "cikis": "12.10 22:15",
+      "net_pct": -5.19
+     },
+     {
+      "s": "AERO_TRY",
+      "formasyon": "ikili_dip",
+      "neden": "kâr al",
+      "giris": "10.10 23:00",
+      "cikis": "11.10 02:15",
+      "net_pct": 1.8
+     },
+     {
+      "s": "HYPER_TRY",
+      "formasyon": "dikdortgen",
+      "neden": "kâr al",
+      "giris": "11.10 03:00",
+      "cikis": "11.10 17:30",
+      "net_pct": 1.8
+     },
+     {
+      "s": "FIL_TRY",
+      "formasyon": "ikili_dip",
+      "neden": "kâr al",
+      "giris": "12.10 07:00",
+      "cikis": "12.10 12:15",
+      "net_pct": 1.8
+     },
+     {
+      "s": "HYPER_TRY",
+      "formasyon": "ikili_dip",
+      "neden": "zarar-kes",
+      "giris": "13.10 11:00",
+      "cikis": "14.10 16:30",
+      "net_pct": -5.73
+     },
+     {
+      "s": "METIS_TRY",
+      "formasyon": "ikili_dip",
+      "neden": "zarar-kes",
+      "giris": "13.10 11:00",
+      "cikis": "13.10 14:30",
+      "net_pct": -5.19
+     },
+     {
+      "s": "INJ_TRY",
+      "formasyon": "yukselen_ucgen",
+      "neden": "kâr al",
+      "giris": "14.10 07:00",
+      "cikis": "14.10 07:45",
+      "net_pct": 1.8
+     },
+     {
+      "s": "KITE_TRY",
+      "formasyon": "ikili_dip",
+      "neden": "kâr al",
+      "giris": "14.10 11:00",
+      "cikis": "14.10 11:15",
+      "net_pct": 1.8
+     },
+     {
+      "s": "DODO_TRY",
+      "formasyon": "yukselen_ucgen",
+      "neden": "açık",
+      "giris": "15.10 23:00",
+      "cikis": "-",
+      "net_pct": -0.51
+     },
+     {
+      "s": "INJ_TRY",
+      "formasyon": "dikdortgen",
+      "neden": "açık",
+      "giris": "16.10 11:00",
+      "cikis": "-",
+      "net_pct": -0.16
+     }
+    ]
+   },
+   "gun": {
+    "09.10": {
+     "islem": 4,
+     "coin": 2,
+     "kar_al": 4,
+     "zarar_kes": 0,
+     "acik": 0,
+     "kar_al_pct": 100.0,
+     "ort_net_pct": 1.796,
+     "medyan_net_pct": 1.796,
+     "toplam_tl_200": 14.37,
+     "kapanan_sure_dk_medyan": 127.5
+    },
+    "10.10": {
+     "islem": 4,
+     "coin": 3,
+     "kar_al": 2,
+     "zarar_kes": 2,
+     "acik": 0,
+     "kar_al_pct": 50.0,
+     "ort_net_pct": -1.697,
+     "medyan_net_pct": -1.697,
+     "toplam_tl_200": -13.57,
+     "kapanan_sure_dk_medyan": 330.0
+    },
+    "11.10": {
+     "islem": 1,
+     "coin": 1,
+     "kar_al": 1,
+     "zarar_kes": 0,
+     "acik": 0,
+     "kar_al_pct": 100.0,
+     "ort_net_pct": 1.796,
+     "medyan_net_pct": 1.796,
+     "toplam_tl_200": 3.59,
+     "kapanan_sure_dk_medyan": 870
+    },
+    "12.10": {
+     "islem": 3,
+     "coin": 1,
+     "kar_al": 3,
+     "zarar_kes": 0,
+     "acik": 0,
+     "kar_al_pct": 100.0,
+     "ort_net_pct": 1.796,
+     "medyan_net_pct": 1.796,
+     "toplam_tl_200": 10.78,
+     "kapanan_sure_dk_medyan": 315
+    },
+    "13.10": {
+     "islem": 2,
+     "coin": 2,
+     "kar_al": 0,
+     "zarar_kes": 2,
+     "acik": 0,
+     "kar_al_pct": 0.0,
+     "ort_net_pct": -5.459,
+     "medyan_net_pct": -5.459,
+     "toplam_tl_200": -21.84,
+     "kapanan_sure_dk_medyan": 990.0
+    },
+    "14.10": {
+     "islem": 2,
+     "coin": 2,
+     "kar_al": 2,
+     "zarar_kes": 0,
+     "acik": 0,
+     "kar_al_pct": 100.0,
+     "ort_net_pct": 1.796,
+     "medyan_net_pct": 1.796,
+     "toplam_tl_200": 7.18,
+     "kapanan_sure_dk_medyan": 30.0
+    },
+    "15.10": {
+     "islem": 1,
+     "coin": 1,
+     "kar_al": 0,
+     "zarar_kes": 0,
+     "acik": 1,
+     "kar_al_pct": 0.0,
+     "ort_net_pct": -0.505,
+     "medyan_net_pct": -0.505,
+     "toplam_tl_200": -1.01,
+     "kapanan_sure_dk_medyan": null
+    },
+    "16.10": {
+     "islem": 1,
+     "coin": 1,
+     "kar_al": 0,
+     "zarar_kes": 0,
+     "acik": 1,
+     "kar_al_pct": 0.0,
+     "ort_net_pct": -0.156,
+     "medyan_net_pct": -0.156,
+     "toplam_tl_200": -0.31,
+     "kapanan_sure_dk_medyan": null
+    }
+   },
+   "en_iyi": [
+    {
+     "s": "INJ_TRY",
+     "giris": "14.10 07:00",
+     "net_pct": 1.8,
+     "neden": "kâr al"
+    },
+    {
+     "s": "FIL_TRY",
+     "giris": "12.10 07:00",
+     "net_pct": 1.8,
+     "neden": "kâr al"
+    },
+    {
+     "s": "FIL_TRY",
+     "giris": "12.10 07:00",
+     "net_pct": 1.8,
+     "neden": "kâr al"
+    },
+    {
+     "s": "FIL_TRY",
+     "giris": "12.10 07:00",
+     "net_pct": 1.8,
+     "neden": "kâr al"
+    },
+    {
+     "s": "CYBER_TRY",
+     "giris": "09.10 23:00",
+     "net_pct": 1.8,
+     "neden": "kâr al"
+    }
+   ],
+   "en_kotu": [
+    {
+     "s": "HYPER_TRY",
+     "giris": "13.10 11:00",
+     "net_pct": -5.73,
+     "neden": "zarar-kes"
+    },
+    {
+     "s": "SKL_TRY",
+     "giris": "10.10 03:00",
+     "net_pct": -5.19,
+     "neden": "zarar-kes"
+    },
+    {
+     "s": "METIS_TRY",
+     "giris": "13.10 11:00",
+     "net_pct": -5.19,
+     "neden": "zarar-kes"
+    },
+    {
+     "s": "HOME_TRY",
+     "giris": "10.10 19:00",
+     "net_pct": -5.19,
+     "neden": "zarar-kes"
+    },
+    {
+     "s": "DODO_TRY",
+     "giris": "15.10 23:00",
+     "net_pct": -0.51,
+     "neden": "açık"
+    }
+   ]
+  }
+ },
+ "sure_sn": 337
+}
