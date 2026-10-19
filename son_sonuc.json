@@ -1,19 +1,33 @@
 {
- "ts": 1792382509,
- "son_mum": 1792368000000,
+ "ts": 1792396911,
+ "son_mum": 1792382400000,
  "taranan": 310,
  "hata": 0,
  "bb": [
-  "DODO_TRY",
-  "SENT_TRY"
+  "BTC_TRY",
+  "BNB_TRY",
+  "PEPE_TRY",
+  "BCH_TRY",
+  "CAKE_TRY",
+  "ETHFI_TRY",
+  "GPS_TRY",
+  "GENIUS_TRY"
  ],
  "formasyon": {
+  "JASMY_TRY": [
+   "dikdortgen"
+  ],
   "AMP_TRY": [
+   "dikdortgen",
+   "yukselen_ucgen"
+  ],
+  "MORPHO_TRY": [
+   "dikdortgen",
    "ikili_dip"
   ]
  },
  "piyasa": {
-  "genislik_pct": 9.7,
+  "genislik_pct": 10.3,
   "coin": 310,
   "btc_ust": true
  }
