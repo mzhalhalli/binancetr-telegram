@@ -1,20 +1,14 @@
 {
- "ts": 1792425703,
- "son_mum": 1792411200000,
+ "ts": 1792440101,
+ "son_mum": 1792425600000,
  "taranan": 310,
  "hata": 0,
  "bb": [
-  "S_TRY",
-  "PUMP_TRY",
-  "OPG_TRY"
+  "S_TRY"
  ],
- "formasyon": {
-  "MORPHO_TRY": [
-   "ikili_dip"
-  ]
- },
+ "formasyon": {},
  "piyasa": {
-  "genislik_pct": 9.7,
+  "genislik_pct": 8.7,
   "coin": 310,
   "btc_ust": false
  }
