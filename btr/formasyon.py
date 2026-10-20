@@ -20,6 +20,8 @@ from __future__ import annotations
 import math
 import statistics
 
+from . import indikator as ind
+
 K_ATR = 3.0          # dönüş noktası eşiği (ATR katı)
 TOL = 0.8            # "aynı seviye" toleransı (ATR katı)
 ATR_N = 14
@@ -263,8 +265,9 @@ def yukselen_trend(c: list[float]) -> bool:
     return c[-1] > e50[-1] and e20[-1] > e50[-1] and e50[-1] > e50[-11]
 
 
-def _giris_mumu(o, h, l, c, a, f: dict, t: int, son: int, giris: str) -> int | None:
-    """t mumunda kırılan formasyon için giriş koşulunun tamamlandığı mum (yoksa None)."""
+def _giris_mumu(o, h, l, c, a, f: dict, t: int, son: int, giris: str, rsi=None) -> int | None:
+    """t mumunda kırılan formasyon için giriş koşulunun tamamlandığı mum (yoksa None).
+    rsi: (RSI6, RSI12) serileri — retest_y2'de altın formasyon retest kuralı için."""
     if giris == "kirilim_trend":
         return t
     if giris == "y2":
@@ -278,10 +281,14 @@ def _giris_mumu(o, h, l, c, a, f: dict, t: int, son: int, giris: str) -> int | N
         # 20.10.2026 (manuel/otomatik 4. satır): kırılımdan sonra en çok RETEST_MUM mum içinde retest (dip kırılım çizgisine
         # RETEST_ATR yaklaşır, kapanış çizginin altına inmez, dip zarar-kesin üstünde); retest mumundan sonraki ilk ardışık
         # 2 yeşil mumun ikincisi giriş mumu.
+        # 20.10.2026 (kullanıcı isteği, ALTIN FORMASYON retest kuralı): retestte RSI6 RSI12'ye yalnızca temas eder;
+        # kırılımdan sonra giriş mumuna kadar herhangi bir mumda RSI6 RSI12'nin altında kapanırsa formasyon bozulur.
         d = None
         for k in range(t + 1, min(son, t + RETEST_MUM + 2) + 1):
             L = f["ust"](k)
             if c[k] <= L or l[k] <= f["stop"]:
+                return None
+            if rsi and rsi[0][k] is not None and rsi[1][k] is not None and rsi[0][k] < rsi[1][k]:
                 return None
             if d is None:
                 if k <= t + RETEST_MUM and l[k] <= L + RETEST_ATR * a[k]:
@@ -319,6 +326,7 @@ def onay(acilis: list[float], yuksek: list[float], dusuk: list[float], kapanis: 
     a = atr(h, l, c)
     P = zigzag(h, l, a)
     son = n - 1
+    rsi = (ind.rsi(c, 6), ind.rsi(c, 12)) if giris == "retest_y2" else None
     out, gorulen = {}, set()
     for j in range(len(P)):
         t0 = P[j][3]
@@ -345,7 +353,7 @@ def onay(acilis: list[float], yuksek: list[float], dusuk: list[float], kapanis: 
             if (f["ad"], t) in gorulen:
                 continue
             gorulen.add((f["ad"], t))
-            if f["ad"] not in adlar or _giris_mumu(o, h, l, c, a, f, t, son, giris) != son:
+            if f["ad"] not in adlar or _giris_mumu(o, h, l, c, a, f, t, son, giris, rsi) != son:
                 continue
             x = _ogeyi_yap(f, t, c[son])
             if x:

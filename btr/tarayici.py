@@ -104,6 +104,8 @@ KOSULLAR = {
             "kosul": {"kesisim_6_12_24": "RSI6, RSI12 ve RSI24'ü yukarı kesti (son N mumda)",
                       "alti": "RSI değerin altında", "ustu": "RSI değerin üstünde",
                       "retest_2_yesil": "RSI6, RSI12 ve RSI24'ü yukarı kesti → RSI12'ye retest → orta bant üstünde 2 yeşil mum",
+                      "altin_formasyon": "ALTIN FORMASYON: orta banttan alt banda iniş → RSI6 RSI12 ve RSI24'ü yukarı keser → "
+                                         "retest (RSI6 RSI12'nin altında kapanmaz) → orta bant üstünde 2 yeşil mum",
                       "kural1_sonra_kural2": "1. kural (alt bant → orta bant → kırmızı mumla alt bant) ardından 2. kural (RSI retest + 2 yeşil)"}},
     "ema": {"ad": "EMA", "param": {"n": 50, "hizli": 9, "yavas": 21, "tol": 1.0, "son": 1},
             "kosul": {"fiyat_ustu": "Fiyat EMA(n) üstünde", "fiyat_alti": "Fiyat EMA(n) altında",
@@ -143,6 +145,10 @@ ORTA_GERI = 5   # dip_3_kirmizi: orta banda değen mumdan son (kırmızı, alt b
 ORTA_EN_AZ = 2  # ... en az mum
 ORTA_ONCELIK = 3   # tam 3 mumda inenler sonuç listesinde (ve otomatik alımda) önce gelir
 ONCELIK_ETIKET = "★ ÖNCELİKLİ (3 mum)"
+# 20.10.2026 ALTIN FORMASYON (kullanıcı tanımı, HOCA ÇALIŞMA\ALTIN FORMASYON.md; örnek ETHFI_TRY 15 dk 20.10 12:45-14:00)
+ALTIN_PAY = 0.001       # alt banda temas: en düşük, alt bandın en çok %0,1 üstünde
+ALTIN_KESISIM = 6       # alt bant temasından RSI kesişimine en çok mum
+ALTIN_RETEST = 3        # kesişimden retest mumuna en çok mum
 RETEST_GERI = 6     # retest_2_yesil: RSI12 retestinden ilk yeşil muma en çok mum
 KESISIM_GERI = 8    # retest_2_yesil: RSI6 kesişiminden retest mumuna en çok mum
 KURAL1_GERI = 12    # kural1_sonra_kural2: 1. kuralın 3. kırmızı mumundan 2. kuralın ilk yeşil mumuna en çok mum
@@ -201,7 +207,7 @@ def gerekli_mum(kosullar: list[dict], aralik: str | None = None) -> int:
             m = max(m, 3 * max(c["n"], c["yavas"]) + c["son"] + 2)
         elif c["ind"] == "macd":
             m = max(m, 26 * 3 + 9 + c["son"] + 2)
-        elif c["ind"] == "rsi" and c["kosul"] in ("retest_2_yesil", "kural1_sonra_kural2", "kesisim_6_12_24"):
+        elif c["ind"] == "rsi" and c["kosul"] in ("retest_2_yesil", "kural1_sonra_kural2", "kesisim_6_12_24", "altin_formasyon"):
             m = max(m, 10 * 24 + RETEST_GERI + KESISIM_GERI + 4)
         elif c["ind"] == "rsi":
             m = max(m, 10 * c["n"] + 2)
@@ -419,6 +425,47 @@ def degerlendir(c: dict, kapanis: list[float], hacim: list[float], yuksek: list[
             if ok1:
                 return True, f"1. kural {len(kapanis) - 1 - j} mum önce ({acik1}) · 2. kural şimdi ({acik2})"
         return False, f"2. kural var ama son {KURAL1_GERI} mumda 1. kural yok"
+    if i == "rsi" and k == "altin_formasyon":
+        # 20.10.2026 2. model = ALTIN FORMASYON. Seçilen mum 2. yeşil. Sırayla (mum sayıları aşağıdaki sınırlar):
+        # M: orta banda temas (en yüksek >= orta) → orta banda bir daha değmeden (mum sayısı önemsiz) →
+        # A: alt banda temas (en düşük <= alt × 1,001), bu mumda RSI6 hem RSI12 hem RSI24'ün altında →
+        # C: A'dan sonra en çok 6 mum içinde RSI6 ilk kez hem RSI12 hem RSI24'ün üstüne çıkar →
+        # R: C'den sonra en çok 3 mum içinde kırmızı retest mumu, orta bandın altında kapanır (A..R kapanışlar orta altında) →
+        # R'nin hemen ardından orta bandın üstünde kapanan 2 yeşil mum. C'den 2. yeşile kadar RSI6 RSI12'nin altında
+        # kapanırsa formasyon bozulur (retestte RSI6 RSI12'ye yalnızca temas eder).
+        if acilis is None or yuksek is None or dusuk is None:
+            return None, "açılış / yüksek / düşük verisi yok"
+        L = len(kapanis)
+        if L < 60:
+            return None, "yetersiz mum"
+        o, h, lo, c_ = acilis, yuksek, dusuk, kapanis
+        r6, r12, r24 = _rsi(c_, 6), _rsi(c_, 12), _rsi(c_, 24)
+        orta = lambda j: _bb(c_, j, 21, 2)[0]
+        alt = lambda j: _bb(c_, j, 21, 2)[2]
+        e, g1, R = L - 1, L - 2, L - 3
+        if not (c_[e] > o[e] and c_[g1] > o[g1] and c_[e] > orta(e) and c_[g1] > orta(g1)):
+            return False, "son 2 mum orta bant üstünde yeşil değil"
+        if not (c_[R] < o[R] and c_[R] < orta(R)):
+            return False, "2 yeşilden önceki mum retest değil (orta bandın altında kırmızı)"
+        ust = lambda j: None not in (r6[j], r12[j], r24[j]) and r6[j] > r12[j] and r6[j] > r24[j]
+        alti = lambda j: None not in (r6[j], r12[j], r24[j]) and r6[j] < r12[j] and r6[j] < r24[j]
+        C = next((j for j in range(R - 1, max(R - 1 - ALTIN_RETEST, 30), -1) if ust(j) and not ust(j - 1)), None)
+        if C is None:
+            return False, "retestten önce RSI6'nın RSI12 ve RSI24'ü yukarı kesişi yok"
+        A = next((j for j in range(C - 1, max(C - 1 - ALTIN_KESISIM, 25), -1) if lo[j] <= alt(j) * (1 + ALTIN_PAY)), None)
+        if A is None or not alti(A):
+            return False, "kesişimden önce alt bant teması yok"
+        if any(c_[j] >= orta(j) for j in range(A, R + 1)):
+            return False, "alt bant temasından sonra orta bandın üstünde kapanış var"
+        if any(r6[j] < r12[j] for j in range(C, e + 1)):
+            return False, "retestte RSI6 RSI12'nin altında kapandı (formasyon bozuldu)"
+        M = next((j for j in range(A - 1, 21, -1) if h[j] >= orta(j)), None)
+        if M is None:
+            return False, "alt bant temasından önce orta bant teması yok"
+        return True, (f"ALTIN FORMASYON · orta bant {L - 1 - M} mum önce → alt bant {L - 1 - A} mum önce ({A - M} mumda indi) · "
+                      f"RSI kesişim {L - 1 - C} mum önce · retest {L - 1 - R} mum önce (RSI6 {r6[R]:.1f} / RSI12 {r12[R]:.1f}) · "
+                      f"şimdi RSI6 {r6[e]:.1f} RSI12 {r12[e]:.1f} RSI24 {r24[e]:.1f} · 2 yeşil: "
+                      + " / ".join(f"{(c_[j] / o[j] - 1) * 100:+.2f}%, ortaya göre {(c_[j] / orta(j) - 1) * 100:+.1f}%" for j in (g1, e)))
     if i == "rsi" and k == "retest_2_yesil":
         # 20.10.2026 manuel tarama 2. satır: seçilen mum 2. yeşil. Sırayla: RSI6, RSI12 ve RSI24'ü yukarı keser (C) ->
         # RSI6 geri dönüp RSI12'ye değer ya da altına iner (retest, T) -> RSI6 yeniden RSI12 üstünde -> orta bandın (21,2)
