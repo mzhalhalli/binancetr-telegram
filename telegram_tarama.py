@@ -6,8 +6,8 @@ Kurallar (al_sat.MODELLER ve AlSatAyar varsayılanlarıyla aynı):
   1. Alt banttan orta banda değdi, ardından kırmızı mumla alt banda temas (15 dk, açık mum)
   2. ALTIN FORMASYON: orta banttan alt banda → RSI6 RSI12 ve RSI24'ü yukarı keser → retest (RSI6 RSI12'nin altında
      kapanmaz) → orta bant üstünde 2 yeşil (15 dk, 1 saat; 2. yeşil mum KAPANMIŞ olmalı)
-  3. Boğa bayrağı ve retest, ardından 2 yeşil mum; retestte RSI6 RSI12'nin altında kapanırsa bozulur (15 dk, 1 saat, 4 saat)
-  (20.10.2026: benim şartlarım ve erken uyarı kaldırıldı; yalnızca 3 model.)
+  (20.10.2026 kullanıcı isteği: Telegram'a yalnızca 1. ve 2. model, yalnızca 15 dk ve 1 saat. Botun 3. modeli —
+  boğa bayrağı retest — Telegram'a gönderilmez.)
   Coinler: stabil/altın hariç, 5 USD üstü ve 0,0001 USD altı hariç, arzı en çok arzın yarısından az olanlar hariç, kalanlardan
   24 saatlik TL hacmi en yüksek 100. 1. ve 3. model açık (kapanmamış) mumla, 2. model son kapanan mumla taranır; aynı
   mumdaki sinyal bir kez gönderilir.
@@ -42,8 +42,8 @@ MODELLER = {
               "kosullar": [{"ind": "bb", "kosul": "dip_3_kirmizi", "n": 21, "k": 2, "son": 3}]},
     "m2_formasyon": {"ad": "2. ALTIN FORMASYON (alt bant → RSI6 kesişim → retest → orta üstünde 2 yeşil)", "araliklar": ["15m", "1h"],
                      "mum": "kapali", "kosullar": [{"ind": "rsi", "kosul": "altin_formasyon", "n": 14, "deger": 30}]},
-    "m4_yaklasan": {"ad": "3. Boğa bayrağı ve retest + 2 yeşil", "araliklar": ["15m", "1h", "4h"],
-                    "kosullar": [{"ind": "formasyon", "kosul": "boga_retest_y2"}]},
+    # 20.10.2026 (kullanıcı isteği): Telegram'a yalnızca 1. ve 2. model, yalnızca 15 dk ve 1 saat gider;
+    # 3. model (boğa bayrağı retest) Telegram'a gönderilmez (botta çalışmaya devam eder).
 }
 UYGUNLUK = [(0, 40), (50, 69)]
 TEKRAR_SN = 24 * 3600
