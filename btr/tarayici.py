@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import asyncio
 import contextlib
+import copy
 import time
 
 from . import indikator as ind
@@ -265,6 +266,25 @@ def _bb(kapanis: list[float], j: int, n: int, kat: float):
     if k not in _HESAP:
         _HESAP[k] = ind.bollinger(kapanis[:j + 1], n, kat)
     return _HESAP[k]
+
+
+# 20.10.2026 (tarama hızı): formasyon taraması (fo.bul) turun en pahalı hesabıydı ve her coinde her modelde yeniden
+# yapılıyordu. Artık yalnızca gerektiğinde (formasyon şartı, formasyon içeren benim şartlarım ya da eşleşen coinin
+# sonucu) ve aynı mum serisi için bir kez hesaplanır; aynı zaman dilimindeki öteki modeller kopyasını kullanır.
+# Anahtar: sembol + zaman dilimi + seri uzunluğu + ilk mumun açılışı + son mumun açılış/yüksek/düşük/kapanışı.
+_FORMASYON: dict = {}
+_FORMASYON_EN_COK = 3000
+
+
+def _formasyon(sym: str, aralik: str, rows: list, acl, yuk, dus, kap):
+    if aralik not in fo.SECILI:
+        return None
+    k = (sym, aralik, len(rows), rows[0][0], rows[-1][0], rows[-1][2], rows[-1][3], rows[-1][4])
+    if k not in _FORMASYON:
+        if len(_FORMASYON) >= _FORMASYON_EN_COK:
+            _FORMASYON.clear()
+        _FORMASYON[k] = fo.bul(acl, yuk, dus, kap, aralik)
+    return copy.deepcopy(_FORMASYON[k])       # sonuçta formasyonlara alan eklenir; saklanan kopya değişmesin
 
 
 def degerlendir(c: dict, kapanis: list[float], hacim: list[float], yuksek: list[float] | None = None,
@@ -545,7 +565,7 @@ class Tarayici:
         b = self.bellek.get(key)
         if b and b["rows"] and min(b.get("bas", 0), int(float(b["rows"][0][0]))) <= start:
             rows = b["rows"]
-            taze = ((self.akis is not None and self.akis.taze(key)) or now - b["ts"] < self.anlik_onbellek_sn
+            taze = ((self.akis is not None and self.akis.taze(key, b)) or now - b["ts"] < self.anlik_onbellek_sn
                     or (kapali and now * 1000 < float(rows[-1][6])))
             if not taze:
                 yeni = await self.client.mumlar(s, aralik, start_ms=int(float(rows[-1][0])), limit=1000)
@@ -616,6 +636,7 @@ class Tarayici:
         eski = 0
         gate = asyncio.Semaphore(self.paralel)
         now_ms = self.clock() * 1000
+        benim_fm = any(str(x.get("tur", "")).startswith("formasyon") for x in self._benim or [])
 
         rl: list[str] = []
         ma_ustu: list[bool] = []                       # piyasa genişliği: kapanışı kendi MA50'sinin üstündeki coinler
@@ -659,7 +680,12 @@ class Tarayici:
                 ma_ustu.append(m50)
                 if s["symbol"] == "BTC_TRY":
                     btc.append(m50)
-            fm = fo.bul(acl, yuk, dus, kap, aralik) if aralik in fo.SECILI else None
+            fm_: list = []
+
+            def fm_al():                      # formasyonlar yalnızca gerekince (bkz. _formasyon)
+                if not fm_:
+                    fm_.append(_formasyon(s["symbol"], aralik, rows, acl, yuk, dus, kap))
+                return fm_[0]
             aciklama, onaylar, yak10 = [], None, None
             for c in kosullar:
                 if c["ind"] == "formasyon_onay" or (c["ind"] == "formasyon" and c["kosul"] == "boga_retest_y2"):
@@ -675,7 +701,7 @@ class Tarayici:
                         f"(+{f['hedef_pct']:.1f}%), zarar-kes {f['stop']:.6g} (-{f['stop_pct']:.1f}%)" for f in onaylar))
                     continue
                 if c["ind"] == "benim":
-                    ok, acik = bs.degerlendir(self._benim or [], acl, yuk, dus, kap, hq, aralik, fm)
+                    ok, acik = bs.degerlendir(self._benim or [], acl, yuk, dus, kap, hq, aralik, fm_al() if benim_fm else None)
                     if ok is None:
                         yetersiz += 1
                         return
@@ -684,6 +710,7 @@ class Tarayici:
                     aciklama.append(acik)
                     continue
                 if c["ind"] == "formasyon":
+                    fm = fm_al()
                     if fm is None:
                         yetersiz += 1
                         return
@@ -713,6 +740,7 @@ class Tarayici:
                     return
                 aciklama.append(ana_not)
             t = tick.get(s["symbol"], {})
+            fm = fm_al()
             erk = er.hesapla_yeni(kap, yuk, dus, acl)     # ERKEN UYARI etiketi (17.10.2026: yeni 4 şart)
             yu = None
             if self.yon_uyari:

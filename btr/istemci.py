@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import asyncio
 import json
+import threading
 import time
 from typing import Callable
 from urllib.parse import urlencode
@@ -44,9 +45,18 @@ class YasakliIstek(Exception):
     pass
 
 
+# 20.10.2026 (tarama hızı): her istekte yeni bağlantı (TCP + TLS el sıkışma) açmak yerine iş parçacığı başına bir oturum
+# (keep-alive). İstekler asyncio.to_thread ile farklı iş parçacıklarında çalıştığı için oturum iş parçacığına özeldir.
+_OTURUM = threading.local()
+
+
 def _default_transport(url: str, timeout: float):
     import requests
-    r = requests.get(url, timeout=timeout, headers={"Accept": "application/json", "User-Agent": "btr-arastirma/1.0"})
+    s = getattr(_OTURUM, "s", None)
+    if s is None:
+        s = _OTURUM.s = requests.Session()
+        s.headers.update({"Accept": "application/json", "User-Agent": "btr-arastirma/1.0"})
+    r = s.get(url, timeout=timeout)
     return r.status_code, dict(r.headers), r.text
 
 
