@@ -5,15 +5,16 @@ Bu klasör, GitHub'da bilgisayar kapalıyken de çalışan Telegram taramasıdı
 15 dakikalık erken uyarı, süpriz) yerini alır.
 
 ## Ne gönderir
-Her 15 dakikada bir, botun otomatik alımda kullandığı 4 modeli açık mumla tarar ve **botun alacağı** sinyalleri gönderir:
-1. Alt-orta-alt bant + kırmızı mumla alt banda temas (15 dk)
-2. RSI6 kesişim → RSI12 retest → orta bant üstünde 2 yeşil (1 saat, 4 saat)
-3. Boğa bayrağı ve retest + 2 yeşil (15 dk, 1 saat, 4 saat)
-4. Benim şartlarım (`btr/benim_sartlarim.json`) (15 dk, 1 saat, 4 saat)
+Her 15 dakikada bir, botun otomatik alımda kullandığı 3 modeli tarar ve **botun alacağı** sinyalleri gönderir
+(20.10.2026 güncel hali):
+1. Alt-orta-alt bant + kırmızı mumla alt banda temas (15 dk, açık mum)
+2. ALTIN FORMASYON: orta banttan alt banda → RSI6 RSI12 ve RSI24'ü yukarı keser → retest (RSI6 RSI12'nin altında
+   kapanmaz) → orta bant üstünde 2 yeşil (15 dk, 1 saat; 2. yeşil mum kapanmış olmalı)
+3. Boğa bayrağı ve retest + 2 yeşil; retestte RSI6 RSI12'nin altında kapanırsa bozulur (15 dk, 1 saat, 4 saat)
 
 Süzgeçler botla aynı: stabil/altın yok, 5 USD üstü ve 0,0001 USD altı yok, arzı en çok arzın yarısından az olan yok,
-24 saatlik TL hacmi en yüksek 100 coin; uygunluk %0-40 ya da %50-69; aynı coin 24 saatte bir; altcoinlerin 7 günlük ortanca
-değişimi artıda değilse sinyal gönderilmez (piyasa yönü değişince bir kez bilgi mesajı gelir). Yeni sinyal yoksa mesaj gelmez.
+24 saatlik TL hacmi en yüksek 100 coin; uygunluk %0-40 ya da %50-69; aynı coin 24 saatte bir. Altcoin piyasa yönü
+filtresi kaldırıldı. Yeni sinyal yoksa mesaj gelmez.
 
 Haber uyarıları, büyük/orta alım alarmları, sahte cüzdan alış-satışları ve 12:00 özeti **bilgisayardaki bottan** gelir.
 

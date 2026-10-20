@@ -3,14 +3,15 @@
 
 Tarama kodu bilgisayardaki botun btr/ klasöründen kopyadır (tarayici, formasyon, benim_sartlar, uygunluk ...).
 Kurallar (al_sat.MODELLER ve AlSatAyar varsayılanlarıyla aynı):
-  1. Alt banttan orta banda değdi, ardından kırmızı mumla alt banda temas (15 dk)
-  2. RSI6, RSI12 ve RSI24'ü yukarı kesti → RSI12'ye retest → orta bant üstünde 2 yeşil mum (1 saat, 4 saat)
-  3. Boğa bayrağı ve retest, ardından 2 yeşil mum (15 dk, 1 saat, 4 saat)
-  4. Benim şartlarım (btr/benim_sartlarim.json) (15 dk, 1 saat, 4 saat)
+  1. Alt banttan orta banda değdi, ardından kırmızı mumla alt banda temas (15 dk, açık mum)
+  2. ALTIN FORMASYON: orta banttan alt banda → RSI6 RSI12 ve RSI24'ü yukarı keser → retest (RSI6 RSI12'nin altında
+     kapanmaz) → orta bant üstünde 2 yeşil (15 dk, 1 saat; 2. yeşil mum KAPANMIŞ olmalı)
+  3. Boğa bayrağı ve retest, ardından 2 yeşil mum; retestte RSI6 RSI12'nin altında kapanırsa bozulur (15 dk, 1 saat, 4 saat)
+  (20.10.2026: benim şartlarım ve erken uyarı kaldırıldı; yalnızca 3 model.)
   Coinler: stabil/altın hariç, 5 USD üstü ve 0,0001 USD altı hariç, arzı en çok arzın yarısından az olanlar hariç, kalanlardan
-  24 saatlik TL hacmi en yüksek 100. Açık (kapanmamış) mumla taranır; aynı açık mumdaki sinyal bir kez gönderilir.
-  Alım süzgeçleri: uygunluk %0-40 ya da %50-69; aynı coin 24 saatte bir; altcoin 7 günlük ortanca değişim artıda değilse
-  sinyal gönderilmez (piyasa yönü değişince bir kez bilgi mesajı gider).
+  24 saatlik TL hacmi en yüksek 100. 1. ve 3. model açık (kapanmamış) mumla, 2. model son kapanan mumla taranır; aynı
+  mumdaki sinyal bir kez gönderilir.
+  Alım süzgeçleri: uygunluk %0-40 ya da %50-69; aynı coin 24 saatte bir. (20.10.2026: altcoin piyasa yönü filtresi kaldırıldı.)
 Gerekenler (GitHub > Settings > Secrets and variables > Actions): TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID.
 Durum dosyaları depoya kaydedilir: durum.json (gönderilen sinyaller, piyasa yönü), data/arz.json (günde bir yenilenir).
 Yalnızca herkese açık piyasa verisini okur; borsa API anahtarı, hesap, emir yoktur. Yatırım tavsiyesi değildir.
@@ -31,20 +32,18 @@ from pathlib import Path
 from btr import istemci as ist
 from btr.arz import Arz
 from btr.istemci import Istemci
-from btr.piyasa_rejim import AltRejim
-from btr.tarayici import Tarayici
+from btr.tarayici import ARALIK_MS, Tarayici
 
 KOK = Path(__file__).resolve().parent
 TR = timezone(timedelta(hours=3))
+# 20.10.2026: botun otomatik alımdaki 3 modeli (al_sat.MODELLER ile aynı); "mum": "kapali" = son kapanan mumla
 MODELLER = {
     "m1_bb": {"ad": "1. Alt-orta-alt bant + kırmızı mumla alt banda temas", "araliklar": ["15m"],
               "kosullar": [{"ind": "bb", "kosul": "dip_3_kirmizi", "n": 21, "k": 2, "son": 3}]},
-    "m2_formasyon": {"ad": "2. RSI6 kesişim → RSI12 retest → orta bant üstünde 2 yeşil", "araliklar": ["1h", "4h"],
-                     "kosullar": [{"ind": "rsi", "kosul": "retest_2_yesil", "n": 14, "deger": 30}]},
-    # 3. model (kural 1 ardından kural 2) 20.10.2026'da otomatik alımdan kaldırıldı: gönderilmez
+    "m2_formasyon": {"ad": "2. ALTIN FORMASYON (alt bant → RSI6 kesişim → retest → orta üstünde 2 yeşil)", "araliklar": ["15m", "1h"],
+                     "mum": "kapali", "kosullar": [{"ind": "rsi", "kosul": "altin_formasyon", "n": 14, "deger": 30}]},
     "m4_yaklasan": {"ad": "3. Boğa bayrağı ve retest + 2 yeşil", "araliklar": ["15m", "1h", "4h"],
                     "kosullar": [{"ind": "formasyon", "kosul": "boga_retest_y2"}]},
-    "m5_benim": {"ad": "4. Benim şartlarım", "araliklar": ["15m", "1h", "4h"], "kosullar": [{"ind": "benim", "kosul": "tam"}]},
 }
 UYGUNLUK = [(0, 40), (50, 69)]
 TEKRAR_SN = 24 * 3600
@@ -118,27 +117,23 @@ async def tara() -> tuple[list[str], dict]:
         await arz.yenile()
     tr = Tarayici(i, lambda: sem, lambda: tick, arz=arz)
     tr.anlik_onbellek_sn = 600          # aynı zaman dilimindeki taramalar mumları bir kez indirsin
-    rejim = AltRejim(tr)
-    await rejim.yenile()
     mesajlar = []
-    acik = rejim.acik_mi()
-    if d.get("rejim_acik") is not None and acik != d.get("rejim_acik"):
-        mesajlar.append(f"{'🟢' if acik else '🔴'} Altcoin piyasa yönü (taranan 100 coinin 7 günlük ortanca değişimi): "
-                        f"{'hesaplanamadı' if rejim.deger is None else f'%{rejim.deger:+.2f}'} → "
-                        + ("otomatik alım sinyalleri yeniden açık." if acik else "piyasa düşüşte, alım sinyali gönderilmiyor."))
-    d["rejim_acik"], d["rejim_deger"] = acik, rejim.deger
-    if not acik:
-        return mesajlar, d
+    for k in ("rejim_acik", "rejim_deger"):  # 20.10.2026: altcoin piyasa yönü filtresi kaldırıldı
+        d.pop(k, None)
     yeni = []
     for kod, m in MODELLER.items():
+        kapali = m.get("mum") == "kapali"
         for a in m["araliklar"]:
             try:
-                r = await tr.tara(a, m["kosullar"], "acik", ["TRY"], 0, ana_ag_sart=False)
+                r = await tr.tara(a, m["kosullar"], "kapali1" if kapali else "acik", ["TRY"], 0, ana_ag_sart=False)
             except Exception as e:
                 print(f"{kod} {a}: {e}", file=sys.stderr)
                 continue
             for x in r["sonuc"]:
-                if x["mum_bitis"] < simdi * 1000:                  # yalnızca şu an açık mum
+                if kapali:                                         # yalnızca en son kapanan mum
+                    if not simdi * 1000 - ARALIK_MS[a] <= x["mum_bitis"] < simdi * 1000:
+                        continue
+                elif x["mum_bitis"] < simdi * 1000:                # yalnızca şu an açık mum
                     continue
                 pct = (x.get("uygunluk") or {}).get("pct")
                 if pct is None or not any(lo <= pct <= hi for lo, hi in UYGUNLUK):
@@ -152,8 +147,7 @@ async def tara() -> tuple[list[str], dict]:
     d["gonderilen"] = {k: v for k, v in d["gonderilen"].items() if simdi - v < 3 * 86400}
     d["son_coin"] = {k: v for k, v in d["son_coin"].items() if simdi - v < 2 * 86400}
     if yeni:
-        s = [f"📊 Binance TR · botun alım sinyalleri · {datetime.fromtimestamp(simdi, TR):%d.%m %H:%M} (TR)",
-             f"Altcoin 7 gün ortancası %{rejim.deger:+.2f} · {rejim.coin} coin"]
+        s = [f"📊 Binance TR · botun alım sinyalleri · {datetime.fromtimestamp(simdi, TR):%d.%m %H:%M} (TR)"]
         for ad, a, x, pct in yeni:
             onc = " ★" if any("ÖNCELİKLİ" in str(z) for z in x.get("aciklama", [])) else ""
             s.append(f"• {x['s']} · {ARALIK_AD[a]} · {x['fiyat']:.8g} · uygunluk %{pct}{onc}\n   {ad}")
