@@ -1,14 +1,28 @@
 {
- "ts": 1792440101,
- "son_mum": 1792425600000,
+ "ts": 1792454511,
+ "son_mum": 1792440000000,
  "taranan": 310,
  "hata": 0,
  "bb": [
-  "S_TRY"
+  "BEAMX_TRY",
+  "ALT_TRY",
+  "1000CAT_TRY",
+  "S_TRY",
+  "DASH_TRY"
  ],
- "formasyon": {},
+ "formasyon": {
+  "PEPE_TRY": [
+   "dikdortgen"
+  ],
+  "1000CAT_TRY": [
+   "ikili_dip"
+  ],
+  "DASH_TRY": [
+   "dikdortgen"
+  ]
+ },
  "piyasa": {
-  "genislik_pct": 8.7,
+  "genislik_pct": 12.6,
   "coin": 310,
   "btc_ust": false
  }
