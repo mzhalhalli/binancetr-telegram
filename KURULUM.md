@@ -7,10 +7,10 @@ Bu klasör, GitHub'da bilgisayar kapalıyken de çalışan Telegram taramasıdı
 ## Ne gönderir
 Her 15 dakikada bir tarar ve **botun alacağı** sinyalleri gönderir. 20.10.2026 kullanıcı isteği: Telegram'a yalnızca
 1. ve 2. model, yalnızca 15 dakika ve 1 saat:
-1. Alt-orta-alt bant + kırmızı mumla alt banda temas (15 dk, açık mum)
+1. DİP ARAYAN ARTIK DİBİ BULMAYACAK!: alt bant → orta bant → kırmızı mumla alt banda temas (15 dk, açık mum)
 2. ALTIN FORMASYON: orta banttan alt banda → RSI6 RSI12 ve RSI24'ü yukarı keser → retest (RSI6 RSI12'nin altında
    kapanmaz) → orta bant üstünde 2 yeşil (15 dk, 1 saat; 2. yeşil mum kapanmış olmalı)
-(Botun 3. modeli — boğa bayrağı retest — Telegram'a gönderilmez.)
+(Botun 3. modeli — KIRILAN FORMASYONU BUL — Telegram'a gönderilmez.)
 
 Süzgeçler botla aynı: stabil/altın yok, 5 USD üstü ve 0,0001 USD altı yok, arzı en çok arzın yarısından az olan yok,
 24 saatlik TL hacmi en yüksek 100 coin; uygunluk %0-40 ya da %50-69; aynı coin 24 saatte bir. Altcoin piyasa yönü
