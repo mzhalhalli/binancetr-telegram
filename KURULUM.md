@@ -9,7 +9,8 @@ Her 15 dakikada bir tarar ve **botun alacağı** sinyalleri gönderir. 20.10.202
 1. ve 2. model, yalnızca 15 dakika ve 1 saat:
 1. DİP ARAYAN ARTIK DİBİ BULMAYACAK!: alt bant → orta bant → kırmızı mumla alt banda temas (15 dk, açık mum)
 2. ALTIN FORMASYON: orta banttan alt banda → RSI6 RSI12 ve RSI24'ü yukarı keser → retest (RSI6 RSI12'nin altında
-   kapanmaz) → orta bant üstünde 2 yeşil (15 dk, 1 saat; 2. yeşil mum kapanmış olmalı)
+   kapanmaz) → orta bant üstünde 2 yeşil (15 dk, 1 saat; 2. yeşil mum kapanmış olmalı; BTC son 4 saatte düşüşteyse
+   gönderilmez)
 (Botun 3. modeli — KIRILAN FORMASYONU BUL — Telegram'a gönderilmez.)
 
 Süzgeçler botla aynı: stabil/altın yok, 5 USD üstü ve 0,0001 USD altı yok, arzı en çok arzın yarısından az olan yok,

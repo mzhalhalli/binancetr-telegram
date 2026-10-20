@@ -5,7 +5,8 @@ Tarama kodu bilgisayardaki botun btr/ klasöründen kopyadır (tarayici, formasy
 Kurallar (al_sat.MODELLER ve AlSatAyar varsayılanlarıyla aynı):
   1. DİP ARAYAN ARTIK DİBİ BULMAYACAK!: alt bant → orta bant → kırmızı mumla alt banda temas (15 dk, açık mum)
   2. ALTIN FORMASYON: orta banttan alt banda → RSI6 RSI12 ve RSI24'ü yukarı keser → retest (RSI6 RSI12'nin altında
-     kapanmaz) → orta bant üstünde 2 yeşil (15 dk, 1 saat; 2. yeşil mum KAPANMIŞ olmalı)
+     kapanmaz) → orta bant üstünde 2 yeşil (15 dk, 1 saat; 2. yeşil mum KAPANMIŞ olmalı; BTC son 4 saatte
+     düşüşteyse gönderilmez)
   (20.10.2026 kullanıcı isteği: Telegram'a yalnızca 1. ve 2. model, yalnızca 15 dk ve 1 saat. Botun 3. modeli —
   KIRILAN FORMASYONU BUL — Telegram'a gönderilmez.)
   Coinler: stabil/altın hariç, 5 USD üstü ve 0,0001 USD altı hariç, arzı en çok arzın yarısından az olanlar hariç, kalanlardan
@@ -41,7 +42,8 @@ MODELLER = {
     "m1_bb": {"ad": "1. DİP ARAYAN ARTIK DİBİ BULMAYACAK!", "araliklar": ["15m"],
               "kosullar": [{"ind": "bb", "kosul": "dip_3_kirmizi", "n": 21, "k": 2, "son": 3}]},
     "m2_formasyon": {"ad": "2. ALTIN FORMASYON", "araliklar": ["15m", "1h"],
-                     "mum": "kapali", "kosullar": [{"ind": "rsi", "kosul": "altin_formasyon", "n": 14, "deger": 30}]},
+                     "mum": "kapali", "btc_4s": True,        # BTC son 4 saatte düşüşteyse gönderilmez (bottaki gibi)
+                     "kosullar": [{"ind": "rsi", "kosul": "altin_formasyon", "n": 14, "deger": 30}]},
     # 20.10.2026 (kullanıcı isteği): Telegram'a yalnızca 1. ve 2. model, yalnızca 15 dk ve 1 saat gider;
     # 3. model (KIRILAN FORMASYONU BUL) Telegram'a gönderilmez (botta çalışmaya devam eder).
 }
@@ -121,7 +123,16 @@ async def tara() -> tuple[list[str], dict]:
     for k in ("rejim_acik", "rejim_deger"):  # 20.10.2026: altcoin piyasa yönü filtresi kaldırıldı
         d.pop(k, None)
     yeni = []
+    # 20.10.2026: BTC son 4 saatlik değişim (bottaki al_sat._btc_4s ile aynı): düşüşteyse ya da okunamazsa 2. model gönderilmez
+    btc_4s = None
+    try:
+        r = await i.mumlar(sem.get("BTC_TRY") or {"symbol": "BTC_TRY", "bn": "BTCTRY", "type": 1}, "15m", limit=18)
+        btc_4s = (float(r[-1][4]) / float(r[-17][4]) - 1) * 100
+    except Exception as e:
+        print(f"BTC 4 saatlik değişim okunamadı: {e}", file=sys.stderr)
     for kod, m in MODELLER.items():
+        if m.get("btc_4s") and (btc_4s is None or btc_4s < 0):
+            continue
         kapali = m.get("mum") == "kapali"
         for a in m["araliklar"]:
             try:
