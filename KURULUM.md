@@ -1,49 +1,34 @@
-# Binance TR tarama → Telegram (bilgisayar kapalıyken de çalışır)
+# Binance TR Telegram taraması (GitHub) — botun son hali
 
-Bu klasör GitHub'ın sunucularında (GitHub Actions) çalışır. 15.10.2026'dan beri kanala yalnızca 3 tür mesaj gider:
-1. 4 saatlik: orta bandın üstünde ardışık 3 yeşil mum (BOLL 21,2). Formasyon kırılımı olan coinin yanında 🔷 ve formasyonun adı yazar.
-2. 4 saatlik: formasyon kırılımı. Geçmiş testte rastgeleden iyi çıkan yukarı kırılımlar: genişleyen formasyon, dikdörtgen,
-   yükselen üçgen, ikili dip. Hedef, zarar-kes, geçmiş test sonucu ve piyasa durumu (MA50 üstündeki coin oranı, BTC_TRY) yazar.
-   1 ve 2 aynı mesajdadır; TR saatiyle 03, 07, 11, 15, 19, 23'teki 4 saatlik kapanışlardan sonra gelir.
-3. 15 dakikalık erken uyarı (patlama öncesi sessiz hazırlık mumu, 8 şartın 8'i). Her 15 dakikalık kapanıştan sonra
-   bakılır; eşleşen coin yoksa mesaj gelmez. Patlamadan önce yakalar ama yanlış sinyali de çoktur: izlemeye alın.
+Bu klasör, GitHub'da bilgisayar kapalıyken de çalışan Telegram taramasıdır. 20.10.2026'da bilgisayardaki botun
+(binancetr_arastirma) **son kurallarına** getirildi; eski taramaların (4 saatlik 3 yeşil mum, 4 saatlik formasyon kırılımı,
+15 dakikalık erken uyarı, süpriz) yerini alır.
 
-Zamanlama: cron-job.org her 15 dakikada bir (her saatin 1, 16, 31 ve 46. dakikası) bu iş akışını başlatır.
-GitHub'ın kendi zamanlayıcısı yalnızca 4 saatlik mesaj için yedektir (30–40 dakika geç kalabilir; aynı mum iki kez gitmez).
-Depo herkese açık (Public) olmalıdır: gizli depoda GitHub ayda 2.000 dakika verir, 15 dakikada bir çalışmak ayda yaklaşık
-2.900 dakika eder. Herkese açık depoda dakika sınırı yoktur. Telegram anahtarı "Secrets" bölümünde olduğu için açık depoda da gizli kalır.
+## Ne gönderir
+Her 15 dakikada bir, botun otomatik alımda kullandığı 4 modeli açık mumla tarar ve **botun alacağı** sinyalleri gönderir:
+1. Alt-orta-alt bant + kırmızı mumla alt banda temas (15 dk)
+2. RSI6 kesişim → RSI12 retest → orta bant üstünde 2 yeşil (1 saat, 4 saat)
+3. Boğa bayrağı ve retest + 2 yeşil (15 dk, 1 saat, 4 saat)
+4. Benim şartlarım (`btr/benim_sartlarim.json`) (15 dk, 1 saat, 4 saat)
 
-Yalnızca herkese açık piyasa verisini okur. Borsa API anahtarı gerekmez, alım satım yapmaz.
-Telegram anahtarını kimseyle paylaşmayın, sohbete yazmayın; sadece GitHub'daki "Secrets" bölümüne girin.
+Süzgeçler botla aynı: stabil/altın yok, 5 USD üstü ve 0,0001 USD altı yok, arzı en çok arzın yarısından az olan yok,
+24 saatlik TL hacmi en yüksek 100 coin; uygunluk %0-40 ya da %50-69; aynı coin 24 saatte bir; altcoinlerin 7 günlük ortanca
+değişimi artıda değilse sinyal gönderilmez (piyasa yönü değişince bir kez bilgi mesajı gelir). Yeni sinyal yoksa mesaj gelmez.
 
-## 1. Telegram botu ve kanal
-1. Telegram'da @BotFather'a yazın, `/newbot` deyin, bota bir ad verin. Size bir anahtar (token) verir. Bunu saklayın.
-2. Kanalınızı açın: Yöneticiler → Yönetici ekle → botunuzu bulun, "Mesaj gönderme" izniyle ekleyin.
-3. Kanal numarası:
-   - Kanal herkese açıksa kanal adını kullanın, örnek `@kanaladim`.
-   - Kanal gizliyse: kanala bir mesaj yazın, sonra tarayıcıda `https://api.telegram.org/bot<ANAHTAR>/getUpdates` adresini açın
-     (<ANAHTAR> yerine kendi anahtarınız). Çıkan yazıda `"chat":{"id":-100...` ile başlayan sayı kanal numaranızdır.
+Haber uyarıları, büyük/orta alım alarmları, sahte cüzdan alış-satışları ve 12:00 özeti **bilgisayardaki bottan** gelir.
 
-## 2. GitHub
-1. github.com'da ücretsiz hesap açın. Sağ üstte + → New repository → ad: `binancetr-telegram`, **Public** seçin, Create.
-2. Dosyaları yükleyin: "uploading an existing file" bağlantısına tıklayın, bu klasörün İÇİNDEKİ her şeyi
-   (`.github` klasörü dahil) sürükleyip bırakın, Commit changes.
-3. Settings → Secrets and variables → Actions → New repository secret:
-   - Ad `TELEGRAM_BOT_TOKEN`, değer: BotFather'ın anahtarı
-   - Ad `TELEGRAM_CHAT_ID`, değer: `@kanaladim` ya da `-100...` numarası
+## GitHub'a yükleme
+1. GitHub'daki tarama deponuzu açın. Eski dosyaları silin: `telegram_tarama.py`, `btr/` klasörü, `tests/`, `KURULUM.md`,
+   `.github/workflows/tarama.yml` (ve varsa `son_sonuc.json`).
+2. Bu klasördeki her şeyi yükleyin (**Add file > Upload files**; `.github/workflows/tarama.yml` dahil). Klasör yapısı aynı kalmalı.
+3. **Settings > Secrets and variables > Actions** içinde `TELEGRAM_BOT_TOKEN` ve `TELEGRAM_CHAT_ID` zaten varsa bir şey yapmayın.
+4. **Actions** sekmesinde iş akışını açın, **Run workflow** ile bir kez elle çalıştırıp günlüğe bakın.
 
-## 3. Deneme
-Actions sekmesi → solda "4s tarama" → Run workflow. 1–2 dakikada kanala son 4 saatlik kapanışın mesajı gelmeli
-(elle çalıştırmada 15 dakikalık erken uyarıya bakılmaz).
-Gelmezse çalışmaya tıklayın; kırmızı satırdaki hata yazısı sorunu söyler (örnek: "chat not found" = kanal numarası ya da bot yöneticisi değil).
-Kanala "veri alınamadı" ve içinde "451" geçen bir mesaj gelirse: GitHub'ın sunucusu ABD'de olduğu için Binance bağlantıyı reddetmiştir. Program önce bölge kısıtlaması olmayan Binance veri adreslerini dener; yine de olursa bu mesajı bana gönderin.
-
-Not: Her çalışma sonucu `son_sonuc.json` dosyasına kaydeder. Bu, GitHub'ın 60 gün hareketsiz depolarda zamanlanmış görevleri durdurmasını önler.
-
-## 4. cron-job.org (15 dakikada bir başlatma)
-GitHub'ın kendi zamanlayıcısı geç kaldığı için iş akışını cron-job.org başlatır. İşin ayarı:
-- Adres (POST): `https://api.github.com/repos/<kullanıcı>/binancetr-telegram/actions/workflows/tarama.yml/dispatches`
-- Başlıklar: `Authorization: Bearer <yalnızca bu depoda Actions okuma-yazma izni olan anahtar>`, `Accept: application/vnd.github+json`
-- Gövde: `{"ref":"main","inputs":{"otomatik":"evet"}}`
-- Zamanlama: her 15 dakikada bir, dakika 1, 16, 31, 46. Başarılı çağrının cevabı 204'tür.
-Önce depoyu herkese açık yapın, sonra zamanlamayı 15 dakikaya alın (gizli depoda dakika ay ortasında biter).
+## Dikkat
+- **Süre:** 15 dakikada bir çalışır (her çalışma ~1-2 dk). Depo **herkese açık** (public) ise ücretsizdir. **Özel** (private)
+  depoda GitHub'ın aylık ücretsiz süresi yetmeyebilir; o zaman `.github/workflows/tarama.yml` içindeki
+  `cron: "2,17,32,47 * * * *"` satırını `cron: "7 * * * *"` yapın (saatte bir).
+- **Gizlilik:** depo herkese açıksa `btr/benim_sartlarim.json` (kendi şartlarınız) ve `durum.json` (gönderilen sinyaller)
+  herkes tarafından görülebilir. Bunu istemiyorsanız depoyu özel yapın.
+- Bilgisayardaki botta kural değişirse bu klasör kendiliğinden değişmez; yeniden güncellenmesi gerekir.
+- Yalnızca herkese açık borsa verisini okur; borsa API anahtarı, hesap ve emir yoktur. Yatırım tavsiyesi değildir.
