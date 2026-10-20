@@ -63,3 +63,36 @@ def hesapla(kap: list[float], hacim: list[float], acilis: list[float]) -> dict |
     puan = sum(1 for ok, _ in sartlar if ok)
     return {"puan": puan, "toplam": TOPLAM, "ok": puan == TOPLAM,
             "detay": " · ".join(("✓ " if ok else "✗ ") + t for ok, t in sartlar)}
+
+
+# ---------------------------------------------------------------------- yeni erken uyarı (17.10.2026, yalnızca manuel tarama)
+# Kayıtlı 87 coinin geçmişinde (15 dk 29.09–17.10, 1 saat 19.09–17.10) 4 mum içinde +%5 isabeti: 15 dk test yarısı %19,4
+# (taban %1,0), 1 saat %19,8 (taban %4,7). Al-sat benzetiminde işlem başı ortalama ZARARDA (15 dk −%1,0 ile −%1,8):
+# alım sinyali değil, yalnızca uyarı. Otomatik al-sat kaynağı (erken_15dk) eski 8 şartla (hesapla) kalır.
+YENI_ARALIK_MUM = 36
+YENI_ARALIK_PCT = 15.0
+
+
+def hesapla_yeni(kap: list[float], yuksek: list[float], dusuk: list[float], acilis: list[float]) -> dict | None:
+    """Son mum için 4 şart: son 36 mumun en yüksek/en düşük aralığı >= %15, EMA9 > EMA21, MACD histogramı artıda ve bir
+    önceki mumdan büyük, mum yeşil. Veri yetmezse None."""
+    n = len(kap)
+    if n < 60 or len(yuksek) < n or len(dusuk) < n or len(acilis) < n:
+        return None
+    y, d = yuksek[-n:], dusuk[-n:]
+    lo = min(d[-YENI_ARALIK_MUM:])
+    aralik = (max(y[-YENI_ARALIK_MUM:]) / lo - 1) * 100 if lo > 0 else 0.0
+    e9, e21 = ind.ema(kap, 9)[-1], ind.ema(kap, 21)[-1]
+    mm, s = ind.macd(kap)
+    if None in (e9, e21, s[-1], s[-2]):
+        return None
+    hist, hist_once = mm[-1] - s[-1], mm[-2] - s[-2]
+    c, o = kap[-1], acilis[-1]
+    sartlar = [
+        (aralik >= YENI_ARALIK_PCT, f"36 mum aralığı %{aralik:.1f}"),
+        (e9 > e21, "EMA9 > EMA21" if e9 > e21 else "EMA9 < EMA21"),
+        (hist > 0 and hist > hist_once, f"MACD hist {hist:.4g}" + (" artıyor" if hist > hist_once else " artmıyor")),
+        (c > o, f"mum {(c / o - 1) * 100:+.1f}%" if o else "mum -"),
+    ]
+    puan = sum(1 for ok, _ in sartlar if ok)
+    return {"puan": puan, "toplam": 4, "ok": puan == 4, "detay": " · ".join(("✓ " if ok else "✗ ") + t for ok, t in sartlar)}

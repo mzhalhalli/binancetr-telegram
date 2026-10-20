@@ -1,0 +1,33 @@
+{
+  "aciklama": "Manuel tarama 5. satırı (Benim şartlarım). Her zaman dilimi için şart listesi; listedeki şartların HEPSİ tutarsa coin listelenir. Liste boşsa o düğme 'Şartlar henüz girilmedi' yazar. Dosya her taramada yeniden okunur. Şart türleri: btr/benim_sartlar.py. 17.10.2026 kullanıcı şartları: RSI6 RSI12 ve RSI24'ü kesmiş/kesiyor, KDJ J K ve D'yi kesmiş/kesiyor, MACD histogramı yeşil, RSI12 >= 50, en düşük Bollinger alt bandının altında değil. 20.10.2026 daraltma (risk düşürme): kesişimler son 3 yerine son 2 mumda; RSI12 50-65 arası; kapanış > EMA50 ve EMA50 > EMA200 (trend filtresi); son mum hacmi önceki 20 mum ortalamasının en az 1,5 katı.",
+  "15m": [
+    {"tur": "rsi_kesisim", "hizli": 6, "yavaslar": [12, 24], "geri": 2},
+    {"tur": "kdj_kesisim", "n": 9, "geri": 2},
+    {"tur": "macd", "kosul": "artida"},
+    {"tur": "rsi", "n": 12, "min": 50, "max": 65},
+    {"tur": "dusuk_bb_alt_ustu"},
+    {"tur": "buyuktur", "sol": "kapanis", "sag": "ema50"},
+    {"tur": "buyuktur", "sol": "ema50", "sag": "ema200"},
+    {"tur": "hacim_kat", "min": 1.5}
+  ],
+  "1h": [
+    {"tur": "rsi_kesisim", "hizli": 6, "yavaslar": [12, 24], "geri": 2},
+    {"tur": "kdj_kesisim", "n": 9, "geri": 2},
+    {"tur": "macd", "kosul": "artida"},
+    {"tur": "rsi", "n": 12, "min": 50, "max": 65},
+    {"tur": "dusuk_bb_alt_ustu"},
+    {"tur": "buyuktur", "sol": "kapanis", "sag": "ema50"},
+    {"tur": "buyuktur", "sol": "ema50", "sag": "ema200"},
+    {"tur": "hacim_kat", "min": 1.5}
+  ],
+  "4h": [
+    {"tur": "rsi_kesisim", "hizli": 6, "yavaslar": [12, 24], "geri": 2},
+    {"tur": "kdj_kesisim", "n": 9, "geri": 2},
+    {"tur": "macd", "kosul": "artida"},
+    {"tur": "rsi", "n": 12, "min": 50, "max": 65},
+    {"tur": "dusuk_bb_alt_ustu"},
+    {"tur": "buyuktur", "sol": "kapanis", "sag": "ema50"},
+    {"tur": "buyuktur", "sol": "ema50", "sag": "ema200"},
+    {"tur": "hacim_kat", "min": 1.5}
+  ]
+}

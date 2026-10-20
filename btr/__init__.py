@@ -1,1 +1,1 @@
-"""Binance TR 4 saatlik tarama (yalnızca okur)."""
+"""Binance TR araştırma botu (yalnızca okur)."""
