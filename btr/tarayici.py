@@ -128,7 +128,9 @@ KOSULLAR = {
                   "kosul": {"kirilim": "Son mumda yukarı kırılım (1s/4s geçmişte rastgeleden iyi; 15dk üstünlük yok)",
                             "yaklasan": "Kırılım çizgisine yaklaşıyor (erken uyarı, 1 ATR'den yakın)",
                             "yaklasan9": "Kırılıma yaklaşıyor + dikdörtgen, ≤0,5 ATR, EMA50/EMA200, EMA9>21, MACD, RSI 50-70, yeşil",
-                            "boga_retest_y2": "Boğa bayrağı kırılımı → retest → 2 yeşil mum (manuel tarama 3. satır)"}},
+                            "boga_retest_y2": "Boğa bayrağı kırılımı → retest → 2 yeşil mum",
+                            "kirilim_retest_y2": "KIRILAN FORMASYONU BUL: formasyon kırılımı (boğa bayrağı, genişleyen, dikdörtgen, "
+                                                 "yükselen üçgen, ikili dip) → retest → 2 yeşil mum (manuel tarama 3. satır)"}},
 }
 
 
@@ -145,6 +147,10 @@ ORTA_GERI = 5   # dip_3_kirmizi: orta banda değen mumdan son (kırmızı, alt b
 ORTA_EN_AZ = 2  # ... en az mum
 ORTA_ONCELIK = 3   # tam 3 mumda inenler sonuç listesinde (ve otomatik alımda) önce gelir
 ONCELIK_ETIKET = "★ ÖNCELİKLİ (3 mum)"
+# formasyon kırılımı → retest → 2 yeşil koşulları ve aranan formasyonlar. 20.10.2026 (kullanıcı isteği): 3. model
+# "KIRILAN FORMASYONU BUL" bütün formasyon türlerinde; ALTIN FORMASYON retest kuralı (RSI6 RSI12'nin altında kapanırsa
+# bozulur) hepsinde geçerli (formasyon._giris_mumu). 90 günlük testte kural kârı korudu, işlemi yarıya, düşüşü azalttı.
+RETEST_Y2_ADLAR = {"boga_retest_y2": ["boga_bayragi"], "kirilim_retest_y2": list(fo.AD)}
 # 20.10.2026 ALTIN FORMASYON (kullanıcı tanımı, HOCA ÇALIŞMA\ALTIN FORMASYON.md; örnek ETHFI_TRY 15 dk 20.10 12:45-14:00)
 ALTIN_PAY = 0.001       # alt banda temas: en düşük, alt bandın en çok %0,1 üstünde
 ALTIN_KESISIM = 6       # alt bant temasından RSI kesişimine en çok mum
@@ -735,8 +741,8 @@ class Tarayici:
                 return fm_[0]
             aciklama, onaylar, yak10 = [], None, None
             for c in kosullar:
-                if c["ind"] == "formasyon_onay" or (c["ind"] == "formasyon" and c["kosul"] == "boga_retest_y2"):
-                    giris, adlar = (c["giris"], c["adlar"]) if c["ind"] == "formasyon_onay" else ("retest_y2", ["boga_bayragi"])
+                if c["ind"] == "formasyon_onay" or (c["ind"] == "formasyon" and c["kosul"] in RETEST_Y2_ADLAR):
+                    giris, adlar = (c["giris"], c["adlar"]) if c["ind"] == "formasyon_onay" else ("retest_y2", RETEST_Y2_ADLAR[c["kosul"]])
                     onaylar = fo.onay(acl, yuk, dus, kap, aralik, giris, adlar)
                     if onaylar is None:
                         yetersiz += 1
@@ -813,7 +819,7 @@ class Tarayici:
                     f["uygun"], f["uygun_not"] = fo.uygunluk(aralik, f["ad"], g, piyasa["btc_ust"])
                     f["gecmis"] = fo.gecmis_metni(aralik, f["ad"])
                 for i, c in enumerate(kosullar):
-                    if c["ind"] == "formasyon" and c["kosul"] != "boga_retest_y2":
+                    if c["ind"] == "formasyon" and c["kosul"] not in RETEST_Y2_ADLAR:
                         if c["kosul"] == "yaklasan9":
                             x["aciklama"][i] = f"{x['birlesim']} | " + formasyon_metni(x["formasyon"], "yaklasan", aralik)
                         else:
