@@ -155,6 +155,7 @@ RETEST_Y2_ADLAR = {"boga_retest_y2": ["boga_bayragi"], "kirilim_retest_y2": list
 ALTIN_PAY = 0.001       # alt banda temas: en düşük, alt bandın en çok %0,1 üstünde
 ALTIN_KESISIM = 6       # alt bant temasından RSI kesişimine en çok mum
 ALTIN_RETEST = 3        # kesişimden retest mumuna en çok mum
+ALTIN_ESNEME = 1.34     # 21.10.2026 (kullanıcı, THETA 4 saatlik 19.10 19:00): RSI6 kapanışta RSI12'nin en çok bu kadar puan altına esneyebilir
 RETEST_GERI = 6     # retest_2_yesil: RSI12 retestinden ilk yeşil muma en çok mum
 KESISIM_GERI = 8    # retest_2_yesil: RSI6 kesişiminden retest mumuna en çok mum
 KURAL1_GERI = 12    # kural1_sonra_kural2: 1. kuralın 3. kırmızı mumundan 2. kuralın ilk yeşil mumuna en çok mum
@@ -438,7 +439,8 @@ def degerlendir(c: dict, kapanis: list[float], hacim: list[float], yuksek: list[
         # C: A'dan sonra en çok 6 mum içinde RSI6 ilk kez hem RSI12 hem RSI24'ün üstüne çıkar →
         # R: C'den sonra en çok 3 mum içinde kırmızı retest mumu, orta bandın altında kapanır (A..R kapanışlar orta altında) →
         # R'nin hemen ardından orta bandın üstünde kapanan 2 yeşil mum. C'den 2. yeşile kadar RSI6 RSI12'nin altında
-        # kapanırsa formasyon bozulur (retestte RSI6 RSI12'ye yalnızca temas eder).
+        # kapanırsa formasyon bozulur (retestte RSI6 RSI12'ye yalnızca temas eder). 21.10.2026: ALTIN_ESNEME puana kadar
+        # RSI12'nin altında kapanış bozmaz.
         if acilis is None or yuksek is None or dusuk is None:
             return None, "açılış / yüksek / düşük verisi yok"
         L = len(kapanis)
@@ -463,8 +465,8 @@ def degerlendir(c: dict, kapanis: list[float], hacim: list[float], yuksek: list[
             return False, "kesişimden önce alt bant teması yok"
         if any(c_[j] >= orta(j) for j in range(A, R + 1)):
             return False, "alt bant temasından sonra orta bandın üstünde kapanış var"
-        if any(r6[j] < r12[j] for j in range(C, e + 1)):
-            return False, "retestte RSI6 RSI12'nin altında kapandı (formasyon bozuldu)"
+        if any(r6[j] < r12[j] - ALTIN_ESNEME for j in range(C, e + 1)):
+            return False, f"retestte RSI6 RSI12'nin {ALTIN_ESNEME} puandan fazla altında kapandı (formasyon bozuldu)"
         M = next((j for j in range(A - 1, 21, -1) if h[j] >= orta(j)), None)
         if M is None:
             return False, "alt bant temasından önce orta bant teması yok"
