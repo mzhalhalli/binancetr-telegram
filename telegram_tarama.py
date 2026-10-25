@@ -3,8 +3,8 @@
 
 Tarama kodu bilgisayardaki botun btr/ klasöründen kopyadır (tarayici, formasyon, benim_sartlar, uygunluk ...).
 Kurallar (al_sat.MODELLER ve AlSatAyar varsayılanlarıyla aynı):
-  1. DİP ARAYAN ARTIK DİBİ BULMAYACAK!: alt bant → orta bant → kırmızı mumla alt banda temas (15 dk, açık mum)
-  2. ALTIN FORMASYON: orta banttan alt banda → RSI6 RSI12 ve RSI24'ü yukarı keser → retest (RSI6 RSI12'nin altında
+  Dip Arayan (Riskli): alt bant → orta bant → kırmızı mumla alt banda temas (15 dk, açık mum)
+  Altın Formasyon: orta banttan alt banda → RSI6 RSI12 ve RSI24'ü yukarı keser → retest (RSI6 RSI12'nin altında
      kapanmaz) → orta bant üstünde 2 yeşil (15 dk, 1 saat; 2. yeşil mum KAPANMIŞ olmalı; BTC son 4 saatte
      düşüşteyse gönderilmez)
   (20.10.2026 kullanıcı isteği: Telegram'a yalnızca 1. ve 2. model, yalnızca 15 dk ve 1 saat. Botun 3. modeli —
