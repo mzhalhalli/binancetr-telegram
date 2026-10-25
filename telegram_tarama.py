@@ -41,7 +41,7 @@ TR = timezone(timedelta(hours=3))
 MODELLER = {
     "m1_bb": {"ad": "Dip Arayan (Riskli)", "araliklar": ["15m"],
               "kosullar": [{"ind": "bb", "kosul": "dip_3_kirmizi", "n": 21, "k": 2, "son": 3}]},
-    "m2_formasyon": {"ad": "Altın Formasyon", "araliklar": ["15m", "1h"],
+    "m2_formasyon": {"ad": "ALTIN FORMASYON", "araliklar": ["15m", "1h"],
                      "mum": "kapali", "btc_4s": True,        # BTC son 4 saatte düşüşteyse gönderilmez (bottaki gibi)
                      "kosullar": [{"ind": "rsi", "kosul": "altin_formasyon", "n": 14, "deger": 30}]},
     # 20.10.2026 (kullanıcı isteği): Telegram'a yalnızca 1. ve 2. model, yalnızca 15 dk ve 1 saat gider;
