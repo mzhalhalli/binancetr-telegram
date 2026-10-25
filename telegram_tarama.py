@@ -79,7 +79,7 @@ async def semboller(i: Istemci) -> dict:
         if sem:
             return sem
     except Exception as e:
-        print(f"Binance TR sembol listesi alınamadı ({e}); Binance TRY çiftleri kullanılıyor", file=sys.stderr)
+        print(f"Borsa TR sembol listesi alınamadı ({e}); Borsanın TRY çiftleri kullanılıyor", file=sys.stderr)
     req = urllib.request.Request("https://data-api.binance.vision/api/v3/exchangeInfo?permissions=SPOT",
                                  headers={"User-Agent": "binancetr-tarama/2.0"})
     with urllib.request.urlopen(req, timeout=30) as r:
@@ -158,7 +158,7 @@ async def tara() -> tuple[list[str], dict]:
     d["gonderilen"] = {k: v for k, v in d["gonderilen"].items() if simdi - v < 3 * 86400}
     d["son_coin"] = {k: v for k, v in d["son_coin"].items() if simdi - v < 2 * 86400}
     if yeni:
-        s = [f"📊 Binance TR · botun alım sinyalleri · {datetime.fromtimestamp(simdi, TR):%d.%m %H:%M} (TR)"]
+        s = [f"📊 Spot TR · botun alım sinyalleri · {datetime.fromtimestamp(simdi, TR):%d.%m %H:%M} (TR)"]
         for ad, a, x, pct in yeni:
             onc = " ★" if any("ÖNCELİKLİ" in str(z) for z in x.get("aciklama", [])) else ""
             s.append(f"• {x['s']} · {ARALIK_AD[a]} · {x['fiyat']:.8g} · uygunluk %{pct}{onc}\n   {ad}")
@@ -173,7 +173,7 @@ def main():
     try:
         mesajlar, d = asyncio.run(tara())
     except Exception as e:
-        mesajlar, d = [f"⚠️ Binance TR tarama yapılamadı: {str(e)[:200]}"], durum_oku()
+        mesajlar, d = [f"⚠️ Spot TR tarama yapılamadı: {str(e)[:200]}"], durum_oku()
     (KOK / "durum.json").write_text(json.dumps(d, ensure_ascii=False), "utf-8")
     for m in mesajlar:
         print(m)
